@@ -1,0 +1,47 @@
+[2026-09-23 20:37:44] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-23 20:37:44] [vision_cifar10_evie_maxf4608]   vision_cifar10_evie_maxf4608  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-23 20:37:44] [vision_cifar10_evie_maxf4608]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-23 20:37:44] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-23 20:37:45] [vision_cifar10_evie_maxf4608] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 20:37:45] [vision_cifar10_evie_maxf4608] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [lr-search] EvieKF: PINNED lr=9.999e-02  knob=27000  (no search on this arm)  -- the main run's frozen CIFAR-10 (lr, gamma); the ONLY difference from those cells is eviekf_maxf 1024 -> 4608
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF']
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [lr-search] EvieKF: cached lr=9.999e-02  knob=27000
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [lr-search] frozen: EvieKF=9.999e-02/k=27000
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-23 21:12:42] [vision_cifar10_evie_maxf4608] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 23:20:04] [vision_cifar10_evie_maxf4608] [sweep] 1/5  EvieKF|full|42  primary=82.31  diverged=False
+[2026-09-24 01:29:33] [vision_cifar10_evie_maxf4608] [sweep] 2/5  EvieKF|full|43  primary=81.07  diverged=False
+[2026-09-24 03:37:27] [vision_cifar10_evie_maxf4608] [sweep] 3/5  EvieKF|full|44  primary=83.15  diverged=False
+[2026-09-24 05:45:54] [vision_cifar10_evie_maxf4608] [sweep] 4/5  EvieKF|full|45  primary=82.06  diverged=False
+[2026-09-24 06:22:51] [vision_cifar10_evie_maxf4608] [signal] EvieKF/full/seed46: checkpointed at step 2880; exiting cleanly
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608]   vision_cifar10_evie_maxf4608  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-24 10:05:32] [vision_cifar10_evie_maxf4608] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [lr-search] EvieKF: PINNED lr=9.999e-02  knob=27000  (no search on this arm)  -- the main run's frozen CIFAR-10 (lr, gamma); the ONLY difference from those cells is eviekf_maxf 1024 -> 4608
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF']
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [lr-search] EvieKF: cached lr=9.999e-02  knob=27000
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [lr-search] frozen: EvieKF=9.999e-02/k=27000
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-24 10:45:16] [vision_cifar10_evie_maxf4608] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-24 10:45:17] [vision_cifar10_evie_maxf4608] [resume] EvieKF/full/seed46 from step 2880/10000
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] [sweep] 5/5  EvieKF|full|46  primary=81.55  diverged=False
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   RESULTS  --  vision_cifar10_evie_maxf4608   primary = test_top1_acc (higher is better)
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   EvieKF      lr=1.00e-01  knob=27000  test_top1_acc(task median over 5 seeds)=82.06   seed spread=[81.07, 83.15]   diverged_cells=0/5
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]              descriptive: wall_s=7609  mean_step_size=0.01245  clip_freq=0.00078  peak_mem_mb=2304
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] ----------------------------------------------------------------------------------------------------
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   best optimizer on this task: EvieKF  (test_top1_acc=82.06)
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   wrote /kaggle/working/checkpoints/vision_cifar10_evie_maxf4608/results_raw.csv
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   wrote /kaggle/working/checkpoints/vision_cifar10_evie_maxf4608/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608] ====================================================================================================
+[2026-09-24 12:19:02] [vision_cifar10_evie_maxf4608]   DONE 2026-09-24T12:19:02.553206

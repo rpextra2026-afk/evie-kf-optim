@@ -1,0 +1,390 @@
+{
+  "cells": {
+    "AdaBelief|full|42": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.001,
+      "knob_used": null,
+      "primary": 83.29955067594139,
+      "best_val_primary": 82.1654627677399,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 11669.208620548248,
+      "sec_per_step": 1.944868103424708,
+      "mean_step_size": 0.00031504079399181435,
+      "clip_freq": 0.0026666666666666666,
+      "peak_mem_mb": 13273.125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 33691776,
+      "val_curve": [
+        [
+          400,
+          602.0936144368358
+        ],
+        [
+          800,
+          382.7740160636486
+        ],
+        [
+          1200,
+          263.38393145283476
+        ],
+        [
+          1600,
+          205.58972335926333
+        ],
+        [
+          2000,
+          172.4299766014444
+        ],
+        [
+          2400,
+          146.9502596478449
+        ],
+        [
+          2800,
+          127.3346064576981
+        ],
+        [
+          3200,
+          113.68299923895292
+        ],
+        [
+          3600,
+          103.88942447462159
+        ],
+        [
+          4000,
+          97.23840088016505
+        ],
+        [
+          4400,
+          92.26420295913402
+        ],
+        [
+          4800,
+          88.37447640026996
+        ],
+        [
+          5200,
+          85.54831978189142
+        ],
+        [
+          5600,
+          83.63825426353952
+        ],
+        [
+          6000,
+          82.1654627677399
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 5271.288863658905,
+      "train_loss_at_25pct": 5.424500121864242,
+      "train_loss_at_50pct": 4.790987395071184,
+      "train_loss_at_75pct": 4.53096773030251,
+      "final_train_loss": 4.4092676639556885,
+      "gen_gap_loss": 0.013175491156238728,
+      "auc_val_curve": 164.65915215597116,
+      "update_weight_ratio": 0.005633245139273166,
+      "update_cos_sim_sampled": 0.0033710276616260144,
+      "grad_norm_mean": 0.42846341645965974,
+      "grad_norm_p95": 0.4843078777194023,
+      "weight_norm_start": 141.40184077854687,
+      "weight_norm_end": 331.1340710202933,
+      "weight_norm_growth": 2.3417946272629577,
+      "throughput_samples_per_s": 16.453557926962436,
+      "flops_per_step_est": 3597945274368.0,
+      "total_flops_est": 2.1587671646208e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.3802368084933185,
+      "test_loss": 4.422443155111927,
+      "token_acc": 0.2886644745263697,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "recorded": true
+    },
+    "AdaBelief|full|43": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.001,
+      "knob_used": null,
+      "primary": 82.74353305910188,
+      "best_val_primary": 81.55478924380479,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 11659.492382526398,
+      "sec_per_step": 1.9432487304210664,
+      "mean_step_size": 0.0003157214997445621,
+      "clip_freq": 0.0021666666666666666,
+      "peak_mem_mb": 13273.125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 33691776,
+      "val_curve": [
+        [
+          400,
+          565.0927904837525
+        ],
+        [
+          800,
+          369.4210082410292
+        ],
+        [
+          1200,
+          262.1203641562621
+        ],
+        [
+          1600,
+          205.52492401119963
+        ],
+        [
+          2000,
+          173.08424969022155
+        ],
+        [
+          2400,
+          150.03548460791077
+        ],
+        [
+          2800,
+          129.853132571808
+        ],
+        [
+          3200,
+          114.55092275078441
+        ],
+        [
+          3600,
+          104.19417178312001
+        ],
+        [
+          4000,
+          96.71311783174393
+        ],
+        [
+          4400,
+          91.45491402072716
+        ],
+        [
+          4800,
+          87.66035578075982
+        ],
+        [
+          5200,
+          84.81097653550599
+        ],
+        [
+          5600,
+          82.90572617729273
+        ],
+        [
+          6000,
+          81.55478924380479
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 5261.613806247711,
+      "train_loss_at_25pct": 5.414627118261796,
+      "train_loss_at_50pct": 4.8328262070450885,
+      "train_loss_at_75pct": 4.522479327807577,
+      "final_train_loss": 4.269742012023926,
+      "gen_gap_loss": 0.14600384883616968,
+      "auc_val_curve": 162.54665271586742,
+      "update_weight_ratio": 0.005639072500646154,
+      "update_cos_sim_sampled": 0.005867923609344766,
+      "grad_norm_mean": 0.4226182663813233,
+      "grad_norm_p95": 0.49043634682893755,
+      "weight_norm_start": 141.37596263608356,
+      "weight_norm_end": 333.76311586394377,
+      "weight_norm_growth": 2.360819404095481,
+      "throughput_samples_per_s": 16.46726921728964,
+      "flops_per_step_est": 3597945274368.0,
+      "total_flops_est": 2.1587671646208e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.370574655288826,
+      "test_loss": 4.4157458608600955,
+      "token_acc": 0.28898529505888376,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "recorded": true
+    },
+    "AdaBelief|full|44": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.001,
+      "knob_used": null,
+      "primary": 85.58024532379943,
+      "best_val_primary": 84.31965488981766,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 12019.276326656342,
+      "sec_per_step": 2.0032127211093904,
+      "mean_step_size": 0.0003125281614936883,
+      "clip_freq": 0.0033333333333333335,
+      "peak_mem_mb": 13273.125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 33691776,
+      "val_curve": [
+        [
+          400,
+          597.6559550308828
+        ],
+        [
+          800,
+          405.2598766292969
+        ],
+        [
+          1200,
+          286.10238315544706
+        ],
+        [
+          1600,
+          218.3058637089902
+        ],
+        [
+          2000,
+          182.00496056323692
+        ],
+        [
+          2400,
+          159.80970990369374
+        ],
+        [
+          2800,
+          140.29619890623061
+        ],
+        [
+          3200,
+          124.9519233299482
+        ],
+        [
+          3600,
+          111.74369668096773
+        ],
+        [
+          4000,
+          102.32925290226721
+        ],
+        [
+          4400,
+          95.96165278060622
+        ],
+        [
+          4800,
+          91.64951004256324
+        ],
+        [
+          5200,
+          88.36021023657543
+        ],
+        [
+          5600,
+          85.97418804061748
+        ],
+        [
+          6000,
+          84.31965488981766
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 3200,
+      "frac_budget_to_90pct_best": 0.5333333333333333,
+      "wallclock_to_90pct_best_s": 6073.761878490448,
+      "train_loss_at_25pct": 5.4910114620362105,
+      "train_loss_at_50pct": 4.883744710439332,
+      "train_loss_at_75pct": 4.566971324947963,
+      "final_train_loss": 4.354361295700073,
+      "gen_gap_loss": 0.09509318188649196,
+      "auc_val_curve": 173.83837370291366,
+      "update_weight_ratio": 0.005594147368351721,
+      "update_cos_sim_sampled": 0.004176437453322034,
+      "grad_norm_mean": 0.43410703097780545,
+      "grad_norm_p95": 0.4975732311606407,
+      "weight_norm_start": 141.38104741040792,
+      "weight_norm_end": 327.1496306654622,
+      "weight_norm_growth": 2.313956761939923,
+      "throughput_samples_per_s": 15.974339451218253,
+      "flops_per_step_est": 3597945274368.0,
+      "total_flops_est": 2.1587671646208e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.419205909475331,
+      "test_loss": 4.449454477586565,
+      "token_acc": 0.28524185547875064,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "recorded": true
+    }
+  },
+  "meta": {
+    "task_name": "language_openwebtext",
+    "domain": "language",
+    "primary_metric": "test_perplexity",
+    "primary_lower_better": true,
+    "lr_used": {
+      "EvieKF": 0.001,
+      "AdaBelief": 0.001
+    },
+    "knob_used": {
+      "EvieKF": 27000.0,
+      "AdaBelief": null
+    },
+    "opt_names": [
+      "AdaBelief"
+    ],
+    "opt_set": "scalegen",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_steps": 6000,
+    "units": [
+      "full"
+    ],
+    "peer_median_primary": 83.29955067594139,
+    "nonstandard_ppl_caveat": null,
+    "torch": "2.10.0+cu128",
+    "device": "cuda",
+    "timestamp": "2026-09-25T00:50:15.524796"
+  }
+}

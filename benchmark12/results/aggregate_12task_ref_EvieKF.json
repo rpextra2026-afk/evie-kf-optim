@@ -1,0 +1,259 @@
+{
+  "reference": "EvieKF",
+  "tasks_present": [
+    "vision_cifar10",
+    "vision_cifar100",
+    "vision_svhn",
+    "vision_stl10",
+    "language_wikitext2",
+    "language_wikitext103",
+    "language_ptb",
+    "language_enwik8",
+    "finance_tech",
+    "finance_finance",
+    "finance_healthcare",
+    "finance_consumer_industrials"
+  ],
+  "tasks_missing": [],
+  "task_numbers": {
+    "vision_cifar10": {
+      "EvieKF": 81.94,
+      "AdamW": 81.55,
+      "AdaBelief": 81.0,
+      "Muon": 85.86,
+      "Shampoo": 81.9,
+      "Sophia": 81.52,
+      "Lion": 81.28,
+      "SGD": 81.71
+    },
+    "vision_cifar100": {
+      "EvieKF": 52.28,
+      "AdamW": 49.51,
+      "AdaBelief": 49.45,
+      "Muon": 54.24,
+      "Shampoo": 50.8,
+      "Sophia": 47.39,
+      "Lion": 49.59,
+      "SGD": 54.27
+    },
+    "vision_svhn": {
+      "EvieKF": 94.63352796558083,
+      "AdamW": 94.66425937307929,
+      "AdaBelief": 94.75261216963737,
+      "Muon": 95.52089735709896,
+      "Shampoo": 94.83328211432084,
+      "Sophia": 94.89090350338046,
+      "Lion": 94.55285802089736,
+      "SGD": 94.73340503995082
+    },
+    "vision_stl10": {
+      "EvieKF": 48.5875,
+      "AdamW": 51.2875,
+      "AdaBelief": 50.8375,
+      "Muon": 48.85,
+      "Shampoo": 51.25,
+      "Sophia": 47.475,
+      "Lion": 49.9625,
+      "SGD": 47.75
+    },
+    "language_wikitext2": {
+      "EvieKF": 100.45674286767259,
+      "AdamW": 105.7006301989306,
+      "AdaBelief": 97.15342387463159,
+      "Muon": 83.62438927773732,
+      "Shampoo": 123.91236361546304,
+      "Sophia": 123.7504007454299,
+      "Lion": 106.64712839437772,
+      "SGD": 103.79600315146155
+    },
+    "language_wikitext103": {
+      "EvieKF": 35.40535422416017,
+      "AdamW": 39.99304734044105,
+      "AdaBelief": 41.16592650740584,
+      "Muon": 33.489112205574855,
+      "Shampoo": 36.24769404163141,
+      "Sophia": 39.51006298872623,
+      "Lion": 47.3081898460743,
+      "SGD": 59.7459767341297
+    },
+    "language_ptb": {
+      "EvieKF": 192.17292435599907,
+      "AdamW": 179.34609597244446,
+      "AdaBelief": 179.76824301225477,
+      "Muon": 187.00920326225224,
+      "Shampoo": 172.9393715149543,
+      "Sophia": 201.48981126276584,
+      "Lion": 201.93804303970737,
+      "SGD": 180.3522162441156
+    },
+    "language_enwik8": {
+      "EvieKF": 3.0388592082320414,
+      "AdamW": 3.176381702224063,
+      "AdaBelief": 3.148687125152496,
+      "Muon": 2.9687827019294364,
+      "Shampoo": 2.9712671460924773,
+      "Sophia": 3.3420678727133866,
+      "Lion": 3.1083280044645623,
+      "SGD": 3.6014878787802247
+    },
+    "finance_tech": {
+      "EvieKF": 0.00041496608551446493,
+      "AdamW": 0.0004333625849965331,
+      "AdaBelief": 0.00043744913169315884,
+      "Muon": 0.0004147493413516453,
+      "Shampoo": 0.00042170011808001804,
+      "Sophia": 0.00045593768440330655,
+      "Lion": 0.0004150239484650748,
+      "SGD": 0.00041537170673345593
+    },
+    "finance_finance": {
+      "EvieKF": 0.00022668791589913544,
+      "AdamW": 0.00022643303902691633,
+      "AdaBelief": 0.0002258276892086816,
+      "Muon": 0.00037242890035033856,
+      "Shampoo": 0.0003381218544389836,
+      "Sophia": 0.0002635637367213214,
+      "Lion": 0.00022269320235681283,
+      "SGD": 0.0002227763019541584
+    },
+    "finance_healthcare": {
+      "EvieKF": 0.0002914950172737162,
+      "AdamW": 0.00030968827072274746,
+      "AdaBelief": 0.0003129137808052951,
+      "Muon": 0.00032588449262437367,
+      "Shampoo": 0.00031131521734611067,
+      "Sophia": 0.0003186804513451914,
+      "Lion": 0.0003128129614408685,
+      "SGD": 0.0002907730993770418
+    },
+    "finance_consumer_industrials": {
+      "EvieKF": 0.00019687238745588474,
+      "AdamW": 0.00020168808402207792,
+      "AdaBelief": 0.000210406051741706,
+      "Muon": 0.0001912411282617579,
+      "Shampoo": 0.000205738952866307,
+      "Sophia": 0.0002062287398431667,
+      "Lion": 0.0002116055360862187,
+      "SGD": 0.00018491465894002762
+    }
+  },
+  "relative_improvement": {
+    "AdamW": {
+      "vision_cifar10": -0.004759580180619973,
+      "vision_cifar100": -0.052983932670237245,
+      "vision_svhn": 0.00032474122183885943,
+      "vision_stl10": 0.05556984821198874,
+      "language_wikitext2": -0.05220045147358161,
+      "language_wikitext103": -0.12957625242880064,
+      "language_ptb": 0.06674628294562973,
+      "language_enwik8": -0.04525464477573806,
+      "finance_tech": -0.04433253734280632,
+      "finance_finance": 0.001124351385066849,
+      "finance_healthcare": -0.06241360013350634,
+      "finance_consumer_industrials": -0.024461005570282347
+    },
+    "AdaBelief": {
+      "vision_cifar10": -0.011471808640468609,
+      "vision_cifar100": -0.054131599081866835,
+      "vision_svhn": 0.0012583722346255616,
+      "vision_stl10": 0.0463082068433239,
+      "language_wikitext2": 0.032882999176992285,
+      "language_wikitext103": -0.1627034218263725,
+      "language_ptb": 0.06454957890303376,
+      "language_enwik8": -0.036141166600591176,
+      "finance_tech": -0.05418044260368885,
+      "finance_finance": 0.0037947620059138425,
+      "finance_healthcare": -0.07347900397030281,
+      "finance_consumer_industrials": -0.0687433339977852
+    },
+    "Muon": {
+      "vision_cifar10": 0.04783988284110327,
+      "vision_cifar100": 0.037490436113236436,
+      "vision_svhn": 0.009376902780596746,
+      "vision_stl10": 0.00540262413172118,
+      "language_wikitext2": 0.1675582256544771,
+      "language_wikitext103": 0.05412294441267574,
+      "language_ptb": 0.026870180131000506,
+      "language_enwik8": 0.023060135893355305,
+      "finance_tech": 0.0005223177758030702,
+      "finance_finance": -0.6429146603299772,
+      "finance_healthcare": -0.11797620306615893,
+      "finance_consumer_industrials": 0.028603600875154133
+    },
+    "Shampoo": {
+      "vision_cifar10": -0.0004881620698070789,
+      "vision_cifar100": -0.028309104820199004,
+      "vision_svhn": 0.0021108179419525113,
+      "vision_stl10": 0.05479804476459998,
+      "language_wikitext2": -0.23348975965393926,
+      "language_wikitext103": -0.023791311679532346,
+      "language_ptb": 0.10008461340482461,
+      "language_enwik8": 0.022242577726688428,
+      "finance_tech": -0.01622791066697516,
+      "finance_finance": -0.49157423366771147,
+      "finance_healthcare": -0.06799498755679628,
+      "finance_consumer_industrials": -0.045037120365135457
+    },
+    "Sophia": {
+      "vision_cifar10": -0.005125701732975369,
+      "vision_cifar100": -0.09353481254781944,
+      "vision_svhn": 0.002719707732900354,
+      "vision_stl10": -0.022896835605865647,
+      "language_wikitext2": -0.231877494858071,
+      "language_wikitext103": -0.11593468995051208,
+      "language_ptb": -0.04848178762949611,
+      "language_enwik8": -0.09977713467605728,
+      "finance_tech": -0.09873481308248605,
+      "finance_finance": -0.16267219483633089,
+      "finance_healthcare": -0.09326208840800823,
+      "finance_consumer_industrials": -0.047524960245522115
+    },
+    "Lion": {
+      "vision_cifar10": -0.008054674151818363,
+      "vision_cifar100": -0.051453710788064225,
+      "vision_svhn": -0.0008524457073269497,
+      "vision_stl10": 0.028299459737586827,
+      "language_wikitext2": -0.0616223993531172,
+      "language_wikitext103": -0.3361874462984975,
+      "language_ptb": -0.050814227427889255,
+      "language_enwik8": -0.022860156220576175,
+      "finance_tech": -0.00013944019193311822,
+      "finance_finance": 0.017622084205406254,
+      "finance_healthcare": -0.07313313402930155,
+      "finance_consumer_industrials": -0.07483603374107185
+    },
+    "SGD": {
+      "vision_cifar10": -0.0028069319013913105,
+      "vision_cifar100": 0.0380642693190513,
+      "vision_svhn": 0.0010554089709761806,
+      "vision_stl10": -0.01723694365834831,
+      "language_wikitext2": -0.03324077795541934,
+      "language_wikitext103": -0.687484225009103,
+      "language_ptb": 0.06151078853327794,
+      "language_enwik8": -0.18514469805776607,
+      "finance_tech": -0.0009774804090028626,
+      "finance_finance": 0.017255502700538817,
+      "finance_healthcare": 0.002476604586336885,
+      "finance_consumer_industrials": 0.06073847465550044
+    }
+  },
+  "imputed_total_failures": [],
+  "wilcoxon_p": {
+    "AdamW": 0.2333984375,
+    "AdaBelief": 0.20361328125,
+    "Muon": 0.20361328125,
+    "Shampoo": 0.26611328125,
+    "Sophia": 0.0009765625,
+    "Lion": 0.02099609375,
+    "SGD": 0.9697265625
+  },
+  "holm_p": {
+    "AdamW": 1.0,
+    "AdaBelief": 1.0,
+    "Muon": 1.0,
+    "Shampoo": 1.0,
+    "Sophia": 0.0068359375,
+    "Lion": 0.1259765625,
+    "SGD": 1.0
+  }
+}

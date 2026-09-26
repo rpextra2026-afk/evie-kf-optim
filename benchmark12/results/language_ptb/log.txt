@@ -1,0 +1,326 @@
+[2026-09-12 17:05:04] [language_ptb] ====================================================================================================
+[2026-09-12 17:05:04] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-12 17:05:04] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-12 17:05:04] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-12 17:05:04] [language_ptb] ====================================================================================================
+[2026-09-12 17:05:05] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-12 17:05:05] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-12 17:05:09] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-12 17:05:10] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-12 17:05:10] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-12 17:05:10] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-12 17:19:02] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=333.953
+[2026-09-12 17:32:52] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=330.171
+[2026-09-12 17:46:39] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=326.007
+[2026-09-12 18:00:28] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=322.06
+[2026-09-12 18:14:15] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=321.62
+[2026-09-12 18:28:02] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=333.254
+[2026-09-12 18:41:50] [language_ptb] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=366.191
+[2026-09-12 18:55:39] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=233.371
+[2026-09-12 19:09:28] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=235.148
+[2026-09-12 19:23:19] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=237.62
+[2026-09-12 19:37:09] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=239.282
+[2026-09-12 19:50:57] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=243.747
+[2026-09-12 20:04:45] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=253.479
+[2026-09-12 20:18:34] [language_ptb] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=265.508
+[2026-09-12 20:32:23] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=196.708
+[2026-09-12 20:46:12] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=199.052
+[2026-09-12 21:00:01] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=200.203
+[2026-09-12 21:13:52] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=204.513
+[2026-09-12 21:27:41] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=213.793
+[2026-09-12 21:41:31] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=220.882
+[2026-09-12 21:55:22] [language_ptb] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=221.205
+[2026-09-12 22:09:12] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=201.288
+[2026-09-12 22:23:03] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=186.277
+[2026-09-12 22:36:54] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=205.718
+[2026-09-12 22:50:43] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=198.823
+[2026-09-12 23:04:34] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=202.923
+[2026-09-12 23:18:26] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=207.851
+[2026-09-12 23:32:16] [language_ptb] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=209.747
+[2026-09-12 23:45:56] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=253.134
+[2026-09-12 23:59:38] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=250.349
+[2026-09-13 00:13:26] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=244.966
+[2026-09-13 00:27:22] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=247.005
+[2026-09-13 00:41:11] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=246.643
+[2026-09-13 00:55:04] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=251.927
+[2026-09-13 01:05:01] [language_ptb] [signal] EvieKF/full/seed42/LR: checkpointed at step 1778; exiting cleanly
+[2026-09-13 06:31:26] [language_ptb] ====================================================================================================
+[2026-09-13 06:31:26] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-13 06:31:26] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 06:31:26] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-13 06:31:26] [language_ptb] ====================================================================================================
+[2026-09-13 06:31:26] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 06:31:26] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 06:31:30] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-13 06:31:31] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-13 06:31:31] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-13 06:31:31] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 06:44:48] [language_ptb] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=253.808
+[2026-09-13 06:58:00] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=411.533
+[2026-09-13 07:11:10] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=405.118
+[2026-09-13 07:24:22] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=410.86
+[2026-09-13 07:37:35] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=408.123
+[2026-09-13 07:50:47] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=400.673
+[2026-09-13 08:03:59] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=407.565
+[2026-09-13 08:17:10] [language_ptb] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=402.344
+[2026-09-13 08:30:10] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=658.94
+[2026-09-13 08:43:11] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=695.018
+[2026-09-13 08:56:12] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=665.362
+[2026-09-13 09:09:11] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=736.407
+[2026-09-13 09:22:13] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=727.156
+[2026-09-13 09:35:13] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=732.966
+[2026-09-13 09:48:13] [language_ptb] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=735.526
+[2026-09-13 09:48:13] [language_ptb] [lr-search] EvieKF: FROZEN lr=1.000e-03  knob=10  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 09:55:54] [language_ptb] [lr-search] AdamW  lr=3.162e-05  knob=-  score=340.677
+[2026-09-13 10:03:33] [language_ptb] [lr-search] AdamW  lr=1.000e-04  knob=-  score=230.265
+[2026-09-13 10:11:14] [language_ptb] [lr-search] AdamW  lr=3.162e-04  knob=-  score=193.355
+[2026-09-13 10:18:58] [language_ptb] [lr-search] AdamW  lr=1.000e-03  knob=-  score=195.993
+[2026-09-13 10:26:37] [language_ptb] [lr-search] AdamW  lr=3.162e-03  knob=-  score=260.376
+[2026-09-13 10:34:13] [language_ptb] [lr-search] AdamW  lr=1.000e-02  knob=-  score=422.831
+[2026-09-13 10:41:43] [language_ptb] [lr-search] AdamW  lr=3.162e-02  knob=-  score=669.608
+[2026-09-13 10:41:43] [language_ptb] [lr-search] AdamW: FROZEN lr=3.162e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 10:49:37] [language_ptb] [lr-search] AdaBelief  lr=3.162e-05  knob=-  score=286.681
+[2026-09-13 10:57:33] [language_ptb] [lr-search] AdaBelief  lr=1.000e-04  knob=-  score=215.602
+[2026-09-13 11:05:30] [language_ptb] [lr-search] AdaBelief  lr=3.162e-04  knob=-  score=193.876
+[2026-09-13 11:13:26] [language_ptb] [lr-search] AdaBelief  lr=1.000e-03  knob=-  score=211.409
+[2026-09-13 11:21:15] [language_ptb] [lr-search] AdaBelief  lr=3.162e-03  knob=-  score=289.063
+[2026-09-13 11:28:58] [language_ptb] [lr-search] AdaBelief  lr=1.000e-02  knob=-  score=429.24
+[2026-09-13 11:36:38] [language_ptb] [lr-search] AdaBelief  lr=3.162e-02  knob=-  score=689.56
+[2026-09-13 11:36:38] [language_ptb] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 11:45:08] [language_ptb] [lr-search] Muon  lr=6.325e-04  knob=-  score=211.486
+[2026-09-13 11:53:39] [language_ptb] [lr-search] Muon  lr=2.000e-03  knob=-  score=220.263
+[2026-09-13 12:02:09] [language_ptb] [lr-search] Muon  lr=6.325e-03  knob=-  score=197.521
+[2026-09-13 12:10:30] [language_ptb] [lr-search] Muon  lr=2.000e-02  knob=-  score=320.94
+[2026-09-13 12:18:51] [language_ptb] [lr-search] Muon  lr=6.325e-02  knob=-  score=526.322
+[2026-09-13 12:27:08] [language_ptb] [lr-search] Muon  lr=2.000e-01  knob=-  score=589.45
+[2026-09-13 12:35:23] [language_ptb] [lr-search] Muon  lr=6.325e-01  knob=-  score=591.348
+[2026-09-13 12:35:23] [language_ptb] [lr-search] Muon: FROZEN lr=6.325e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 12:47:13] [language_ptb] [lr-search] Shampoo  lr=3.162e-05  knob=0.9  score=356.749
+[2026-09-13 12:59:04] [language_ptb] [lr-search] Shampoo  lr=3.162e-05  knob=0.95  score=356.463
+[2026-09-13 13:10:53] [language_ptb] [lr-search] Shampoo  lr=3.162e-05  knob=0.99  score=355.744
+[2026-09-13 13:22:44] [language_ptb] [lr-search] Shampoo  lr=3.162e-05  knob=0.999  score=357.615
+[2026-09-13 13:34:36] [language_ptb] [lr-search] Shampoo  lr=1.000e-04  knob=0.9  score=236.743
+[2026-09-13 13:46:27] [language_ptb] [lr-search] Shampoo  lr=1.000e-04  knob=0.95  score=236.732
+[2026-09-13 13:58:18] [language_ptb] [lr-search] Shampoo  lr=1.000e-04  knob=0.99  score=236.529
+[2026-09-13 14:10:10] [language_ptb] [lr-search] Shampoo  lr=1.000e-04  knob=0.999  score=236.597
+[2026-09-13 14:22:02] [language_ptb] [lr-search] Shampoo  lr=3.162e-04  knob=0.9  score=201.809
+[2026-09-13 14:31:22] [language_ptb] [signal] Shampoo/full/seed42/LR: checkpointed at step 1970; exiting cleanly
+[2026-09-13 15:48:58] [language_ptb] ====================================================================================================
+[2026-09-13 15:48:58] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-13 15:48:58] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 15:48:58] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-13 15:48:58] [language_ptb] ====================================================================================================
+[2026-09-13 15:48:59] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 15:48:59] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 15:49:02] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-13 15:49:03] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-13 15:49:03] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-13 15:49:03] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 15:49:03] [language_ptb] [lr-search] EvieKF: cached lr=1.000e-03  knob=10
+[2026-09-13 15:49:03] [language_ptb] [lr-search] AdamW: cached lr=3.162e-04
+[2026-09-13 15:49:03] [language_ptb] [lr-search] AdaBelief: cached lr=3.162e-04
+[2026-09-13 15:49:03] [language_ptb] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-13 16:01:37] [language_ptb] [lr-search] Shampoo  lr=3.162e-04  knob=0.95  score=202.118
+[2026-09-13 16:14:18] [language_ptb] [lr-search] Shampoo  lr=3.162e-04  knob=0.99  score=201.059
+[2026-09-13 16:26:59] [language_ptb] [lr-search] Shampoo  lr=3.162e-04  knob=0.999  score=199.417
+[2026-09-13 16:39:41] [language_ptb] [lr-search] Shampoo  lr=1.000e-03  knob=0.9  score=185.531
+[2026-09-13 16:52:23] [language_ptb] [lr-search] Shampoo  lr=1.000e-03  knob=0.95  score=184.922
+[2026-09-13 17:05:05] [language_ptb] [lr-search] Shampoo  lr=1.000e-03  knob=0.99  score=184.606
+[2026-09-13 17:17:47] [language_ptb] [lr-search] Shampoo  lr=1.000e-03  knob=0.999  score=186.848
+[2026-09-13 17:30:31] [language_ptb] [lr-search] Shampoo  lr=3.162e-03  knob=0.9  score=230.129
+[2026-09-13 17:43:14] [language_ptb] [lr-search] Shampoo  lr=3.162e-03  knob=0.95  score=231.385
+[2026-09-13 17:55:58] [language_ptb] [lr-search] Shampoo  lr=3.162e-03  knob=0.99  score=237.843
+[2026-09-13 18:08:41] [language_ptb] [lr-search] Shampoo  lr=3.162e-03  knob=0.999  score=244.649
+[2026-09-13 18:21:24] [language_ptb] [lr-search] Shampoo  lr=1.000e-02  knob=0.9  score=261.351
+[2026-09-13 18:34:07] [language_ptb] [lr-search] Shampoo  lr=1.000e-02  knob=0.95  score=267.694
+[2026-09-13 18:46:51] [language_ptb] [lr-search] Shampoo  lr=1.000e-02  knob=0.99  score=263.08
+[2026-09-13 18:59:34] [language_ptb] [lr-search] Shampoo  lr=1.000e-02  knob=0.999  score=261.165
+[2026-09-13 19:12:06] [language_ptb] [lr-search] Shampoo  lr=3.162e-02  knob=0.9  score=321.153
+[2026-09-13 19:24:36] [language_ptb] [lr-search] Shampoo  lr=3.162e-02  knob=0.95  score=372.42
+[2026-09-13 19:37:10] [language_ptb] [lr-search] Shampoo  lr=3.162e-02  knob=0.99  score=354.869
+[2026-09-13 19:49:41] [language_ptb] [lr-search] Shampoo  lr=3.162e-02  knob=0.999  score=379.496
+[2026-09-13 19:49:41] [language_ptb] [lr-search] Shampoo: FROZEN lr=1.000e-03  knob=0.99  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 20:16:44] [language_ptb] [lr-search] Sophia  lr=3.162e-05  knob=-  score=458.026
+[2026-09-13 20:43:50] [language_ptb] [lr-search] Sophia  lr=1.000e-04  knob=-  score=272.151
+[2026-09-13 21:11:01] [language_ptb] [lr-search] Sophia  lr=3.162e-04  knob=-  score=215.198
+[2026-09-13 21:38:14] [language_ptb] [lr-search] Sophia  lr=1.000e-03  knob=-  score=221.487
+[2026-09-13 22:05:16] [language_ptb] [lr-search] Sophia  lr=3.162e-03  knob=-  score=254.553
+[2026-09-13 22:32:06] [language_ptb] [lr-search] Sophia  lr=1.000e-02  knob=-  score=327.139
+[2026-09-13 22:58:32] [language_ptb] [lr-search] Sophia  lr=3.162e-02  knob=-  score=591.251
+[2026-09-13 22:58:32] [language_ptb] [lr-search] Sophia: FROZEN lr=3.162e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 23:07:02] [language_ptb] [lr-search] Lion  lr=3.162e-06  knob=-  score=1650.78
+[2026-09-13 23:15:32] [language_ptb] [lr-search] Lion  lr=1.000e-05  knob=-  score=457.872
+[2026-09-13 23:24:03] [language_ptb] [lr-search] Lion  lr=3.162e-05  knob=-  score=239.524
+[2026-09-13 23:32:32] [language_ptb] [lr-search] Lion  lr=1.000e-04  knob=-  score=205.554
+[2026-09-13 23:40:52] [language_ptb] [lr-search] Lion  lr=3.162e-04  knob=-  score=258.219
+[2026-09-13 23:48:55] [language_ptb] [signal] Lion/full/seed42/LR: checkpointed at step 2495; exiting cleanly
+[2026-09-14 10:48:21] [language_ptb] ====================================================================================================
+[2026-09-14 10:48:21] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-14 10:48:21] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-14 10:48:21] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-14 10:48:21] [language_ptb] ====================================================================================================
+[2026-09-14 10:48:21] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 10:48:22] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 10:48:26] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-14 10:48:28] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-14 10:48:28] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-14 10:48:28] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-14 10:48:28] [language_ptb] [lr-search] EvieKF: cached lr=1.000e-03  knob=10
+[2026-09-14 10:48:28] [language_ptb] [lr-search] AdamW: cached lr=3.162e-04
+[2026-09-14 10:48:28] [language_ptb] [lr-search] AdaBelief: cached lr=3.162e-04
+[2026-09-14 10:48:28] [language_ptb] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-14 10:48:28] [language_ptb] [lr-search] Shampoo: cached lr=1.000e-03  knob=0.99
+[2026-09-14 10:48:28] [language_ptb] [lr-search] Sophia: cached lr=3.162e-04
+[2026-09-14 10:55:57] [language_ptb] [lr-search] Lion  lr=1.000e-03  knob=-  score=382.887
+[2026-09-14 11:03:18] [language_ptb] [lr-search] Lion  lr=3.162e-03  knob=-  score=533.506
+[2026-09-14 11:03:18] [language_ptb] [lr-search] Lion: FROZEN lr=1.000e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-14 11:10:55] [language_ptb] [lr-search] SGD  lr=9.487e-04  knob=-  score=747.056
+[2026-09-14 11:18:32] [language_ptb] [lr-search] SGD  lr=3.000e-03  knob=-  score=496.509
+[2026-09-14 11:26:10] [language_ptb] [lr-search] SGD  lr=9.487e-03  knob=-  score=321.639
+[2026-09-14 11:33:47] [language_ptb] [lr-search] SGD  lr=3.000e-02  knob=-  score=233.915
+[2026-09-14 11:41:24] [language_ptb] [lr-search] SGD  lr=9.487e-02  knob=-  score=210.832
+[2026-09-14 11:49:01] [language_ptb] [lr-search] SGD  lr=3.000e-01  knob=-  score=256.044
+[2026-09-14 11:56:33] [language_ptb] [lr-search] SGD  lr=9.487e-01  knob=-  score=7277.6
+[2026-09-14 11:56:33] [language_ptb] [lr-search] SGD: FROZEN lr=9.487e-02  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-14 11:56:33] [language_ptb] [lr-search] frozen: EvieKF=1.000e-03/k=10, AdamW=3.162e-04, AdaBelief=3.162e-04, Muon=6.325e-03, Shampoo=1.000e-03/k=0.99, Sophia=3.162e-04, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-14 11:56:33] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-14 11:56:33] [language_ptb] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-14 12:49:20] [language_ptb] [sweep] 1/40  EvieKF|full|42  primary=197.31626207117466  diverged=False
+[2026-09-14 13:42:31] [language_ptb] [sweep] 2/40  EvieKF|full|43  primary=192.17292435599907  diverged=False
+[2026-09-14 14:35:33] [language_ptb] [sweep] 3/40  EvieKF|full|44  primary=190.80282868233166  diverged=False
+[2026-09-14 15:28:35] [language_ptb] [sweep] 4/40  EvieKF|full|45  primary=197.75285047396684  diverged=False
+[2026-09-14 16:21:43] [language_ptb] [sweep] 5/40  EvieKF|full|46  primary=177.28792952451454  diverged=False
+[2026-09-14 16:52:21] [language_ptb] [sweep] 6/40  AdamW|full|42  primary=178.4509983292211  diverged=False
+[2026-09-14 17:22:58] [language_ptb] [sweep] 7/40  AdamW|full|43  primary=179.34609597244446  diverged=False
+[2026-09-14 17:53:36] [language_ptb] [sweep] 8/40  AdamW|full|44  primary=184.2264207785854  diverged=False
+[2026-09-14 18:24:13] [language_ptb] [sweep] 9/40  AdamW|full|45  primary=183.72484771973862  diverged=False
+[2026-09-14 18:48:17] [language_ptb] [signal] AdamW/full/seed46: checkpointed at step 7868; exiting cleanly
+[2026-09-16 10:53:36] [language_ptb] ====================================================================================================
+[2026-09-16 10:53:36] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 10:53:36] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 10:53:36] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 10:53:36] [language_ptb] ====================================================================================================
+[2026-09-16 10:53:36] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 10:53:36] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 10:53:40] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-16 10:53:41] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-16 10:53:41] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-16 10:53:41] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-16 10:53:41] [language_ptb] [lr-search] EvieKF: cached lr=1.000e-03  knob=10
+[2026-09-16 10:53:41] [language_ptb] [lr-search] AdamW: cached lr=3.162e-04
+[2026-09-16 10:53:41] [language_ptb] [lr-search] AdaBelief: cached lr=3.162e-04
+[2026-09-16 10:53:41] [language_ptb] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-16 10:53:41] [language_ptb] [lr-search] Shampoo: cached lr=1.000e-03  knob=0.99
+[2026-09-16 10:53:41] [language_ptb] [lr-search] Sophia: cached lr=3.162e-04
+[2026-09-16 10:53:41] [language_ptb] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-16 10:53:41] [language_ptb] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-16 10:53:41] [language_ptb] [lr-search] frozen: EvieKF=1.000e-03/k=10, AdamW=3.162e-04, AdaBelief=3.162e-04, Muon=6.325e-03, Shampoo=1.000e-03/k=0.99, Sophia=3.162e-04, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-16 10:53:41] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-16 10:53:41] [language_ptb] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-16 10:53:47] [language_ptb] [resume] AdamW/full/seed46 from step 7868/10000
+[2026-09-16 11:01:31] [language_ptb] [sweep] 10/40  AdamW|full|46  primary=177.53235884475336  diverged=False
+[2026-09-16 11:38:13] [language_ptb] [sweep] 11/40  AdaBelief|full|42  primary=178.44411570558086  diverged=False
+[2026-09-16 12:14:55] [language_ptb] [sweep] 12/40  AdaBelief|full|43  primary=177.71567230680563  diverged=False
+[2026-09-16 12:51:35] [language_ptb] [sweep] 13/40  AdaBelief|full|44  primary=182.48127109933873  diverged=False
+[2026-09-16 13:28:17] [language_ptb] [sweep] 14/40  AdaBelief|full|45  primary=183.56087984481658  diverged=False
+[2026-09-16 14:05:02] [language_ptb] [sweep] 15/40  AdaBelief|full|46  primary=179.76824301225477  diverged=False
+[2026-09-16 14:43:57] [language_ptb] [sweep] 16/40  Muon|full|42  primary=187.00920326225224  diverged=False
+[2026-09-16 15:22:53] [language_ptb] [sweep] 17/40  Muon|full|43  primary=194.548052302529  diverged=False
+[2026-09-16 16:01:49] [language_ptb] [sweep] 18/40  Muon|full|44  primary=184.79544564106968  diverged=False
+[2026-09-16 16:40:45] [language_ptb] [sweep] 19/40  Muon|full|45  primary=191.87856110191245  diverged=False
+[2026-09-16 17:19:42] [language_ptb] [sweep] 20/40  Muon|full|46  primary=186.87618481855307  diverged=False
+[2026-09-16 18:12:44] [language_ptb] [sweep] 21/40  Shampoo|full|42  primary=172.9393715149543  diverged=False
+[2026-09-16 19:05:47] [language_ptb] [sweep] 22/40  Shampoo|full|43  primary=176.07006907332692  diverged=False
+[2026-09-16 19:58:50] [language_ptb] [sweep] 23/40  Shampoo|full|44  primary=173.55893119279486  diverged=False
+[2026-09-16 20:38:34] [language_ptb] [signal] Shampoo/full/seed45: checkpointed at step 7490; exiting cleanly
+[2026-09-16 21:00:37] [language_ptb] ====================================================================================================
+[2026-09-16 21:00:37] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 21:00:37] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 21:00:37] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 21:00:37] [language_ptb] ====================================================================================================
+[2026-09-16 21:00:38] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 21:00:38] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 21:00:41] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-16 21:00:42] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-16 21:00:42] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-16 21:00:42] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-16 21:00:42] [language_ptb] [lr-search] EvieKF: cached lr=1.000e-03  knob=10
+[2026-09-16 21:00:42] [language_ptb] [lr-search] AdamW: cached lr=3.162e-04
+[2026-09-16 21:00:42] [language_ptb] [lr-search] AdaBelief: cached lr=3.162e-04
+[2026-09-16 21:00:42] [language_ptb] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-16 21:00:42] [language_ptb] [lr-search] Shampoo: cached lr=1.000e-03  knob=0.99
+[2026-09-16 21:00:42] [language_ptb] [lr-search] Sophia: cached lr=3.162e-04
+[2026-09-16 21:00:42] [language_ptb] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-16 21:00:42] [language_ptb] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-16 21:00:42] [language_ptb] [lr-search] frozen: EvieKF=1.000e-03/k=10, AdamW=3.162e-04, AdaBelief=3.162e-04, Muon=6.325e-03, Shampoo=1.000e-03/k=0.99, Sophia=3.162e-04, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-16 21:00:42] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-16 21:00:42] [language_ptb] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-16 21:00:47] [language_ptb] [resume] Shampoo/full/seed45 from step 7490/10000
+[2026-09-16 21:12:53] [language_ptb] [sweep] 24/40  Shampoo|full|45  primary=171.09571673943753  diverged=False
+[2026-09-16 22:01:11] [language_ptb] [sweep] 25/40  Shampoo|full|46  primary=172.461362268447  diverged=False
+[2026-09-16 23:42:38] [language_ptb] [sweep] 26/40  Sophia|full|42  primary=195.283089378166  diverged=False
+[2026-09-17 01:24:06] [language_ptb] [sweep] 27/40  Sophia|full|43  primary=201.83872218153027  diverged=False
+[2026-09-17 03:05:33] [language_ptb] [sweep] 28/40  Sophia|full|44  primary=203.2247209247078  diverged=False
+[2026-09-17 04:47:02] [language_ptb] [sweep] 29/40  Sophia|full|45  primary=201.48981126276584  diverged=False
+[2026-09-17 06:28:33] [language_ptb] [sweep] 30/40  Sophia|full|46  primary=197.31518328326248  diverged=False
+[2026-09-17 06:45:34] [language_ptb] [signal] Lion/full/seed42: checkpointed at step 5363; exiting cleanly
+[2026-09-17 08:05:42] [language_ptb] ====================================================================================================
+[2026-09-17 08:05:42] [language_ptb]   language_ptb  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-17 08:05:42] [language_ptb]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-17 08:05:42] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 08:05:42] [language_ptb] ====================================================================================================
+[2026-09-17 08:05:42] [language_ptb] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 08:05:42] [language_ptb] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 08:05:47] [language_ptb] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-17 08:05:48] [language_ptb] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-17 08:05:48] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-17 08:05:48] [language_ptb] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-17 08:05:48] [language_ptb] [lr-search] EvieKF: cached lr=1.000e-03  knob=10
+[2026-09-17 08:05:48] [language_ptb] [lr-search] AdamW: cached lr=3.162e-04
+[2026-09-17 08:05:48] [language_ptb] [lr-search] AdaBelief: cached lr=3.162e-04
+[2026-09-17 08:05:48] [language_ptb] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-17 08:05:48] [language_ptb] [lr-search] Shampoo: cached lr=1.000e-03  knob=0.99
+[2026-09-17 08:05:48] [language_ptb] [lr-search] Sophia: cached lr=3.162e-04
+[2026-09-17 08:05:48] [language_ptb] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-17 08:05:48] [language_ptb] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-17 08:05:48] [language_ptb] [lr-search] frozen: EvieKF=1.000e-03/k=10, AdamW=3.162e-04, AdaBelief=3.162e-04, Muon=6.325e-03, Shampoo=1.000e-03/k=0.99, Sophia=3.162e-04, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-17 08:05:48] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-17 08:05:48] [language_ptb] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-17 08:05:55] [language_ptb] [resume] Lion/full/seed42 from step 5363/10000
+[2026-09-17 08:20:13] [language_ptb] [sweep] 31/40  Lion|full|42  primary=187.2923913663568  diverged=False
+[2026-09-17 08:51:05] [language_ptb] [sweep] 32/40  Lion|full|43  primary=201.93804303970737  diverged=False
+[2026-09-17 09:21:57] [language_ptb] [sweep] 33/40  Lion|full|44  primary=207.56322618829725  diverged=False
+[2026-09-17 09:52:54] [language_ptb] [sweep] 34/40  Lion|full|45  primary=207.53745718743323  diverged=False
+[2026-09-17 10:23:53] [language_ptb] [sweep] 35/40  Lion|full|46  primary=192.53613057088774  diverged=False
+[2026-09-17 10:54:32] [language_ptb] [sweep] 36/40  SGD|full|42  primary=175.12169286557818  diverged=False
+[2026-09-17 11:25:10] [language_ptb] [sweep] 37/40  SGD|full|43  primary=182.78768985442883  diverged=False
+[2026-09-17 11:55:48] [language_ptb] [sweep] 38/40  SGD|full|44  primary=175.4526199842367  diverged=False
+[2026-09-17 12:26:27] [language_ptb] [sweep] 39/40  SGD|full|45  primary=180.3522162441156  diverged=False
+[2026-09-17 12:57:07] [language_ptb] [sweep] 40/40  SGD|full|46  primary=184.59011265659325  diverged=False
+[2026-09-17 12:57:07] [language_ptb] ====================================================================================================
+[2026-09-17 12:57:07] [language_ptb]   RESULTS  --  language_ptb   primary = test_perplexity (lower is better)
+[2026-09-17 12:57:07] [language_ptb]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 12:57:07] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-17 12:57:07] [language_ptb]   EvieKF      lr=1.00e-03  knob=10  test_perplexity(task median over 5 seeds)=192.173   seed spread=[177.29, 197.75]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=3173  mean_step_size=0.0002899  clip_freq=0.5753  peak_mem_mb=1592
+[2026-09-17 12:57:07] [language_ptb]   AdamW       lr=3.16e-04  test_perplexity(task median over 5 seeds)=179.346   seed spread=[177.53, 184.23]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=1847  mean_step_size=9.225e-05  clip_freq=0.7592  peak_mem_mb=2264
+[2026-09-17 12:57:07] [language_ptb]   AdaBelief   lr=3.16e-04  test_perplexity(task median over 5 seeds)=179.768   seed spread=[177.72, 183.56]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=2198  mean_step_size=0.0001013  clip_freq=0.6344  peak_mem_mb=2264
+[2026-09-17 12:57:07] [language_ptb]   Muon        lr=6.32e-03  test_perplexity(task median over 5 seeds)=187.009   seed spread=[184.8, 194.55]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=2332  mean_step_size=0.0005888  clip_freq=0.7361  peak_mem_mb=2246
+[2026-09-17 12:57:07] [language_ptb]   Shampoo     lr=1.00e-03  knob=0.99  test_perplexity(task median over 5 seeds)=172.939   seed spread=[171.1, 176.07]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=3102  mean_step_size=0.0002631  clip_freq=0.4329  peak_mem_mb=2403
+[2026-09-17 12:57:07] [language_ptb]   Sophia      lr=3.16e-04  test_perplexity(task median over 5 seeds)=201.49   seed spread=[195.28, 203.22]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=6079  mean_step_size=4.413e-05  clip_freq=0.9428  peak_mem_mb=7091
+[2026-09-17 12:57:07] [language_ptb]   Lion        lr=1.00e-04  test_perplexity(task median over 5 seeds)=201.938   seed spread=[187.29, 207.56]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=1856  mean_step_size=6.546e-05  clip_freq=0.8412  peak_mem_mb=2236
+[2026-09-17 12:57:07] [language_ptb]   SGD         lr=9.49e-02  test_perplexity(task median over 5 seeds)=180.352   seed spread=[175.12, 184.59]   diverged_cells=0/5
+[2026-09-17 12:57:07] [language_ptb]              descriptive: wall_s=1835  mean_step_size=0.0001068  clip_freq=0.7957  peak_mem_mb=2236
+[2026-09-17 12:57:07] [language_ptb] ----------------------------------------------------------------------------------------------------
+[2026-09-17 12:57:07] [language_ptb]   best optimizer on this task: Shampoo  (test_perplexity=172.939)
+[2026-09-17 12:57:07] [language_ptb]   wrote /kaggle/working/checkpoints/language_ptb/results_raw.csv
+[2026-09-17 12:57:07] [language_ptb] ====================================================================================================
+[2026-09-17 12:57:07] [language_ptb]   wrote /kaggle/working/checkpoints/language_ptb/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-17 12:57:07] [language_ptb] ====================================================================================================
+[2026-09-17 12:57:07] [language_ptb]   DONE 2026-09-17T12:57:07.931882

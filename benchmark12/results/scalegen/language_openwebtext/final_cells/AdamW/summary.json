@@ -1,0 +1,50 @@
+{
+  "task_name": "language_openwebtext",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "scalegen",
+  "opt_names": [
+    "AdamW"
+  ],
+  "task_number_by_optimizer": {
+    "AdamW": 83.74374225813605
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "AdamW": 83.74374225813605
+  },
+  "per_seed_value_by_optimizer": {
+    "AdamW": {
+      "42": 83.1964713476494,
+      "43": 86.17875504652633,
+      "44": 83.74374225813605
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.001,
+    "AdamW": 0.001
+  },
+  "knob_used": {
+    "EvieKF": 27000.0,
+    "AdamW": null
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": null,
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

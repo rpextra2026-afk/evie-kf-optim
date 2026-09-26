@@ -1,0 +1,96 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Positive = EvieKF better. 'task-level' compares the Table 1 numbers. 'paired median' pairs EvieKF with the baseline unit by unit (complete-case tickers) for multi-unit tasks, or seed by seed otherwise, and takes the median relative difference; 'EvieKF wins' counts those pairs. Descriptive: no p-values, because with many paired units a negligible gap is still 'significant'. Covers 12 of 12 tasks: vision\_cifar10, vision\_cifar100, vision\_stl10, vision\_svhn, language\_enwik8, language\_ptb, language\_wikitext103, language\_wikitext2, finance\_consumer\_industrials, finance\_finance, finance\_healthcare, finance\_tech.}
+\label{tab:table4_evie_vs_baselines}
+\begin{tabular}{lrrrr}
+\toprule
+Task & Baseline & task-level Δ & paired median Δ & EvieKF wins \\
+\midrule
+vis/cifar10 & AdamW & +0.48\% & +0.160\% & 3/5 seeds \\
+vis/cifar10 & AdaBelief & +1.16\% & +0.644\% & 5/5 seeds \\
+vis/cifar10 & SGD & +0.28\% & +0.281\% & 3/5 seeds \\
+vis/cifar10 & Sophia & +0.52\% & +0.170\% & 3/5 seeds \\
+vis/cifar10 & Muon & -4.57\% & -4.477\% & 0/5 seeds \\
+vis/cifar10 & Lion & +0.81\% & +0.881\% & 4/5 seeds \\
+vis/cifar10 & Shampoo & +0.05\% & +0.623\% & 3/5 seeds \\
+vis/cifar100 & AdamW & +5.59\% & +5.297\% & 5/5 seeds \\
+vis/cifar100 & AdaBelief & +5.72\% & +5.844\% & 5/5 seeds \\
+vis/cifar100 & SGD & -3.67\% & -3.667\% & 0/5 seeds \\
+vis/cifar100 & Sophia & +10.32\% & +9.043\% & 5/5 seeds \\
+vis/cifar100 & Muon & -3.61\% & -3.981\% & 0/5 seeds \\
+vis/cifar100 & Lion & +5.42\% & +5.545\% & 5/5 seeds \\
+vis/cifar100 & Shampoo & +2.91\% & +2.223\% & 5/5 seeds \\
+vis/stl10 & AdamW & -5.26\% & -5.380\% & 1/5 seeds \\
+vis/stl10 & AdaBelief & -4.43\% & -6.473\% & 1/5 seeds \\
+vis/stl10 & SGD & +1.75\% & +4.486\% & 4/5 seeds \\
+vis/stl10 & Sophia & +2.34\% & +3.570\% & 3/5 seeds \\
+vis/stl10 & Muon & -0.54\% & +2.508\% & 3/5 seeds \\
+vis/stl10 & Lion & -2.75\% & -2.081\% & 1/5 seeds \\
+vis/stl10 & Shampoo & -5.20\% & -5.046\% & 1/5 seeds \\
+vis/svhn & AdamW & -0.03\% & -0.117\% & 2/5 seeds \\
+vis/svhn & AdaBelief & -0.13\% & -0.105\% & 1/5 seeds \\
+vis/svhn & SGD & -0.11\% & -0.012\% & 2/5 seeds \\
+vis/svhn & Sophia & -0.27\% & -0.392\% & 1/5 seeds \\
+vis/svhn & Muon & -0.93\% & -0.933\% & 0/5 seeds \\
+vis/svhn & Lion & +0.09\% & +0.098\% & 3/5 seeds \\
+vis/svhn & Shampoo & -0.21\% & -0.174\% & 0/5 seeds \\
+lang/enwik8 & AdamW & +4.33\% & +4.330\% & 5/5 seeds \\
+lang/enwik8 & AdaBelief & +3.49\% & +3.693\% & 5/5 seeds \\
+lang/enwik8 & SGD & +15.62\% & +15.638\% & 5/5 seeds \\
+lang/enwik8 & Sophia & +9.07\% & +9.072\% & 5/5 seeds \\
+lang/enwik8 & Muon & -2.36\% & -2.360\% & 0/5 seeds \\
+lang/enwik8 & Lion & +2.23\% & +2.204\% & 5/5 seeds \\
+lang/enwik8 & Shampoo & -2.27\% & -2.104\% & 0/5 seeds \\
+lang/ptb & AdamW & -7.15\% & -7.152\% & 1/5 seeds \\
+lang/ptb & AdaBelief & -6.90\% & -7.731\% & 1/5 seeds \\
+lang/ptb & SGD & -6.55\% & -8.749\% & 1/5 seeds \\
+lang/ptb & Sophia & +4.62\% & +4.789\% & 4/5 seeds \\
+lang/ptb & Muon & -2.76\% & -3.061\% & 2/5 seeds \\
+lang/ptb & Lion & +4.84\% & +4.836\% & 4/5 seeds \\
+lang/ptb & Shampoo & -11.12\% & -9.935\% & 0/5 seeds \\
+lang/wikitext103 & AdamW & +11.47\% & +11.350\% & 5/5 seeds \\
+lang/wikitext103 & AdaBelief & +13.99\% & +13.994\% & 5/5 seeds \\
+lang/wikitext103 & SGD & +40.74\% & +40.244\% & 5/5 seeds \\
+lang/wikitext103 & Sophia & +10.39\% & +10.664\% & 5/5 seeds \\
+lang/wikitext103 & Muon & -5.72\% & -5.722\% & 0/5 seeds \\
+lang/wikitext103 & Lion & +25.16\% & +24.816\% & 5/5 seeds \\
+lang/wikitext103 & Shampoo & +2.32\% & +2.404\% & 5/5 seeds \\
+lang/wikitext2 & AdamW & +4.96\% & +3.891\% & 5/5 seeds \\
+lang/wikitext2 & AdaBelief & -3.40\% & -3.819\% & 0/5 seeds \\
+lang/wikitext2 & SGD & +3.22\% & +3.636\% & 5/5 seeds \\
+lang/wikitext2 & Sophia & +18.82\% & +18.445\% & 5/5 seeds \\
+lang/wikitext2 & Muon & -20.13\% & -19.144\% & 0/5 seeds \\
+lang/wikitext2 & Lion & +5.80\% & +5.847\% & 5/5 seeds \\
+lang/wikitext2 & Shampoo & +18.93\% & +20.088\% & 5/5 seeds \\
+fin/consumer\_industrials & AdamW & +2.39\% & +0.124\% & 23/45 units \\
+fin/consumer\_industrials & AdaBelief & +6.43\% & +0.349\% & 24/45 units \\
+fin/consumer\_industrials & SGD & -6.47\% & -1.052\% & 8/45 units \\
+fin/consumer\_industrials & Sophia & +4.54\% & +0.343\% & 26/45 units \\
+fin/consumer\_industrials & Muon & -2.94\% & -0.489\% & 17/45 units \\
+fin/consumer\_industrials & Lion & +6.96\% & +1.007\% & 29/45 units \\
+fin/consumer\_industrials & Shampoo & +4.31\% & +0.179\% & 24/45 units \\
+fin/finance & AdamW & -0.11\% & -0.171\% & 9/23 units \\
+fin/finance & AdaBelief & -0.38\% & +1.615\% & 17/23 units \\
+fin/finance & SGD & -1.76\% & -2.094\% & 6/23 units \\
+fin/finance & Sophia & +13.99\% & +7.255\% & 22/23 units \\
+fin/finance & Muon & +39.13\% & +37.304\% & 22/23 units \\
+fin/finance & Lion & -1.79\% & -2.536\% & 5/23 units \\
+fin/finance & Shampoo & +32.96\% & +13.831\% & 23/23 units \\
+fin/healthcare & AdamW & +5.87\% & +0.344\% & 21/33 units \\
+fin/healthcare & AdaBelief & +6.84\% & +0.428\% & 22/33 units \\
+fin/healthcare & SGD & -0.25\% & -0.106\% & 14/33 units \\
+fin/healthcare & Sophia & +8.53\% & -0.119\% & 14/33 units \\
+fin/healthcare & Muon & +10.55\% & +2.218\% & 26/33 units \\
+fin/healthcare & Lion & +6.81\% & -0.046\% & 15/33 units \\
+fin/healthcare & Shampoo & +6.37\% & +0.051\% & 18/33 units \\
+fin/tech & AdamW & +4.25\% & +2.893\% & 31/37 units \\
+fin/tech & AdaBelief & +5.14\% & +2.616\% & 31/37 units \\
+fin/tech & SGD & +0.10\% & -0.012\% & 18/37 units \\
+fin/tech & Sophia & +8.99\% & +3.468\% & 36/37 units \\
+fin/tech & Muon & -0.05\% & -0.021\% & 10/37 units \\
+fin/tech & Lion & +0.01\% & -0.041\% & 14/37 units \\
+fin/tech & Shampoo & +1.60\% & +0.018\% & 22/37 units \\
+\bottomrule
+\end{tabular}
+\end{table}

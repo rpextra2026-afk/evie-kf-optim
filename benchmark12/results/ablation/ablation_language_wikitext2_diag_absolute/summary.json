@@ -1,0 +1,62 @@
+{
+  "task_name": "ablation_language_wikitext2_diag_absolute",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieDiagAbs"
+  ],
+  "task_number_by_optimizer": {
+    "EvieDiagAbs": 106.76615112270301
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieDiagAbs": 106.76615112270301
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieDiagAbs": {
+      "42": 105.58292249933646,
+      "43": 106.6826793811853,
+      "44": 112.46350597674098,
+      "45": 105.9546802378946,
+      "46": 106.28770174931614,
+      "47": 104.26583486174856,
+      "48": 107.48300634938356,
+      "49": 106.84962286422072,
+      "50": 107.23577083357118,
+      "51": 107.16630495063973
+    }
+  },
+  "lr_used": {
+    "EvieDiagAbs": 0.001
+  },
+  "knob_used": {
+    "EvieDiagAbs": 1000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)",
+  "pinned_lr": null,
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

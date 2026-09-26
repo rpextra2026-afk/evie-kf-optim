@@ -1,0 +1,290 @@
+{
+  "task_name": "vision_cifar10_batchsize",
+  "sweep_type": "batchsize",
+  "base_task_name": "vision_cifar10",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "reference": "EvieKF",
+  "grid_labels": [
+    "batch4",
+    "batch8",
+    "batch16",
+    "batch32",
+    "batch128"
+  ],
+  "grid_x": {
+    "batch4": 4.0,
+    "batch8": 8.0,
+    "batch16": 16.0,
+    "batch32": 32.0,
+    "batch128": 128.0
+  },
+  "grid_is_baseline": {
+    "batch4": false,
+    "batch8": false,
+    "batch16": false,
+    "batch32": false,
+    "batch128": true
+  },
+  "arms": [
+    "AdamW",
+    "AdaBelief",
+    "Sophia",
+    "Muon",
+    "EvieKF",
+    "EvieKFu"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "eviekf_sweep_gamma": 3000.0,
+  "c1_row": "EvieKFu",
+  "table": {
+    "batch4": {
+      "AdamW": 51.79,
+      "AdaBelief": 50.7,
+      "Sophia": 50.43,
+      "Muon": 65.94,
+      "EvieKF": 52.45,
+      "EvieKFu": 51.31
+    },
+    "batch8": {
+      "AdamW": 67.98,
+      "AdaBelief": 67.61,
+      "Sophia": 69.76,
+      "Muon": 78.91,
+      "EvieKF": 70.64,
+      "EvieKFu": 71.05
+    },
+    "batch16": {
+      "AdamW": 75.73,
+      "AdaBelief": 76.18,
+      "Sophia": 78.73,
+      "Muon": 83.76,
+      "EvieKF": 77.65,
+      "EvieKFu": 78.25
+    },
+    "batch32": {
+      "AdamW": 79.89,
+      "AdaBelief": 79.19,
+      "Sophia": 80.68,
+      "Muon": 85.09,
+      "EvieKF": 79.36,
+      "EvieKFu": 79.89
+    },
+    "batch128": {
+      "AdamW": NaN,
+      "AdaBelief": NaN,
+      "Sophia": NaN,
+      "Muon": NaN,
+      "EvieKF": NaN,
+      "EvieKFu": NaN
+    }
+  },
+  "per_seed": {
+    "batch4": {
+      "AdamW": [
+        51.79,
+        50.7,
+        52.07
+      ],
+      "AdaBelief": [
+        51.15,
+        50.68,
+        50.7
+      ],
+      "Sophia": [
+        50.43,
+        50.15,
+        53.98
+      ],
+      "Muon": [
+        66.15,
+        65.12,
+        65.94
+      ],
+      "EvieKF": [
+        52.45,
+        51.73,
+        52.96
+      ],
+      "EvieKFu": [
+        51.31,
+        50.13,
+        52.98
+      ]
+    },
+    "batch8": {
+      "AdamW": [
+        67.98,
+        68.1,
+        67.64
+      ],
+      "AdaBelief": [
+        67.75,
+        67.61,
+        67.13
+      ],
+      "Sophia": [
+        69.76,
+        70.01,
+        69.21
+      ],
+      "Muon": [
+        79.6,
+        78.91,
+        78.35
+      ],
+      "EvieKF": [
+        70.19,
+        71.33,
+        70.64
+      ],
+      "EvieKFu": [
+        71.01,
+        71.05,
+        71.36
+      ]
+    },
+    "batch16": {
+      "AdamW": [
+        76.06,
+        75.01,
+        75.73
+      ],
+      "AdaBelief": [
+        76.38,
+        74.88,
+        76.18
+      ],
+      "Sophia": [
+        78.73,
+        77.86,
+        78.97
+      ],
+      "Muon": [
+        83.47,
+        83.76,
+        84.31
+      ],
+      "EvieKF": [
+        77.65,
+        77.01,
+        78.79
+      ],
+      "EvieKFu": [
+        78.25,
+        77.38,
+        78.53
+      ]
+    },
+    "batch32": {
+      "AdamW": [
+        80.05,
+        78.49,
+        79.89
+      ],
+      "AdaBelief": [
+        79.8,
+        78.33,
+        79.19
+      ],
+      "Sophia": [
+        80.54,
+        80.68,
+        80.85
+      ],
+      "Muon": [
+        85.15,
+        85.05,
+        85.09
+      ],
+      "EvieKF": [
+        79.36,
+        78.9,
+        79.65
+      ],
+      "EvieKFu": [
+        79.34,
+        79.97,
+        79.89
+      ]
+    },
+    "batch128": {
+      "AdamW": [],
+      "AdaBelief": [],
+      "Sophia": [],
+      "Muon": [],
+      "EvieKF": [],
+      "EvieKFu": []
+    }
+  },
+  "deltas": {
+    "AdamW": {
+      "batch4": -0.012583412774070614,
+      "batch8": -0.0376557191392978,
+      "batch16": -0.0247263361236317,
+      "batch32": 0.006678427419354853,
+      "batch128": NaN
+    },
+    "AdaBelief": {
+      "batch4": -0.03336510962821735,
+      "batch8": -0.04289354473386185,
+      "batch16": -0.01893110109465549,
+      "batch32": -0.002142137096774215,
+      "batch128": NaN
+    },
+    "Sophia": {
+      "batch4": -0.038512869399428086,
+      "batch8": -0.012457531143827794,
+      "batch16": 0.013908564069542797,
+      "batch32": 0.016633064516129125,
+      "batch128": NaN
+    },
+    "Muon": {
+      "batch4": 0.25719733079122964,
+      "batch8": 0.1170724801812004,
+      "batch16": 0.07868641339343205,
+      "batch32": 0.07220262096774199,
+      "batch128": NaN
+    },
+    "EvieKFu": {
+      "batch4": -0.02173498570066731,
+      "batch8": 0.0058040770101924774,
+      "batch16": 0.007726980038634827,
+      "batch32": 0.006678427419354853,
+      "batch128": NaN
+    }
+  },
+  "spearman_batch_vs_delta": {
+    "AdamW": {
+      "rho": 0.39999999999999997,
+      "p": 0.6,
+      "n": 4
+    },
+    "AdaBelief": {
+      "rho": 0.7999999999999999,
+      "p": 0.20000000000000007,
+      "n": 4
+    },
+    "Sophia": {
+      "rho": 1.0,
+      "p": 0.0,
+      "n": 4
+    },
+    "Muon": {
+      "rho": -1.0,
+      "p": 0.0,
+      "n": 4
+    },
+    "EvieKFu": {
+      "rho": 0.7999999999999999,
+      "p": 0.20000000000000007,
+      "n": 4
+    }
+  },
+  "nonstandard_ppl_caveat": null,
+  "note": "fixed step budget per grid point; absolute values not comparable across grid points, only within-grid-point arm deltas (CLAUDE.md sec 9.2/9.3)"
+}

@@ -1,0 +1,93 @@
+{
+  "task_name": "ablation_language_wikitext2",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "ablation",
+  "opt_names": [
+    "EvieKF",
+    "EvieKFu",
+    "EvieDiag"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 99.64967379130326,
+    "EvieKFu": 99.91964320492644,
+    "EvieDiag": 105.72788291148935
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 99.64967379130326,
+    "EvieKFu": 99.91964320492644,
+    "EvieDiag": 105.72788291148935
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 99.66651587713046,
+      "43": 98.33014102081073,
+      "44": 102.5627687890703,
+      "45": 100.45674286767259,
+      "46": 101.58756880933568,
+      "47": 99.63283170547606,
+      "48": 99.42036995995724,
+      "49": 98.65776300554984,
+      "50": 99.0791843320803,
+      "51": 101.68717307296227
+    },
+    "EvieKFu": {
+      "42": 99.94829356593642,
+      "43": 98.78584805649147,
+      "44": 98.95205571461703,
+      "45": 98.74251238168152,
+      "46": 101.401330760757,
+      "47": 100.87291819869033,
+      "48": 100.05110865489999,
+      "49": 99.89099284391645,
+      "50": 99.00065656464704,
+      "51": 100.01434756780033
+    },
+    "EvieDiag": {
+      "42": 105.41489134011536,
+      "43": 103.82623596535701,
+      "44": 107.2926964513536,
+      "45": 104.22116046137975,
+      "46": 106.39459253080821,
+      "47": 106.7411441426033,
+      "48": 104.49251382786292,
+      "49": 104.25041946465507,
+      "50": 106.95150018058573,
+      "51": 106.04087448286333
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.001,
+    "EvieKFu": 0.001,
+    "EvieDiag": 0.001
+  },
+  "knob_used": {
+    "EvieKF": 300.0,
+    "EvieKFu": 30.0,
+    "EvieDiag": 3.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)"
+}

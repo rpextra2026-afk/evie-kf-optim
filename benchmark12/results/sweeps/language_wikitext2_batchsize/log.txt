@@ -1,0 +1,402 @@
+[2026-09-16 14:18:37] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-16 14:18:37] [language_wikitext2_batchsize]   language_wikitext2_batchsize  |  batchsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-16 14:18:37] [language_wikitext2_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-16 14:18:37] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 14:18:37] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-16 14:18:37] [language_wikitext2_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 14:18:38] [language_wikitext2_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 14:18:48] [language_wikitext2_batchsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-16 14:18:48] [language_wikitext2_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch2', 'batch4', 'batch8', 'batch16', 'batch32']
+[2026-09-16 14:18:48] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 14:18:48] [language_wikitext2_batchsize] [batch2] LR search  (batchsize = 2)
+[2026-09-16 14:19:55] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=3.162e-05  score=461.793
+[2026-09-16 14:20:56] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=1.000e-04  score=304.145
+[2026-09-16 14:21:57] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=3.162e-04  score=248.247
+[2026-09-16 14:22:58] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=1.000e-03  score=240.93
+[2026-09-16 14:23:58] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=3.162e-03  score=322.118
+[2026-09-16 14:24:58] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=1.000e-02  score=460.39
+[2026-09-16 14:25:58] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW  lr=3.162e-02  score=624.693
+[2026-09-16 14:25:58] [language_wikitext2_batchsize] [batch2] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 14:27:19] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=3.162e-05  score=413.711
+[2026-09-16 14:28:40] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=1.000e-04  score=288.265
+[2026-09-16 14:30:00] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=3.162e-04  score=237.869
+[2026-09-16 14:31:21] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=1.000e-03  score=271.226
+[2026-09-16 14:32:42] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=3.162e-03  score=334.018
+[2026-09-16 14:34:02] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=1.000e-02  score=458.529
+[2026-09-16 14:35:22] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief  lr=3.162e-02  score=653.379
+[2026-09-16 14:35:22] [language_wikitext2_batchsize] [batch2] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 14:38:16] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=3.162e-05  score=440.541
+[2026-09-16 14:41:11] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=1.000e-04  score=261.589
+[2026-09-16 14:44:07] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=3.162e-04  score=204.175
+[2026-09-16 14:47:04] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=1.000e-03  score=236.214
+[2026-09-16 14:50:00] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=3.162e-03  score=307.765
+[2026-09-16 14:52:53] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=1.000e-02  score=409
+[2026-09-16 14:55:47] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia  lr=3.162e-02  score=570.579
+[2026-09-16 14:55:47] [language_wikitext2_batchsize] [batch2] [lr-search] Sophia: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 14:57:48] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=6.325e-04  score=152.864
+[2026-09-16 14:59:50] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=2.000e-03  score=148.559
+[2026-09-16 15:01:52] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=6.325e-03  score=220.603
+[2026-09-16 15:03:53] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=2.000e-02  score=376.527
+[2026-09-16 15:05:56] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=6.325e-02  score=471.908
+[2026-09-16 15:07:57] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=2.000e-01  score=495.858
+[2026-09-16 15:09:58] [language_wikitext2_batchsize] [batch2] [lr-search] Muon  lr=6.325e-01  score=500.465
+[2026-09-16 15:09:58] [language_wikitext2_batchsize] [batch2] [lr-search] Muon: FROZEN lr=2.000e-03  (boundary checks: 0)
+[2026-09-16 15:17:30] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=3.162e-05  score=821.829
+[2026-09-16 15:25:22] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=1.000e-04  score=334.021
+[2026-09-16 15:33:23] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=3.162e-04  score=224.279
+[2026-09-16 15:41:19] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=1.000e-03  score=205.458
+[2026-09-16 15:49:14] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=3.162e-03  score=257.398
+[2026-09-16 15:57:05] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=1.000e-02  score=393.114
+[2026-09-16 16:04:50] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF  lr=3.162e-02  score=592.701
+[2026-09-16 16:04:50] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 16:12:36] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=3.162e-05  score=1069.61
+[2026-09-16 16:20:18] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=1.000e-04  score=354.058
+[2026-09-16 16:28:01] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=3.162e-04  score=219.033
+[2026-09-16 16:35:44] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=1.000e-03  score=191.392
+[2026-09-16 16:43:22] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=3.162e-03  score=255.913
+[2026-09-16 16:50:53] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=1.000e-02  score=381.716
+[2026-09-16 16:58:17] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu  lr=3.162e-02  score=598.612
+[2026-09-16 16:58:17] [language_wikitext2_batchsize] [batch2] [lr-search] EvieKFu: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 16:58:17] [language_wikitext2_batchsize] [batch2] sweep cells
+[2026-09-16 17:02:21] [language_wikitext2_batchsize] [batch2] batch2|AdamW|full|42  primary=138.6277216984481  diverged=False
+[2026-09-16 17:06:23] [language_wikitext2_batchsize] [batch2] batch2|AdamW|full|43  primary=141.0014929367468  diverged=False
+[2026-09-16 17:10:27] [language_wikitext2_batchsize] [batch2] batch2|AdamW|full|44  primary=130.0986384296374  diverged=False
+[2026-09-16 17:15:43] [language_wikitext2_batchsize] [batch2] batch2|AdaBelief|full|42  primary=127.87815490570313  diverged=False
+[2026-09-16 17:21:02] [language_wikitext2_batchsize] [batch2] batch2|AdaBelief|full|43  primary=125.8187524093902  diverged=False
+[2026-09-16 17:26:24] [language_wikitext2_batchsize] [batch2] batch2|AdaBelief|full|44  primary=122.2561052946652  diverged=False
+[2026-09-16 17:38:35] [language_wikitext2_batchsize] [batch2] batch2|Sophia|full|42  primary=121.34970398352358  diverged=False
+[2026-09-16 17:50:47] [language_wikitext2_batchsize] [batch2] batch2|Sophia|full|43  primary=122.02530687983979  diverged=False
+[2026-09-16 18:03:00] [language_wikitext2_batchsize] [batch2] batch2|Sophia|full|44  primary=120.55291607631584  diverged=False
+[2026-09-16 18:11:05] [language_wikitext2_batchsize] [batch2] batch2|Muon|full|42  primary=80.95409892504941  diverged=False
+[2026-09-16 18:19:02] [language_wikitext2_batchsize] [batch2] batch2|Muon|full|43  primary=80.83324898565101  diverged=False
+[2026-09-16 18:27:16] [language_wikitext2_batchsize] [batch2] batch2|Muon|full|44  primary=80.95241521029703  diverged=False
+[2026-09-16 18:57:51] [language_wikitext2_batchsize] [batch2] batch2|EvieKF|full|42  primary=96.6263393865467  diverged=False
+[2026-09-16 19:28:46] [language_wikitext2_batchsize] [batch2] batch2|EvieKF|full|43  primary=97.34661664312907  diverged=False
+[2026-09-16 19:59:19] [language_wikitext2_batchsize] [batch2] batch2|EvieKF|full|44  primary=99.81139321067484  diverged=False
+[2026-09-16 20:29:44] [language_wikitext2_batchsize] [batch2] batch2|EvieKFu|full|42  primary=94.43465623649107  diverged=False
+[2026-09-16 20:59:52] [language_wikitext2_batchsize] [batch2] batch2|EvieKFu|full|43  primary=93.69762290722744  diverged=False
+[2026-09-16 21:29:21] [language_wikitext2_batchsize] [batch2] batch2|EvieKFu|full|44  primary=94.88881460618461  diverged=False
+[2026-09-16 21:29:21] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 21:29:21] [language_wikitext2_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-16 21:30:50] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-05  score=418.767
+[2026-09-16 21:32:19] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-04  score=261.126
+[2026-09-16 21:33:48] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-04  score=187.753
+[2026-09-16 21:35:17] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-03  score=198.311
+[2026-09-16 21:36:45] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-03  score=268.252
+[2026-09-16 21:38:14] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-02  score=424.564
+[2026-09-16 21:39:41] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-02  score=620.089
+[2026-09-16 21:39:41] [language_wikitext2_batchsize] [batch4] [lr-search] AdamW: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 21:41:25] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-05  score=367.062
+[2026-09-16 21:43:09] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-04  score=242.261
+[2026-09-16 21:44:53] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-04  score=181.641
+[2026-09-16 21:46:36] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-03  score=199.579
+[2026-09-16 21:48:20] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-03  score=269.036
+[2026-09-16 21:50:03] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-02  score=437.352
+[2026-09-16 21:51:45] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-02  score=622.58
+[2026-09-16 21:51:45] [language_wikitext2_batchsize] [batch4] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 21:56:05] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-05  score=420.586
+[2026-09-16 22:00:26] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-04  score=237.426
+[2026-09-16 22:04:46] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-04  score=171.723
+[2026-09-16 22:09:06] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-03  score=200.534
+[2026-09-16 22:13:26] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-03  score=336.657
+[2026-09-16 22:17:45] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-02  score=364.249
+[2026-09-16 22:22:02] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-02  score=579.042
+[2026-09-16 22:22:02] [language_wikitext2_batchsize] [batch4] [lr-search] Sophia: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 22:24:22] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=6.325e-04  score=147.904
+[2026-09-16 22:26:43] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=2.000e-03  score=137.726
+[2026-09-16 22:29:03] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=6.325e-03  score=203.938
+[2026-09-16 22:31:23] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=2.000e-02  score=367.079
+[2026-09-16 22:33:42] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=6.325e-02  score=485.996
+[2026-09-16 22:36:02] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=2.000e-01  score=513.78
+[2026-09-16 22:38:21] [language_wikitext2_batchsize] [batch4] [lr-search] Muon  lr=6.325e-01  score=503.234
+[2026-09-16 22:38:21] [language_wikitext2_batchsize] [batch4] [lr-search] Muon: FROZEN lr=2.000e-03  (boundary checks: 0)
+[2026-09-16 22:45:49] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-05  score=674.3
+[2026-09-16 22:53:21] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-04  score=272.052
+[2026-09-16 23:00:55] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-04  score=173.577
+[2026-09-16 23:08:25] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-03  score=143.543
+[2026-09-16 23:16:02] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-03  score=198.045
+[2026-09-16 23:23:40] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-02  score=313.044
+[2026-09-16 23:31:08] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-02  score=547.814
+[2026-09-16 23:31:08] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 23:38:35] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-05  score=956.199
+[2026-09-16 23:46:12] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-04  score=293.451
+[2026-09-16 23:53:53] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-04  score=172.167
+[2026-09-17 00:01:21] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-03  score=139.87
+[2026-09-17 00:03:32] [language_wikitext2_batchsize] [signal] EvieKFu/full/seed42/LR: checkpointed at step 741; exiting cleanly
+[2026-09-17 07:03:21] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-17 07:03:21] [language_wikitext2_batchsize]   language_wikitext2_batchsize  |  batchsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-17 07:03:21] [language_wikitext2_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 07:03:21] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 07:03:21] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-17 07:03:21] [language_wikitext2_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 07:03:21] [language_wikitext2_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-17 07:03:31] [language_wikitext2_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch2', 'batch4', 'batch8', 'batch16', 'batch32']
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] [batch2] LR search  (batchsize = 2)
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] [batch2] sweep cells
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:03:31] [language_wikitext2_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-17 07:10:45] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-05  score=956.199
+[2026-09-17 07:17:54] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-04  score=293.451
+[2026-09-17 07:25:03] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-04  score=172.167
+[2026-09-17 07:32:11] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-03  score=139.87
+[2026-09-17 07:39:18] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-03  score=199.738
+[2026-09-17 07:46:24] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-02  score=309.15
+[2026-09-17 07:53:22] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-02  score=537.306
+[2026-09-17 07:53:22] [language_wikitext2_batchsize] [batch4] [lr-search] EvieKFu: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-17 07:53:22] [language_wikitext2_batchsize] [batch4] sweep cells
+[2026-09-17 07:59:18] [language_wikitext2_batchsize] [batch4] batch4|AdamW|full|42  primary=91.3619610184337  diverged=False
+[2026-09-17 08:05:14] [language_wikitext2_batchsize] [batch4] batch4|AdamW|full|43  primary=91.14930200490632  diverged=False
+[2026-09-17 08:11:10] [language_wikitext2_batchsize] [batch4] batch4|AdamW|full|44  primary=91.74525674715206  diverged=False
+[2026-09-17 08:17:49] [language_wikitext2_batchsize] [batch4] batch4|AdaBelief|full|42  primary=95.62670277695018  diverged=False
+[2026-09-17 08:24:28] [language_wikitext2_batchsize] [batch4] batch4|AdaBelief|full|43  primary=90.52838139254543  diverged=False
+[2026-09-17 08:31:07] [language_wikitext2_batchsize] [batch4] batch4|AdaBelief|full|44  primary=91.12774819658034  diverged=False
+[2026-09-17 08:48:11] [language_wikitext2_batchsize] [batch4] batch4|Sophia|full|42  primary=98.68220078259641  diverged=False
+[2026-09-17 09:05:17] [language_wikitext2_batchsize] [batch4] batch4|Sophia|full|43  primary=98.57462242088141  diverged=False
+[2026-09-17 09:22:23] [language_wikitext2_batchsize] [batch4] batch4|Sophia|full|44  primary=98.42656898952822  diverged=False
+[2026-09-17 09:31:18] [language_wikitext2_batchsize] [batch4] batch4|Muon|full|42  primary=80.93006603485989  diverged=False
+[2026-09-17 09:40:14] [language_wikitext2_batchsize] [batch4] batch4|Muon|full|43  primary=81.65870534807873  diverged=False
+[2026-09-17 09:49:11] [language_wikitext2_batchsize] [batch4] batch4|Muon|full|44  primary=80.70131301709152  diverged=False
+[2026-09-17 10:17:53] [language_wikitext2_batchsize] [batch4] batch4|EvieKF|full|42  primary=85.7542448358739  diverged=False
+[2026-09-17 10:46:42] [language_wikitext2_batchsize] [batch4] batch4|EvieKF|full|43  primary=84.55623960015913  diverged=False
+[2026-09-17 11:15:25] [language_wikitext2_batchsize] [batch4] batch4|EvieKF|full|44  primary=86.41792738323475  diverged=False
+[2026-09-17 11:44:04] [language_wikitext2_batchsize] [batch4] batch4|EvieKFu|full|42  primary=85.25061016906103  diverged=False
+[2026-09-17 12:12:42] [language_wikitext2_batchsize] [batch4] batch4|EvieKFu|full|43  primary=84.16854442127118  diverged=False
+[2026-09-17 12:41:21] [language_wikitext2_batchsize] [batch4] batch4|EvieKFu|full|44  primary=89.0322824945173  diverged=False
+[2026-09-17 12:41:21] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 12:41:21] [language_wikitext2_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-17 12:43:50] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-05  score=377.411
+[2026-09-17 12:46:20] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-04  score=227.505
+[2026-09-17 12:48:50] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-04  score=146.148
+[2026-09-17 12:51:20] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-03  score=143.839
+[2026-09-17 12:53:49] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-03  score=228.867
+[2026-09-17 12:56:18] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-02  score=370.232
+[2026-09-17 12:58:46] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-02  score=610.524
+[2026-09-17 12:58:46] [language_wikitext2_batchsize] [batch8] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-17 13:01:27] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-05  score=324.088
+[2026-09-17 13:04:09] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-04  score=207.377
+[2026-09-17 13:06:51] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-04  score=141.609
+[2026-09-17 13:09:34] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-03  score=146.952
+[2026-09-17 13:12:16] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-03  score=245.485
+[2026-09-17 13:14:56] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-02  score=398.629
+[2026-09-17 13:17:34] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-02  score=603.44
+[2026-09-17 13:17:34] [language_wikitext2_batchsize] [batch8] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-17 13:25:08] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-05  score=403.794
+[2026-09-17 13:32:43] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-04  score=225.748
+[2026-09-17 13:40:18] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-04  score=149.265
+[2026-09-17 13:47:54] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-03  score=194.009
+[2026-09-17 13:55:27] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-03  score=421.066
+[2026-09-17 14:03:01] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-02  score=313.41
+[2026-09-17 14:10:29] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-02  score=511.634
+[2026-09-17 14:10:29] [language_wikitext2_batchsize] [batch8] [lr-search] Sophia: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-17 14:13:41] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=6.325e-04  score=96.6333
+[2026-09-17 14:16:54] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=2.000e-03  score=86.1121
+[2026-09-17 14:20:07] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=6.325e-03  score=100.251
+[2026-09-17 14:23:18] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=2.000e-02  score=311.619
+[2026-09-17 14:26:28] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=6.325e-02  score=434.213
+[2026-09-17 14:29:37] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=2.000e-01  score=473.39
+[2026-09-17 14:32:46] [language_wikitext2_batchsize] [batch8] [lr-search] Muon  lr=6.325e-01  score=495.795
+[2026-09-17 14:32:46] [language_wikitext2_batchsize] [batch8] [lr-search] Muon: FROZEN lr=2.000e-03  (boundary checks: 0)
+[2026-09-17 14:40:45] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-05  score=514.625
+[2026-09-17 14:48:45] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-04  score=223.348
+[2026-09-17 14:56:46] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-04  score=137.126
+[2026-09-17 15:04:50] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-03  score=115.218
+[2026-09-17 15:12:51] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-03  score=169.662
+[2026-09-17 15:20:48] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-02  score=295.827
+[2026-09-17 15:28:38] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-02  score=467.081
+[2026-09-17 15:28:38] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-17 15:36:37] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-05  score=815.11
+[2026-09-17 15:44:37] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-04  score=242.144
+[2026-09-17 15:52:37] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-04  score=136.648
+[2026-09-17 16:00:37] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-03  score=109.779
+[2026-09-17 16:08:38] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-03  score=160.657
+[2026-09-17 16:16:36] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-02  score=283.289
+[2026-09-17 16:24:24] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-02  score=479.608
+[2026-09-17 16:24:24] [language_wikitext2_batchsize] [batch8] [lr-search] EvieKFu: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-17 16:24:24] [language_wikitext2_batchsize] [batch8] sweep cells
+[2026-09-17 16:34:31] [language_wikitext2_batchsize] [batch8] batch8|AdamW|full|42  primary=104.67432842674283  diverged=False
+[2026-09-17 16:44:38] [language_wikitext2_batchsize] [batch8] batch8|AdamW|full|43  primary=103.39398201953827  diverged=False
+[2026-09-17 16:48:18] [language_wikitext2_batchsize] [signal] AdamW/full/seed44: checkpointed at step 3657; exiting cleanly
+[2026-09-17 19:25:06] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-17 19:25:06] [language_wikitext2_batchsize]   language_wikitext2_batchsize  |  batchsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-17 19:25:06] [language_wikitext2_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 19:25:06] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 19:25:06] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-17 19:25:07] [language_wikitext2_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 19:25:07] [language_wikitext2_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-17 19:25:16] [language_wikitext2_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch2', 'batch4', 'batch8', 'batch16', 'batch32']
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch2] LR search  (batchsize = 2)
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch2] sweep cells
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch4] sweep cells
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-17 19:25:16] [language_wikitext2_batchsize] [batch8] sweep cells
+[2026-09-17 19:25:22] [language_wikitext2_batchsize] [resume] AdamW/full/seed44 from step 3657/10000
+[2026-09-17 19:31:43] [language_wikitext2_batchsize] [batch8] batch8|AdamW|full|44  primary=101.42028895013834  diverged=False
+[2026-09-17 19:42:31] [language_wikitext2_batchsize] [batch8] batch8|AdaBelief|full|42  primary=88.94628703157326  diverged=False
+[2026-09-17 19:53:19] [language_wikitext2_batchsize] [batch8] batch8|AdaBelief|full|43  primary=89.04126045988606  diverged=False
+[2026-09-17 20:04:06] [language_wikitext2_batchsize] [batch8] batch8|AdaBelief|full|44  primary=88.46518159003975  diverged=False
+[2026-09-17 20:34:20] [language_wikitext2_batchsize] [batch8] batch8|Sophia|full|42  primary=105.64924678979537  diverged=False
+[2026-09-17 21:04:33] [language_wikitext2_batchsize] [batch8] batch8|Sophia|full|43  primary=105.37314681603134  diverged=False
+[2026-09-17 21:34:47] [language_wikitext2_batchsize] [batch8] batch8|Sophia|full|44  primary=105.83691592696  diverged=False
+[2026-09-17 21:47:37] [language_wikitext2_batchsize] [batch8] batch8|Muon|full|42  primary=87.23381852683296  diverged=False
+[2026-09-17 22:00:27] [language_wikitext2_batchsize] [batch8] batch8|Muon|full|43  primary=87.16198097516526  diverged=False
+[2026-09-17 22:13:16] [language_wikitext2_batchsize] [batch8] batch8|Muon|full|44  primary=88.11388117569557  diverged=False
+[2026-09-17 22:45:17] [language_wikitext2_batchsize] [batch8] batch8|EvieKF|full|42  primary=92.83000630047678  diverged=False
+[2026-09-17 23:17:20] [language_wikitext2_batchsize] [batch8] batch8|EvieKF|full|43  primary=90.09215238271639  diverged=False
+[2026-09-17 23:49:20] [language_wikitext2_batchsize] [batch8] batch8|EvieKF|full|44  primary=93.99808823395404  diverged=False
+[2026-09-18 00:21:21] [language_wikitext2_batchsize] [batch8] batch8|EvieKFu|full|42  primary=90.61135045613266  diverged=False
+[2026-09-18 00:53:23] [language_wikitext2_batchsize] [batch8] batch8|EvieKFu|full|43  primary=90.05342256146693  diverged=False
+[2026-09-18 01:25:25] [language_wikitext2_batchsize] [batch8] batch8|EvieKFu|full|44  primary=90.96894913065597  diverged=False
+[2026-09-18 01:25:25] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 01:25:25] [language_wikitext2_batchsize] [batch16] LR search  (batchsize = 16)
+[2026-09-18 01:29:57] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-05  score=337.408
+[2026-09-18 01:34:28] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-04  score=198.039
+[2026-09-18 01:39:00] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-04  score=119.716
+[2026-09-18 01:43:32] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-03  score=114.812
+[2026-09-18 01:48:02] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-03  score=211.464
+[2026-09-18 01:52:31] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-02  score=344.531
+[2026-09-18 01:56:56] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-02  score=558.707
+[2026-09-18 01:56:56] [language_wikitext2_batchsize] [batch16] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-18 02:01:36] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-05  score=282.794
+[2026-09-18 02:06:17] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-04  score=176.056
+[2026-09-18 02:10:58] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-04  score=114.437
+[2026-09-18 02:15:40] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-03  score=121.789
+[2026-09-18 02:20:20] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-03  score=231.644
+[2026-09-18 02:24:59] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-02  score=352.574
+[2026-09-18 02:29:35] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-02  score=543.801
+[2026-09-18 02:29:35] [language_wikitext2_batchsize] [batch16] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-18 02:43:47] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-05  score=392.433
+[2026-09-18 02:58:00] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-04  score=223.257
+[2026-09-18 03:12:15] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-04  score=142.299
+[2026-09-18 03:26:30] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-03  score=137.865
+[2026-09-18 03:40:42] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-03  score=311.943
+[2026-09-18 03:54:53] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-02  score=250.037
+[2026-09-18 04:08:56] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-02  score=485.687
+[2026-09-18 04:08:56] [language_wikitext2_batchsize] [batch16] [lr-search] Sophia: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-18 04:14:11] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=6.325e-04  score=93.9566
+[2026-09-18 04:19:26] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=2.000e-03  score=87.1737
+[2026-09-18 04:24:41] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=6.325e-03  score=81.4908
+[2026-09-18 04:29:56] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=2.000e-02  score=285.381
+[2026-09-18 04:35:11] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=6.325e-02  score=411.001
+[2026-09-18 04:40:26] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=2.000e-01  score=459.677
+[2026-09-18 04:45:40] [language_wikitext2_batchsize] [batch16] [lr-search] Muon  lr=6.325e-01  score=501.392
+[2026-09-18 04:45:40] [language_wikitext2_batchsize] [batch16] [lr-search] Muon: FROZEN lr=6.325e-03  (boundary checks: 0)
+[2026-09-18 04:55:39] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-05  score=392.042
+[2026-09-18 05:05:40] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-04  score=185.636
+[2026-09-18 05:10:04] [language_wikitext2_batchsize] [signal] EvieKF/full/seed42/LR: checkpointed at step 1100; exiting cleanly
+[2026-09-18 09:21:52] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-18 09:21:52] [language_wikitext2_batchsize]   language_wikitext2_batchsize  |  batchsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-18 09:21:52] [language_wikitext2_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-18 09:21:52] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-18 09:21:52] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-18 09:21:53] [language_wikitext2_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-18 09:21:53] [language_wikitext2_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-18 09:22:03] [language_wikitext2_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch2', 'batch4', 'batch8', 'batch16', 'batch32']
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch2] LR search  (batchsize = 2)
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch2] sweep cells
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch4] sweep cells
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch8] sweep cells
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:22:03] [language_wikitext2_batchsize] [batch16] LR search  (batchsize = 16)
+[2026-09-18 09:32:26] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-05  score=392.042
+[2026-09-18 09:42:44] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-04  score=185.636
+[2026-09-18 09:53:05] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-04  score=116.489
+[2026-09-18 10:03:26] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-03  score=95.7846
+[2026-09-18 10:13:47] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-03  score=148.021
+[2026-09-18 10:24:01] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-02  score=292.349
+[2026-09-18 10:34:04] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-02  score=418.106
+[2026-09-18 10:34:04] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-18 10:44:23] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-05  score=669.065
+[2026-09-18 10:54:41] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-04  score=201.608
+[2026-09-18 11:05:00] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-04  score=120.302
+[2026-09-18 11:15:21] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-03  score=93.1516
+[2026-09-18 11:25:42] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-03  score=134.129
+[2026-09-18 11:35:56] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-02  score=282.219
+[2026-09-18 11:45:57] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-02  score=410.471
+[2026-09-18 11:45:57] [language_wikitext2_batchsize] [batch16] [lr-search] EvieKFu: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-18 11:45:57] [language_wikitext2_batchsize] [batch16] sweep cells
+[2026-09-18 12:05:47] [language_wikitext2_batchsize] [batch16] batch16|AdamW|full|42  primary=108.24311958131227  diverged=False
+[2026-09-18 12:25:39] [language_wikitext2_batchsize] [batch16] batch16|AdamW|full|43  primary=104.77665368992734  diverged=False
+[2026-09-18 12:45:28] [language_wikitext2_batchsize] [batch16] batch16|AdamW|full|44  primary=107.78236440246921  diverged=False
+[2026-09-18 13:05:39] [language_wikitext2_batchsize] [batch16] batch16|AdaBelief|full|42  primary=93.15772563928125  diverged=False
+[2026-09-18 13:25:52] [language_wikitext2_batchsize] [batch16] batch16|AdaBelief|full|43  primary=92.40088347784489  diverged=False
+[2026-09-18 13:46:05] [language_wikitext2_batchsize] [batch16] batch16|AdaBelief|full|44  primary=92.56617953701003  diverged=False
+[2026-09-18 14:46:49] [language_wikitext2_batchsize] [batch16] batch16|Sophia|full|42  primary=114.74077542821642  diverged=False
+[2026-09-18 15:47:31] [language_wikitext2_batchsize] [batch16] batch16|Sophia|full|43  primary=115.36209541872324  diverged=False
+[2026-09-18 16:48:17] [language_wikitext2_batchsize] [batch16] batch16|Sophia|full|44  primary=117.14752660937074  diverged=False
+[2026-09-18 17:10:48] [language_wikitext2_batchsize] [batch16] batch16|Muon|full|42  primary=85.34397238184968  diverged=False
+[2026-09-18 17:33:19] [language_wikitext2_batchsize] [batch16] batch16|Muon|full|43  primary=85.58575222461803  diverged=False
+[2026-09-18 17:55:48] [language_wikitext2_batchsize] [batch16] batch16|Muon|full|44  primary=86.00623504105766  diverged=False
+[2026-09-18 18:37:31] [language_wikitext2_batchsize] [batch16] batch16|EvieKF|full|42  primary=92.91731533206949  diverged=False
+[2026-09-18 19:06:51] [language_wikitext2_batchsize] [signal] EvieKF/full/seed43: checkpointed at step 7040; exiting cleanly
+[2026-09-19 08:37:28] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-19 08:37:28] [language_wikitext2_batchsize]   language_wikitext2_batchsize  |  batchsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-19 08:37:28] [language_wikitext2_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-19 08:37:28] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-19 08:37:28] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-19 08:37:29] [language_wikitext2_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-19 08:37:29] [language_wikitext2_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-19 08:37:37] [language_wikitext2_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch2', 'batch4', 'batch8', 'batch16', 'batch32']
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch2] LR search  (batchsize = 2)
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch2] sweep cells
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch4] sweep cells
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch8] sweep cells
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch16] LR search  (batchsize = 16)
+[2026-09-19 08:37:37] [language_wikitext2_batchsize] [batch16] sweep cells
+[2026-09-19 08:37:43] [language_wikitext2_batchsize] [resume] EvieKF/full/seed43 from step 7040/10000
+[2026-09-19 08:50:00] [language_wikitext2_batchsize] [batch16] batch16|EvieKF|full|43  primary=95.48092402188135  diverged=False
+[2026-09-19 09:31:34] [language_wikitext2_batchsize] [batch16] batch16|EvieKF|full|44  primary=93.6427999250181  diverged=False
+[2026-09-19 10:12:49] [language_wikitext2_batchsize] [batch16] batch16|EvieKFu|full|42  primary=93.06246469183273  diverged=False
+[2026-09-19 10:54:17] [language_wikitext2_batchsize] [batch16] batch16|EvieKFu|full|43  primary=93.34842524957351  diverged=False
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] [batch16] batch16|EvieKFu|full|44  primary=93.50756705601152  diverged=False
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] [batch32] reusing the main run's frozen LR + seed [42, 43, 44] cells from checkpoints/language_wikitext2/
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] [sweep] baseline point: 24 pieces NOT found under checkpoints/language_wikitext2/ -- run that main task first for a complete baseline column. Missing e.g. ['lr[AdamW]', 'lr[AdaBelief]', 'lr[Sophia]', 'lr[Muon]', 'lr[EvieKF]', 'lr[EvieKFu]'] ...
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   BATCHSIZE SWEEP -- language_wikitext2_batchsize   primary=test_perplexity (lower is better)
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   grid point                x          AdamW    AdaBelief       Sophia         Muon       EvieKF      EvieKFu
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   batch2                    2         138.63       125.82       121.35       80.952       97.347       94.435
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   batch4                    4         91.362       91.128       98.575        80.93       85.754       85.251
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   batch8                    8         103.39       88.946       105.65       87.234        92.83       90.611
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   batch16                  16         107.78       92.566       115.36       85.586       93.643       93.348
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   batch32                  32            nan          nan          nan          nan          nan          nan   [reused baseline]
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   delta vs EvieKF  (d>0 => arm beats EvieKF at that grid point; direction-normalised relative)
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     batch2           AdamW:-0.424  AdaBelief:-0.292  Sophia:-0.247  Muon:+0.168  EvieKFu:+0.030
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     batch4           AdamW:-0.065  AdaBelief:-0.063  Sophia:-0.150  Muon:+0.056  EvieKFu:+0.006
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     batch8           AdamW:-0.114  AdaBelief:+0.042  Sophia:-0.138  Muon:+0.060  EvieKFu:+0.024
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     batch16          AdamW:-0.151  AdaBelief:+0.011  Sophia:-0.232  Muon:+0.086  EvieKFu:+0.003
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     batch32          AdamW:+nan  AdaBelief:+nan  Sophia:+nan  Muon:+nan  EvieKFu:+nan
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   pre-registered quantity (CLAUDE.md sec 9.2): Spearman(batch size, delta vs EvieKF) per arm.
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   -> the EvieKFu row is the C1 test: rho < 0 (with d = normalised EvieKF-minus-EvieKFu) means the centred edge grows as batch size shrinks.
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     AdamW        rho=+0.200  p=0.8  n=4
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     AdaBelief    rho=+0.800  p=0.2  n=4
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     Sophia       rho=+0.400  p=0.6  n=4
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     Muon         rho=-0.200  p=0.8  n=4
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]     EvieKFu      rho=-0.800  p=0.2  n=4
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   wrote /kaggle/working/checkpoints/language_wikitext2_batchsize/results_raw.csv
+[2026-09-19 11:35:49] [language_wikitext2_batchsize] ====================================================================================================
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   wrote /kaggle/working/checkpoints/language_wikitext2_batchsize/summary.json  and  /kaggle/working/checkpoints/language_wikitext2_batchsize/sweep_results.json
+[2026-09-19 11:35:49] [language_wikitext2_batchsize]   DONE 2026-09-19T11:35:49.331168

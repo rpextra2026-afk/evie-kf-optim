@@ -1,0 +1,54 @@
+{
+  "task_name": "vision_svhn_evie_fixed_gamma",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKF"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 94.69883220651506
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 94.69883220651506
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 95.07913337430854,
+      "43": 94.69883220651506,
+      "44": 94.7180393362016,
+      "45": 94.68730792870313,
+      "46": 94.6258451137062
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.03162
+  },
+  "knob_used": {
+    "EvieKF": 3000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": null,
+  "fixed_knob": {
+    "EvieKF": 3000.0
+  },
+  "eviekf_maxf": null
+}

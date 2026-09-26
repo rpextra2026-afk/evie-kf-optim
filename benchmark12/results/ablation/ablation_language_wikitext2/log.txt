@@ -1,0 +1,327 @@
+[2026-09-13 16:19:39] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-13 16:19:39] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-13 16:19:39] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 16:19:39] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-13 16:19:39] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-13 16:19:40] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 16:19:40] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 16:19:48] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-13 16:19:48] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-13 16:19:48] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-13 16:34:36] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=294.348
+[2026-09-13 16:49:19] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=290.166
+[2026-09-13 17:04:01] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=285.154
+[2026-09-13 17:18:45] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=280.655
+[2026-09-13 17:33:28] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=280.182
+[2026-09-13 17:48:10] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=288.626
+[2026-09-13 18:02:52] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=313.409
+[2026-09-13 18:17:34] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=171.984
+[2026-09-13 18:32:14] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=169.498
+[2026-09-13 18:46:54] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=166.065
+[2026-09-13 19:01:35] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=162.386
+[2026-09-13 19:16:15] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=159.631
+[2026-09-13 19:30:55] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=158.41
+[2026-09-13 19:45:35] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=162.823
+[2026-09-13 20:00:18] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=109.071
+[2026-09-13 20:15:00] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=109.493
+[2026-09-13 20:29:42] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=109.979
+[2026-09-13 20:44:25] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=109.199
+[2026-09-13 20:59:08] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=110.3
+[2026-09-13 21:13:50] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=112.047
+[2026-09-13 21:28:33] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=114.575
+[2026-09-13 21:43:16] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=100.504
+[2026-09-13 21:58:00] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=101.693
+[2026-09-13 22:12:44] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=98.3913
+[2026-09-13 22:27:32] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=97.69
+[2026-09-13 22:42:17] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=97.6033
+[2026-09-13 22:57:00] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=98.3372
+[2026-09-13 23:11:43] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=99.6584
+[2026-09-13 23:26:21] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=175.601
+[2026-09-13 23:41:00] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=174.697
+[2026-09-13 23:55:38] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=171.915
+[2026-09-14 00:10:16] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=166.324
+[2026-09-14 00:19:36] [ablation_language_wikitext2] [signal] EvieKF/full/seed42/LR: checkpointed at step 1597; exiting cleanly
+[2026-09-14 11:00:42] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-14 11:00:42] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-14 11:00:42] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-14 11:00:42] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-14 11:00:42] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-14 11:00:42] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 11:00:42] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 11:00:51] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-14 11:00:51] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-14 11:00:51] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-14 11:15:07] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=164.166
+[2026-09-14 11:29:26] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=161.318
+[2026-09-14 11:43:45] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=154.742
+[2026-09-14 11:57:57] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=295.906
+[2026-09-14 12:12:08] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=294.524
+[2026-09-14 12:26:20] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=287.846
+[2026-09-14 12:40:32] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=284.373
+[2026-09-14 12:54:45] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=267.951
+[2026-09-14 13:08:57] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=261.499
+[2026-09-14 13:23:08] [ablation_language_wikitext2] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=258.645
+[2026-09-14 13:37:12] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=434.493
+[2026-09-14 13:51:15] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=436.264
+[2026-09-14 14:05:17] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=432.539
+[2026-09-14 14:19:18] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=445.152
+[2026-09-14 14:33:20] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=428.185
+[2026-09-14 14:47:20] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=413.097
+[2026-09-14 15:01:22] [ablation_language_wikitext2] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=392.79
+[2026-09-14 15:01:22] [ablation_language_wikitext2] [lr-search] EvieKF: FROZEN lr=1.000e-03  knob=300  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-14 15:15:42] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=3  score=292.029
+[2026-09-14 15:30:03] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=10  score=296.246
+[2026-09-14 15:44:23] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=30  score=303.476
+[2026-09-14 15:58:42] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=100  score=319.065
+[2026-09-14 16:13:02] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=300  score=350.467
+[2026-09-14 16:27:23] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=1000  score=424.622
+[2026-09-14 16:41:44] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-05  knob=3000  score=546.642
+[2026-09-14 16:56:06] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=3  score=170.415
+[2026-09-14 17:10:27] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=10  score=168.253
+[2026-09-14 17:24:49] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=30  score=165.773
+[2026-09-14 17:39:09] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=100  score=162.937
+[2026-09-14 17:53:31] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=300  score=161.487
+[2026-09-14 18:07:53] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=1000  score=165.302
+[2026-09-14 18:22:15] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-04  knob=3000  score=179.066
+[2026-09-14 18:36:38] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=3  score=109.22
+[2026-09-14 18:51:00] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=10  score=110.506
+[2026-09-14 19:00:39] [ablation_language_wikitext2] [signal] EvieKFu/full/seed42/LR: checkpointed at step 1677; exiting cleanly
+[2026-09-14 19:24:01] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-14 19:24:01] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-14 19:24:01] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-14 19:24:01] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-14 19:24:01] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-14 19:24:01] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 19:24:02] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 19:24:12] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-14 19:24:12] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-14 19:24:12] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-14 19:24:12] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-14 19:39:12] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=30  score=110.847
+[2026-09-14 19:54:26] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=100  score=110.292
+[2026-09-14 20:09:38] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=300  score=111.452
+[2026-09-14 20:24:51] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=1000  score=114.855
+[2026-09-14 20:40:05] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-04  knob=3000  score=119.53
+[2026-09-14 20:55:20] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=3  score=99.5423
+[2026-09-14 21:10:35] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=10  score=97.4552
+[2026-09-14 21:25:48] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=30  score=97.04
+[2026-09-14 21:41:03] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=100  score=97.1629
+[2026-09-14 21:56:17] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=300  score=97.6693
+[2026-09-14 22:11:32] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=1000  score=98.7062
+[2026-09-14 22:26:47] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-03  knob=3000  score=97.5807
+[2026-09-14 22:42:04] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=3  score=181.913
+[2026-09-14 22:57:29] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=10  score=175.888
+[2026-09-14 23:12:54] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=30  score=133.211
+[2026-09-14 23:28:20] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=100  score=165.433
+[2026-09-14 23:43:46] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=300  score=153.215
+[2026-09-14 23:59:15] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=1000  score=144.462
+[2026-09-15 00:14:43] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-03  knob=3000  score=131.93
+[2026-09-15 00:29:59] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=3  score=287.622
+[2026-09-15 00:45:14] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=10  score=292.068
+[2026-09-15 01:00:30] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=30  score=274.759
+[2026-09-15 01:15:47] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=100  score=271.249
+[2026-09-15 01:31:04] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=300  score=272.49
+[2026-09-15 01:46:20] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=1000  score=256.091
+[2026-09-15 02:01:34] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=1.000e-02  knob=3000  score=252.578
+[2026-09-15 02:16:38] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=3  score=438.527
+[2026-09-15 02:31:41] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=10  score=451.735
+[2026-09-15 02:46:42] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=30  score=412.755
+[2026-09-15 03:01:44] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=100  score=424.785
+[2026-09-15 03:16:45] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=300  score=397.24
+[2026-09-15 03:23:56] [ablation_language_wikitext2] [signal] EvieKFu/full/seed42/LR: checkpointed at step 1193; exiting cleanly
+[2026-09-16 10:36:17] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-16 10:36:17] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 10:36:17] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 10:36:17] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 10:36:17] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-16 10:36:17] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 10:36:18] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 10:36:26] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-16 10:36:26] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-16 10:36:26] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-16 10:36:26] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-16 10:51:29] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=1000  score=384.443
+[2026-09-16 11:06:37] [ablation_language_wikitext2] [lr-search] EvieKFu  lr=3.162e-02  knob=3000  score=368.741
+[2026-09-16 11:06:37] [ablation_language_wikitext2] [lr-search] EvieKFu: FROZEN lr=1.000e-03  knob=30  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-16 11:18:15] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=3  score=319.53
+[2026-09-16 11:29:53] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=10  score=325.926
+[2026-09-16 11:41:29] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=30  score=332.035
+[2026-09-16 11:53:11] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=100  score=339.12
+[2026-09-16 12:04:55] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=300  score=344.729
+[2026-09-16 12:16:42] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=1000  score=349.633
+[2026-09-16 12:28:31] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=3000  score=352.963
+[2026-09-16 12:40:13] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=3  score=179.299
+[2026-09-16 12:51:53] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=10  score=181.451
+[2026-09-16 13:03:32] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=30  score=183.459
+[2026-09-16 13:15:20] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=100  score=185.567
+[2026-09-16 13:27:00] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=300  score=186.876
+[2026-09-16 13:38:40] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=1000  score=187.79
+[2026-09-16 13:50:22] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=3000  score=188.82
+[2026-09-16 14:02:04] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=3  score=106.825
+[2026-09-16 14:13:51] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=10  score=108.539
+[2026-09-16 14:25:43] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=30  score=109.213
+[2026-09-16 14:37:28] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=100  score=111.24
+[2026-09-16 14:49:07] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=300  score=110.98
+[2026-09-16 15:00:46] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=1000  score=111.902
+[2026-09-16 15:12:25] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=3000  score=112.191
+[2026-09-16 15:24:07] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=3  score=98.3979
+[2026-09-16 15:35:47] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=10  score=98.8322
+[2026-09-16 15:47:25] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=30  score=100.647
+[2026-09-16 15:59:03] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=100  score=100.66
+[2026-09-16 16:10:41] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=300  score=101.405
+[2026-09-16 16:22:27] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=1000  score=99.938
+[2026-09-16 16:34:08] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=3000  score=100.611
+[2026-09-16 16:45:43] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=3  score=204.865
+[2026-09-16 16:57:19] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=10  score=210.076
+[2026-09-16 17:08:57] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=30  score=198.266
+[2026-09-16 17:20:31] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=100  score=178.153
+[2026-09-16 17:32:09] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=300  score=170.491
+[2026-09-16 17:44:00] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=1000  score=163.674
+[2026-09-16 17:55:51] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=3000  score=170.759
+[2026-09-16 18:07:35] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=3  score=334.661
+[2026-09-16 18:19:11] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=10  score=322.635
+[2026-09-16 18:30:47] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=30  score=335.293
+[2026-09-16 18:42:15] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=100  score=305.111
+[2026-09-16 18:53:44] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=300  score=311.807
+[2026-09-16 19:05:19] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=1000  score=322.286
+[2026-09-16 19:16:59] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=3000  score=311.392
+[2026-09-16 19:28:36] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=3  score=647.265
+[2026-09-16 19:40:20] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=10  score=549.723
+[2026-09-16 19:52:01] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=30  score=553.056
+[2026-09-16 20:03:43] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=100  score=512.885
+[2026-09-16 20:15:23] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=300  score=511.118
+[2026-09-16 20:21:14] [ablation_language_wikitext2] [signal] EvieDiag/full/seed42/LR: checkpointed at step 1254; exiting cleanly
+[2026-09-16 20:28:45] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-16 20:28:45] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 20:28:45] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 20:28:45] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 20:28:45] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-16 20:28:46] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 20:28:46] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 20:28:54] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-16 20:28:54] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-16 20:28:54] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-16 20:28:54] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-16 20:28:54] [ablation_language_wikitext2] [lr-search] EvieKFu: cached lr=1.000e-03  knob=30
+[2026-09-16 20:39:41] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=1000  score=487.123
+[2026-09-16 20:50:25] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=3000  score=505.042
+[2026-09-16 20:50:25] [ablation_language_wikitext2] [lr-search] EvieDiag: knob pick 3 at grid edge -> extend [1.0, 0.3333] and re-search (boundary check #1)
+[2026-09-16 21:01:27] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=0.3333  score=308.684
+[2026-09-16 21:12:24] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-05  knob=1  score=313.801
+[2026-09-16 21:23:24] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=0.3333  score=175.893
+[2026-09-16 21:34:23] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-04  knob=1  score=177.655
+[2026-09-16 21:45:30] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=0.3333  score=105.654
+[2026-09-16 21:56:40] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-04  knob=1  score=106.022
+[2026-09-16 22:07:53] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=0.3333  score=100.94
+[2026-09-16 22:19:11] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-03  knob=1  score=98.5685
+[2026-09-16 22:30:20] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=0.3333  score=212.327
+[2026-09-16 22:41:28] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-03  knob=1  score=201.714
+[2026-09-16 22:52:37] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=0.3333  score=319.036
+[2026-09-16 23:03:44] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=1.000e-02  knob=1  score=332.355
+[2026-09-16 23:14:47] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=0.3333  score=637.411
+[2026-09-16 23:25:41] [ablation_language_wikitext2] [lr-search] EvieDiag  lr=3.162e-02  knob=1  score=634.149
+[2026-09-16 23:25:41] [ablation_language_wikitext2] [lr-search] EvieDiag: FROZEN lr=1.000e-03  knob=3  (LR boundary checks: 0, knob boundary checks: 1)
+[2026-09-16 23:25:41] [ablation_language_wikitext2] [lr-search] frozen: EvieKF=1.000e-03/k=300, EvieKFu=1.000e-03/k=30, EvieDiag=1.000e-03/k=3
+[2026-09-16 23:25:41] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-16 23:25:41] [ablation_language_wikitext2] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-17 00:27:02] [ablation_language_wikitext2] [sweep] 1/30  EvieKF|full|42  primary=99.66651587713046  diverged=False
+[2026-09-17 01:28:20] [ablation_language_wikitext2] [sweep] 2/30  EvieKF|full|43  primary=98.33014102081073  diverged=False
+[2026-09-17 02:29:43] [ablation_language_wikitext2] [sweep] 3/30  EvieKF|full|44  primary=102.5627687890703  diverged=False
+[2026-09-17 03:30:28] [ablation_language_wikitext2] [sweep] 4/30  EvieKF|full|45  primary=100.45674286767259  diverged=False
+[2026-09-17 04:31:45] [ablation_language_wikitext2] [sweep] 5/30  EvieKF|full|46  primary=101.58756880933568  diverged=False
+[2026-09-17 05:33:13] [ablation_language_wikitext2] [sweep] 6/30  EvieKF|full|47  primary=99.63283170547606  diverged=False
+[2026-09-17 06:13:45] [ablation_language_wikitext2] [signal] EvieKF/full/seed48: checkpointed at step 6600; exiting cleanly
+[2026-09-17 08:09:15] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-17 08:09:15] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-17 08:09:15] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-17 08:09:15] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 08:09:15] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-17 08:09:16] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 08:09:16] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-17 08:09:26] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [lr-search] EvieKFu: cached lr=1.000e-03  knob=30
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [lr-search] EvieDiag: cached lr=1.000e-03  knob=3
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [lr-search] frozen: EvieKF=1.000e-03/k=300, EvieKFu=1.000e-03/k=30, EvieDiag=1.000e-03/k=3
+[2026-09-17 08:09:26] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-17 08:09:26] [ablation_language_wikitext2] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-17 08:09:32] [ablation_language_wikitext2] [resume] EvieKF/full/seed48 from step 6600/10000
+[2026-09-17 08:30:39] [ablation_language_wikitext2] [sweep] 7/30  EvieKF|full|48  primary=99.42036995995724  diverged=False
+[2026-09-17 09:32:28] [ablation_language_wikitext2] [sweep] 8/30  EvieKF|full|49  primary=98.65776300554984  diverged=False
+[2026-09-17 10:34:24] [ablation_language_wikitext2] [sweep] 9/30  EvieKF|full|50  primary=99.0791843320803  diverged=False
+[2026-09-17 11:36:26] [ablation_language_wikitext2] [sweep] 10/30  EvieKF|full|51  primary=101.68717307296227  diverged=False
+[2026-09-17 12:38:31] [ablation_language_wikitext2] [sweep] 11/30  EvieKFu|full|42  primary=99.94829356593642  diverged=False
+[2026-09-17 13:40:28] [ablation_language_wikitext2] [sweep] 12/30  EvieKFu|full|43  primary=98.78584805649147  diverged=False
+[2026-09-17 14:42:28] [ablation_language_wikitext2] [sweep] 13/30  EvieKFu|full|44  primary=98.95205571461703  diverged=False
+[2026-09-17 15:44:20] [ablation_language_wikitext2] [sweep] 14/30  EvieKFu|full|45  primary=98.74251238168152  diverged=False
+[2026-09-17 16:46:00] [ablation_language_wikitext2] [sweep] 15/30  EvieKFu|full|46  primary=101.401330760757  diverged=False
+[2026-09-17 17:47:39] [ablation_language_wikitext2] [sweep] 16/30  EvieKFu|full|47  primary=100.87291819869033  diverged=False
+[2026-09-17 17:54:14] [ablation_language_wikitext2] [signal] EvieKFu/full/seed48: checkpointed at step 1074; exiting cleanly
+[2026-09-18 09:24:22] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-18 09:24:22] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-18 09:24:22] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-18 09:24:22] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-18 09:24:22] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-18 09:24:22] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-18 09:24:22] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-18 09:24:31] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [lr-search] EvieKFu: cached lr=1.000e-03  knob=30
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [lr-search] EvieDiag: cached lr=1.000e-03  knob=3
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [lr-search] frozen: EvieKF=1.000e-03/k=300, EvieKFu=1.000e-03/k=30, EvieDiag=1.000e-03/k=3
+[2026-09-18 09:24:31] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:24:31] [ablation_language_wikitext2] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-18 09:24:36] [ablation_language_wikitext2] [resume] EvieKFu/full/seed48 from step 1074/10000
+[2026-09-18 10:20:18] [ablation_language_wikitext2] [sweep] 17/30  EvieKFu|full|48  primary=100.05110865489999  diverged=False
+[2026-09-18 11:22:33] [ablation_language_wikitext2] [sweep] 18/30  EvieKFu|full|49  primary=99.89099284391645  diverged=False
+[2026-09-18 12:24:22] [ablation_language_wikitext2] [sweep] 19/30  EvieKFu|full|50  primary=99.00065656464704  diverged=False
+[2026-09-18 13:26:32] [ablation_language_wikitext2] [sweep] 20/30  EvieKFu|full|51  primary=100.01434756780033  diverged=False
+[2026-09-18 14:12:39] [ablation_language_wikitext2] [sweep] 21/30  EvieDiag|full|42  primary=105.41489134011536  diverged=False
+[2026-09-18 14:58:38] [ablation_language_wikitext2] [sweep] 22/30  EvieDiag|full|43  primary=103.82623596535701  diverged=False
+[2026-09-18 15:44:38] [ablation_language_wikitext2] [sweep] 23/30  EvieDiag|full|44  primary=107.2926964513536  diverged=False
+[2026-09-18 16:30:35] [ablation_language_wikitext2] [sweep] 24/30  EvieDiag|full|45  primary=104.22116046137975  diverged=False
+[2026-09-18 17:16:44] [ablation_language_wikitext2] [sweep] 25/30  EvieDiag|full|46  primary=106.39459253080821  diverged=False
+[2026-09-18 18:02:36] [ablation_language_wikitext2] [sweep] 26/30  EvieDiag|full|47  primary=106.7411441426033  diverged=False
+[2026-09-18 18:48:49] [ablation_language_wikitext2] [sweep] 27/30  EvieDiag|full|48  primary=104.49251382786292  diverged=False
+[2026-09-18 19:09:20] [ablation_language_wikitext2] [signal] EvieDiag/full/seed49: checkpointed at step 4460; exiting cleanly
+[2026-09-19 08:37:11] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-19 08:37:11] [ablation_language_wikitext2]   ablation_language_wikitext2  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-19 08:37:11] [ablation_language_wikitext2]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-19 08:37:11] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-19 08:37:11] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-19 08:37:11] [ablation_language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-19 08:37:12] [ablation_language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-19 08:37:21] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [lr-search] EvieKF: cached lr=1.000e-03  knob=300
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [lr-search] EvieKFu: cached lr=1.000e-03  knob=30
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [lr-search] EvieDiag: cached lr=1.000e-03  knob=3
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [lr-search] frozen: EvieKF=1.000e-03/k=300, EvieKFu=1.000e-03/k=30, EvieDiag=1.000e-03/k=3
+[2026-09-19 08:37:21] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-19 08:37:21] [ablation_language_wikitext2] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-19 08:37:27] [ablation_language_wikitext2] [resume] EvieDiag/full/seed49 from step 4460/10000
+[2026-09-19 09:03:15] [ablation_language_wikitext2] [sweep] 28/30  EvieDiag|full|49  primary=104.25041946465507  diverged=False
+[2026-09-19 09:49:50] [ablation_language_wikitext2] [sweep] 29/30  EvieDiag|full|50  primary=106.95150018058573  diverged=False
+[2026-09-19 10:36:25] [ablation_language_wikitext2] [sweep] 30/30  EvieDiag|full|51  primary=106.04087448286333  diverged=False
+[2026-09-19 10:36:25] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   RESULTS  --  ablation_language_wikitext2   primary = test_perplexity (lower is better)
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-19 10:36:25] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   EvieKF      lr=1.00e-03  knob=300  test_perplexity(task median over 10 seeds)=99.6497   seed spread=[98.33, 102.56]   diverged_cells=0/10
+[2026-09-19 10:36:25] [ablation_language_wikitext2]              descriptive: wall_s=3678  mean_step_size=0.0002866  clip_freq=0.5882  peak_mem_mb=2377
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   EvieKFu     lr=1.00e-03  knob=30  test_perplexity(task median over 10 seeds)=99.9196   seed spread=[98.743, 101.4]   diverged_cells=0/10
+[2026-09-19 10:36:25] [ablation_language_wikitext2]              descriptive: wall_s=3707  mean_step_size=0.0002823  clip_freq=0.5532  peak_mem_mb=2377
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   EvieDiag    lr=1.00e-03  knob=3  test_perplexity(task median over 10 seeds)=105.728   seed spread=[103.83, 107.29]   diverged_cells=0/10
+[2026-09-19 10:36:25] [ablation_language_wikitext2]              descriptive: wall_s=2762  mean_step_size=0.0002832  clip_freq=0.6319  peak_mem_mb=2271
+[2026-09-19 10:36:25] [ablation_language_wikitext2] ----------------------------------------------------------------------------------------------------
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   best optimizer on this task: EvieKF  (test_perplexity=99.6497)
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   wrote /kaggle/working/checkpoints/ablation_language_wikitext2/results_raw.csv
+[2026-09-19 10:36:25] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   wrote /kaggle/working/checkpoints/ablation_language_wikitext2/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-19 10:36:25] [ablation_language_wikitext2] ====================================================================================================
+[2026-09-19 10:36:25] [ablation_language_wikitext2]   DONE 2026-09-19T10:36:25.457554

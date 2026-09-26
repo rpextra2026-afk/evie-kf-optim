@@ -1,0 +1,58 @@
+{
+  "task_name": "vision_cifar10_evie_maxf4608",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKF"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 82.06
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 82.06
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 82.31,
+      "43": 81.07,
+      "44": 83.15,
+      "45": 82.06,
+      "46": 81.55
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.09999
+  },
+  "knob_used": {
+    "EvieKF": 27000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": {
+    "EvieKF": {
+      "lr": 0.09999,
+      "knob": 27000.0,
+      "note": "the main run's frozen CIFAR-10 (lr, gamma); the ONLY difference from those cells is eviekf_maxf 1024 -> 4608"
+    }
+  },
+  "fixed_knob": null,
+  "eviekf_maxf": 4608
+}

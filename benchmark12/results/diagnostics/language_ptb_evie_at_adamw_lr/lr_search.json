@@ -1,0 +1,10 @@
+{
+  "EvieKF": {
+    "lr": 0.0003162,
+    "knob": 10.0,
+    "grid": {},
+    "complete": true,
+    "pinned": true,
+    "pinned_note": "AdamW's frozen PTB lr; gamma kept at the main run's frozen 10"
+  }
+}

@@ -1,0 +1,79 @@
+TASK vision_cifar10   primary = test_top1_acc (higher better)
+  cells 40   units 1   seeds [42, 43, 44, 45, 46]
+
+TASK NUMBER  (median over seeds of the per-seed unit-median)
+  optimizer            primary   vs EvieKF       unit-MEAN
+  Muon                   85.86     -4.566%           85.86
+  EvieKF                 81.94                       81.94
+  Shampoo                 81.9     +0.049%            81.9
+  SGD                    81.71     +0.281%           81.71
+  AdamW                  81.55     +0.478%           81.55
+  Sophia                 81.52     +0.515%           81.52
+  Lion                   81.28     +0.812%           81.28
+  AdaBelief                 81     +1.160%              81
+  (unit-MEAN is the OLD aggregation, shown so its distortion is visible; the target is not standardised, so a mean over units is dominated by the highest-variance ones)
+
+SEED STABILITY  (spread of the per-seed task number, complete-case)
+  Muon         spread    0.38%   [85.74, 86.07]
+  EvieKF       spread    1.77%   [80.98, 82.41]
+  Shampoo      spread    3.52%   [79.33, 82.12]
+  SGD          spread    2.07%   [81.27, 82.95]
+  AdamW        spread    1.50%   [81.13, 82.35]
+  Sophia       spread    1.22%   [81.28, 82.27]
+  Lion         spread    1.15%   [80.55, 81.48]
+  AdaBelief    spread    1.35%   [80.64, 81.73]
+
+DIVERGENCE  (cells flagged, of 5 per optimizer)
+  EvieKF         0
+  AdamW          0
+  AdaBelief      0
+  Muon           0
+  Shampoo        0
+  Sophia         0
+  Lion           0
+  SGD            0
+
+WALL-CLOCK per cell  (telemetry-bearing cells only; the step budget is fixed, NOT wall-clock matched)
+  EvieKF       n=   5  mean   1764.5s
+  AdamW        n=   5  mean   1108.0s    1.00x AdamW
+  AdaBelief    n=   5  mean   1154.3s    1.04x AdamW
+  Muon         n=   5  mean   1509.3s    1.36x AdamW
+  Shampoo      n=   5  mean   1149.7s    1.04x AdamW
+  Sophia       n=   5  mean   4764.3s    4.30x AdamW
+  Lion         n=   5  mean   1132.1s    1.02x AdamW
+  SGD          n=   5  mean   1151.0s    1.04x AdamW
+
+EVIE-KF MECHANISM TELEMETRY  (descriptive only, never tested)
+  eviekf_n_active_steps      mean        9980  [9980, 9980]
+                             wiring canary: 0 would mean set_noise() never fired and this WAS silently AdamW
+  eviekf_cos_mean            mean     0.46803  [0.45676, 0.47743]
+                             cos(preconditioned dir, plain Adam dir); 1.0 = the operator changed nothing
+  eviekf_b_simple_mean       mean      15.653  [13.627, 17.503]
+                             tr(Sigma_z)/||y||^2 -- gradient noise relative to signal
+  eviekf_eff_rank_mean       mean       35022  [31619, 38752]
+                             effective rank of the Kronecker noise spectrum
+  eviekf_gain_lo_min         mean   0.0055261  [0.0048731, 0.0065563]
+                             smallest gain applied; 1.0 = no shrinkage anywhere
+  eviekf_gain_hi_max         mean           1  [1, 1]
+                             largest gain; always <= 1 by construction
+
+TUNED SECOND AXIS (knob) RESPONSE at the frozen LR
+  EvieKF: frozen lr=0.09999 knob=27000   lr-boundary-extends=2 knob-boundary-extends=3
+      knob=3         score=77.08
+      knob=10        score=78.28
+      knob=30        score=80.06
+      knob=100       score=79.6
+      knob=300       score=79.3
+      knob=1000      score=80.28
+      knob=3000      score=81.64
+      knob=9000      score=80.7
+      knob=27000     score=82.28   <-- frozen
+      knob=81000     score=80.74
+      knob=243000    score=81.28
+      spread across the knob axis: 6.75% over a 81000x range
+  Shampoo: frozen lr=0.03162 knob=0.95   lr-boundary-extends=1 knob-boundary-extends=0
+      knob=0.9       score=81.44
+      knob=0.95      score=82.42   <-- frozen
+      knob=0.99      score=82
+      knob=0.999     score=81.62
+      spread across the knob axis: 1.20% over a 1x range

@@ -1,0 +1,108 @@
+{
+  "task_name": "language_wikitext2_modelsize",
+  "sweep_type": "modelsize",
+  "base_task_name": "language_wikitext2",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "reference": "AdamW",
+  "grid_labels": [
+    "small",
+    "large",
+    "baseline"
+  ],
+  "grid_x": {
+    "small": 1536.0,
+    "large": 41472.0,
+    "baseline": 12288.0
+  },
+  "grid_is_baseline": {
+    "small": false,
+    "large": false,
+    "baseline": true
+  },
+  "arms": [
+    "AdamW",
+    "AdaBelief",
+    "EvieKF"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "eviekf_sweep_gamma": 3000.0,
+  "c1_row": null,
+  "table": {
+    "small": {
+      "AdamW": 105.41796837384611,
+      "AdaBelief": 107.59759828462352,
+      "EvieKF": 98.34713426741611
+    },
+    "large": {
+      "AdamW": 93.31672977281123,
+      "AdaBelief": 95.62905881832079,
+      "EvieKF": 109.78121049365292
+    },
+    "baseline": {
+      "AdamW": NaN,
+      "AdaBelief": NaN,
+      "EvieKF": NaN
+    }
+  },
+  "per_seed": {
+    "small": {
+      "AdamW": [
+        106.61291208768168,
+        104.3879584123818,
+        105.41796837384611
+      ],
+      "AdaBelief": [
+        106.54863033548614,
+        107.59759828462352,
+        108.33303906627735
+      ],
+      "EvieKF": [
+        97.43736082656184,
+        99.17135080465533,
+        98.34713426741611
+      ]
+    },
+    "large": {
+      "AdamW": [
+        92.34966289951957,
+        93.53495162234887,
+        93.31672977281123
+      ],
+      "AdaBelief": [
+        94.08163583784187,
+        95.62905881832079,
+        95.80095222111451
+      ],
+      "EvieKF": [
+        109.89785032004832,
+        105.42151339197213,
+        109.78121049365292
+      ]
+    },
+    "baseline": {
+      "AdamW": [],
+      "AdaBelief": [],
+      "EvieKF": []
+    }
+  },
+  "deltas": {
+    "AdaBelief": {
+      "small": -0.02067607585689507,
+      "large": -0.02477936219088635,
+      "baseline": NaN
+    },
+    "EvieKF": {
+      "small": 0.06707427790065676,
+      "large": -0.17643653780973778,
+      "baseline": NaN
+    }
+  },
+  "spearman_batch_vs_delta": {},
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)",
+  "note": "fixed step budget per grid point; absolute values not comparable across grid points, only within-grid-point arm deltas (CLAUDE.md sec 9.2/9.3)"
+}

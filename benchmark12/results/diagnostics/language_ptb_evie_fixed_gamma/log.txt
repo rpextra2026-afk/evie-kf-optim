@@ -1,0 +1,40 @@
+[2026-09-23 19:46:03] [language_ptb_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:46:03] [language_ptb_evie_fixed_gamma]   language_ptb_evie_fixed_gamma  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-23 19:46:03] [language_ptb_evie_fixed_gamma]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-23 19:46:03] [language_ptb_evie_fixed_gamma]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-23 19:46:03] [language_ptb_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:46:04] [language_ptb_evie_fixed_gamma] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 19:46:04] [language_ptb_evie_fixed_gamma] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 19:46:08] [language_ptb_evie_fixed_gamma] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-23 19:46:09] [language_ptb_evie_fixed_gamma] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-23 19:46:09] [language_ptb_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 19:46:09] [language_ptb_evie_fixed_gamma] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF']
+[2026-09-23 19:59:11] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=366.191
+[2026-09-23 20:12:11] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=265.508
+[2026-09-23 20:25:12] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=221.205
+[2026-09-23 20:38:13] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=210.515
+[2026-09-23 20:51:12] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=251.756
+[2026-09-23 21:04:03] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=421.95
+[2026-09-23 21:16:44] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=732.708
+[2026-09-23 21:16:44] [language_ptb_evie_fixed_gamma] [lr-search] EvieKF: FROZEN lr=1.000e-03  knob=3000  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-23 21:16:44] [language_ptb_evie_fixed_gamma] [lr-search] frozen: EvieKF=1.000e-03/k=3000
+[2026-09-23 21:16:44] [language_ptb_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 21:16:44] [language_ptb_evie_fixed_gamma] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 22:09:35] [language_ptb_evie_fixed_gamma] [sweep] 1/5  EvieKF|full|42  primary=200.4665201468661  diverged=False
+[2026-09-23 23:02:36] [language_ptb_evie_fixed_gamma] [sweep] 2/5  EvieKF|full|43  primary=197.53123500176392  diverged=False
+[2026-09-23 23:55:08] [language_ptb_evie_fixed_gamma] [sweep] 3/5  EvieKF|full|44  primary=195.90879592099165  diverged=False
+[2026-09-24 00:48:12] [language_ptb_evie_fixed_gamma] [sweep] 4/5  EvieKF|full|45  primary=194.96694496708074  diverged=False
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] [sweep] 5/5  EvieKF|full|46  primary=205.21585670240202  diverged=False
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] ====================================================================================================
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   RESULTS  --  language_ptb_evie_fixed_gamma   primary = test_perplexity (lower is better)
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   EvieKF      lr=1.00e-03  knob=3000  test_perplexity(task median over 5 seeds)=197.531   seed spread=[194.97, 205.22]   diverged_cells=0/5
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]              descriptive: wall_s=3175  mean_step_size=0.0003235  clip_freq=0.5118  peak_mem_mb=1592
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   best optimizer on this task: EvieKF  (test_perplexity=197.531)
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/language_ptb_evie_fixed_gamma/results_raw.csv
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] ====================================================================================================
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/language_ptb_evie_fixed_gamma/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma] ====================================================================================================
+[2026-09-24 01:42:04] [language_ptb_evie_fixed_gamma]   DONE 2026-09-24T01:42:04.689371

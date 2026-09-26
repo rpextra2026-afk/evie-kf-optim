@@ -1,0 +1,529 @@
+[2026-09-16 14:07:44] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-16 14:07:44] [vision_cifar10_batchsize]   vision_cifar10_batchsize  |  batchsize sweep on vision_cifar10  device=cuda  torch=2.10.0+cu128
+[2026-09-16 14:07:44] [vision_cifar10_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_top1_acc is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-16 14:07:44] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-16 14:07:45] [vision_cifar10_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 14:07:45] [vision_cifar10_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 14:45:15] [vision_cifar10_batchsize] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-16 14:45:15] [vision_cifar10_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch4', 'batch8', 'batch16', 'batch32', 'batch128']
+[2026-09-16 14:45:15] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 14:45:15] [vision_cifar10_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-16 14:45:15] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:46:17] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-05  score=25.14
+[2026-09-16 14:46:17] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:47:16] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-04  score=29.16
+[2026-09-16 14:47:17] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:48:17] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-04  score=33.56
+[2026-09-16 14:48:17] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:49:16] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-03  score=34.9
+[2026-09-16 14:49:16] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:50:14] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-03  score=33.42
+[2026-09-16 14:50:15] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:51:13] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=1.000e-02  score=30.26
+[2026-09-16 14:51:13] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:52:10] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW  lr=3.162e-02  score=27.68
+[2026-09-16 14:52:10] [vision_cifar10_batchsize] [batch4] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 14:52:11] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:53:26] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-05  score=25.36
+[2026-09-16 14:53:26] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:54:42] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-04  score=29.58
+[2026-09-16 14:54:42] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:55:58] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-04  score=33.36
+[2026-09-16 14:55:58] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:57:14] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-03  score=34.72
+[2026-09-16 14:57:15] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:58:31] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-03  score=33.42
+[2026-09-16 14:58:31] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 14:59:46] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=1.000e-02  score=31.82
+[2026-09-16 14:59:47] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:01:02] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief  lr=3.162e-02  score=24.88
+[2026-09-16 15:01:02] [vision_cifar10_batchsize] [batch4] [lr-search] AdaBelief: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 15:01:02] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:03:36] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-05  score=25.02
+[2026-09-16 15:03:36] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:06:12] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-04  score=28.08
+[2026-09-16 15:06:12] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:08:47] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-04  score=32.92
+[2026-09-16 15:08:47] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:11:26] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-03  score=36.68
+[2026-09-16 15:11:26] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:14:05] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-03  score=33.02
+[2026-09-16 15:14:05] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:16:44] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=1.000e-02  score=22.4
+[2026-09-16 15:16:44] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:19:21] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia  lr=3.162e-02  score=10.28
+[2026-09-16 15:19:21] [vision_cifar10_batchsize] [batch4] [lr-search] Sophia: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 15:19:21] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:21:49] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=6.325e-04  score=41.84
+[2026-09-16 15:21:49] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:24:18] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=2.000e-03  score=41.66
+[2026-09-16 15:24:18] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:26:46] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=6.325e-03  score=41.12
+[2026-09-16 15:26:46] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:29:15] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=2.000e-02  score=41.48
+[2026-09-16 15:29:15] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:31:43] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=6.325e-02  score=37.02
+[2026-09-16 15:31:43] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:34:12] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=2.000e-01  score=36.46
+[2026-09-16 15:34:12] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:36:41] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=6.325e-01  score=30.06
+[2026-09-16 15:36:41] [vision_cifar10_batchsize] [batch4] [lr-search] Muon: pick 6.325e-04 at grid edge -> extend with [0.0002, 6.325e-05] and re-search (boundary check #1)
+[2026-09-16 15:36:41] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:39:09] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=2.000e-04  score=37.02
+[2026-09-16 15:39:09] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:41:37] [vision_cifar10_batchsize] [batch4] [lr-search] Muon  lr=6.325e-05  score=29.76
+[2026-09-16 15:41:37] [vision_cifar10_batchsize] [batch4] [lr-search] Muon: FROZEN lr=6.325e-04  (boundary checks: 1)
+[2026-09-16 15:46:00] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-05  score=19.3
+[2026-09-16 15:50:23] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-04  score=26.86
+[2026-09-16 15:54:46] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-04  score=31.78
+[2026-09-16 15:59:08] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-03  score=35.76
+[2026-09-16 16:03:30] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-03  score=38.24
+[2026-09-16 16:07:51] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=1.000e-02  score=38.22
+[2026-09-16 16:12:12] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF  lr=3.162e-02  score=37.92
+[2026-09-16 16:12:12] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKF: FROZEN lr=3.162e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 16:16:29] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-05  score=19.06
+[2026-09-16 16:20:42] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-04  score=26.44
+[2026-09-16 16:24:58] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-04  score=31.56
+[2026-09-16 16:29:18] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-03  score=35.6
+[2026-09-16 16:33:41] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-03  score=39.16
+[2026-09-16 16:38:03] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=1.000e-02  score=38.5
+[2026-09-16 16:42:25] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu  lr=3.162e-02  score=36.94
+[2026-09-16 16:42:25] [vision_cifar10_batchsize] [batch4] [lr-search] EvieKFu: FROZEN lr=3.162e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 16:42:25] [vision_cifar10_batchsize] [batch4] sweep cells
+[2026-09-16 16:42:25] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:46:37] [vision_cifar10_batchsize] [batch4] batch4|AdamW|full|42  primary=51.79  diverged=False
+[2026-09-16 16:46:37] [vision_cifar10_batchsize] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:50:50] [vision_cifar10_batchsize] [batch4] batch4|AdamW|full|43  primary=50.7  diverged=False
+[2026-09-16 16:50:50] [vision_cifar10_batchsize] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:55:02] [vision_cifar10_batchsize] [batch4] batch4|AdamW|full|44  primary=52.07  diverged=False
+[2026-09-16 16:55:02] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:00:26] [vision_cifar10_batchsize] [batch4] batch4|AdaBelief|full|42  primary=51.15  diverged=False
+[2026-09-16 17:00:26] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:05:50] [vision_cifar10_batchsize] [batch4] batch4|AdaBelief|full|43  primary=50.68  diverged=False
+[2026-09-16 17:05:51] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:11:15] [vision_cifar10_batchsize] [batch4] batch4|AdaBelief|full|44  primary=50.7  diverged=False
+[2026-09-16 17:11:15] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:22:14] [vision_cifar10_batchsize] [batch4] batch4|Sophia|full|42  primary=50.43  diverged=False
+[2026-09-16 17:22:14] [vision_cifar10_batchsize] [fairness] Sophia/full/seed43: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:33:37] [vision_cifar10_batchsize] [batch4] batch4|Sophia|full|43  primary=50.15  diverged=False
+[2026-09-16 17:33:37] [vision_cifar10_batchsize] [fairness] Sophia/full/seed44: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:44:49] [vision_cifar10_batchsize] [batch4] batch4|Sophia|full|44  primary=53.98  diverged=False
+[2026-09-16 17:44:49] [vision_cifar10_batchsize] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:54:47] [vision_cifar10_batchsize] [batch4] batch4|Muon|full|42  primary=66.15  diverged=False
+[2026-09-16 17:54:47] [vision_cifar10_batchsize] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 18:04:45] [vision_cifar10_batchsize] [batch4] batch4|Muon|full|43  primary=65.12  diverged=False
+[2026-09-16 18:04:45] [vision_cifar10_batchsize] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 18:14:45] [vision_cifar10_batchsize] [batch4] batch4|Muon|full|44  primary=65.94  diverged=False
+[2026-09-16 18:32:44] [vision_cifar10_batchsize] [batch4] batch4|EvieKF|full|42  primary=52.45  diverged=False
+[2026-09-16 18:50:23] [vision_cifar10_batchsize] [batch4] batch4|EvieKF|full|43  primary=51.73  diverged=False
+[2026-09-16 19:08:07] [vision_cifar10_batchsize] [batch4] batch4|EvieKF|full|44  primary=52.96  diverged=False
+[2026-09-16 19:25:55] [vision_cifar10_batchsize] [batch4] batch4|EvieKFu|full|42  primary=51.31  diverged=False
+[2026-09-16 19:43:57] [vision_cifar10_batchsize] [batch4] batch4|EvieKFu|full|43  primary=50.13  diverged=False
+[2026-09-16 20:02:00] [vision_cifar10_batchsize] [batch4] batch4|EvieKFu|full|44  primary=52.98  diverged=False
+[2026-09-16 20:02:00] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 20:02:00] [vision_cifar10_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-16 20:02:01] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:03:08] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-05  score=29.8
+[2026-09-16 20:03:08] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:04:16] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-04  score=40.14
+[2026-09-16 20:04:16] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:05:23] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-04  score=47.16
+[2026-09-16 20:05:23] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:06:31] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-03  score=49.3
+[2026-09-16 20:06:31] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:07:38] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-03  score=47.54
+[2026-09-16 20:07:38] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:08:46] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=1.000e-02  score=43.66
+[2026-09-16 20:08:46] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:09:52] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW  lr=3.162e-02  score=38.92
+[2026-09-16 20:09:52] [vision_cifar10_batchsize] [batch8] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 20:09:53] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:11:18] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-05  score=30.68
+[2026-09-16 20:11:18] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:12:42] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-04  score=40.88
+[2026-09-16 20:12:42] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:14:07] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-04  score=47.58
+[2026-09-16 20:14:07] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:15:32] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-03  score=49.34
+[2026-09-16 20:15:32] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:16:56] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-03  score=46.6
+[2026-09-16 20:16:56] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:18:20] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=1.000e-02  score=43.54
+[2026-09-16 20:18:20] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:19:45] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief  lr=3.162e-02  score=33.68
+[2026-09-16 20:19:45] [vision_cifar10_batchsize] [batch8] [lr-search] AdaBelief: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 20:19:45] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:22:53] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-05  score=28.38
+[2026-09-16 20:22:53] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:26:01] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-04  score=38.1
+[2026-09-16 20:26:01] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:29:09] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-04  score=48.38
+[2026-09-16 20:29:09] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:32:17] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-03  score=48.88
+[2026-09-16 20:32:18] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:35:25] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-03  score=46.2
+[2026-09-16 20:35:25] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:38:32] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=1.000e-02  score=34
+[2026-09-16 20:38:32] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:41:38] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia  lr=3.162e-02  score=20.5
+[2026-09-16 20:41:38] [vision_cifar10_batchsize] [batch8] [lr-search] Sophia: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 20:41:38] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:44:19] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=6.325e-04  score=57.28
+[2026-09-16 20:44:19] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:47:01] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=2.000e-03  score=58.94
+[2026-09-16 20:47:01] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:49:43] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=6.325e-03  score=58.8
+[2026-09-16 20:49:43] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:52:24] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=2.000e-02  score=59.78
+[2026-09-16 20:52:24] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:55:04] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=6.325e-02  score=57.46
+[2026-09-16 20:55:04] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 20:57:44] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=2.000e-01  score=49.28
+[2026-09-16 20:57:45] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 21:00:25] [vision_cifar10_batchsize] [batch8] [lr-search] Muon  lr=6.325e-01  score=42.38
+[2026-09-16 21:00:25] [vision_cifar10_batchsize] [batch8] [lr-search] Muon: FROZEN lr=2.000e-02  (boundary checks: 0)
+[2026-09-16 21:04:48] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-05  score=26.34
+[2026-09-16 21:09:15] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-04  score=32.26
+[2026-09-16 21:13:49] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-04  score=40.7
+[2026-09-16 21:18:18] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-03  score=47.36
+[2026-09-16 21:22:51] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-03  score=52.08
+[2026-09-16 21:27:20] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=1.000e-02  score=53.06
+[2026-09-16 21:31:48] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF  lr=3.162e-02  score=49.66
+[2026-09-16 21:31:48] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKF: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 21:36:19] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-05  score=26.02
+[2026-09-16 21:41:02] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-04  score=32.2
+[2026-09-16 21:45:48] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-04  score=40.5
+[2026-09-16 21:50:37] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-03  score=47.3
+[2026-09-16 21:55:15] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-03  score=52.06
+[2026-09-16 21:59:39] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=1.000e-02  score=54.28
+[2026-09-16 22:04:03] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu  lr=3.162e-02  score=51.86
+[2026-09-16 22:04:03] [vision_cifar10_batchsize] [batch8] [lr-search] EvieKFu: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 22:04:03] [vision_cifar10_batchsize] [batch8] sweep cells
+[2026-09-16 22:04:03] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:08:25] [vision_cifar10_batchsize] [batch8] batch8|AdamW|full|42  primary=67.98  diverged=False
+[2026-09-16 22:08:25] [vision_cifar10_batchsize] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:12:47] [vision_cifar10_batchsize] [batch8] batch8|AdamW|full|43  primary=68.1  diverged=False
+[2026-09-16 22:12:47] [vision_cifar10_batchsize] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:17:09] [vision_cifar10_batchsize] [batch8] batch8|AdamW|full|44  primary=67.64  diverged=False
+[2026-09-16 22:17:09] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:22:33] [vision_cifar10_batchsize] [batch8] batch8|AdaBelief|full|42  primary=67.75  diverged=False
+[2026-09-16 22:22:33] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:28:04] [vision_cifar10_batchsize] [batch8] batch8|AdaBelief|full|43  primary=67.61  diverged=False
+[2026-09-16 22:28:04] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:33:28] [vision_cifar10_batchsize] [batch8] batch8|AdaBelief|full|44  primary=67.13  diverged=False
+[2026-09-16 22:33:29] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:45:44] [vision_cifar10_batchsize] [batch8] batch8|Sophia|full|42  primary=69.76  diverged=False
+[2026-09-16 22:45:44] [vision_cifar10_batchsize] [fairness] Sophia/full/seed43: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 22:58:00] [vision_cifar10_batchsize] [batch8] batch8|Sophia|full|43  primary=70.01  diverged=False
+[2026-09-16 22:58:00] [vision_cifar10_batchsize] [fairness] Sophia/full/seed44: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 23:10:10] [vision_cifar10_batchsize] [batch8] batch8|Sophia|full|44  primary=69.21  diverged=False
+[2026-09-16 23:10:10] [vision_cifar10_batchsize] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 23:20:58] [vision_cifar10_batchsize] [batch8] batch8|Muon|full|42  primary=79.6  diverged=False
+[2026-09-16 23:20:58] [vision_cifar10_batchsize] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 23:31:45] [vision_cifar10_batchsize] [batch8] batch8|Muon|full|43  primary=78.91  diverged=False
+[2026-09-16 23:31:46] [vision_cifar10_batchsize] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 23:42:32] [vision_cifar10_batchsize] [batch8] batch8|Muon|full|44  primary=78.35  diverged=False
+[2026-09-16 23:52:42] [vision_cifar10_batchsize] [signal] EvieKF/full/seed42: checkpointed at step 5722; exiting cleanly
+[2026-09-17 20:02:46] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-17 20:02:46] [vision_cifar10_batchsize]   vision_cifar10_batchsize  |  batchsize sweep on vision_cifar10  device=cuda  torch=2.10.0+cu128
+[2026-09-17 20:02:46] [vision_cifar10_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_top1_acc is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 20:02:46] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-17 20:02:47] [vision_cifar10_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 20:02:47] [vision_cifar10_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-17 20:24:45] [vision_cifar10_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch4', 'batch8', 'batch16', 'batch32', 'batch128']
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] [batch4] sweep cells
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-17 20:24:45] [vision_cifar10_batchsize] [batch8] sweep cells
+[2026-09-17 20:24:46] [vision_cifar10_batchsize] [resume] EvieKF/full/seed42 from step 5722/10000
+[2026-09-17 20:32:07] [vision_cifar10_batchsize] [batch8] batch8|EvieKF|full|42  primary=70.19  diverged=False
+[2026-09-17 20:48:53] [vision_cifar10_batchsize] [batch8] batch8|EvieKF|full|43  primary=71.33  diverged=False
+[2026-09-17 21:05:37] [vision_cifar10_batchsize] [batch8] batch8|EvieKF|full|44  primary=70.64  diverged=False
+[2026-09-17 21:22:23] [vision_cifar10_batchsize] [batch8] batch8|EvieKFu|full|42  primary=71.01  diverged=False
+[2026-09-17 21:39:09] [vision_cifar10_batchsize] [batch8] batch8|EvieKFu|full|43  primary=71.05  diverged=False
+[2026-09-17 21:55:54] [vision_cifar10_batchsize] [batch8] batch8|EvieKFu|full|44  primary=71.36  diverged=False
+[2026-09-17 21:55:54] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 21:55:54] [vision_cifar10_batchsize] [batch16] LR search  (batchsize = 16)
+[2026-09-17 21:55:54] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 21:57:23] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-05  score=34.64
+[2026-09-17 21:57:23] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 21:58:52] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-04  score=48
+[2026-09-17 21:58:52] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:00:21] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-04  score=56.76
+[2026-09-17 22:00:21] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:01:50] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-03  score=60.68
+[2026-09-17 22:01:50] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:03:19] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-03  score=59.4
+[2026-09-17 22:03:19] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:04:48] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=1.000e-02  score=57.36
+[2026-09-17 22:04:48] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:06:15] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW  lr=3.162e-02  score=46.46
+[2026-09-17 22:06:15] [vision_cifar10_batchsize] [batch16] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-17 22:06:16] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:07:57] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-05  score=36.32
+[2026-09-17 22:07:57] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:09:38] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-04  score=49.54
+[2026-09-17 22:09:39] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:11:20] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-04  score=57.04
+[2026-09-17 22:11:20] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:13:01] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-03  score=61.16
+[2026-09-17 22:13:01] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:14:42] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-03  score=58.92
+[2026-09-17 22:14:42] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:16:23] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=1.000e-02  score=57.46
+[2026-09-17 22:16:23] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:18:03] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief  lr=3.162e-02  score=44.8
+[2026-09-17 22:18:03] [vision_cifar10_batchsize] [batch16] [lr-search] AdaBelief: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-17 22:18:03] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:22:34] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-05  score=31.86
+[2026-09-17 22:22:34] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:27:04] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-04  score=46.7
+[2026-09-17 22:27:04] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:31:34] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-04  score=57.44
+[2026-09-17 22:31:34] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:36:04] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-03  score=61.14
+[2026-09-17 22:36:04] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:40:34] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-03  score=57.86
+[2026-09-17 22:40:34] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:45:00] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=1.000e-02  score=49.88
+[2026-09-17 22:45:00] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:49:24] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia  lr=3.162e-02  score=27.88
+[2026-09-17 22:49:24] [vision_cifar10_batchsize] [batch16] [lr-search] Sophia: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-17 22:49:24] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:52:34] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=6.325e-04  score=68.24
+[2026-09-17 22:52:34] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:55:45] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=2.000e-03  score=71.46
+[2026-09-17 22:55:45] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 22:58:56] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=6.325e-03  score=70.7
+[2026-09-17 22:58:56] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 23:02:07] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=2.000e-02  score=72.26
+[2026-09-17 23:02:07] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 23:05:18] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=6.325e-02  score=68.6
+[2026-09-17 23:05:18] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 23:08:29] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=2.000e-01  score=63.16
+[2026-09-17 23:08:29] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-17 23:11:40] [vision_cifar10_batchsize] [batch16] [lr-search] Muon  lr=6.325e-01  score=55.6
+[2026-09-17 23:11:40] [vision_cifar10_batchsize] [batch16] [lr-search] Muon: FROZEN lr=2.000e-02  (boundary checks: 0)
+[2026-09-17 23:16:10] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-05  score=29.24
+[2026-09-17 23:20:40] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-04  score=36.22
+[2026-09-17 23:25:08] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-04  score=49.44
+[2026-09-17 23:29:37] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-03  score=57.36
+[2026-09-17 23:34:06] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-03  score=61.8
+[2026-09-17 23:38:35] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=1.000e-02  score=65.5
+[2026-09-17 23:43:03] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF  lr=3.162e-02  score=62.2
+[2026-09-17 23:43:03] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKF: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-17 23:47:32] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-05  score=29.02
+[2026-09-17 23:52:01] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-04  score=36
+[2026-09-17 23:56:30] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-04  score=49.44
+[2026-09-18 00:00:59] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-03  score=57.96
+[2026-09-18 00:05:28] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-03  score=62.62
+[2026-09-18 00:09:58] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=1.000e-02  score=66.2
+[2026-09-18 00:14:26] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu  lr=3.162e-02  score=61.2
+[2026-09-18 00:14:26] [vision_cifar10_batchsize] [batch16] [lr-search] EvieKFu: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-18 00:14:26] [vision_cifar10_batchsize] [batch16] sweep cells
+[2026-09-18 00:14:26] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:20:26] [vision_cifar10_batchsize] [batch16] batch16|AdamW|full|42  primary=76.06  diverged=False
+[2026-09-18 00:20:27] [vision_cifar10_batchsize] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:26:27] [vision_cifar10_batchsize] [batch16] batch16|AdamW|full|43  primary=75.01  diverged=False
+[2026-09-18 00:26:28] [vision_cifar10_batchsize] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:32:29] [vision_cifar10_batchsize] [batch16] batch16|AdamW|full|44  primary=75.73  diverged=False
+[2026-09-18 00:32:29] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:39:17] [vision_cifar10_batchsize] [batch16] batch16|AdaBelief|full|42  primary=76.38  diverged=False
+[2026-09-18 00:39:17] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:46:04] [vision_cifar10_batchsize] [batch16] batch16|AdaBelief|full|43  primary=74.88  diverged=False
+[2026-09-18 00:46:05] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 00:52:52] [vision_cifar10_batchsize] [batch16] batch16|AdaBelief|full|44  primary=76.18  diverged=False
+[2026-09-18 00:52:52] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 01:10:51] [vision_cifar10_batchsize] [batch16] batch16|Sophia|full|42  primary=78.73  diverged=False
+[2026-09-18 01:10:51] [vision_cifar10_batchsize] [fairness] Sophia/full/seed43: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 01:28:50] [vision_cifar10_batchsize] [batch16] batch16|Sophia|full|43  primary=77.86  diverged=False
+[2026-09-18 01:28:50] [vision_cifar10_batchsize] [fairness] Sophia/full/seed44: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 01:46:49] [vision_cifar10_batchsize] [batch16] batch16|Sophia|full|44  primary=78.97  diverged=False
+[2026-09-18 01:46:49] [vision_cifar10_batchsize] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 01:59:36] [vision_cifar10_batchsize] [batch16] batch16|Muon|full|42  primary=83.47  diverged=False
+[2026-09-18 01:59:36] [vision_cifar10_batchsize] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 02:12:24] [vision_cifar10_batchsize] [batch16] batch16|Muon|full|43  primary=83.76  diverged=False
+[2026-09-18 02:12:24] [vision_cifar10_batchsize] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 02:25:11] [vision_cifar10_batchsize] [batch16] batch16|Muon|full|44  primary=84.31  diverged=False
+[2026-09-18 02:43:06] [vision_cifar10_batchsize] [batch16] batch16|EvieKF|full|42  primary=77.65  diverged=False
+[2026-09-18 03:00:59] [vision_cifar10_batchsize] [batch16] batch16|EvieKF|full|43  primary=77.01  diverged=False
+[2026-09-18 03:18:53] [vision_cifar10_batchsize] [batch16] batch16|EvieKF|full|44  primary=78.79  diverged=False
+[2026-09-18 03:36:47] [vision_cifar10_batchsize] [batch16] batch16|EvieKFu|full|42  primary=78.25  diverged=False
+[2026-09-18 03:54:41] [vision_cifar10_batchsize] [batch16] batch16|EvieKFu|full|43  primary=77.38  diverged=False
+[2026-09-18 04:12:35] [vision_cifar10_batchsize] [batch16] batch16|EvieKFu|full|44  primary=78.53  diverged=False
+[2026-09-18 04:12:35] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 04:12:35] [vision_cifar10_batchsize] [batch32] LR search  (batchsize = 32)
+[2026-09-18 04:12:35] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:14:29] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=3.162e-05  score=38.64
+[2026-09-18 04:14:30] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:16:24] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=1.000e-04  score=54.86
+[2026-09-18 04:16:24] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:18:18] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=3.162e-04  score=64.76
+[2026-09-18 04:18:18] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:20:12] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=1.000e-03  score=69.36
+[2026-09-18 04:20:12] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:22:07] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=3.162e-03  score=70.84
+[2026-09-18 04:22:07] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:24:00] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=1.000e-02  score=69.88
+[2026-09-18 04:24:00] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:25:52] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW  lr=3.162e-02  score=61.52
+[2026-09-18 04:25:52] [vision_cifar10_batchsize] [batch32] [lr-search] AdamW: FROZEN lr=3.162e-03  (boundary checks: 0)
+[2026-09-18 04:25:53] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:27:58] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=3.162e-05  score=41.84
+[2026-09-18 04:27:58] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:30:03] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=1.000e-04  score=56.24
+[2026-09-18 04:30:03] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:32:09] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=3.162e-04  score=65.62
+[2026-09-18 04:32:09] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:34:14] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=1.000e-03  score=69.64
+[2026-09-18 04:34:15] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:36:20] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=3.162e-03  score=70.08
+[2026-09-18 04:36:20] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:38:25] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=1.000e-02  score=69.28
+[2026-09-18 04:38:25] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:40:29] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief  lr=3.162e-02  score=61.06
+[2026-09-18 04:40:29] [vision_cifar10_batchsize] [batch32] [lr-search] AdaBelief: FROZEN lr=3.162e-03  (boundary checks: 0)
+[2026-09-18 04:40:29] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:46:54] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=3.162e-05  score=35.78
+[2026-09-18 04:46:54] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:53:19] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=1.000e-04  score=54.54
+[2026-09-18 04:53:20] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 04:59:44] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=3.162e-04  score=66.34
+[2026-09-18 04:59:44] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:06:09] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=1.000e-03  score=70.96
+[2026-09-18 05:06:09] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:12:33] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=3.162e-03  score=72.62
+[2026-09-18 05:12:33] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:18:51] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=1.000e-02  score=64.34
+[2026-09-18 05:18:51] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:25:06] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia  lr=3.162e-02  score=44.44
+[2026-09-18 05:25:06] [vision_cifar10_batchsize] [batch32] [lr-search] Sophia: FROZEN lr=3.162e-03  (boundary checks: 0)
+[2026-09-18 05:25:06] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:28:41] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-04  score=80.04
+[2026-09-18 05:28:41] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:32:16] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-03  score=83.24
+[2026-09-18 05:32:16] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:35:51] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-03  score=83.44
+[2026-09-18 05:35:51] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:39:26] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-02  score=83.36
+[2026-09-18 05:39:26] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:43:02] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-02  score=81.84
+[2026-09-18 05:43:02] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:46:36] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-01  score=79.88
+[2026-09-18 05:46:36] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 05:47:42] [vision_cifar10_batchsize] [signal] Muon/full/seed42/LR: checkpointed at step 769; exiting cleanly
+[2026-09-18 07:01:47] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-18 07:01:47] [vision_cifar10_batchsize]   vision_cifar10_batchsize  |  batchsize sweep on vision_cifar10  device=cuda  torch=2.10.0+cu128
+[2026-09-18 07:01:47] [vision_cifar10_batchsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_top1_acc is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-18 07:01:47] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-18 07:01:47] [vision_cifar10_batchsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-18 07:01:47] [vision_cifar10_batchsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-18 07:38:02] [vision_cifar10_batchsize]   arms=['AdamW', 'AdaBelief', 'Sophia', 'Muon', 'EvieKF', 'EvieKFu']  seeds=[42, 43, 44]  grid=['batch4', 'batch8', 'batch16', 'batch32', 'batch128']
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch4] LR search  (batchsize = 4)
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch4] sweep cells
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch8] LR search  (batchsize = 8)
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch8] sweep cells
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch16] LR search  (batchsize = 16)
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch16] sweep cells
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 07:38:02] [vision_cifar10_batchsize] [batch32] LR search  (batchsize = 32)
+[2026-09-18 07:38:03] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:41:42] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-04  score=80
+[2026-09-18 07:41:42] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:45:17] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-03  score=83.12
+[2026-09-18 07:45:17] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:48:52] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-03  score=83.04
+[2026-09-18 07:48:52] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:52:27] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-02  score=82.54
+[2026-09-18 07:52:27] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:56:02] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-02  score=82.74
+[2026-09-18 07:56:02] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 07:59:37] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=2.000e-01  score=78.9
+[2026-09-18 07:59:37] [vision_cifar10_batchsize] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 08:03:11] [vision_cifar10_batchsize] [batch32] [lr-search] Muon  lr=6.325e-01  score=68.26
+[2026-09-18 08:03:11] [vision_cifar10_batchsize] [batch32] [lr-search] Muon: FROZEN lr=2.000e-03  (boundary checks: 0)
+[2026-09-18 08:08:02] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=3.162e-05  score=31.86
+[2026-09-18 08:12:53] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=1.000e-04  score=41.7
+[2026-09-18 08:17:44] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=3.162e-04  score=57.18
+[2026-09-18 08:22:36] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=1.000e-03  score=66.3
+[2026-09-18 08:27:27] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=3.162e-03  score=70.58
+[2026-09-18 08:32:18] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=1.000e-02  score=72.88
+[2026-09-18 08:37:08] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF  lr=3.162e-02  score=72.48
+[2026-09-18 08:37:08] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKF: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-18 08:41:59] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=3.162e-05  score=31.68
+[2026-09-18 08:46:50] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=1.000e-04  score=41.12
+[2026-09-18 08:51:42] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=3.162e-04  score=57.44
+[2026-09-18 08:56:33] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=1.000e-03  score=65.86
+[2026-09-18 09:01:24] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=3.162e-03  score=70.62
+[2026-09-18 09:06:14] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=1.000e-02  score=73.9
+[2026-09-18 09:11:04] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu  lr=3.162e-02  score=72.2
+[2026-09-18 09:11:04] [vision_cifar10_batchsize] [batch32] [lr-search] EvieKFu: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-18 09:11:04] [vision_cifar10_batchsize] [batch32] sweep cells
+[2026-09-18 09:11:04] [vision_cifar10_batchsize] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:18:48] [vision_cifar10_batchsize] [batch32] batch32|AdamW|full|42  primary=80.05  diverged=False
+[2026-09-18 09:18:48] [vision_cifar10_batchsize] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:26:31] [vision_cifar10_batchsize] [batch32] batch32|AdamW|full|43  primary=78.49  diverged=False
+[2026-09-18 09:26:31] [vision_cifar10_batchsize] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:34:15] [vision_cifar10_batchsize] [batch32] batch32|AdamW|full|44  primary=79.89  diverged=False
+[2026-09-18 09:34:15] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:42:44] [vision_cifar10_batchsize] [batch32] batch32|AdaBelief|full|42  primary=79.8  diverged=False
+[2026-09-18 09:42:44] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:51:12] [vision_cifar10_batchsize] [batch32] batch32|AdaBelief|full|43  primary=78.33  diverged=False
+[2026-09-18 09:51:13] [vision_cifar10_batchsize] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 09:59:41] [vision_cifar10_batchsize] [batch32] batch32|AdaBelief|full|44  primary=79.19  diverged=False
+[2026-09-18 09:59:41] [vision_cifar10_batchsize] [fairness] Sophia/full/seed42: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 10:25:11] [vision_cifar10_batchsize] [batch32] batch32|Sophia|full|42  primary=80.54  diverged=False
+[2026-09-18 10:25:11] [vision_cifar10_batchsize] [fairness] Sophia/full/seed43: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 10:50:35] [vision_cifar10_batchsize] [batch32] batch32|Sophia|full|43  primary=80.68  diverged=False
+[2026-09-18 10:50:35] [vision_cifar10_batchsize] [fairness] Sophia/full/seed44: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 11:16:02] [vision_cifar10_batchsize] [batch32] batch32|Sophia|full|44  primary=80.85  diverged=False
+[2026-09-18 11:16:02] [vision_cifar10_batchsize] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 11:30:27] [vision_cifar10_batchsize] [batch32] batch32|Muon|full|42  primary=85.15  diverged=False
+[2026-09-18 11:30:27] [vision_cifar10_batchsize] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 11:44:51] [vision_cifar10_batchsize] [batch32] batch32|Muon|full|43  primary=85.05  diverged=False
+[2026-09-18 11:44:51] [vision_cifar10_batchsize] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-18 11:59:16] [vision_cifar10_batchsize] [batch32] batch32|Muon|full|44  primary=85.09  diverged=False
+[2026-09-18 12:18:46] [vision_cifar10_batchsize] [batch32] batch32|EvieKF|full|42  primary=79.36  diverged=False
+[2026-09-18 12:38:14] [vision_cifar10_batchsize] [batch32] batch32|EvieKF|full|43  primary=78.9  diverged=False
+[2026-09-18 12:57:42] [vision_cifar10_batchsize] [batch32] batch32|EvieKF|full|44  primary=79.65  diverged=False
+[2026-09-18 13:17:11] [vision_cifar10_batchsize] [batch32] batch32|EvieKFu|full|42  primary=79.34  diverged=False
+[2026-09-18 13:36:37] [vision_cifar10_batchsize] [batch32] batch32|EvieKFu|full|43  primary=79.97  diverged=False
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] [batch32] batch32|EvieKFu|full|44  primary=79.89  diverged=False
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] [batch128] reusing the main run's frozen LR + seed [42, 43, 44] cells from checkpoints/vision_cifar10/
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] [sweep] baseline point: 24 pieces NOT found under checkpoints/vision_cifar10/ -- run that main task first for a complete baseline column. Missing e.g. ['lr[AdamW]', 'lr[AdaBelief]', 'lr[Sophia]', 'lr[Muon]', 'lr[EvieKF]', 'lr[EvieKFu]'] ...
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   BATCHSIZE SWEEP -- vision_cifar10_batchsize   primary=test_top1_acc (higher is better)
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   grid point                x          AdamW    AdaBelief       Sophia         Muon       EvieKF      EvieKFu
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   batch4                    4          51.79         50.7        50.43        65.94        52.45        51.31
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   batch8                    8          67.98        67.61        69.76        78.91        70.64        71.05
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   batch16                  16          75.73        76.18        78.73        83.76        77.65        78.25
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   batch32                  32          79.89        79.19        80.68        85.09        79.36        79.89
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   batch128                128            nan          nan          nan          nan          nan          nan   [reused baseline]
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   delta vs EvieKF  (d>0 => arm beats EvieKF at that grid point; direction-normalised relative)
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     batch4           AdamW:-0.013  AdaBelief:-0.033  Sophia:-0.039  Muon:+0.257  EvieKFu:-0.022
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     batch8           AdamW:-0.038  AdaBelief:-0.043  Sophia:-0.012  Muon:+0.117  EvieKFu:+0.006
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     batch16          AdamW:-0.025  AdaBelief:-0.019  Sophia:+0.014  Muon:+0.079  EvieKFu:+0.008
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     batch32          AdamW:+0.007  AdaBelief:-0.002  Sophia:+0.017  Muon:+0.072  EvieKFu:+0.007
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     batch128         AdamW:+nan  AdaBelief:+nan  Sophia:+nan  Muon:+nan  EvieKFu:+nan
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   pre-registered quantity (CLAUDE.md sec 9.2): Spearman(batch size, delta vs EvieKF) per arm.
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   -> the EvieKFu row is the C1 test: rho < 0 (with d = normalised EvieKF-minus-EvieKFu) means the centred edge grows as batch size shrinks.
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     AdamW        rho=+0.400  p=0.6  n=4
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     AdaBelief    rho=+0.800  p=0.2  n=4
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     Sophia       rho=+1.000  p=0  n=4
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     Muon         rho=-1.000  p=0  n=4
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]     EvieKFu      rho=+0.800  p=0.2  n=4
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   wrote /kaggle/working/checkpoints/vision_cifar10_batchsize/results_raw.csv
+[2026-09-18 13:56:05] [vision_cifar10_batchsize] ====================================================================================================
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   wrote /kaggle/working/checkpoints/vision_cifar10_batchsize/summary.json  and  /kaggle/working/checkpoints/vision_cifar10_batchsize/sweep_results.json
+[2026-09-18 13:56:05] [vision_cifar10_batchsize]   DONE 2026-09-18T13:56:05.868823

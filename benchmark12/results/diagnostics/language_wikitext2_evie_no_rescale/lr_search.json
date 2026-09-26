@@ -1,0 +1,10 @@
+{
+  "EvieKFr": {
+    "lr": 0.001,
+    "knob": 300.0,
+    "grid": {},
+    "complete": true,
+    "pinned": true,
+    "pinned_note": "the main run's frozen WikiText-2 (lr, gamma); the ONLY difference from those cells is that the global ||y||/||z|| rescale is off"
+  }
+}

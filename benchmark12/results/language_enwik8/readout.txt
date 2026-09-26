@@ -1,0 +1,83 @@
+TASK language_enwik8   primary = test_perplexity (lower better)
+  cells 40   units 1   seeds [42, 43, 44, 45, 46]
+
+TASK NUMBER  (median over seeds of the per-seed unit-median)
+  optimizer            primary   vs EvieKF       unit-MEAN
+  Muon               2.9687827     -2.360%       2.9687827
+  Shampoo           2.97126715     -2.275%      2.97126715
+  EvieKF            3.03885921                  3.03885921
+  Lion                3.108328     +2.235%        3.108328
+  AdaBelief         3.14868713     +3.488%      3.14868713
+  AdamW              3.1763817     +4.330%       3.1763817
+  Sophia            3.34206787     +9.072%      3.34206787
+  SGD               3.60148788    +15.622%      3.60148788
+  (unit-MEAN is the OLD aggregation, shown so its distortion is visible; the target is not standardised, so a mean over units is dominated by the highest-variance ones)
+
+SEED STABILITY  (spread of the per-seed task number, complete-case)
+  Muon         spread    1.35%   [2.94503, 2.98478]
+  Shampoo      spread    2.56%   [2.96138, 3.03719]
+  EvieKF       spread    0.39%   [3.03241, 3.04419]
+  Lion         spread    0.43%   [3.09906, 3.11224]
+  AdaBelief    spread    0.81%   [3.14218, 3.16778]
+  AdamW        spread    0.88%   [3.16507, 3.19302]
+  Sophia       spread    2.70%   [3.27703, 3.3656]
+  SGD          spread    6.19%   [3.3967, 3.60681]
+
+DIVERGENCE  (cells flagged, of 5 per optimizer)
+  EvieKF         0
+  AdamW          0
+  AdaBelief      0
+  Muon           0
+  Shampoo        0
+  Sophia         0
+  Lion           0
+  SGD            0
+
+WALL-CLOCK per cell  (telemetry-bearing cells only; the step budget is fixed, NOT wall-clock matched)
+  EvieKF       n=   5  mean   3562.9s
+  AdamW        n=   5  mean   2171.9s    1.00x AdamW
+  AdaBelief    n=   5  mean   2199.5s    1.01x AdamW
+  Muon         n=   5  mean   2332.1s    1.07x AdamW
+  Shampoo      n=   5  mean   3039.9s    1.40x AdamW
+  Sophia       n=   5  mean   5325.3s    2.45x AdamW
+  Lion         n=   5  mean   2145.1s    0.99x AdamW
+  SGD          n=   5  mean   2136.3s    0.98x AdamW
+
+EVIE-KF MECHANISM TELEMETRY  (descriptive only, never tested)
+  eviekf_n_active_steps      mean        8184  [1000, 9980]
+                             wiring canary: 0 would mean set_noise() never fired and this WAS silently AdamW
+  eviekf_cos_mean            mean      0.5953  [0.59137, 0.59927]
+                             cos(preconditioned dir, plain Adam dir); 1.0 = the operator changed nothing
+  eviekf_b_simple_mean       mean      19.051  [17.887, 19.584]
+                             tr(Sigma_z)/||y||^2 -- gradient noise relative to signal
+  eviekf_eff_rank_mean       mean      1900.8  [1680.3, 2101.5]
+                             effective rank of the Kronecker noise spectrum
+  eviekf_gain_lo_min         mean   0.0014325  [0.0013752, 0.0014726]
+                             smallest gain applied; 1.0 = no shrinkage anywhere
+  eviekf_gain_hi_max         mean           1  [1, 1]
+                             largest gain; always <= 1 by construction
+
+TUNED SECOND AXIS (knob) RESPONSE at the frozen LR
+  EvieKF: frozen lr=0.0003162 knob=27000   lr-boundary-extends=0 knob-boundary-extends=3
+      knob=3         score=4.39484
+      knob=10        score=4.31341
+      knob=30        score=4.21301
+      knob=100       score=4.13919
+      knob=300       score=4.03256
+      knob=1000      score=3.95652
+      knob=3000      score=3.8557
+      knob=9000      score=3.75172
+      knob=27000     score=3.71034   <-- frozen
+      knob=81000     score=3.69556
+      knob=243000    score=3.70109
+      spread across the knob axis: 18.92% over a 81000x range
+  Shampoo: frozen lr=0.003162 knob=0.75   lr-boundary-extends=0 knob-boundary-extends=2
+      knob=0.7       score=3.91964
+      knob=0.75      score=3.79357   <-- frozen
+      knob=0.8       score=3.88877
+      knob=0.85      score=3.96939
+      knob=0.9       score=3.93371
+      knob=0.95      score=3.96277
+      knob=0.99      score=3.95369
+      knob=0.999     score=4.8497
+      spread across the knob axis: 27.84% over a 1x range

@@ -1,0 +1,10 @@
+{
+  "EvieKF": {
+    "lr": 0.0003162,
+    "knob": 3000.0,
+    "grid": {},
+    "complete": true,
+    "pinned": true,
+    "pinned_note": "the lr AdamW and AdaBelief both froze at the large size; gamma at the sweep's pinned 3000"
+  }
+}

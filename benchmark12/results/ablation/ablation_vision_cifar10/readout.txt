@@ -1,0 +1,71 @@
+TASK ablation_vision_cifar10   primary = test_top1_acc (higher better)
+  cells 30   units 1   seeds [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+
+TASK NUMBER  (median over seeds of the per-seed unit-median)
+  optimizer            primary   vs EvieKF       unit-MEAN
+  EvieDiag               81.53     -0.423%           81.53
+  EvieKF                81.185                      81.185
+  EvieKFu               80.525     +0.820%          80.525
+  (unit-MEAN is the OLD aggregation, shown so its distortion is visible; the target is not standardised, so a mean over units is dominated by the highest-variance ones)
+
+SEED STABILITY  (spread of the per-seed task number, complete-case)
+  EvieDiag     spread    1.62%   [80.75, 82.06]
+  EvieKF       spread    2.03%   [80.35, 81.98]
+  EvieKFu      spread    2.23%   [79.47, 81.24]
+
+DIVERGENCE  (cells flagged, of 10 per optimizer)
+  EvieKF         0
+  EvieKFu        0
+  EvieDiag       0
+
+WALL-CLOCK per cell  (telemetry-bearing cells only; the step budget is fixed, NOT wall-clock matched)
+  EvieKF       n=  10  mean   1830.7s
+  EvieKFu      n=  10  mean   1833.8s
+  EvieDiag     n=  10  mean   1577.8s
+
+EVIE-KF MECHANISM TELEMETRY  (descriptive only, never tested)
+  eviekf_n_active_steps      mean      9693.7  [4500, 9980]
+                             wiring canary: 0 would mean set_noise() never fired and this WAS silently AdamW
+  eviekf_cos_mean            mean     0.92863  [0.83644, 0.99184]
+                             cos(preconditioned dir, plain Adam dir); 1.0 = the operator changed nothing
+  eviekf_b_simple_mean       mean      17.001  [11.22, 22.521]
+                             tr(Sigma_z)/||y||^2 -- gradient noise relative to signal
+  eviekf_eff_rank_mean       mean       32782  [0, 59865]
+                             effective rank of the Kronecker noise spectrum
+  eviekf_gain_lo_min         mean     0.55577  [0.020324, 1]
+                             smallest gain applied; 1.0 = no shrinkage anywhere
+  eviekf_gain_hi_max         mean           1  [1, 1]
+                             largest gain; always <= 1 by construction
+
+TUNED SECOND AXIS (knob) RESPONSE at the frozen LR
+  EvieKF: frozen lr=0.01 knob=1   lr-boundary-extends=0 knob-boundary-extends=2
+      knob=0.3333    score=80.42
+      knob=1         score=80.86   <-- frozen
+      knob=3         score=80.56
+      knob=10        score=79.9
+      knob=30        score=80.14
+      knob=100       score=79.36
+      knob=300       score=80.46
+      knob=1000      score=79.78
+      knob=3000      score=79.82
+      spread across the knob axis: 1.89% over a 9001x range
+  EvieKFu: frozen lr=0.01 knob=100   lr-boundary-extends=0 knob-boundary-extends=0
+      knob=3         score=80.36
+      knob=10        score=79.8
+      knob=30        score=80.1
+      knob=100       score=80.58   <-- frozen
+      knob=300       score=79.66
+      knob=1000      score=79.92
+      knob=3000      score=79.66
+      spread across the knob axis: 1.15% over a 1000x range
+  EvieDiag: frozen lr=0.01 knob=1   lr-boundary-extends=0 knob-boundary-extends=1
+      knob=0.3333    score=81.04
+      knob=1         score=82   <-- frozen
+      knob=3         score=81.38
+      knob=10        score=81.06
+      knob=30        score=81.02
+      knob=100       score=80.92
+      knob=300       score=81.14
+      knob=1000      score=80.2
+      knob=3000      score=80.86
+      spread across the knob axis: 2.24% over a 9001x range

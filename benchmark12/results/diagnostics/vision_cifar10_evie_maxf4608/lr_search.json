@@ -1,0 +1,10 @@
+{
+  "EvieKF": {
+    "lr": 0.09999,
+    "knob": 27000.0,
+    "grid": {},
+    "complete": true,
+    "pinned": true,
+    "pinned_note": "the main run's frozen CIFAR-10 (lr, gamma); the ONLY difference from those cells is eviekf_maxf 1024 -> 4608"
+  }
+}

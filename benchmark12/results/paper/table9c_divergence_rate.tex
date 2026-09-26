@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Diverged cells per optimizer on each task, and the overall rate. Descriptive. Covers 12 of 12 tasks: vision\_cifar10, vision\_cifar100, vision\_stl10, vision\_svhn, language\_enwik8, language\_ptb, language\_wikitext103, language\_wikitext2, finance\_consumer\_industrials, finance\_finance, finance\_healthcare, finance\_tech.}
+\label{tab:table9c_divergence_rate}
+\begin{tabular}{lrrrrrrrrrrrrrr}
+\toprule
+Optimizer & vis/cifar10 & vis/cifar100 & vis/stl10 & vis/svhn & lang/enwik8 & lang/ptb & lang/wikitext103 & lang/wikitext2 & fin/consumer\_industrials & fin/finance & fin/healthcare & fin/tech & total & rate \\
+\midrule
+EvieKF & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2/1025 & 0.20\% \\
+AdamW & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0/1025 & 0.00\% \\
+AdaBelief & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0/1025 & 0.00\% \\
+SGD & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 & 4 & 4 & 2 & 13/1025 & 1.27\% \\
+Sophia & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 14 & 2 & 18/1025 & 1.76\% \\
+Muon & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 32 & 2 & 0 & 34/1025 & 3.32\% \\
+Lion & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 17 & 5 & 8 & 30/1025 & 2.93\% \\
+Shampoo & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 & 11 & 0 & 7 & 21/1025 & 2.05\% \\
+\bottomrule
+\end{tabular}
+\end{table}

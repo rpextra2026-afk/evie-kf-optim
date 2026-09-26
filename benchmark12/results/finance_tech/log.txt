@@ -1,0 +1,1128 @@
+[2026-09-11 17:17:42] [finance_tech] ====================================================================================================
+[2026-09-11 17:17:42] [finance_tech]   finance_tech  |  domain=finance  device=cuda  torch=2.10.0+cu128
+[2026-09-11 17:17:42] [finance_tech]   primary=test_mse  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-11 17:17:42] [finance_tech] ====================================================================================================
+[2026-09-11 17:17:43] [finance_tech] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-11 17:17:43] [finance_tech] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-11 17:17:43] [finance_tech] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-11 17:17:43] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-11 17:17:43] [finance_tech] [lr-search] units=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']  steps=2500  seed=42  optimizers=['AdamW', 'AdaBelief', 'SGD', 'Sophia', 'Muon', 'Lion', 'Shampoo', 'EvieKF']
+[2026-09-11 17:18:24] [finance_tech] [lr-search] AdamW  lr=3.162e-05  knob=-  score=0.000702776
+[2026-09-11 17:18:59] [finance_tech] [lr-search] AdamW  lr=1.000e-04  knob=-  score=0.000596341
+[2026-09-11 17:19:34] [finance_tech] [lr-search] AdamW  lr=3.162e-04  knob=-  score=0.000585753
+[2026-09-11 17:20:08] [finance_tech] [lr-search] AdamW  lr=1.000e-03  knob=-  score=0.000562607
+[2026-09-11 17:20:43] [finance_tech] [lr-search] AdamW  lr=3.162e-03  knob=-  score=0.00055899
+[2026-09-11 17:21:18] [finance_tech] [lr-search] AdamW  lr=1.000e-02  knob=-  score=0.000540093
+[2026-09-11 17:21:53] [finance_tech] [lr-search] AdamW  lr=3.162e-02  knob=-  score=0.000544001
+[2026-09-11 17:21:53] [finance_tech] [lr-search] AdamW: FROZEN lr=1.000e-02  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-11 17:22:39] [finance_tech] [lr-search] AdaBelief  lr=3.162e-05  knob=-  score=0.000629304
+[2026-09-11 17:23:27] [finance_tech] [lr-search] AdaBelief  lr=1.000e-04  knob=-  score=0.000579838
+[2026-09-11 17:24:15] [finance_tech] [lr-search] AdaBelief  lr=3.162e-04  knob=-  score=0.000585961
+[2026-09-11 17:25:01] [finance_tech] [lr-search] AdaBelief  lr=1.000e-03  knob=-  score=0.000563967
+[2026-09-11 17:25:48] [finance_tech] [lr-search] AdaBelief  lr=3.162e-03  knob=-  score=0.000558394
+[2026-09-11 17:26:34] [finance_tech] [lr-search] AdaBelief  lr=1.000e-02  knob=-  score=0.000539073
+[2026-09-11 17:27:21] [finance_tech] [lr-search] AdaBelief  lr=3.162e-02  knob=-  score=0.000539136
+[2026-09-11 17:27:21] [finance_tech] [lr-search] AdaBelief: FROZEN lr=1.000e-02  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-11 17:27:58] [finance_tech] [lr-search] SGD  lr=9.487e-04  knob=-  score=0.000774741
+[2026-09-11 17:28:34] [finance_tech] [lr-search] SGD  lr=3.000e-03  knob=-  score=0.000687747
+[2026-09-11 17:29:10] [finance_tech] [lr-search] SGD  lr=9.487e-03  knob=-  score=0.00059908
+[2026-09-11 17:29:46] [finance_tech] [lr-search] SGD  lr=3.000e-02  knob=-  score=0.000562112
+[2026-09-11 17:30:21] [finance_tech] [lr-search] SGD  lr=9.487e-02  knob=-  score=0.000572814
+[2026-09-11 17:30:57] [finance_tech] [lr-search] SGD  lr=3.000e-01  knob=-  score=0.000559645
+[2026-09-11 17:31:33] [finance_tech] [lr-search] SGD  lr=9.487e-01  knob=-  score=0.000539484
+[2026-09-11 17:31:33] [finance_tech] [lr-search] SGD: LR pick 9.487e-01 at grid edge -> extend [3.0, 9.487] and re-search (boundary check #1)
+[2026-09-11 17:32:09] [finance_tech] [lr-search] SGD  lr=3.000e+00  knob=-  score=0.000551659
+[2026-09-11 17:32:45] [finance_tech] [lr-search] SGD  lr=9.487e+00  knob=-  score=inf
+[2026-09-11 17:32:45] [finance_tech] [lr-search] SGD: FROZEN lr=9.487e-01  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-11 17:34:11] [finance_tech] [lr-search] Sophia  lr=3.162e-05  knob=-  score=0.000699993
+[2026-09-11 17:35:36] [finance_tech] [lr-search] Sophia  lr=1.000e-04  knob=-  score=0.000591883
+[2026-09-11 17:37:00] [finance_tech] [lr-search] Sophia  lr=3.162e-04  knob=-  score=0.00060362
+[2026-09-11 17:38:25] [finance_tech] [lr-search] Sophia  lr=1.000e-03  knob=-  score=0.000547625
+[2026-09-11 17:39:50] [finance_tech] [lr-search] Sophia  lr=3.162e-03  knob=-  score=0.000539405
+[2026-09-11 17:41:15] [finance_tech] [lr-search] Sophia  lr=1.000e-02  knob=-  score=0.000541407
+[2026-09-11 17:42:40] [finance_tech] [lr-search] Sophia  lr=3.162e-02  knob=-  score=0.000539465
+[2026-09-11 17:42:40] [finance_tech] [lr-search] Sophia: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-11 17:44:03] [finance_tech] [lr-search] Muon  lr=6.325e-04  knob=-  score=0.000563286
+[2026-09-11 17:45:26] [finance_tech] [lr-search] Muon  lr=2.000e-03  knob=-  score=0.000582047
+[2026-09-11 17:46:48] [finance_tech] [lr-search] Muon  lr=6.325e-03  knob=-  score=0.000545376
+[2026-09-11 17:48:10] [finance_tech] [lr-search] Muon  lr=2.000e-02  knob=-  score=0.00054104
+[2026-09-11 17:49:31] [finance_tech] [lr-search] Muon  lr=6.325e-02  knob=-  score=0.000539633
+[2026-09-11 17:50:52] [finance_tech] [lr-search] Muon  lr=2.000e-01  knob=-  score=0.000540075
+[2026-09-11 17:52:13] [finance_tech] [lr-search] Muon  lr=6.325e-01  knob=-  score=0.00053959
+[2026-09-11 17:52:13] [finance_tech] [lr-search] Muon: LR pick 6.325e-01 at grid edge -> extend [2.0, 6.325] and re-search (boundary check #1)
+[2026-09-11 17:53:34] [finance_tech] [lr-search] Muon  lr=2.000e+00  knob=-  score=0.00053984
+[2026-09-11 17:54:55] [finance_tech] [lr-search] Muon  lr=6.325e+00  knob=-  score=0.00053991
+[2026-09-11 17:54:55] [finance_tech] [lr-search] Muon: FROZEN lr=6.325e-01  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-11 17:55:33] [finance_tech] [lr-search] Lion  lr=3.162e-06  knob=-  score=0.00105476
+[2026-09-11 17:56:10] [finance_tech] [lr-search] Lion  lr=1.000e-05  knob=-  score=0.000621713
+[2026-09-11 17:56:47] [finance_tech] [lr-search] Lion  lr=3.162e-05  knob=-  score=0.000621871
+[2026-09-11 17:57:25] [finance_tech] [lr-search] Lion  lr=1.000e-04  knob=-  score=0.000564764
+[2026-09-11 17:58:02] [finance_tech] [lr-search] Lion  lr=3.162e-04  knob=-  score=0.000548394
+[2026-09-11 17:58:39] [finance_tech] [lr-search] Lion  lr=1.000e-03  knob=-  score=0.000542077
+[2026-09-11 17:59:17] [finance_tech] [lr-search] Lion  lr=3.162e-03  knob=-  score=0.000539468
+[2026-09-11 17:59:17] [finance_tech] [lr-search] Lion: LR pick 3.162e-03 at grid edge -> extend [0.009999, 0.03162] and re-search (boundary check #1)
+[2026-09-11 17:59:55] [finance_tech] [lr-search] Lion  lr=9.999e-03  knob=-  score=0.000539739
+[2026-09-11 18:00:34] [finance_tech] [lr-search] Lion  lr=3.162e-02  knob=-  score=0.000539766
+[2026-09-11 18:00:34] [finance_tech] [lr-search] Lion: FROZEN lr=3.162e-03  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-11 18:01:52] [finance_tech] [lr-search] Shampoo  lr=3.162e-05  knob=0.9  score=0.000788882
+[2026-09-11 18:03:10] [finance_tech] [lr-search] Shampoo  lr=3.162e-05  knob=0.95  score=0.000783985
+[2026-09-11 18:04:26] [finance_tech] [lr-search] Shampoo  lr=3.162e-05  knob=0.99  score=0.000766792
+[2026-09-11 18:05:41] [finance_tech] [lr-search] Shampoo  lr=3.162e-05  knob=0.999  score=0.000746374
+[2026-09-11 18:06:56] [finance_tech] [lr-search] Shampoo  lr=1.000e-04  knob=0.9  score=0.000626512
+[2026-09-11 18:08:11] [finance_tech] [lr-search] Shampoo  lr=1.000e-04  knob=0.95  score=0.00062855
+[2026-09-11 18:09:26] [finance_tech] [lr-search] Shampoo  lr=1.000e-04  knob=0.99  score=0.000629162
+[2026-09-11 18:10:42] [finance_tech] [lr-search] Shampoo  lr=1.000e-04  knob=0.999  score=0.000625379
+[2026-09-11 18:11:56] [finance_tech] [lr-search] Shampoo  lr=3.162e-04  knob=0.9  score=0.000590108
+[2026-09-11 18:13:11] [finance_tech] [lr-search] Shampoo  lr=3.162e-04  knob=0.95  score=0.000589997
+[2026-09-11 18:14:26] [finance_tech] [lr-search] Shampoo  lr=3.162e-04  knob=0.99  score=0.000586852
+[2026-09-11 18:15:41] [finance_tech] [lr-search] Shampoo  lr=3.162e-04  knob=0.999  score=0.000580274
+[2026-09-11 18:16:57] [finance_tech] [lr-search] Shampoo  lr=1.000e-03  knob=0.9  score=0.000586541
+[2026-09-11 18:18:11] [finance_tech] [lr-search] Shampoo  lr=1.000e-03  knob=0.95  score=0.000584427
+[2026-09-11 18:19:26] [finance_tech] [lr-search] Shampoo  lr=1.000e-03  knob=0.99  score=0.000580931
+[2026-09-11 18:20:42] [finance_tech] [lr-search] Shampoo  lr=1.000e-03  knob=0.999  score=0.000581083
+[2026-09-11 18:21:57] [finance_tech] [lr-search] Shampoo  lr=3.162e-03  knob=0.9  score=0.000560621
+[2026-09-11 18:23:12] [finance_tech] [lr-search] Shampoo  lr=3.162e-03  knob=0.95  score=0.000565538
+[2026-09-11 18:24:27] [finance_tech] [lr-search] Shampoo  lr=3.162e-03  knob=0.99  score=0.000574651
+[2026-09-11 18:25:43] [finance_tech] [lr-search] Shampoo  lr=3.162e-03  knob=0.999  score=0.000578418
+[2026-09-11 18:26:58] [finance_tech] [lr-search] Shampoo  lr=1.000e-02  knob=0.9  score=0.000552661
+[2026-09-11 18:28:13] [finance_tech] [lr-search] Shampoo  lr=1.000e-02  knob=0.95  score=0.000553686
+[2026-09-11 18:29:29] [finance_tech] [lr-search] Shampoo  lr=1.000e-02  knob=0.99  score=0.000555879
+[2026-09-11 18:30:44] [finance_tech] [lr-search] Shampoo  lr=1.000e-02  knob=0.999  score=0.000556293
+[2026-09-11 18:31:59] [finance_tech] [lr-search] Shampoo  lr=3.162e-02  knob=0.9  score=0.000543968
+[2026-09-11 18:33:14] [finance_tech] [lr-search] Shampoo  lr=3.162e-02  knob=0.95  score=0.000543334
+[2026-09-11 18:34:29] [finance_tech] [lr-search] Shampoo  lr=3.162e-02  knob=0.99  score=0.000547406
+[2026-09-11 18:35:44] [finance_tech] [lr-search] Shampoo  lr=3.162e-02  knob=0.999  score=0.000544276
+[2026-09-11 18:35:44] [finance_tech] [lr-search] Shampoo: LR pick 3.162e-02 at grid edge -> extend [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-11 18:37:00] [finance_tech] [lr-search] Shampoo  lr=9.999e-02  knob=0.9  score=0.000548839
+[2026-09-11 18:38:15] [finance_tech] [lr-search] Shampoo  lr=9.999e-02  knob=0.95  score=0.000548518
+[2026-09-11 18:39:31] [finance_tech] [lr-search] Shampoo  lr=9.999e-02  knob=0.99  score=0.000548069
+[2026-09-11 18:40:46] [finance_tech] [lr-search] Shampoo  lr=9.999e-02  knob=0.999  score=0.00054396
+[2026-09-11 18:42:01] [finance_tech] [lr-search] Shampoo  lr=3.162e-01  knob=0.9  score=0.000538446
+[2026-09-11 18:43:16] [finance_tech] [lr-search] Shampoo  lr=3.162e-01  knob=0.95  score=0.000536604
+[2026-09-11 18:44:31] [finance_tech] [lr-search] Shampoo  lr=3.162e-01  knob=0.99  score=0.000539533
+[2026-09-11 18:45:46] [finance_tech] [lr-search] Shampoo  lr=3.162e-01  knob=0.999  score=0.00053832
+[2026-09-11 18:45:46] [finance_tech] [lr-search] Shampoo: LR pick 3.162e-01 at grid edge -> extend [0.9999, 3.162] and re-search (boundary check #2)
+[2026-09-11 18:47:00] [finance_tech] [lr-search] Shampoo  lr=9.999e-01  knob=0.9  score=0.000540889
+[2026-09-11 18:48:15] [finance_tech] [lr-search] Shampoo  lr=9.999e-01  knob=0.95  score=0.000540302
+[2026-09-11 18:49:30] [finance_tech] [lr-search] Shampoo  lr=9.999e-01  knob=0.99  score=0.000541697
+[2026-09-11 18:50:44] [finance_tech] [lr-search] Shampoo  lr=9.999e-01  knob=0.999  score=0.000542292
+[2026-09-11 18:51:58] [finance_tech] [lr-search] Shampoo  lr=3.162e+00  knob=0.9  score=0.000539826
+[2026-09-11 18:53:13] [finance_tech] [lr-search] Shampoo  lr=3.162e+00  knob=0.95  score=0.000541718
+[2026-09-11 18:54:28] [finance_tech] [lr-search] Shampoo  lr=3.162e+00  knob=0.99  score=0.000540441
+[2026-09-11 18:55:42] [finance_tech] [lr-search] Shampoo  lr=3.162e+00  knob=0.999  score=0.000541971
+[2026-09-11 18:55:42] [finance_tech] [lr-search] Shampoo: FROZEN lr=3.162e-01  knob=0.95  (LR boundary checks: 2, knob boundary checks: 0)
+[2026-09-11 18:58:32] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=0.000701042
+[2026-09-11 19:01:22] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=0.00061809
+[2026-09-11 19:04:12] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=0.000623774
+[2026-09-11 19:07:01] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=0.000696874
+[2026-09-11 19:09:51] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=0.000775851
+[2026-09-11 19:12:40] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=0.000808379
+[2026-09-11 19:15:29] [finance_tech] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=0.000816189
+[2026-09-11 19:18:19] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=0.000592802
+[2026-09-11 19:21:08] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=0.000590432
+[2026-09-11 19:23:58] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=0.000581873
+[2026-09-11 19:26:47] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=0.000611394
+[2026-09-11 19:29:36] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=0.000641556
+[2026-09-11 19:32:25] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=0.000690746
+[2026-09-11 19:35:15] [finance_tech] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=0.000698925
+[2026-09-11 19:38:03] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=0.000584762
+[2026-09-11 19:40:53] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=0.000580149
+[2026-09-11 19:43:42] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=0.000579409
+[2026-09-11 19:46:31] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=0.000582107
+[2026-09-11 19:49:20] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=0.000578429
+[2026-09-11 19:52:09] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=0.000570573
+[2026-09-11 19:54:58] [finance_tech] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=0.000559124
+[2026-09-11 19:57:46] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=0.000560104
+[2026-09-11 20:00:35] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=0.000562172
+[2026-09-11 20:03:24] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=0.000565261
+[2026-09-11 20:06:14] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=0.000569508
+[2026-09-11 20:09:03] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=0.000566607
+[2026-09-11 20:11:52] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=0.00058066
+[2026-09-11 20:14:42] [finance_tech] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=0.000605032
+[2026-09-11 20:17:33] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=0.000548898
+[2026-09-11 20:20:23] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=0.000545837
+[2026-09-11 20:23:14] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=0.000550149
+[2026-09-11 20:26:03] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=0.000557983
+[2026-09-11 20:28:52] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=0.000543781
+[2026-09-11 20:31:41] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=0.000540679
+[2026-09-11 20:34:30] [finance_tech] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=0.00054704
+[2026-09-11 20:37:20] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=0.000542979
+[2026-09-11 20:40:09] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=0.000539712
+[2026-09-11 20:42:59] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=0.000539705
+[2026-09-11 20:45:49] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=0.000540374
+[2026-09-11 20:48:39] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=0.000540736
+[2026-09-11 20:51:30] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=0.000539676
+[2026-09-11 20:54:20] [finance_tech] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=0.00054311
+[2026-09-11 20:57:10] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=0.000541433
+[2026-09-11 21:00:01] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=0.000544803
+[2026-09-11 21:02:51] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=0.000545202
+[2026-09-11 21:05:40] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=0.00054614
+[2026-09-11 21:08:29] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=0.000543546
+[2026-09-11 21:11:17] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=0.000541145
+[2026-09-11 21:14:06] [finance_tech] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=0.000538263
+[2026-09-11 21:14:06] [finance_tech] [lr-search] EvieKF: LR pick 3.162e-02 at grid edge -> extend [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-11 21:16:55] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=3  score=0.000538542
+[2026-09-11 21:19:44] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=10  score=0.000537149
+[2026-09-11 21:22:33] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=30  score=0.000539783
+[2026-09-11 21:25:22] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=100  score=0.000538026
+[2026-09-11 21:28:12] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=300  score=0.000537738
+[2026-09-11 21:31:01] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=1000  score=0.000537196
+[2026-09-11 21:33:50] [finance_tech] [lr-search] EvieKF  lr=9.999e-02  knob=3000  score=0.000546933
+[2026-09-11 21:36:39] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=3  score=0.000540401
+[2026-09-11 21:39:27] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=10  score=0.00061373
+[2026-09-11 21:42:16] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=30  score=0.000539496
+[2026-09-11 21:45:05] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=100  score=0.000539901
+[2026-09-11 21:47:53] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=300  score=0.000541191
+[2026-09-11 21:50:42] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=1000  score=0.000539577
+[2026-09-11 21:53:32] [finance_tech] [lr-search] EvieKF  lr=3.162e-01  knob=3000  score=0.000654319
+[2026-09-11 21:53:32] [finance_tech] [lr-search] EvieKF: FROZEN lr=9.999e-02  knob=10  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-11 21:53:32] [finance_tech] [lr-search] frozen: AdamW=1.000e-02, AdaBelief=1.000e-02, SGD=9.487e-01, Sophia=3.162e-03, Muon=6.325e-01, Lion=3.162e-03, Shampoo=3.162e-01/k=0.95, EvieKF=9.999e-02/k=10
+[2026-09-11 21:53:32] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-11 21:53:32] [finance_tech] [sweep] 8 optimizers x 49 units x 5 seeds = 1960 cells
+[2026-09-11 21:53:50] [finance_tech] [sweep] 1/1960  AdamW|AAPL|42  primary=0.00018996893176956783  diverged=False
+[2026-09-11 21:54:08] [finance_tech] [sweep] 2/1960  AdamW|AAPL|43  primary=0.0001820209165098806  diverged=False
+[2026-09-11 21:54:26] [finance_tech] [sweep] 3/1960  AdamW|AAPL|44  primary=0.0002013487869469577  diverged=False
+[2026-09-11 21:54:44] [finance_tech] [sweep] 4/1960  AdamW|AAPL|45  primary=0.00019679904457122561  diverged=False
+[2026-09-11 21:55:02] [finance_tech] [sweep] 5/1960  AdamW|AAPL|46  primary=0.00019075260275886174  diverged=False
+[2026-09-11 21:55:20] [finance_tech] [sweep] 6/1960  AdamW|ACN|42  primary=0.00020846097715317258  diverged=False
+[2026-09-11 21:55:38] [finance_tech] [sweep] 7/1960  AdamW|ACN|43  primary=0.00024199458184065643  diverged=False
+[2026-09-11 21:55:56] [finance_tech] [sweep] 8/1960  AdamW|ACN|44  primary=0.00020897745218857256  diverged=False
+[2026-09-11 21:56:14] [finance_tech] [sweep] 9/1960  AdamW|ACN|45  primary=0.0002061704163828855  diverged=False
+[2026-09-11 21:56:32] [finance_tech] [sweep] 10/1960  AdamW|ACN|46  primary=0.00020607034601862468  diverged=False
+[2026-09-11 21:56:50] [finance_tech] [sweep] 11/1960  AdamW|ADBE|42  primary=0.0004701293492443347  diverged=False
+[2026-09-11 21:57:08] [finance_tech] [sweep] 12/1960  AdamW|ADBE|43  primary=0.0004674542360204868  diverged=False
+[2026-09-11 21:57:26] [finance_tech] [sweep] 13/1960  AdamW|ADBE|44  primary=0.0004684053085468434  diverged=False
+[2026-09-11 21:57:44] [finance_tech] [sweep] 14/1960  AdamW|ADBE|45  primary=0.0004672993506704058  diverged=False
+[2026-09-11 21:58:02] [finance_tech] [sweep] 15/1960  AdamW|ADBE|46  primary=0.0004672947384062267  diverged=False
+[2026-09-11 21:58:20] [finance_tech] [sweep] 16/1960  AdamW|ADI|42  primary=0.0003406170893598486  diverged=False
+[2026-09-11 21:58:39] [finance_tech] [sweep] 17/1960  AdamW|ADI|43  primary=0.0003317063920712345  diverged=False
+[2026-09-11 21:58:56] [finance_tech] [sweep] 18/1960  AdamW|ADI|44  primary=0.00033431299149043974  diverged=False
+[2026-09-11 21:59:15] [finance_tech] [sweep] 19/1960  AdamW|ADI|45  primary=0.00033673793865890097  diverged=False
+[2026-09-11 21:59:33] [finance_tech] [sweep] 20/1960  AdamW|ADI|46  primary=0.00033681544046553353  diverged=False
+[2026-09-11 21:59:51] [finance_tech] [sweep] 21/1960  AdamW|ADSK|42  primary=0.00029448181311920204  diverged=False
+[2026-09-11 22:00:09] [finance_tech] [sweep] 22/1960  AdamW|ADSK|43  primary=0.0002948250325899275  diverged=False
+[2026-09-11 22:00:28] [finance_tech] [sweep] 23/1960  AdamW|ADSK|44  primary=0.00029641868812697273  diverged=False
+[2026-09-11 22:00:48] [finance_tech] [sweep] 24/1960  AdamW|ADSK|45  primary=0.00029560627918394784  diverged=False
+[2026-09-11 22:01:06] [finance_tech] [sweep] 25/1960  AdamW|ADSK|46  primary=0.0003267949811680607  diverged=False
+[2026-09-11 22:01:24] [finance_tech] [sweep] 26/1960  AdamW|AMD|42  primary=0.0008581202654611497  diverged=False
+[2026-09-11 22:01:42] [finance_tech] [sweep] 27/1960  AdamW|AMD|43  primary=0.000838623081565534  diverged=False
+[2026-09-11 22:02:00] [finance_tech] [sweep] 28/1960  AdamW|AMD|44  primary=0.0008462572854662699  diverged=False
+[2026-09-11 22:02:18] [finance_tech] [sweep] 29/1960  AdamW|AMD|45  primary=0.0012497769461737738  diverged=False
+[2026-09-11 22:02:36] [finance_tech] [sweep] 30/1960  AdamW|AMD|46  primary=0.0008561071895417713  diverged=False
+[2026-09-11 22:02:54] [finance_tech] [sweep] 31/1960  AdamW|AMZN|42  primary=0.00033476530874847736  diverged=False
+[2026-09-11 22:03:12] [finance_tech] [sweep] 32/1960  AdamW|AMZN|43  primary=0.00034344275161702796  diverged=False
+[2026-09-11 22:03:30] [finance_tech] [sweep] 33/1960  AdamW|AMZN|44  primary=0.0003460611379335797  diverged=False
+[2026-09-11 22:03:48] [finance_tech] [sweep] 34/1960  AdamW|AMZN|45  primary=0.0003510406881413132  diverged=False
+[2026-09-11 22:04:06] [finance_tech] [sweep] 35/1960  AdamW|AMZN|46  primary=0.00034633625752080686  diverged=False
+[2026-09-11 22:04:24] [finance_tech] [sweep] 36/1960  AdamW|APH|42  primary=0.00022867318025972477  diverged=False
+[2026-09-11 22:04:42] [finance_tech] [sweep] 37/1960  AdamW|APH|43  primary=0.0002347669667667813  diverged=False
+[2026-09-11 22:05:00] [finance_tech] [sweep] 38/1960  AdamW|APH|44  primary=0.00022567662770155245  diverged=False
+[2026-09-11 22:05:18] [finance_tech] [sweep] 39/1960  AdamW|APH|45  primary=0.0002334855457462331  diverged=False
+[2026-09-11 22:05:36] [finance_tech] [sweep] 40/1960  AdamW|APH|46  primary=0.00024243422522746697  diverged=False
+[2026-09-11 22:05:54] [finance_tech] [sweep] 41/1960  AdamW|AVGO|42  primary=0.000869956754502796  diverged=False
+[2026-09-11 22:06:12] [finance_tech] [sweep] 42/1960  AdamW|AVGO|43  primary=0.0008871943231612917  diverged=False
+[2026-09-11 22:06:30] [finance_tech] [sweep] 43/1960  AdamW|AVGO|44  primary=0.0008819705594784368  diverged=False
+[2026-09-11 22:06:48] [finance_tech] [sweep] 44/1960  AdamW|AVGO|45  primary=0.0008637786857665531  diverged=False
+[2026-09-11 22:07:06] [finance_tech] [sweep] 45/1960  AdamW|AVGO|46  primary=0.0008534322340021689  diverged=False
+[2026-09-11 22:07:24] [finance_tech] [sweep] 46/1960  AdamW|CDNS|42  primary=0.00039290033635639007  diverged=False
+[2026-09-11 22:07:42] [finance_tech] [sweep] 47/1960  AdamW|CDNS|43  primary=0.00039029097746288966  diverged=False
+[2026-09-11 22:08:00] [finance_tech] [sweep] 48/1960  AdamW|CDNS|44  primary=0.00039251018611211627  diverged=False
+[2026-09-11 22:08:18] [finance_tech] [sweep] 49/1960  AdamW|CDNS|45  primary=0.0003938439583021497  diverged=False
+[2026-09-11 22:08:36] [finance_tech] [sweep] 50/1960  AdamW|CDNS|46  primary=0.0004068039870135999  diverged=False
+[2026-09-11 22:08:54] [finance_tech] [sweep] 51/1960  AdamW|CRM|42  primary=0.00044763415421127643  diverged=False
+[2026-09-11 22:09:12] [finance_tech] [sweep] 52/1960  AdamW|CRM|43  primary=0.00045104774217756967  diverged=False
+[2026-09-11 22:09:30] [finance_tech] [sweep] 53/1960  AdamW|CRM|44  primary=0.0004677135083410475  diverged=False
+[2026-09-11 22:09:48] [finance_tech] [sweep] 54/1960  AdamW|CRM|45  primary=0.00045182039498021365  diverged=False
+[2026-09-11 22:10:06] [finance_tech] [sweep] 55/1960  AdamW|CRM|46  primary=0.0005396330955798033  diverged=False
+[2026-09-11 22:10:24] [finance_tech] [sweep] 56/1960  AdamW|CSCO|42  primary=0.00014849884248284437  diverged=False
+[2026-09-11 22:10:42] [finance_tech] [sweep] 57/1960  AdamW|CSCO|43  primary=0.00014661750189526372  diverged=False
+[2026-09-11 22:10:59] [finance_tech] [sweep] 58/1960  AdamW|CSCO|44  primary=0.00015144834600428424  diverged=False
+[2026-09-11 22:11:17] [finance_tech] [sweep] 59/1960  AdamW|CSCO|45  primary=0.00014672367266876989  diverged=False
+[2026-09-11 22:11:35] [finance_tech] [sweep] 60/1960  AdamW|CSCO|46  primary=0.00014923207422412892  diverged=False
+[2026-09-11 22:11:53] [finance_tech] [sweep] 61/1960  AdamW|CTSH|42  primary=0.00016773395516254282  diverged=False
+[2026-09-11 22:12:10] [finance_tech] [sweep] 62/1960  AdamW|CTSH|43  primary=0.00017274066648155292  diverged=False
+[2026-09-11 22:12:28] [finance_tech] [sweep] 63/1960  AdamW|CTSH|44  primary=0.00016893099540125125  diverged=False
+[2026-09-11 22:12:46] [finance_tech] [sweep] 64/1960  AdamW|CTSH|45  primary=0.00017806065697518607  diverged=False
+[2026-09-11 22:13:04] [finance_tech] [sweep] 65/1960  AdamW|CTSH|46  primary=0.00017090025481092866  diverged=False
+[2026-09-11 22:13:22] [finance_tech] [sweep] 66/1960  AdamW|FICO|42  primary=0.0003954358596019644  diverged=False
+[2026-09-11 22:13:40] [finance_tech] [sweep] 67/1960  AdamW|FICO|43  primary=0.0005779325489013914  diverged=False
+[2026-09-11 22:13:57] [finance_tech] [sweep] 68/1960  AdamW|FICO|44  primary=0.00047017909862377027  diverged=False
+[2026-09-11 22:14:15] [finance_tech] [sweep] 69/1960  AdamW|FICO|45  primary=0.0007939214901949362  diverged=False
+[2026-09-11 22:14:33] [finance_tech] [sweep] 70/1960  AdamW|FICO|46  primary=0.0004117088343100573  diverged=False
+[2026-09-11 22:14:51] [finance_tech] [sweep] 71/1960  AdamW|FTNT|42  primary=0.0007294570958172833  diverged=False
+[2026-09-11 22:15:08] [finance_tech] [sweep] 72/1960  AdamW|FTNT|43  primary=0.0008559212798164005  diverged=False
+[2026-09-11 22:15:26] [finance_tech] [sweep] 73/1960  AdamW|FTNT|44  primary=0.0007245710917881557  diverged=False
+[2026-09-11 22:15:44] [finance_tech] [sweep] 74/1960  AdamW|FTNT|45  primary=0.0007845106579008556  diverged=False
+[2026-09-11 22:16:02] [finance_tech] [sweep] 75/1960  AdamW|FTNT|46  primary=0.0010009158856023556  diverged=False
+[2026-09-11 22:16:20] [finance_tech] [sweep] 76/1960  AdamW|GLW|42  primary=0.00024815828160003377  diverged=False
+[2026-09-11 22:16:38] [finance_tech] [sweep] 77/1960  AdamW|GLW|43  primary=0.00024022067350054543  diverged=False
+[2026-09-11 22:16:56] [finance_tech] [sweep] 78/1960  AdamW|GLW|44  primary=0.00024510575113473115  diverged=False
+[2026-09-11 22:17:13] [finance_tech] [sweep] 79/1960  AdamW|GLW|45  primary=0.00023921378075130402  diverged=False
+[2026-09-11 22:17:31] [finance_tech] [sweep] 80/1960  AdamW|GLW|46  primary=0.0002671962298413433  diverged=False
+[2026-09-11 22:17:49] [finance_tech] [sweep] 81/1960  AdamW|GOOGL|42  primary=0.0003459256477456875  diverged=False
+[2026-09-11 22:18:07] [finance_tech] [sweep] 82/1960  AdamW|GOOGL|43  primary=0.00031770817028782354  diverged=False
+[2026-09-11 22:18:25] [finance_tech] [sweep] 83/1960  AdamW|GOOGL|44  primary=0.00034455142954669933  diverged=False
+[2026-09-11 22:18:42] [finance_tech] [sweep] 84/1960  AdamW|GOOGL|45  primary=0.0003900147146648831  diverged=False
+[2026-09-11 22:19:00] [finance_tech] [sweep] 85/1960  AdamW|GOOGL|46  primary=0.0003936518594701454  diverged=False
+[2026-09-11 22:19:18] [finance_tech] [sweep] 86/1960  AdamW|GPN|42  primary=0.00032962785747946887  diverged=False
+[2026-09-11 22:19:36] [finance_tech] [sweep] 87/1960  AdamW|GPN|43  primary=0.00032830409823902067  diverged=False
+[2026-09-11 22:19:54] [finance_tech] [sweep] 88/1960  AdamW|GPN|44  primary=0.00034185258484391306  diverged=False
+[2026-09-11 22:20:11] [finance_tech] [sweep] 89/1960  AdamW|GPN|45  primary=0.00038830636354981275  diverged=False
+[2026-09-11 22:20:29] [finance_tech] [sweep] 90/1960  AdamW|GPN|46  primary=0.00032729964959558357  diverged=False
+[2026-09-11 22:20:47] [finance_tech] [sweep] 91/1960  AdamW|GRMN|42  primary=0.0003797291290192377  diverged=False
+[2026-09-11 22:21:05] [finance_tech] [sweep] 92/1960  AdamW|GRMN|43  primary=0.0003448618704049045  diverged=False
+[2026-09-11 22:21:23] [finance_tech] [sweep] 93/1960  AdamW|GRMN|44  primary=0.0003791809397399741  diverged=False
+[2026-09-11 22:21:41] [finance_tech] [sweep] 94/1960  AdamW|GRMN|45  primary=0.00042921367776456963  diverged=False
+[2026-09-11 22:21:58] [finance_tech] [sweep] 95/1960  AdamW|GRMN|46  primary=0.0003452943194480169  diverged=False
+[2026-09-11 22:22:16] [finance_tech] [sweep] 96/1960  AdamW|HPE|42  primary=0.0005851686000823975  diverged=False
+[2026-09-11 22:22:34] [finance_tech] [sweep] 97/1960  AdamW|HPE|43  primary=0.0006934255361557007  diverged=False
+[2026-09-11 22:22:52] [finance_tech] [sweep] 98/1960  AdamW|HPE|44  primary=0.0006492274717010301  diverged=False
+[2026-09-11 22:23:09] [finance_tech] [sweep] 99/1960  AdamW|HPE|45  primary=0.0005880239708670255  diverged=False
+[2026-09-11 22:23:27] [finance_tech] [sweep] 100/1960  AdamW|HPE|46  primary=0.0006309584553899436  diverged=False
+[2026-09-11 22:23:45] [finance_tech] [sweep] 101/1960  AdamW|HPQ|42  primary=0.000338729254152409  diverged=False
+[2026-09-11 22:24:03] [finance_tech] [sweep] 102/1960  AdamW|HPQ|43  primary=0.00034055752413613457  diverged=False
+[2026-09-11 22:24:21] [finance_tech] [sweep] 103/1960  AdamW|HPQ|44  primary=0.0003439129660369227  diverged=False
+[2026-09-11 22:24:39] [finance_tech] [sweep] 104/1960  AdamW|HPQ|45  primary=0.00033549656943669394  diverged=False
+[2026-09-11 22:24:57] [finance_tech] [sweep] 105/1960  AdamW|HPQ|46  primary=0.000341227997547735  diverged=False
+[2026-09-11 22:25:15] [finance_tech] [sweep] 106/1960  AdamW|IBM|42  primary=0.0007737386163580354  diverged=False
+[2026-09-11 22:25:32] [finance_tech] [sweep] 107/1960  AdamW|IBM|43  primary=0.0002944073073132328  diverged=False
+[2026-09-11 22:25:50] [finance_tech] [sweep] 108/1960  AdamW|IBM|44  primary=0.0003153997123556793  diverged=False
+[2026-09-11 22:26:08] [finance_tech] [sweep] 109/1960  AdamW|IBM|45  primary=0.00027194256505007466  diverged=False
+[2026-09-11 22:26:26] [finance_tech] [sweep] 110/1960  AdamW|IBM|46  primary=0.001137275702108151  diverged=False
+[2026-09-11 22:26:43] [finance_tech] [sweep] 111/1960  AdamW|INTC|42  primary=0.0009631369479749568  diverged=False
+[2026-09-11 22:27:01] [finance_tech] [sweep] 112/1960  AdamW|INTC|43  primary=0.0009395674107566713  diverged=False
+[2026-09-11 22:27:19] [finance_tech] [sweep] 113/1960  AdamW|INTC|44  primary=0.0009382285138286611  diverged=False
+[2026-09-11 22:27:37] [finance_tech] [sweep] 114/1960  AdamW|INTC|45  primary=0.0009453381022448262  diverged=False
+[2026-09-11 22:27:55] [finance_tech] [sweep] 115/1960  AdamW|INTC|46  primary=0.0009676679259254819  diverged=False
+[2026-09-11 22:28:12] [finance_tech] [sweep] 116/1960  AdamW|INTU|42  primary=0.0002893339941110561  diverged=False
+[2026-09-11 22:28:30] [finance_tech] [sweep] 117/1960  AdamW|INTU|43  primary=0.00029089893140490095  diverged=False
+[2026-09-11 22:28:48] [finance_tech] [sweep] 118/1960  AdamW|INTU|44  primary=0.0003812622140955042  diverged=False
+[2026-09-11 22:29:06] [finance_tech] [sweep] 119/1960  AdamW|INTU|45  primary=0.0003144425098542814  diverged=False
+[2026-09-11 22:29:24] [finance_tech] [sweep] 120/1960  AdamW|INTU|46  primary=0.0003050595088295205  diverged=False
+[2026-09-11 22:29:42] [finance_tech] [sweep] 121/1960  AdamW|KEYS|42  primary=0.00037802894448125084  diverged=False
+[2026-09-11 22:30:00] [finance_tech] [sweep] 122/1960  AdamW|KEYS|43  primary=0.00037511773118677064  diverged=False
+[2026-09-11 22:30:18] [finance_tech] [sweep] 123/1960  AdamW|KEYS|44  primary=0.00037667724166729654  diverged=False
+[2026-09-11 22:30:36] [finance_tech] [sweep] 124/1960  AdamW|KEYS|45  primary=0.00037541032530540643  diverged=False
+[2026-09-11 22:30:54] [finance_tech] [sweep] 125/1960  AdamW|KEYS|46  primary=0.00037432993336241374  diverged=False
+[2026-09-11 22:31:11] [finance_tech] [sweep] 126/1960  AdamW|KLAC|42  primary=0.0007591219963850799  diverged=False
+[2026-09-11 22:31:29] [finance_tech] [sweep] 127/1960  AdamW|KLAC|43  primary=0.0006336118020708599  diverged=False
+[2026-09-11 22:31:47] [finance_tech] [sweep] 128/1960  AdamW|KLAC|44  primary=0.0006318269740967523  diverged=False
+[2026-09-11 22:32:05] [finance_tech] [sweep] 129/1960  AdamW|KLAC|45  primary=0.0007107191615634494  diverged=False
+[2026-09-11 22:32:23] [finance_tech] [sweep] 130/1960  AdamW|KLAC|46  primary=0.0006658242493079452  diverged=False
+[2026-09-11 22:32:41] [finance_tech] [sweep] 131/1960  AdamW|LRCX|42  primary=0.0007899506066842054  diverged=False
+[2026-09-11 22:32:59] [finance_tech] [sweep] 132/1960  AdamW|LRCX|43  primary=0.0006515584373600269  diverged=False
+[2026-09-11 22:33:16] [finance_tech] [sweep] 133/1960  AdamW|LRCX|44  primary=0.0007033191976093111  diverged=False
+[2026-09-11 22:33:34] [finance_tech] [sweep] 134/1960  AdamW|LRCX|45  primary=0.0006856770111770226  diverged=False
+[2026-09-11 22:33:52] [finance_tech] [sweep] 135/1960  AdamW|LRCX|46  primary=0.0006854631913402093  diverged=False
+[2026-09-11 22:34:10] [finance_tech] [sweep] 136/1960  AdamW|MCHP|42  primary=0.0005254154955899274  diverged=False
+[2026-09-11 22:34:28] [finance_tech] [sweep] 137/1960  AdamW|MCHP|43  primary=0.0005179154021399361  diverged=False
+[2026-09-11 22:34:46] [finance_tech] [sweep] 138/1960  AdamW|MCHP|44  primary=0.0005215640578951154  diverged=False
+[2026-09-11 22:35:04] [finance_tech] [sweep] 139/1960  AdamW|MCHP|45  primary=0.0005337478464873379  diverged=False
+[2026-09-11 22:35:22] [finance_tech] [sweep] 140/1960  AdamW|MCHP|46  primary=0.0005193996051001171  diverged=False
+[2026-09-11 22:35:40] [finance_tech] [sweep] 141/1960  AdamW|META|42  primary=0.0006318112495560316  diverged=False
+[2026-09-11 22:35:58] [finance_tech] [sweep] 142/1960  AdamW|META|43  primary=0.0005511259601551032  diverged=False
+[2026-09-11 22:36:16] [finance_tech] [sweep] 143/1960  AdamW|META|44  primary=0.0005923020858434762  diverged=False
+[2026-09-11 22:36:34] [finance_tech] [sweep] 144/1960  AdamW|META|45  primary=0.000456757515481433  diverged=False
+[2026-09-11 22:36:52] [finance_tech] [sweep] 145/1960  AdamW|META|46  primary=0.00047494124316569395  diverged=False
+[2026-09-11 22:37:10] [finance_tech] [sweep] 146/1960  AdamW|MRVL|42  primary=0.0010619696485933174  diverged=False
+[2026-09-11 22:37:28] [finance_tech] [sweep] 147/1960  AdamW|MRVL|43  primary=0.001044169304862855  diverged=False
+[2026-09-11 22:37:46] [finance_tech] [sweep] 148/1960  AdamW|MRVL|44  primary=0.0010444094579686563  diverged=False
+[2026-09-11 22:38:04] [finance_tech] [sweep] 149/1960  AdamW|MRVL|45  primary=0.001036716516686495  diverged=False
+[2026-09-11 22:38:22] [finance_tech] [sweep] 150/1960  AdamW|MRVL|46  primary=0.0010564388736845954  diverged=False
+[2026-09-11 22:38:40] [finance_tech] [sweep] 151/1960  AdamW|MSFT|42  primary=0.000172762998512813  diverged=False
+[2026-09-11 22:38:58] [finance_tech] [sweep] 152/1960  AdamW|MSFT|43  primary=0.00016827495009810836  diverged=False
+[2026-09-11 22:39:15] [finance_tech] [sweep] 153/1960  AdamW|MSFT|44  primary=0.00016870948845747286  diverged=False
+[2026-09-11 22:39:33] [finance_tech] [sweep] 154/1960  AdamW|MSFT|45  primary=0.00017744685133928975  diverged=False
+[2026-09-11 22:39:51] [finance_tech] [sweep] 155/1960  AdamW|MSFT|46  primary=0.0001764610488578756  diverged=False
+[2026-09-11 22:40:09] [finance_tech] [sweep] 156/1960  AdamW|MSI|42  primary=0.0001197419075108079  diverged=False
+[2026-09-11 22:40:27] [finance_tech] [sweep] 157/1960  AdamW|MSI|43  primary=0.00013233134867968383  diverged=False
+[2026-09-11 22:40:44] [finance_tech] [sweep] 158/1960  AdamW|MSI|44  primary=0.0001440238325841843  diverged=False
+[2026-09-11 22:41:02] [finance_tech] [sweep] 159/1960  AdamW|MSI|45  primary=0.0001247499000143122  diverged=False
+[2026-09-11 22:41:20] [finance_tech] [sweep] 160/1960  AdamW|MSI|46  primary=0.00014760999610184363  diverged=False
+[2026-09-11 22:41:38] [finance_tech] [sweep] 161/1960  AdamW|MU|42  primary=0.0008341348360455226  diverged=False
+[2026-09-11 22:41:55] [finance_tech] [sweep] 162/1960  AdamW|MU|43  primary=0.0008359588485546212  diverged=False
+[2026-09-11 22:42:13] [finance_tech] [sweep] 163/1960  AdamW|MU|44  primary=0.0008424974623180571  diverged=False
+[2026-09-11 22:42:31] [finance_tech] [sweep] 164/1960  AdamW|MU|45  primary=0.0009670898554817079  diverged=False
+[2026-09-11 22:42:49] [finance_tech] [sweep] 165/1960  AdamW|MU|46  primary=0.0008466855558768782  diverged=False
+[2026-09-11 22:43:06] [finance_tech] [sweep] 166/1960  AdamW|NOW|42  primary=0.0005716988018580845  diverged=False
+[2026-09-11 22:43:24] [finance_tech] [sweep] 167/1960  AdamW|NOW|43  primary=0.0005957570340898302  diverged=False
+[2026-09-11 22:43:42] [finance_tech] [sweep] 168/1960  AdamW|NOW|44  primary=0.000481619674061972  diverged=False
+[2026-09-11 22:44:01] [finance_tech] [sweep] 169/1960  AdamW|NOW|45  primary=0.0005808674153827486  diverged=False
+[2026-09-11 22:44:19] [finance_tech] [sweep] 170/1960  AdamW|NOW|46  primary=0.0005090405543645223  diverged=False
+[2026-09-11 22:44:36] [finance_tech] [sweep] 171/1960  AdamW|NVDA|42  primary=0.0010627164411797095  diverged=False
+[2026-09-11 22:44:55] [finance_tech] [sweep] 172/1960  AdamW|NVDA|43  primary=0.0009470388845161155  diverged=False
+[2026-09-11 22:45:13] [finance_tech] [sweep] 173/1960  AdamW|NVDA|44  primary=0.0009138245115835199  diverged=False
+[2026-09-11 22:45:30] [finance_tech] [sweep] 174/1960  AdamW|NVDA|45  primary=0.0009247797822195386  diverged=False
+[2026-09-11 22:45:48] [finance_tech] [sweep] 175/1960  AdamW|NVDA|46  primary=0.0011867494494826704  diverged=False
+[2026-09-11 22:46:07] [finance_tech] [sweep] 176/1960  AdamW|NXPI|42  primary=0.000557795249069361  diverged=False
+[2026-09-11 22:46:25] [finance_tech] [sweep] 177/1960  AdamW|NXPI|43  primary=0.0005757541039101677  diverged=False
+[2026-09-11 22:46:42] [finance_tech] [sweep] 178/1960  AdamW|NXPI|44  primary=0.000618618792410396  diverged=False
+[2026-09-11 22:47:00] [finance_tech] [sweep] 179/1960  AdamW|NXPI|45  primary=0.00045990369208259686  diverged=False
+[2026-09-11 22:47:18] [finance_tech] [sweep] 180/1960  AdamW|NXPI|46  primary=0.0004753899804159958  diverged=False
+[2026-09-11 22:47:36] [finance_tech] [sweep] 181/1960  AdamW|ORCL|42  primary=0.000445714309102013  diverged=False
+[2026-09-11 22:47:54] [finance_tech] [sweep] 182/1960  AdamW|ORCL|43  primary=0.00043734466588055647  diverged=False
+[2026-09-11 22:48:12] [finance_tech] [sweep] 183/1960  AdamW|ORCL|44  primary=0.00045516164529891244  diverged=False
+[2026-09-11 22:48:30] [finance_tech] [sweep] 184/1960  AdamW|ORCL|45  primary=0.0009206426206719939  diverged=False
+[2026-09-11 22:48:48] [finance_tech] [sweep] 185/1960  AdamW|ORCL|46  primary=0.0004498110640616644  diverged=False
+[2026-09-11 22:49:06] [finance_tech] [sweep] 186/1960  AdamW|PANW|42  primary=0.0008586612856312163  diverged=False
+[2026-09-11 22:49:23] [finance_tech] [sweep] 187/1960  AdamW|PANW|43  primary=0.0011441042278982272  diverged=False
+[2026-09-11 22:49:42] [finance_tech] [sweep] 188/1960  AdamW|PANW|44  primary=0.0008034204032011093  diverged=False
+[2026-09-11 22:49:59] [finance_tech] [sweep] 189/1960  AdamW|PANW|45  primary=0.0008224256479056778  diverged=False
+[2026-09-11 22:50:18] [finance_tech] [sweep] 190/1960  AdamW|PANW|46  primary=0.0008606737016872236  diverged=False
+[2026-09-11 22:50:35] [finance_tech] [sweep] 191/1960  AdamW|PTC|42  primary=0.0001922854118876987  diverged=False
+[2026-09-11 22:50:53] [finance_tech] [sweep] 192/1960  AdamW|PTC|43  primary=0.0002835793864159357  diverged=False
+[2026-09-11 22:51:11] [finance_tech] [sweep] 193/1960  AdamW|PTC|44  primary=0.00019612512181675624  diverged=False
+[2026-09-11 22:51:29] [finance_tech] [sweep] 194/1960  AdamW|PTC|45  primary=0.0001783573398829768  diverged=False
+[2026-09-11 22:51:47] [finance_tech] [sweep] 195/1960  AdamW|PTC|46  primary=0.00018562404093918977  diverged=False
+[2026-09-11 22:52:05] [finance_tech] [sweep] 196/1960  AdamW|PYPL|42  primary=0.0004651874614258607  diverged=False
+[2026-09-11 22:52:23] [finance_tech] [sweep] 197/1960  AdamW|PYPL|43  primary=0.000452489343782266  diverged=False
+[2026-09-11 22:52:40] [finance_tech] [sweep] 198/1960  AdamW|PYPL|44  primary=0.0004638064342240492  diverged=False
+[2026-09-11 22:52:59] [finance_tech] [sweep] 199/1960  AdamW|PYPL|45  primary=0.0004637977729241053  diverged=False
+[2026-09-11 22:53:16] [finance_tech] [sweep] 200/1960  AdamW|PYPL|46  primary=0.00047012989719708763  diverged=False
+[2026-09-11 22:53:34] [finance_tech] [sweep] 201/1960  AdamW|QCOM|42  primary=0.0005087311621065493  diverged=False
+[2026-09-11 22:53:52] [finance_tech] [sweep] 202/1960  AdamW|QCOM|43  primary=0.000583925102122877  diverged=False
+[2026-09-11 22:54:10] [finance_tech] [sweep] 203/1960  AdamW|QCOM|44  primary=0.0005825049189663437  diverged=False
+[2026-09-11 22:54:28] [finance_tech] [sweep] 204/1960  AdamW|QCOM|45  primary=0.000520884478218341  diverged=False
+[2026-09-11 22:54:46] [finance_tech] [sweep] 205/1960  AdamW|QCOM|46  primary=0.0005051519662614852  diverged=False
+[2026-09-11 22:55:04] [finance_tech] [sweep] 206/1960  AdamW|ROP|42  primary=0.00013984865927822376  diverged=False
+[2026-09-11 22:55:22] [finance_tech] [sweep] 207/1960  AdamW|ROP|43  primary=0.00011256064174982606  diverged=False
+[2026-09-11 22:55:40] [finance_tech] [sweep] 208/1960  AdamW|ROP|44  primary=0.00012712178643418368  diverged=False
+[2026-09-11 22:55:59] [finance_tech] [sweep] 209/1960  AdamW|ROP|45  primary=0.00011443019544006024  diverged=False
+[2026-09-11 22:56:17] [finance_tech] [sweep] 210/1960  AdamW|ROP|46  primary=0.0001119906526236307  diverged=False
+[2026-09-11 22:56:35] [finance_tech] [sweep] 211/1960  AdamW|SNOW|42  primary=0.0017753460811912466  diverged=False
+[2026-09-11 22:56:53] [finance_tech] [sweep] 212/1960  AdamW|SNOW|43  primary=0.0015133278905798536  diverged=False
+[2026-09-11 22:57:11] [finance_tech] [sweep] 213/1960  AdamW|SNOW|44  primary=0.0015660825125668027  diverged=False
+[2026-09-11 22:57:29] [finance_tech] [sweep] 214/1960  AdamW|SNOW|45  primary=0.0015673358506018962  diverged=False
+[2026-09-11 22:57:48] [finance_tech] [sweep] 215/1960  AdamW|SNOW|46  primary=0.00153890047051491  diverged=False
+[2026-09-11 22:58:06] [finance_tech] [sweep] 216/1960  AdamW|TEL|42  primary=0.00017352735318204083  diverged=False
+[2026-09-11 22:58:24] [finance_tech] [sweep] 217/1960  AdamW|TEL|43  primary=0.00017019036033796885  diverged=False
+[2026-09-11 22:58:42] [finance_tech] [sweep] 218/1960  AdamW|TEL|44  primary=0.00016404958392577195  diverged=False
+[2026-09-11 22:59:00] [finance_tech] [sweep] 219/1960  AdamW|TEL|45  primary=0.0001994076544645602  diverged=False
+[2026-09-11 22:59:18] [finance_tech] [sweep] 220/1960  AdamW|TEL|46  primary=0.0002514298157717185  diverged=False
+[2026-09-11 22:59:35] [finance_tech] [sweep] 221/1960  AdamW|TSLA|42  primary=0.0013643494232104777  diverged=False
+[2026-09-11 22:59:53] [finance_tech] [sweep] 222/1960  AdamW|TSLA|43  primary=0.0013557594330584418  diverged=False
+[2026-09-11 23:00:12] [finance_tech] [sweep] 223/1960  AdamW|TSLA|44  primary=0.001365585731026905  diverged=False
+[2026-09-11 23:00:30] [finance_tech] [sweep] 224/1960  AdamW|TSLA|45  primary=0.0013584147711269191  diverged=False
+[2026-09-11 23:00:48] [finance_tech] [sweep] 225/1960  AdamW|TSLA|46  primary=0.001356193358129491  diverged=False
+[2026-09-11 23:01:06] [finance_tech] [sweep] 226/1960  AdamW|TXN|42  primary=0.00026362949105166887  diverged=False
+[2026-09-11 23:01:24] [finance_tech] [sweep] 227/1960  AdamW|TXN|43  primary=0.00026215396072498703  diverged=False
+[2026-09-11 23:01:43] [finance_tech] [sweep] 228/1960  AdamW|TXN|44  primary=0.0002672772007013755  diverged=False
+[2026-09-11 23:02:01] [finance_tech] [sweep] 229/1960  AdamW|TXN|45  primary=0.0002773101367647686  diverged=False
+[2026-09-11 23:02:19] [finance_tech] [sweep] 230/1960  AdamW|TXN|46  primary=0.000286231891661094  diverged=False
+[2026-09-11 23:02:37] [finance_tech] [sweep] 231/1960  AdamW|TYL|42  primary=0.00023445816188262254  diverged=False
+[2026-09-11 23:02:55] [finance_tech] [sweep] 232/1960  AdamW|TYL|43  primary=0.00022816350535740927  diverged=False
+[2026-09-11 23:03:13] [finance_tech] [sweep] 233/1960  AdamW|TYL|44  primary=0.00023705949859013632  diverged=False
+[2026-09-11 23:03:31] [finance_tech] [sweep] 234/1960  AdamW|TYL|45  primary=0.00023952508887285909  diverged=False
+[2026-09-11 23:03:49] [finance_tech] [sweep] 235/1960  AdamW|TYL|46  primary=0.00024399951731086407  diverged=False
+[2026-09-11 23:04:07] [finance_tech] [sweep] 236/1960  AdamW|UBER|42  primary=0.0006960940507935806  diverged=False
+[2026-09-11 23:04:25] [finance_tech] [sweep] 237/1960  AdamW|UBER|43  primary=0.0010724089724916807  diverged=False
+[2026-09-11 23:04:43] [finance_tech] [sweep] 238/1960  AdamW|UBER|44  primary=0.0010570130297835444  diverged=False
+[2026-09-11 23:05:01] [finance_tech] [sweep] 239/1960  AdamW|UBER|45  primary=0.0007034317708351243  diverged=False
+[2026-09-11 23:05:19] [finance_tech] [sweep] 240/1960  AdamW|UBER|46  primary=0.0007608733336690446  diverged=False
+[2026-09-11 23:05:37] [finance_tech] [sweep] 241/1960  AdamW|WDAY|42  primary=0.0004333625849965331  diverged=False
+[2026-09-11 23:05:55] [finance_tech] [sweep] 242/1960  AdamW|WDAY|43  primary=0.0004939679298307988  diverged=False
+[2026-09-11 23:06:13] [finance_tech] [sweep] 243/1960  AdamW|WDAY|44  primary=0.0004519195138634025  diverged=False
+[2026-09-11 23:06:31] [finance_tech] [sweep] 244/1960  AdamW|WDAY|45  primary=0.0004279160654390013  diverged=False
+[2026-09-11 23:06:50] [finance_tech] [sweep] 245/1960  AdamW|WDAY|46  primary=0.00042422256105906003  diverged=False
+[2026-09-11 23:07:13] [finance_tech] [sweep] 246/1960  AdaBelief|AAPL|42  primary=0.00018707451918137768  diverged=False
+[2026-09-11 23:07:36] [finance_tech] [sweep] 247/1960  AdaBelief|AAPL|43  primary=0.00018226000524702526  diverged=False
+[2026-09-11 23:07:59] [finance_tech] [sweep] 248/1960  AdaBelief|AAPL|44  primary=0.00019883135796854736  diverged=False
+[2026-09-11 23:08:22] [finance_tech] [sweep] 249/1960  AdaBelief|AAPL|45  primary=0.00018774584014579732  diverged=False
+[2026-09-11 23:08:46] [finance_tech] [sweep] 250/1960  AdaBelief|AAPL|46  primary=0.00018780203486876512  diverged=False
+[2026-09-11 23:09:09] [finance_tech] [sweep] 251/1960  AdaBelief|ACN|42  primary=0.00020733566353560754  diverged=False
+[2026-09-11 23:09:33] [finance_tech] [sweep] 252/1960  AdaBelief|ACN|43  primary=0.00021577423448285098  diverged=False
+[2026-09-11 23:09:56] [finance_tech] [sweep] 253/1960  AdaBelief|ACN|44  primary=0.00021186859282866987  diverged=False
+[2026-09-11 23:10:19] [finance_tech] [sweep] 254/1960  AdaBelief|ACN|45  primary=0.0002689529505987016  diverged=False
+[2026-09-11 23:10:42] [finance_tech] [sweep] 255/1960  AdaBelief|ACN|46  primary=0.00021000659812695134  diverged=False
+[2026-09-11 23:11:05] [finance_tech] [sweep] 256/1960  AdaBelief|ADBE|42  primary=0.0004684025490725482  diverged=False
+[2026-09-11 23:11:28] [finance_tech] [sweep] 257/1960  AdaBelief|ADBE|43  primary=0.0004823088803619304  diverged=False
+[2026-09-11 23:11:52] [finance_tech] [sweep] 258/1960  AdaBelief|ADBE|44  primary=0.00048686035726436234  diverged=False
+[2026-09-11 23:12:15] [finance_tech] [sweep] 259/1960  AdaBelief|ADBE|45  primary=0.0004676725498582951  diverged=False
+[2026-09-11 23:12:38] [finance_tech] [sweep] 260/1960  AdaBelief|ADBE|46  primary=0.0004681005837425353  diverged=False
+[2026-09-11 23:13:02] [finance_tech] [sweep] 261/1960  AdaBelief|ADI|42  primary=0.0003383982355001742  diverged=False
+[2026-09-11 23:13:25] [finance_tech] [sweep] 262/1960  AdaBelief|ADI|43  primary=0.00033213639700854265  diverged=False
+[2026-09-11 23:13:48] [finance_tech] [sweep] 263/1960  AdaBelief|ADI|44  primary=0.0003345227115368717  diverged=False
+[2026-09-11 23:14:12] [finance_tech] [sweep] 264/1960  AdaBelief|ADI|45  primary=0.0003375619965255576  diverged=False
+[2026-09-11 23:14:35] [finance_tech] [sweep] 265/1960  AdaBelief|ADI|46  primary=0.00033637660521048084  diverged=False
+[2026-09-11 23:14:58] [finance_tech] [sweep] 266/1960  AdaBelief|ADSK|42  primary=0.000294109027852457  diverged=False
+[2026-09-11 23:15:22] [finance_tech] [sweep] 267/1960  AdaBelief|ADSK|43  primary=0.0002967612374396551  diverged=False
+[2026-09-11 23:15:45] [finance_tech] [sweep] 268/1960  AdaBelief|ADSK|44  primary=0.000294106938536205  diverged=False
+[2026-09-11 23:16:09] [finance_tech] [sweep] 269/1960  AdaBelief|ADSK|45  primary=0.0003004119036689637  diverged=False
+[2026-09-11 23:16:32] [finance_tech] [sweep] 270/1960  AdaBelief|ADSK|46  primary=0.0002923439892511519  diverged=False
+[2026-09-11 23:16:56] [finance_tech] [sweep] 271/1960  AdaBelief|AMD|42  primary=0.0008464832469899818  diverged=False
+[2026-09-11 23:17:19] [finance_tech] [sweep] 272/1960  AdaBelief|AMD|43  primary=0.0008429769801084326  diverged=False
+[2026-09-11 23:17:42] [finance_tech] [sweep] 273/1960  AdaBelief|AMD|44  primary=0.0008458474641123777  diverged=False
+[2026-09-11 23:18:05] [finance_tech] [sweep] 274/1960  AdaBelief|AMD|45  primary=0.0008614902931546408  diverged=False
+[2026-09-11 23:18:28] [finance_tech] [sweep] 275/1960  AdaBelief|AMD|46  primary=0.0008460700354248128  diverged=False
+[2026-09-11 23:18:52] [finance_tech] [sweep] 276/1960  AdaBelief|AMZN|42  primary=0.0003384218487159285  diverged=False
+[2026-09-11 23:19:15] [finance_tech] [sweep] 277/1960  AdaBelief|AMZN|43  primary=0.0003324892943498319  diverged=False
+[2026-09-11 23:19:38] [finance_tech] [sweep] 278/1960  AdaBelief|AMZN|44  primary=0.0003568983819118883  diverged=False
+[2026-09-11 23:20:01] [finance_tech] [sweep] 279/1960  AdaBelief|AMZN|45  primary=0.00034533866814204624  diverged=False
+[2026-09-11 23:20:24] [finance_tech] [sweep] 280/1960  AdaBelief|AMZN|46  primary=0.00034410463123725206  diverged=False
+[2026-09-11 23:20:47] [finance_tech] [sweep] 281/1960  AdaBelief|APH|42  primary=0.00022752106032043537  diverged=False
+[2026-09-11 23:21:11] [finance_tech] [sweep] 282/1960  AdaBelief|APH|43  primary=0.0002387769165493193  diverged=False
+[2026-09-11 23:21:34] [finance_tech] [sweep] 283/1960  AdaBelief|APH|44  primary=0.00022623238582459708  diverged=False
+[2026-09-11 23:21:57] [finance_tech] [sweep] 284/1960  AdaBelief|APH|45  primary=0.00023220581983132338  diverged=False
+[2026-09-11 23:22:20] [finance_tech] [sweep] 285/1960  AdaBelief|APH|46  primary=0.00024184214059637968  diverged=False
+[2026-09-11 23:22:44] [finance_tech] [sweep] 286/1960  AdaBelief|AVGO|42  primary=0.0008981408423216885  diverged=False
+[2026-09-11 23:23:07] [finance_tech] [sweep] 287/1960  AdaBelief|AVGO|43  primary=0.0009835592653385547  diverged=False
+[2026-09-11 23:23:31] [finance_tech] [sweep] 288/1960  AdaBelief|AVGO|44  primary=0.0008985937903167078  diverged=False
+[2026-09-11 23:23:54] [finance_tech] [sweep] 289/1960  AdaBelief|AVGO|45  primary=0.0009267692055021014  diverged=False
+[2026-09-11 23:24:17] [finance_tech] [sweep] 290/1960  AdaBelief|AVGO|46  primary=0.0008545279029815916  diverged=False
+[2026-09-11 23:24:40] [finance_tech] [sweep] 291/1960  AdaBelief|CDNS|42  primary=0.00039426856255405165  diverged=False
+[2026-09-11 23:25:03] [finance_tech] [sweep] 292/1960  AdaBelief|CDNS|43  primary=0.0003908325045827835  diverged=False
+[2026-09-11 23:25:26] [finance_tech] [sweep] 293/1960  AdaBelief|CDNS|44  primary=0.00039280052222902815  diverged=False
+[2026-09-11 23:25:49] [finance_tech] [sweep] 294/1960  AdaBelief|CDNS|45  primary=0.000392136553292552  diverged=False
+[2026-09-11 23:26:13] [finance_tech] [sweep] 295/1960  AdaBelief|CDNS|46  primary=0.0004587032334514396  diverged=False
+[2026-09-11 23:26:36] [finance_tech] [sweep] 296/1960  AdaBelief|CRM|42  primary=0.0004475390311902162  diverged=False
+[2026-09-11 23:26:59] [finance_tech] [sweep] 297/1960  AdaBelief|CRM|43  primary=0.0004537910932586307  diverged=False
+[2026-09-11 23:27:22] [finance_tech] [sweep] 298/1960  AdaBelief|CRM|44  primary=0.00045138282119912444  diverged=False
+[2026-09-11 23:27:46] [finance_tech] [sweep] 299/1960  AdaBelief|CRM|45  primary=0.00045263609558186205  diverged=False
+[2026-09-11 23:28:09] [finance_tech] [sweep] 300/1960  AdaBelief|CRM|46  primary=0.0005212166006602939  diverged=False
+[2026-09-11 23:28:32] [finance_tech] [sweep] 301/1960  AdaBelief|CSCO|42  primary=0.00015431739113948965  diverged=False
+[2026-09-11 23:28:55] [finance_tech] [sweep] 302/1960  AdaBelief|CSCO|43  primary=0.0001459332803885142  diverged=False
+[2026-09-11 23:29:18] [finance_tech] [sweep] 303/1960  AdaBelief|CSCO|44  primary=0.000145757452599586  diverged=False
+[2026-09-11 23:29:41] [finance_tech] [sweep] 304/1960  AdaBelief|CSCO|45  primary=0.0001459698335676597  diverged=False
+[2026-09-11 23:30:04] [finance_tech] [sweep] 305/1960  AdaBelief|CSCO|46  primary=0.00014672714172216952  diverged=False
+[2026-09-11 23:30:27] [finance_tech] [sweep] 306/1960  AdaBelief|CTSH|42  primary=0.00017449583010698753  diverged=False
+[2026-09-11 23:30:50] [finance_tech] [sweep] 307/1960  AdaBelief|CTSH|43  primary=0.00017572255440489955  diverged=False
+[2026-09-11 23:31:13] [finance_tech] [sweep] 308/1960  AdaBelief|CTSH|44  primary=0.00017153465795138526  diverged=False
+[2026-09-11 23:31:37] [finance_tech] [sweep] 309/1960  AdaBelief|CTSH|45  primary=0.00017843300861025612  diverged=False
+[2026-09-11 23:32:00] [finance_tech] [sweep] 310/1960  AdaBelief|CTSH|46  primary=0.00018004197922963944  diverged=False
+[2026-09-11 23:32:23] [finance_tech] [sweep] 311/1960  AdaBelief|FICO|42  primary=0.0005572743359066191  diverged=False
+[2026-09-11 23:32:46] [finance_tech] [sweep] 312/1960  AdaBelief|FICO|43  primary=0.0005105513901937576  diverged=False
+[2026-09-11 23:33:09] [finance_tech] [sweep] 313/1960  AdaBelief|FICO|44  primary=0.0003764504399249163  diverged=False
+[2026-09-11 23:33:32] [finance_tech] [sweep] 314/1960  AdaBelief|FICO|45  primary=0.0007866603672189057  diverged=False
+[2026-09-11 23:33:55] [finance_tech] [sweep] 315/1960  AdaBelief|FICO|46  primary=0.00043171084431744124  diverged=False
+[2026-09-11 23:34:18] [finance_tech] [sweep] 316/1960  AdaBelief|FTNT|42  primary=0.0007242405856097186  diverged=False
+[2026-09-11 23:34:41] [finance_tech] [sweep] 317/1960  AdaBelief|FTNT|43  primary=0.0007460894723417897  diverged=False
+[2026-09-11 23:35:04] [finance_tech] [sweep] 318/1960  AdaBelief|FTNT|44  primary=0.0007206748717676394  diverged=False
+[2026-09-11 23:35:27] [finance_tech] [sweep] 319/1960  AdaBelief|FTNT|45  primary=0.000726496731793439  diverged=False
+[2026-09-11 23:35:50] [finance_tech] [sweep] 320/1960  AdaBelief|FTNT|46  primary=0.0007236751299055796  diverged=False
+[2026-09-11 23:36:13] [finance_tech] [sweep] 321/1960  AdaBelief|GLW|42  primary=0.00024949893276527443  diverged=False
+[2026-09-11 23:36:37] [finance_tech] [sweep] 322/1960  AdaBelief|GLW|43  primary=0.0002538866939998808  diverged=False
+[2026-09-11 23:37:00] [finance_tech] [sweep] 323/1960  AdaBelief|GLW|44  primary=0.0002354607380256451  diverged=False
+[2026-09-11 23:37:23] [finance_tech] [sweep] 324/1960  AdaBelief|GLW|45  primary=0.0002400471616989721  diverged=False
+[2026-09-11 23:37:46] [finance_tech] [sweep] 325/1960  AdaBelief|GLW|46  primary=0.0002670286903305659  diverged=False
+[2026-09-11 23:38:10] [finance_tech] [sweep] 326/1960  AdaBelief|GOOGL|42  primary=0.00037354684222942936  diverged=False
+[2026-09-11 23:38:33] [finance_tech] [sweep] 327/1960  AdaBelief|GOOGL|43  primary=0.00032364068523285883  diverged=False
+[2026-09-11 23:38:56] [finance_tech] [sweep] 328/1960  AdaBelief|GOOGL|44  primary=0.0003335239789473317  diverged=False
+[2026-09-11 23:39:19] [finance_tech] [sweep] 329/1960  AdaBelief|GOOGL|45  primary=0.00036792394030031074  diverged=False
+[2026-09-11 23:39:42] [finance_tech] [sweep] 330/1960  AdaBelief|GOOGL|46  primary=0.0006461666216925969  diverged=False
+[2026-09-11 23:40:05] [finance_tech] [sweep] 331/1960  AdaBelief|GPN|42  primary=0.0003343092464896106  diverged=False
+[2026-09-11 23:40:29] [finance_tech] [sweep] 332/1960  AdaBelief|GPN|43  primary=0.0003394020139855683  diverged=False
+[2026-09-11 23:40:51] [finance_tech] [sweep] 333/1960  AdaBelief|GPN|44  primary=0.0003269056163767658  diverged=False
+[2026-09-11 23:41:14] [finance_tech] [sweep] 334/1960  AdaBelief|GPN|45  primary=0.00032750552608853294  diverged=False
+[2026-09-11 23:41:38] [finance_tech] [sweep] 335/1960  AdaBelief|GPN|46  primary=0.00032726919682568345  diverged=False
+[2026-09-11 23:42:01] [finance_tech] [sweep] 336/1960  AdaBelief|GRMN|42  primary=0.00034584775172844136  diverged=False
+[2026-09-11 23:42:24] [finance_tech] [sweep] 337/1960  AdaBelief|GRMN|43  primary=0.0003564953015594886  diverged=False
+[2026-09-11 23:42:47] [finance_tech] [sweep] 338/1960  AdaBelief|GRMN|44  primary=0.00042347893828437443  diverged=False
+[2026-09-11 23:43:10] [finance_tech] [sweep] 339/1960  AdaBelief|GRMN|45  primary=0.0004143422006299256  diverged=False
+[2026-09-11 23:43:33] [finance_tech] [sweep] 340/1960  AdaBelief|GRMN|46  primary=0.0003441598207231552  diverged=False
+[2026-09-11 23:43:56] [finance_tech] [sweep] 341/1960  AdaBelief|HPE|42  primary=0.0005820392920025464  diverged=False
+[2026-09-11 23:44:19] [finance_tech] [sweep] 342/1960  AdaBelief|HPE|43  primary=0.000716241333505203  diverged=False
+[2026-09-11 23:44:42] [finance_tech] [sweep] 343/1960  AdaBelief|HPE|44  primary=0.0006243736194125537  diverged=False
+[2026-09-11 23:45:05] [finance_tech] [sweep] 344/1960  AdaBelief|HPE|45  primary=0.0005934415063981352  diverged=False
+[2026-09-11 23:45:29] [finance_tech] [sweep] 345/1960  AdaBelief|HPE|46  primary=0.000615193155305139  diverged=False
+[2026-09-11 23:45:52] [finance_tech] [sweep] 346/1960  AdaBelief|HPQ|42  primary=0.0003399759846389609  diverged=False
+[2026-09-11 23:46:15] [finance_tech] [sweep] 347/1960  AdaBelief|HPQ|43  primary=0.00034497086963956316  diverged=False
+[2026-09-11 23:46:39] [finance_tech] [sweep] 348/1960  AdaBelief|HPQ|44  primary=0.0003386203731809344  diverged=False
+[2026-09-11 23:47:02] [finance_tech] [sweep] 349/1960  AdaBelief|HPQ|45  primary=0.00033536931825062585  diverged=False
+[2026-09-11 23:47:25] [finance_tech] [sweep] 350/1960  AdaBelief|HPQ|46  primary=0.00034072009659318064  diverged=False
+[2026-09-11 23:47:47] [finance_tech] [sweep] 351/1960  AdaBelief|IBM|42  primary=0.0006359093009479462  diverged=False
+[2026-09-11 23:48:11] [finance_tech] [sweep] 352/1960  AdaBelief|IBM|43  primary=0.0002673537564025354  diverged=False
+[2026-09-11 23:48:34] [finance_tech] [sweep] 353/1960  AdaBelief|IBM|44  primary=0.00030348891461337053  diverged=False
+[2026-09-11 23:48:57] [finance_tech] [sweep] 354/1960  AdaBelief|IBM|45  primary=0.00027143513714825667  diverged=False
+[2026-09-11 23:49:20] [finance_tech] [sweep] 355/1960  AdaBelief|IBM|46  primary=0.00018190095822016397  diverged=False
+[2026-09-11 23:49:43] [finance_tech] [sweep] 356/1960  AdaBelief|INTC|42  primary=0.0009269632359661123  diverged=False
+[2026-09-11 23:50:06] [finance_tech] [sweep] 357/1960  AdaBelief|INTC|43  primary=0.000940027533384858  diverged=False
+[2026-09-11 23:50:29] [finance_tech] [sweep] 358/1960  AdaBelief|INTC|44  primary=0.00093810378559052  diverged=False
+[2026-09-11 23:50:52] [finance_tech] [sweep] 359/1960  AdaBelief|INTC|45  primary=0.0009314268039017127  diverged=False
+[2026-09-11 23:51:15] [finance_tech] [sweep] 360/1960  AdaBelief|INTC|46  primary=0.0009630911407016573  diverged=False
+[2026-09-11 23:51:38] [finance_tech] [sweep] 361/1960  AdaBelief|INTU|42  primary=0.0002893676399869263  diverged=False
+[2026-09-11 23:52:01] [finance_tech] [sweep] 362/1960  AdaBelief|INTU|43  primary=0.0003071545608459957  diverged=False
+[2026-09-11 23:52:25] [finance_tech] [sweep] 363/1960  AdaBelief|INTU|44  primary=0.00041857227761909446  diverged=False
+[2026-09-11 23:52:48] [finance_tech] [sweep] 364/1960  AdaBelief|INTU|45  primary=0.00031618925708311573  diverged=False
+[2026-09-11 23:53:11] [finance_tech] [sweep] 365/1960  AdaBelief|INTU|46  primary=0.0003068679303088516  diverged=False
+[2026-09-11 23:53:34] [finance_tech] [sweep] 366/1960  AdaBelief|KEYS|42  primary=0.00037834394809811614  diverged=False
+[2026-09-11 23:53:57] [finance_tech] [sweep] 367/1960  AdaBelief|KEYS|43  primary=0.0003729245170604351  diverged=False
+[2026-09-11 23:54:20] [finance_tech] [sweep] 368/1960  AdaBelief|KEYS|44  primary=0.0003814820286839507  diverged=False
+[2026-09-11 23:54:43] [finance_tech] [sweep] 369/1960  AdaBelief|KEYS|45  primary=0.0003763296922972036  diverged=False
+[2026-09-11 23:55:06] [finance_tech] [sweep] 370/1960  AdaBelief|KEYS|46  primary=0.0003791295222995817  diverged=False
+[2026-09-11 23:55:29] [finance_tech] [sweep] 371/1960  AdaBelief|KLAC|42  primary=0.0006862181835073643  diverged=False
+[2026-09-11 23:55:52] [finance_tech] [sweep] 372/1960  AdaBelief|KLAC|43  primary=0.0006346337536655406  diverged=False
+[2026-09-11 23:56:15] [finance_tech] [sweep] 373/1960  AdaBelief|KLAC|44  primary=0.0007177946113404774  diverged=False
+[2026-09-11 23:56:38] [finance_tech] [sweep] 374/1960  AdaBelief|KLAC|45  primary=0.0006311774726897951  diverged=False
+[2026-09-11 23:57:01] [finance_tech] [sweep] 375/1960  AdaBelief|KLAC|46  primary=0.0007088805632616477  diverged=False
+[2026-09-11 23:57:25] [finance_tech] [sweep] 376/1960  AdaBelief|LRCX|42  primary=0.0007174859444300333  diverged=False
+[2026-09-11 23:57:48] [finance_tech] [sweep] 377/1960  AdaBelief|LRCX|43  primary=0.0006535835367031198  diverged=False
+[2026-09-11 23:58:11] [finance_tech] [sweep] 378/1960  AdaBelief|LRCX|44  primary=0.0006841564619982684  diverged=False
+[2026-09-11 23:58:34] [finance_tech] [sweep] 379/1960  AdaBelief|LRCX|45  primary=0.0006983178475546459  diverged=False
+[2026-09-11 23:58:57] [finance_tech] [sweep] 380/1960  AdaBelief|LRCX|46  primary=0.0007921073329511774  diverged=False
+[2026-09-11 23:59:20] [finance_tech] [sweep] 381/1960  AdaBelief|MCHP|42  primary=0.000526998605993059  diverged=False
+[2026-09-11 23:59:43] [finance_tech] [sweep] 382/1960  AdaBelief|MCHP|43  primary=0.0005210233980385715  diverged=False
+[2026-09-12 00:00:06] [finance_tech] [sweep] 383/1960  AdaBelief|MCHP|44  primary=0.0005235396049640796  diverged=False
+[2026-09-12 00:00:30] [finance_tech] [sweep] 384/1960  AdaBelief|MCHP|45  primary=0.0005265508221570776  diverged=False
+[2026-09-12 00:00:53] [finance_tech] [sweep] 385/1960  AdaBelief|MCHP|46  primary=0.000519601756302768  diverged=False
+[2026-09-12 00:01:16] [finance_tech] [sweep] 386/1960  AdaBelief|META|42  primary=0.0004872136614607565  diverged=False
+[2026-09-12 00:01:40] [finance_tech] [sweep] 387/1960  AdaBelief|META|43  primary=0.0005285909996842438  diverged=False
+[2026-09-12 00:02:03] [finance_tech] [sweep] 388/1960  AdaBelief|META|44  primary=0.0006885108707835839  diverged=False
+[2026-09-12 00:02:26] [finance_tech] [sweep] 389/1960  AdaBelief|META|45  primary=0.0004625095979972455  diverged=False
+[2026-09-12 00:02:49] [finance_tech] [sweep] 390/1960  AdaBelief|META|46  primary=0.00046742927728209106  diverged=False
+[2026-09-12 00:03:12] [finance_tech] [sweep] 391/1960  AdaBelief|MRVL|42  primary=0.0010376566301577936  diverged=False
+[2026-09-12 00:03:35] [finance_tech] [sweep] 392/1960  AdaBelief|MRVL|43  primary=0.0010442826798353246  diverged=False
+[2026-09-12 00:03:59] [finance_tech] [sweep] 393/1960  AdaBelief|MRVL|44  primary=0.0010549683892537678  diverged=False
+[2026-09-12 00:04:22] [finance_tech] [sweep] 394/1960  AdaBelief|MRVL|45  primary=0.0010360210503219927  diverged=False
+[2026-09-12 00:04:45] [finance_tech] [sweep] 395/1960  AdaBelief|MRVL|46  primary=0.0010502693198976062  diverged=False
+[2026-09-12 00:05:08] [finance_tech] [sweep] 396/1960  AdaBelief|MSFT|42  primary=0.00019216868612501357  diverged=False
+[2026-09-12 00:05:31] [finance_tech] [sweep] 397/1960  AdaBelief|MSFT|43  primary=0.00016746606934007514  diverged=False
+[2026-09-12 00:05:54] [finance_tech] [sweep] 398/1960  AdaBelief|MSFT|44  primary=0.00018341437218681215  diverged=False
+[2026-09-12 00:06:17] [finance_tech] [sweep] 399/1960  AdaBelief|MSFT|45  primary=0.00016837590743624974  diverged=False
+[2026-09-12 00:06:40] [finance_tech] [sweep] 400/1960  AdaBelief|MSFT|46  primary=0.00016574827688080923  diverged=False
+[2026-09-12 00:07:04] [finance_tech] [sweep] 401/1960  AdaBelief|MSI|42  primary=0.0001239901970303248  diverged=False
+[2026-09-12 00:07:27] [finance_tech] [sweep] 402/1960  AdaBelief|MSI|43  primary=0.00012511441671343707  diverged=False
+[2026-09-12 00:07:50] [finance_tech] [sweep] 403/1960  AdaBelief|MSI|44  primary=0.00012058648403990206  diverged=False
+[2026-09-12 00:08:13] [finance_tech] [sweep] 404/1960  AdaBelief|MSI|45  primary=0.00013344476699198366  diverged=False
+[2026-09-12 00:08:36] [finance_tech] [sweep] 405/1960  AdaBelief|MSI|46  primary=0.00014104737491203994  diverged=False
+[2026-09-12 00:08:59] [finance_tech] [sweep] 406/1960  AdaBelief|MU|42  primary=0.0008357288660826507  diverged=False
+[2026-09-12 00:09:22] [finance_tech] [sweep] 407/1960  AdaBelief|MU|43  primary=0.0009769283274494152  diverged=False
+[2026-09-12 00:09:45] [finance_tech] [sweep] 408/1960  AdaBelief|MU|44  primary=0.0008561996713517204  diverged=False
+[2026-09-12 00:10:08] [finance_tech] [sweep] 409/1960  AdaBelief|MU|45  primary=0.000905403699824419  diverged=False
+[2026-09-12 00:10:31] [finance_tech] [sweep] 410/1960  AdaBelief|MU|46  primary=0.000849817953412495  diverged=False
+[2026-09-12 00:10:55] [finance_tech] [sweep] 411/1960  AdaBelief|NOW|42  primary=0.0005014175460452125  diverged=False
+[2026-09-12 00:11:18] [finance_tech] [sweep] 412/1960  AdaBelief|NOW|43  primary=0.0007587912536802746  diverged=False
+[2026-09-12 00:11:41] [finance_tech] [sweep] 413/1960  AdaBelief|NOW|44  primary=0.000586449626892332  diverged=False
+[2026-09-12 00:12:04] [finance_tech] [sweep] 414/1960  AdaBelief|NOW|45  primary=0.00046293631432548404  diverged=False
+[2026-09-12 00:12:27] [finance_tech] [sweep] 415/1960  AdaBelief|NOW|46  primary=0.00045137897370353577  diverged=False
+[2026-09-12 00:12:51] [finance_tech] [sweep] 416/1960  AdaBelief|NVDA|42  primary=0.0009670781080054228  diverged=False
+[2026-09-12 00:13:14] [finance_tech] [sweep] 417/1960  AdaBelief|NVDA|43  primary=0.0009738438659244113  diverged=False
+[2026-09-12 00:13:37] [finance_tech] [sweep] 418/1960  AdaBelief|NVDA|44  primary=0.0009090909093776077  diverged=False
+[2026-09-12 00:14:01] [finance_tech] [sweep] 419/1960  AdaBelief|NVDA|45  primary=0.0011478498499229472  diverged=False
+[2026-09-12 00:14:24] [finance_tech] [sweep] 420/1960  AdaBelief|NVDA|46  primary=0.0012017645375438468  diverged=False
+[2026-09-12 00:14:48] [finance_tech] [sweep] 421/1960  AdaBelief|NXPI|42  primary=0.00058081040040849  diverged=False
+[2026-09-12 00:15:11] [finance_tech] [sweep] 422/1960  AdaBelief|NXPI|43  primary=0.0004605590558249103  diverged=False
+[2026-09-12 00:15:34] [finance_tech] [sweep] 423/1960  AdaBelief|NXPI|44  primary=0.0005277465854466126  diverged=False
+[2026-09-12 00:15:57] [finance_tech] [sweep] 424/1960  AdaBelief|NXPI|45  primary=0.0006450978685016474  diverged=False
+[2026-09-12 00:16:20] [finance_tech] [sweep] 425/1960  AdaBelief|NXPI|46  primary=0.0004619677697331452  diverged=False
+[2026-09-12 00:16:44] [finance_tech] [sweep] 426/1960  AdaBelief|ORCL|42  primary=0.00044760143473034813  diverged=False
+[2026-09-12 00:17:07] [finance_tech] [sweep] 427/1960  AdaBelief|ORCL|43  primary=0.0004375085786536888  diverged=False
+[2026-09-12 00:17:30] [finance_tech] [sweep] 428/1960  AdaBelief|ORCL|44  primary=0.00043744913169315884  diverged=False
+[2026-09-12 00:17:53] [finance_tech] [sweep] 429/1960  AdaBelief|ORCL|45  primary=0.0007480036802392788  diverged=False
+[2026-09-12 00:18:16] [finance_tech] [sweep] 430/1960  AdaBelief|ORCL|46  primary=0.0004454188482471244  diverged=False
+[2026-09-12 00:18:40] [finance_tech] [sweep] 431/1960  AdaBelief|PANW|42  primary=0.0008341780134067414  diverged=False
+[2026-09-12 00:19:03] [finance_tech] [sweep] 432/1960  AdaBelief|PANW|43  primary=0.0011640498592595386  diverged=False
+[2026-09-12 00:19:26] [finance_tech] [sweep] 433/1960  AdaBelief|PANW|44  primary=0.0008153070689766271  diverged=False
+[2026-09-12 00:19:49] [finance_tech] [sweep] 434/1960  AdaBelief|PANW|45  primary=0.0008239650232776715  diverged=False
+[2026-09-12 00:20:12] [finance_tech] [sweep] 435/1960  AdaBelief|PANW|46  primary=0.0008222062116975238  diverged=False
+[2026-09-12 00:20:35] [finance_tech] [sweep] 436/1960  AdaBelief|PTC|42  primary=0.00019234213879499486  diverged=False
+[2026-09-12 00:20:58] [finance_tech] [sweep] 437/1960  AdaBelief|PTC|43  primary=0.00046036711760929653  diverged=False
+[2026-09-12 00:21:21] [finance_tech] [sweep] 438/1960  AdaBelief|PTC|44  primary=0.0002047036966634175  diverged=False
+[2026-09-12 00:21:45] [finance_tech] [sweep] 439/1960  AdaBelief|PTC|45  primary=0.0001748094640711628  diverged=False
+[2026-09-12 00:22:08] [finance_tech] [sweep] 440/1960  AdaBelief|PTC|46  primary=0.00017568888881849863  diverged=False
+[2026-09-12 00:22:31] [finance_tech] [sweep] 441/1960  AdaBelief|PYPL|42  primary=0.0004479579937954744  diverged=False
+[2026-09-12 00:22:54] [finance_tech] [sweep] 442/1960  AdaBelief|PYPL|43  primary=0.00045756902545690536  diverged=False
+[2026-09-12 00:23:17] [finance_tech] [sweep] 443/1960  AdaBelief|PYPL|44  primary=0.0004580006624261538  diverged=False
+[2026-09-12 00:23:40] [finance_tech] [sweep] 444/1960  AdaBelief|PYPL|45  primary=0.0004610855753223101  diverged=False
+[2026-09-12 00:24:04] [finance_tech] [sweep] 445/1960  AdaBelief|PYPL|46  primary=0.0004622725148995717  diverged=False
+[2026-09-12 00:24:27] [finance_tech] [sweep] 446/1960  AdaBelief|QCOM|42  primary=0.0005133267905977038  diverged=False
+[2026-09-12 00:24:50] [finance_tech] [sweep] 447/1960  AdaBelief|QCOM|43  primary=0.0005539909162849345  diverged=False
+[2026-09-12 00:25:13] [finance_tech] [sweep] 448/1960  AdaBelief|QCOM|44  primary=0.0005134361446219146  diverged=False
+[2026-09-12 00:25:37] [finance_tech] [sweep] 449/1960  AdaBelief|QCOM|45  primary=0.0005177792417940008  diverged=False
+[2026-09-12 00:26:00] [finance_tech] [sweep] 450/1960  AdaBelief|QCOM|46  primary=0.0005172571492573571  diverged=False
+[2026-09-12 00:26:23] [finance_tech] [sweep] 451/1960  AdaBelief|ROP|42  primary=0.00011472659254515613  diverged=False
+[2026-09-12 00:26:46] [finance_tech] [sweep] 452/1960  AdaBelief|ROP|43  primary=0.00011309279651238173  diverged=False
+[2026-09-12 00:27:10] [finance_tech] [sweep] 453/1960  AdaBelief|ROP|44  primary=0.00011541779157976625  diverged=False
+[2026-09-12 00:27:33] [finance_tech] [sweep] 454/1960  AdaBelief|ROP|45  primary=0.00011508692075651159  diverged=False
+[2026-09-12 00:27:56] [finance_tech] [sweep] 455/1960  AdaBelief|ROP|46  primary=0.00013047555293986408  diverged=False
+[2026-09-12 00:28:20] [finance_tech] [sweep] 456/1960  AdaBelief|SNOW|42  primary=0.0015075406350127053  diverged=False
+[2026-09-12 00:28:43] [finance_tech] [sweep] 457/1960  AdaBelief|SNOW|43  primary=0.0016775825701722312  diverged=False
+[2026-09-12 00:29:06] [finance_tech] [sweep] 458/1960  AdaBelief|SNOW|44  primary=0.0015702201138942614  diverged=False
+[2026-09-12 00:29:30] [finance_tech] [sweep] 459/1960  AdaBelief|SNOW|45  primary=0.0015985161886302704  diverged=False
+[2026-09-12 00:29:53] [finance_tech] [sweep] 460/1960  AdaBelief|SNOW|46  primary=0.0020174583710661723  diverged=False
+[2026-09-12 00:30:16] [finance_tech] [sweep] 461/1960  AdaBelief|TEL|42  primary=0.00017478892569819455  diverged=False
+[2026-09-12 00:30:39] [finance_tech] [sweep] 462/1960  AdaBelief|TEL|43  primary=0.0001838022754305885  diverged=False
+[2026-09-12 00:31:03] [finance_tech] [sweep] 463/1960  AdaBelief|TEL|44  primary=0.00016741322540732287  diverged=False
+[2026-09-12 00:31:26] [finance_tech] [sweep] 464/1960  AdaBelief|TEL|45  primary=0.00016616320326214744  diverged=False
+[2026-09-12 00:31:49] [finance_tech] [sweep] 465/1960  AdaBelief|TEL|46  primary=0.0001691254594969371  diverged=False
+[2026-09-12 00:32:12] [finance_tech] [sweep] 466/1960  AdaBelief|TSLA|42  primary=0.001358857734607217  diverged=False
+[2026-09-12 00:32:36] [finance_tech] [sweep] 467/1960  AdaBelief|TSLA|43  primary=0.0013542174478697647  diverged=False
+[2026-09-12 00:32:59] [finance_tech] [sweep] 468/1960  AdaBelief|TSLA|44  primary=0.0013575190729130813  diverged=False
+[2026-09-12 00:33:22] [finance_tech] [sweep] 469/1960  AdaBelief|TSLA|45  primary=0.0013599847672415562  diverged=False
+[2026-09-12 00:33:45] [finance_tech] [sweep] 470/1960  AdaBelief|TSLA|46  primary=0.0013655564172671793  diverged=False
+[2026-09-12 00:34:09] [finance_tech] [sweep] 471/1960  AdaBelief|TXN|42  primary=0.00026380245095838315  diverged=False
+[2026-09-12 00:34:32] [finance_tech] [sweep] 472/1960  AdaBelief|TXN|43  primary=0.0002621294605353522  diverged=False
+[2026-09-12 00:34:55] [finance_tech] [sweep] 473/1960  AdaBelief|TXN|44  primary=0.0002628638354874162  diverged=False
+[2026-09-12 00:35:18] [finance_tech] [sweep] 474/1960  AdaBelief|TXN|45  primary=0.0002615437226951438  diverged=False
+[2026-09-12 00:35:42] [finance_tech] [sweep] 475/1960  AdaBelief|TXN|46  primary=0.0002897486839660261  diverged=False
+[2026-09-12 00:36:05] [finance_tech] [sweep] 476/1960  AdaBelief|TYL|42  primary=0.0002579068932583723  diverged=False
+[2026-09-12 00:36:28] [finance_tech] [sweep] 477/1960  AdaBelief|TYL|43  primary=0.00024508436520894367  diverged=False
+[2026-09-12 00:36:51] [finance_tech] [sweep] 478/1960  AdaBelief|TYL|44  primary=0.00022933320709006495  diverged=False
+[2026-09-12 00:37:14] [finance_tech] [sweep] 479/1960  AdaBelief|TYL|45  primary=0.00026346480956784  diverged=False
+[2026-09-12 00:37:38] [finance_tech] [sweep] 480/1960  AdaBelief|TYL|46  primary=0.0002461477483391131  diverged=False
+[2026-09-12 00:38:01] [finance_tech] [sweep] 481/1960  AdaBelief|UBER|42  primary=0.000826527692482505  diverged=False
+[2026-09-12 00:38:24] [finance_tech] [sweep] 482/1960  AdaBelief|UBER|43  primary=0.0007360643694098567  diverged=False
+[2026-09-12 00:38:47] [finance_tech] [sweep] 483/1960  AdaBelief|UBER|44  primary=0.0007636877642550939  diverged=False
+[2026-09-12 00:39:10] [finance_tech] [sweep] 484/1960  AdaBelief|UBER|45  primary=0.000774328610007192  diverged=False
+[2026-09-12 00:39:33] [finance_tech] [sweep] 485/1960  AdaBelief|UBER|46  primary=0.0006974634884948462  diverged=False
+[2026-09-12 00:39:56] [finance_tech] [sweep] 486/1960  AdaBelief|WDAY|42  primary=0.00046047660243975653  diverged=False
+[2026-09-12 00:40:19] [finance_tech] [sweep] 487/1960  AdaBelief|WDAY|43  primary=0.0005126608559837589  diverged=False
+[2026-09-12 00:40:43] [finance_tech] [sweep] 488/1960  AdaBelief|WDAY|44  primary=0.00044861319777253386  diverged=False
+[2026-09-12 00:41:05] [finance_tech] [sweep] 489/1960  AdaBelief|WDAY|45  primary=0.00043186226061412266  diverged=False
+[2026-09-12 00:41:29] [finance_tech] [sweep] 490/1960  AdaBelief|WDAY|46  primary=0.0004360052188495537  diverged=False
+[2026-09-12 00:41:47] [finance_tech] [sweep] 491/1960  SGD|AAPL|42  primary=0.00018210647992356115  diverged=False
+[2026-09-12 00:42:05] [finance_tech] [sweep] 492/1960  SGD|AAPL|43  primary=0.0001817575838199999  diverged=False
+[2026-09-12 00:42:23] [finance_tech] [sweep] 493/1960  SGD|AAPL|44  primary=0.00018201338708716096  diverged=False
+[2026-09-12 00:42:41] [finance_tech] [sweep] 494/1960  SGD|AAPL|45  primary=0.00018187872474155728  diverged=False
+[2026-09-12 00:42:58] [finance_tech] [sweep] 495/1960  SGD|AAPL|46  primary=0.00018166202716726475  diverged=False
+[2026-09-12 00:43:16] [finance_tech] [sweep] 496/1960  SGD|ACN|42  primary=0.0002060769490464024  diverged=False
+[2026-09-12 00:43:34] [finance_tech] [sweep] 497/1960  SGD|ACN|43  primary=0.0002056166687339702  diverged=False
+[2026-09-12 00:43:53] [finance_tech] [sweep] 498/1960  SGD|ACN|44  primary=0.0002054686426485657  diverged=False
+[2026-09-12 00:44:11] [finance_tech] [sweep] 499/1960  SGD|ACN|45  primary=0.0002065399888331297  diverged=False
+[2026-09-12 00:44:29] [finance_tech] [sweep] 500/1960  SGD|ACN|46  primary=0.00020579295972036936  diverged=False
+[2026-09-12 00:44:47] [finance_tech] [sweep] 501/1960  SGD|ADBE|42  primary=0.0004694173260340615  diverged=False
+[2026-09-12 00:45:05] [finance_tech] [sweep] 502/1960  SGD|ADBE|43  primary=0.0004693354090685567  diverged=False
+[2026-09-12 00:45:24] [finance_tech] [sweep] 503/1960  SGD|ADBE|44  primary=0.00046938263550006524  diverged=False
+[2026-09-12 00:45:42] [finance_tech] [sweep] 504/1960  SGD|ADBE|45  primary=0.0004694244218251062  diverged=False
+[2026-09-12 00:46:00] [finance_tech] [sweep] 505/1960  SGD|ADBE|46  primary=0.0004692844770572804  diverged=False
+[2026-09-12 00:46:18] [finance_tech] [sweep] 506/1960  SGD|ADI|42  primary=0.00033934568128888567  diverged=False
+[2026-09-12 00:46:36] [finance_tech] [sweep] 507/1960  SGD|ADI|43  primary=0.00033926605074493973  diverged=False
+[2026-09-12 00:46:55] [finance_tech] [sweep] 508/1960  SGD|ADI|44  primary=0.0003393253794422856  diverged=False
+[2026-09-12 00:47:12] [finance_tech] [sweep] 509/1960  SGD|ADI|45  primary=0.0003393718568736283  diverged=False
+[2026-09-12 00:47:30] [finance_tech] [sweep] 510/1960  SGD|ADI|46  primary=0.0003392570627429498  diverged=False
+[2026-09-12 00:47:48] [finance_tech] [sweep] 511/1960  SGD|ADSK|42  primary=0.00028928174149422416  diverged=False
+[2026-09-12 00:48:06] [finance_tech] [sweep] 512/1960  SGD|ADSK|43  primary=0.00029048905091941674  diverged=False
+[2026-09-12 00:48:25] [finance_tech] [sweep] 513/1960  SGD|ADSK|44  primary=0.0002891455614377582  diverged=False
+[2026-09-12 00:48:42] [finance_tech] [sweep] 514/1960  SGD|ADSK|45  primary=0.0002910093892188299  diverged=False
+[2026-09-12 00:49:01] [finance_tech] [sweep] 515/1960  SGD|ADSK|46  primary=0.0002901767178502663  diverged=False
+[2026-09-12 00:49:19] [finance_tech] [sweep] 516/1960  SGD|AMD|42  primary=0.0008350030455009016  diverged=False
+[2026-09-12 00:49:37] [finance_tech] [sweep] 517/1960  SGD|AMD|43  primary=0.0008359824223493142  diverged=False
+[2026-09-12 00:49:55] [finance_tech] [sweep] 518/1960  SGD|AMD|44  primary=0.0008354142860130027  diverged=False
+[2026-09-12 00:50:12] [finance_tech] [sweep] 519/1960  SGD|AMD|45  primary=0.0008350047800276014  diverged=False
+[2026-09-12 00:50:31] [finance_tech] [sweep] 520/1960  SGD|AMD|46  primary=0.0008358215844189679  diverged=False
+[2026-09-12 00:50:49] [finance_tech] [sweep] 521/1960  SGD|AMZN|42  primary=0.0003326102775871438  diverged=False
+[2026-09-12 00:51:06] [finance_tech] [sweep] 522/1960  SGD|AMZN|43  primary=0.00033473416611000346  diverged=False
+[2026-09-12 00:51:24] [finance_tech] [sweep] 523/1960  SGD|AMZN|44  primary=0.0003330603478446839  diverged=False
+[2026-09-12 00:51:42] [finance_tech] [sweep] 524/1960  SGD|AMZN|45  primary=0.00033317750723904405  diverged=False
+[2026-09-12 00:52:00] [finance_tech] [sweep] 525/1960  SGD|AMZN|46  primary=0.00040104244121168026  diverged=False
+[2026-09-12 00:52:18] [finance_tech] [sweep] 526/1960  SGD|APH|42  primary=0.00022904484202622107  diverged=False
+[2026-09-12 00:52:36] [finance_tech] [sweep] 527/1960  SGD|APH|43  primary=0.00022940690476427634  diverged=False
+[2026-09-12 00:52:54] [finance_tech] [sweep] 528/1960  SGD|APH|44  primary=0.00022964670308052548  diverged=False
+[2026-09-12 00:53:13] [finance_tech] [sweep] 529/1960  SGD|APH|45  primary=0.00022918529926784455  diverged=False
+[2026-09-12 00:53:31] [finance_tech] [sweep] 530/1960  SGD|APH|46  primary=0.0002278376508642126  diverged=False
+[2026-09-12 00:53:49] [finance_tech] [sweep] 531/1960  SGD|AVGO|42  primary=0.0008637741129234355  diverged=False
+[2026-09-12 00:54:07] [finance_tech] [sweep] 532/1960  SGD|AVGO|43  primary=0.000862394927670716  diverged=False
+[2026-09-12 00:54:25] [finance_tech] [sweep] 533/1960  SGD|AVGO|44  primary=0.0008638844918952418  diverged=False
+[2026-09-12 00:54:43] [finance_tech] [sweep] 534/1960  SGD|AVGO|45  primary=0.0008645716798368585  diverged=False
+[2026-09-12 00:55:01] [finance_tech] [sweep] 535/1960  SGD|AVGO|46  primary=0.0008636686221632378  diverged=False
+[2026-09-12 00:55:19] [finance_tech] [sweep] 536/1960  SGD|CDNS|42  primary=0.00039094844192424146  diverged=False
+[2026-09-12 00:55:37] [finance_tech] [sweep] 537/1960  SGD|CDNS|43  primary=0.00039094312008095797  diverged=False
+[2026-09-12 00:55:55] [finance_tech] [sweep] 538/1960  SGD|CDNS|44  primary=0.00039095971634779024  diverged=False
+[2026-09-12 00:56:13] [finance_tech] [sweep] 539/1960  SGD|CDNS|45  primary=0.0003912370040933922  diverged=False
+[2026-09-12 00:56:31] [finance_tech] [sweep] 540/1960  SGD|CDNS|46  primary=0.0003909621210325332  diverged=False
+[2026-09-12 00:56:49] [finance_tech] [sweep] 541/1960  SGD|CRM|42  primary=0.0004502741432694531  diverged=False
+[2026-09-12 00:57:07] [finance_tech] [sweep] 542/1960  SGD|CRM|43  primary=0.0004490708942135806  diverged=False
+[2026-09-12 00:57:25] [finance_tech] [sweep] 543/1960  SGD|CRM|44  primary=0.00047532433555239723  diverged=False
+[2026-09-12 00:57:43] [finance_tech] [sweep] 544/1960  SGD|CRM|45  primary=2.4028962957795965  diverged=True
+[2026-09-12 00:58:01] [finance_tech] [sweep] 545/1960  SGD|CRM|46  primary=0.000450663859882052  diverged=False
+[2026-09-12 00:58:19] [finance_tech] [sweep] 546/1960  SGD|CSCO|42  primary=0.00014644944991068864  diverged=False
+[2026-09-12 00:58:37] [finance_tech] [sweep] 547/1960  SGD|CSCO|43  primary=0.0001460638725095325  diverged=False
+[2026-09-12 00:58:55] [finance_tech] [sweep] 548/1960  SGD|CSCO|44  primary=0.00014635041434928853  diverged=False
+[2026-09-12 00:59:13] [finance_tech] [sweep] 549/1960  SGD|CSCO|45  primary=0.00014632630837026726  diverged=False
+[2026-09-12 00:59:32] [finance_tech] [sweep] 550/1960  SGD|CSCO|46  primary=0.00014559893065659458  diverged=False
+[2026-09-12 00:59:50] [finance_tech] [sweep] 551/1960  SGD|CTSH|42  primary=0.0001709786435914418  diverged=False
+[2026-09-12 01:00:08] [finance_tech] [sweep] 552/1960  SGD|CTSH|43  primary=0.00017152959234500057  diverged=False
+[2026-09-12 01:00:26] [finance_tech] [sweep] 553/1960  SGD|CTSH|44  primary=0.00017053980833638913  diverged=False
+[2026-09-12 01:00:44] [finance_tech] [sweep] 554/1960  SGD|CTSH|45  primary=0.00017070044916142862  diverged=False
+[2026-09-12 01:01:02] [finance_tech] [sweep] 555/1960  SGD|CTSH|46  primary=0.00017067380052394968  diverged=False
+[2026-09-12 01:01:20] [finance_tech] [sweep] 556/1960  SGD|FICO|42  primary=0.00034470154494835586  diverged=False
+[2026-09-12 01:01:38] [finance_tech] [sweep] 557/1960  SGD|FICO|43  primary=0.004114844811656488  diverged=False
+[2026-09-12 01:01:56] [finance_tech] [sweep] 558/1960  SGD|FICO|44  primary=0.00034600894444833987  diverged=False
+[2026-09-12 01:02:14] [finance_tech] [sweep] 559/1960  SGD|FICO|45  primary=0.0003440574048057435  diverged=False
+[2026-09-12 01:02:32] [finance_tech] [sweep] 560/1960  SGD|FICO|46  primary=30.7675212880291  diverged=True
+[2026-09-12 01:02:50] [finance_tech] [sweep] 561/1960  SGD|FTNT|42  primary=0.0007148512772151402  diverged=False
+[2026-09-12 01:03:08] [finance_tech] [sweep] 562/1960  SGD|FTNT|43  primary=0.0007149216043886053  diverged=False
+[2026-09-12 01:03:26] [finance_tech] [sweep] 563/1960  SGD|FTNT|44  primary=0.0007170191990635383  diverged=False
+[2026-09-12 01:03:44] [finance_tech] [sweep] 564/1960  SGD|FTNT|45  primary=0.0007149066243852888  diverged=False
+[2026-09-12 01:04:02] [finance_tech] [sweep] 565/1960  SGD|FTNT|46  primary=0.0007145975632642312  diverged=False
+[2026-09-12 01:04:20] [finance_tech] [sweep] 566/1960  SGD|GLW|42  primary=0.00023416626863378696  diverged=False
+[2026-09-12 01:04:39] [finance_tech] [sweep] 567/1960  SGD|GLW|43  primary=0.00023403582434174876  diverged=False
+[2026-09-12 01:04:57] [finance_tech] [sweep] 568/1960  SGD|GLW|44  primary=0.00023452697134522535  diverged=False
+[2026-09-12 01:05:15] [finance_tech] [sweep] 569/1960  SGD|GLW|45  primary=0.00023395950516695699  diverged=False
+[2026-09-12 01:05:33] [finance_tech] [sweep] 570/1960  SGD|GLW|46  primary=0.00023468733622283532  diverged=False
+[2026-09-12 01:05:51] [finance_tech] [sweep] 571/1960  SGD|GOOGL|42  primary=0.0003103307946018441  diverged=False
+[2026-09-12 01:06:09] [finance_tech] [sweep] 572/1960  SGD|GOOGL|43  primary=0.0003083430664249198  diverged=False
+[2026-09-12 01:06:27] [finance_tech] [sweep] 573/1960  SGD|GOOGL|44  primary=0.00030876294014945863  diverged=False
+[2026-09-12 01:06:45] [finance_tech] [sweep] 574/1960  SGD|GOOGL|45  primary=0.00030890881778701903  diverged=False
+[2026-09-12 01:07:03] [finance_tech] [sweep] 575/1960  SGD|GOOGL|46  primary=0.00031363674336009554  diverged=False
+[2026-09-12 01:07:21] [finance_tech] [sweep] 576/1960  SGD|GPN|42  primary=0.0003289549990936562  diverged=False
+[2026-09-12 01:07:39] [finance_tech] [sweep] 577/1960  SGD|GPN|43  primary=0.00032865403900070794  diverged=False
+[2026-09-12 01:07:58] [finance_tech] [sweep] 578/1960  SGD|GPN|44  primary=0.000330590460666273  diverged=False
+[2026-09-12 01:08:16] [finance_tech] [sweep] 579/1960  SGD|GPN|45  primary=0.0010730390037809099  diverged=False
+[2026-09-12 01:08:34] [finance_tech] [sweep] 580/1960  SGD|GPN|46  primary=0.0003284286490823857  diverged=False
+[2026-09-12 01:08:52] [finance_tech] [sweep] 581/1960  SGD|GRMN|42  primary=0.00033289493707121996  diverged=False
+[2026-09-12 01:09:10] [finance_tech] [sweep] 582/1960  SGD|GRMN|43  primary=0.00033305944116027267  diverged=False
+[2026-09-12 01:09:28] [finance_tech] [sweep] 583/1960  SGD|GRMN|44  primary=0.00033049782117207843  diverged=False
+[2026-09-12 01:09:46] [finance_tech] [sweep] 584/1960  SGD|GRMN|45  primary=0.0003323874697483406  diverged=False
+[2026-09-12 01:10:04] [finance_tech] [sweep] 585/1960  SGD|GRMN|46  primary=0.00033104581334603524  diverged=False
+[2026-09-12 01:10:22] [finance_tech] [sweep] 586/1960  SGD|HPE|42  primary=0.0005720309784700131  diverged=False
+[2026-09-12 01:10:40] [finance_tech] [sweep] 587/1960  SGD|HPE|43  primary=0.0005718950053741192  diverged=False
+[2026-09-12 01:10:58] [finance_tech] [sweep] 588/1960  SGD|HPE|44  primary=0.0005722647725508131  diverged=False
+[2026-09-12 01:11:16] [finance_tech] [sweep] 589/1960  SGD|HPE|45  primary=0.0005718055341778131  diverged=False
+[2026-09-12 01:11:34] [finance_tech] [sweep] 590/1960  SGD|HPE|46  primary=0.0005718332169384792  diverged=False
+[2026-09-12 01:11:52] [finance_tech] [sweep] 591/1960  SGD|HPQ|42  primary=0.00034053998176382963  diverged=False
+[2026-09-12 01:12:11] [finance_tech] [sweep] 592/1960  SGD|HPQ|43  primary=0.00034104358582269577  diverged=False
+[2026-09-12 01:12:29] [finance_tech] [sweep] 593/1960  SGD|HPQ|44  primary=0.0003406375488906941  diverged=False
+[2026-09-12 01:12:47] [finance_tech] [sweep] 594/1960  SGD|HPQ|45  primary=0.00034029695092054903  diverged=False
+[2026-09-12 01:13:05] [finance_tech] [sweep] 595/1960  SGD|HPQ|46  primary=0.0003408445094628309  diverged=False
+[2026-09-12 01:13:23] [finance_tech] [sweep] 596/1960  SGD|IBM|42  primary=0.00017268874894374263  diverged=False
+[2026-09-12 01:13:41] [finance_tech] [sweep] 597/1960  SGD|IBM|43  primary=0.00017258428313114024  diverged=False
+[2026-09-12 01:13:59] [finance_tech] [sweep] 598/1960  SGD|IBM|44  primary=0.00017314662457143187  diverged=False
+[2026-09-12 01:14:17] [finance_tech] [sweep] 599/1960  SGD|IBM|45  primary=0.00017260543253055956  diverged=False
+[2026-09-12 01:14:34] [finance_tech] [sweep] 600/1960  SGD|IBM|46  primary=0.00017288378464481817  diverged=False
+[2026-09-12 01:14:53] [finance_tech] [sweep] 601/1960  SGD|INTC|42  primary=0.0009386678221364501  diverged=False
+[2026-09-12 01:15:11] [finance_tech] [sweep] 602/1960  SGD|INTC|43  primary=0.0009386624608721052  diverged=False
+[2026-09-12 01:15:29] [finance_tech] [sweep] 603/1960  SGD|INTC|44  primary=0.0009388236141709424  diverged=False
+[2026-09-12 01:15:47] [finance_tech] [sweep] 604/1960  SGD|INTC|45  primary=0.0009401108695085718  diverged=False
+[2026-09-12 01:16:05] [finance_tech] [sweep] 605/1960  SGD|INTC|46  primary=0.0009387595943672947  diverged=False
+[2026-09-12 01:16:23] [finance_tech] [sweep] 606/1960  SGD|INTU|42  primary=0.0002881292273443212  diverged=False
+[2026-09-12 01:16:42] [finance_tech] [sweep] 607/1960  SGD|INTU|43  primary=0.00028792039427176985  diverged=False
+[2026-09-12 01:17:00] [finance_tech] [sweep] 608/1960  SGD|INTU|44  primary=0.0006959866436700973  diverged=False
+[2026-09-12 01:17:18] [finance_tech] [sweep] 609/1960  SGD|INTU|45  primary=0.0002887047354191069  diverged=False
+[2026-09-12 01:17:36] [finance_tech] [sweep] 610/1960  SGD|INTU|46  primary=0.0002876892685890198  diverged=False
+[2026-09-12 01:17:39] [finance_tech] [signal] SGD/KEYS/seed42: checkpointed at step 1654; exiting cleanly
+[2026-09-13 05:32:22] [finance_tech] ====================================================================================================
+[2026-09-13 05:32:22] [finance_tech]   finance_tech  |  domain=finance  device=cuda  torch=2.10.0+cu128
+[2026-09-13 05:32:22] [finance_tech]   primary=test_mse  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 05:32:22] [finance_tech] ====================================================================================================
+[2026-09-13 05:32:22] [finance_tech] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 05:32:22] [finance_tech] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 05:32:23] [finance_tech] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-13 05:32:23] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 05:32:23] [finance_tech] [lr-search] units=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']  steps=2500  seed=42  optimizers=['AdamW', 'AdaBelief', 'SGD', 'Sophia', 'Muon', 'Lion', 'Shampoo', 'EvieKF']
+[2026-09-13 05:32:23] [finance_tech] [lr-search] AdamW: cached lr=1.000e-02
+[2026-09-13 05:32:23] [finance_tech] [lr-search] AdaBelief: cached lr=1.000e-02
+[2026-09-13 05:32:23] [finance_tech] [lr-search] SGD: cached lr=9.487e-01
+[2026-09-13 05:32:23] [finance_tech] [lr-search] Sophia: cached lr=3.162e-03
+[2026-09-13 05:32:23] [finance_tech] [lr-search] Muon: cached lr=6.325e-01
+[2026-09-13 05:32:23] [finance_tech] [lr-search] Lion: cached lr=3.162e-03
+[2026-09-13 05:32:23] [finance_tech] [lr-search] Shampoo: cached lr=3.162e-01  knob=0.95
+[2026-09-13 05:32:23] [finance_tech] [lr-search] EvieKF: cached lr=9.999e-02  knob=10
+[2026-09-13 05:32:23] [finance_tech] [lr-search] frozen: AdamW=1.000e-02, AdaBelief=1.000e-02, SGD=9.487e-01, Sophia=3.162e-03, Muon=6.325e-01, Lion=3.162e-03, Shampoo=3.162e-01/k=0.95, EvieKF=9.999e-02/k=10
+[2026-09-13 05:32:23] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 05:32:23] [finance_tech] [sweep] 8 optimizers x 49 units x 5 seeds = 1960 cells
+[2026-09-13 05:33:08] [finance_tech] [sweep] 1562/1960  Shampoo|GRMN|43  primary=0.00033131612356377657  diverged=False
+[2026-09-13 05:33:46] [finance_tech] [sweep] 1564/1960  Shampoo|GRMN|45  primary=0.0003305810587431388  diverged=False
+[2026-09-13 05:34:24] [finance_tech] [sweep] 1565/1960  Shampoo|GRMN|46  primary=0.00032988332566760833  diverged=False
+[2026-09-13 05:35:02] [finance_tech] [sweep] 1566/1960  Shampoo|HPE|42  primary=0.0007288976219193689  diverged=False
+[2026-09-13 05:35:40] [finance_tech] [sweep] 1567/1960  Shampoo|HPE|43  primary=0.0005732553786244886  diverged=False
+[2026-09-13 05:36:18] [finance_tech] [sweep] 1569/1960  Shampoo|HPE|45  primary=0.001975691780961793  diverged=False
+[2026-09-13 05:36:56] [finance_tech] [sweep] 1570/1960  Shampoo|HPE|46  primary=0.009398353510889513  diverged=False
+[2026-09-13 05:37:34] [finance_tech] [sweep] 1572/1960  Shampoo|HPQ|43  primary=0.0003408898436833942  diverged=False
+[2026-09-13 05:38:12] [finance_tech] [sweep] 1573/1960  Shampoo|HPQ|44  primary=0.00034096324569964537  diverged=False
+[2026-09-13 05:38:49] [finance_tech] [sweep] 1574/1960  Shampoo|HPQ|45  primary=0.0003370579982560778  diverged=False
+[2026-09-13 05:39:27] [finance_tech] [sweep] 1575/1960  Shampoo|HPQ|46  primary=0.00034670539633937614  diverged=False
+[2026-09-13 05:40:05] [finance_tech] [sweep] 1576/1960  Shampoo|IBM|42  primary=0.00017382929880152304  diverged=False
+[2026-09-13 05:40:42] [finance_tech] [sweep] 1580/1960  Shampoo|IBM|46  primary=0.07981927054268974  diverged=False
+[2026-09-13 05:41:20] [finance_tech] [sweep] 1581/1960  Shampoo|INTC|42  primary=0.0009388985930296479  diverged=False
+[2026-09-13 05:41:58] [finance_tech] [sweep] 1582/1960  Shampoo|INTC|43  primary=0.0009398124520740811  diverged=False
+[2026-09-13 05:42:36] [finance_tech] [sweep] 1583/1960  Shampoo|INTC|44  primary=0.0009318542858910939  diverged=False
+[2026-09-13 05:43:14] [finance_tech] [sweep] 1631/1960  Shampoo|MU|42  primary=0.0008372628184222671  diverged=False
+[2026-09-13 05:43:52] [finance_tech] [sweep] 1632/1960  Shampoo|MU|43  primary=0.0008356665019635801  diverged=False
+[2026-09-13 05:44:29] [finance_tech] [sweep] 1633/1960  Shampoo|MU|44  primary=0.000835969019188452  diverged=False
+[2026-09-13 05:45:07] [finance_tech] [sweep] 1634/1960  Shampoo|MU|45  primary=0.0008372360121005427  diverged=False
+[2026-09-13 05:45:44] [finance_tech] [sweep] 1635/1960  Shampoo|MU|46  primary=0.0008369340467705297  diverged=False
+[2026-09-13 05:46:22] [finance_tech] [sweep] 1636/1960  Shampoo|NOW|42  primary=0.00043123369179074724  diverged=False
+[2026-09-13 05:47:00] [finance_tech] [sweep] 1637/1960  Shampoo|NOW|43  primary=0.0004222879334101601  diverged=False
+[2026-09-13 05:47:37] [finance_tech] [sweep] 1638/1960  Shampoo|NOW|44  primary=0.00042286874755980477  diverged=False
+[2026-09-13 05:48:15] [finance_tech] [sweep] 1639/1960  Shampoo|NOW|45  primary=0.00042549527826763335  diverged=False
+[2026-09-13 05:48:53] [finance_tech] [sweep] 1667/1960  Shampoo|PYPL|43  primary=0.00045465420310695966  diverged=False
+[2026-09-13 05:49:31] [finance_tech] [sweep] 1668/1960  Shampoo|PYPL|44  primary=0.00045262311274806656  diverged=False
+[2026-09-13 05:50:09] [finance_tech] [sweep] 1669/1960  Shampoo|PYPL|45  primary=0.00045043881982564926  diverged=False
+[2026-09-13 05:50:48] [finance_tech] [sweep] 1670/1960  Shampoo|PYPL|46  primary=0.00045399712398648263  diverged=False
+[2026-09-13 05:51:26] [finance_tech] [sweep] 1671/1960  Shampoo|QCOM|42  primary=0.0005078858957088813  diverged=False
+[2026-09-13 05:52:04] [finance_tech] [sweep] 1672/1960  Shampoo|QCOM|43  primary=0.0005049428375309737  diverged=False
+[2026-09-13 05:52:43] [finance_tech] [sweep] 1673/1960  Shampoo|QCOM|44  primary=0.0005047231439560179  diverged=False
+[2026-09-13 05:53:20] [finance_tech] [sweep] 1674/1960  Shampoo|QCOM|45  primary=0.0005051662761067587  diverged=False
+[2026-09-13 05:53:58] [finance_tech] [sweep] 1675/1960  Shampoo|QCOM|46  primary=0.0005062372280807091  diverged=False
+[2026-09-13 05:54:36] [finance_tech] [sweep] 1677/1960  Shampoo|ROP|43  primary=0.00011128862265241209  diverged=False
+[2026-09-13 05:55:14] [finance_tech] [sweep] 1678/1960  Shampoo|ROP|44  primary=0.00011571946125181895  diverged=False
+[2026-09-13 05:55:52] [finance_tech] [sweep] 1680/1960  Shampoo|ROP|46  primary=0.00011324492238816761  diverged=False
+[2026-09-13 05:56:30] [finance_tech] [sweep] 1681/1960  Shampoo|SNOW|42  primary=0.001512062932373187  diverged=False
+[2026-09-13 05:57:07] [finance_tech] [sweep] 1682/1960  Shampoo|SNOW|43  primary=0.0015343244469493901  diverged=False
+[2026-09-13 05:57:45] [finance_tech] [sweep] 1683/1960  Shampoo|SNOW|44  primary=0.001815884348449357  diverged=False
+[2026-09-13 05:58:22] [finance_tech] [sweep] 1684/1960  Shampoo|SNOW|45  primary=0.0015295994117719318  diverged=False
+[2026-09-13 05:59:00] [finance_tech] [sweep] 1685/1960  Shampoo|SNOW|46  primary=0.0015495188465905845  diverged=False
+[2026-09-13 05:59:38] [finance_tech] [sweep] 1686/1960  Shampoo|TEL|42  primary=0.0001651223689790756  diverged=False
+[2026-09-13 06:00:16] [finance_tech] [sweep] 1687/1960  Shampoo|TEL|43  primary=0.00016457916646407395  diverged=False
+[2026-09-13 06:00:53] [finance_tech] [sweep] 1688/1960  Shampoo|TEL|44  primary=0.00016485739045988315  diverged=False
+[2026-09-13 06:01:31] [finance_tech] [sweep] 1689/1960  Shampoo|TEL|45  primary=0.00016538932840660136  diverged=False
+[2026-09-13 06:02:09] [finance_tech] [sweep] 1690/1960  Shampoo|TEL|46  primary=0.0001655111000651405  diverged=False
+[2026-09-13 06:02:46] [finance_tech] [sweep] 1691/1960  Shampoo|TSLA|42  primary=0.0013547448512634945  diverged=False
+[2026-09-13 06:03:24] [finance_tech] [sweep] 1692/1960  Shampoo|TSLA|43  primary=0.0013547534011100811  diverged=False
+[2026-09-13 06:04:01] [finance_tech] [sweep] 1693/1960  Shampoo|TSLA|44  primary=0.0013625164175294136  diverged=False
+[2026-09-13 06:04:39] [finance_tech] [sweep] 1694/1960  Shampoo|TSLA|45  primary=0.0013549155224867858  diverged=False
+[2026-09-13 06:05:16] [finance_tech] [sweep] 1695/1960  Shampoo|TSLA|46  primary=0.001358283592052147  diverged=False
+[2026-09-13 06:05:54] [finance_tech] [sweep] 1697/1960  Shampoo|TXN|43  primary=0.00026514751728249605  diverged=False
+[2026-09-13 06:06:31] [finance_tech] [sweep] 1698/1960  Shampoo|TXN|44  primary=0.000514825737034833  diverged=False
+[2026-09-13 06:07:09] [finance_tech] [sweep] 1699/1960  Shampoo|TXN|45  primary=0.000265013801042365  diverged=False
+[2026-09-13 06:07:47] [finance_tech] [sweep] 1700/1960  Shampoo|TXN|46  primary=0.0002648032137325832  diverged=False
+[2026-09-13 06:08:25] [finance_tech] [sweep] 1701/1960  Shampoo|TYL|42  primary=0.0002283427726339411  diverged=False
+[2026-09-13 06:09:02] [finance_tech] [sweep] 1702/1960  Shampoo|TYL|43  primary=0.0002270234088418345  diverged=False
+[2026-09-13 06:09:40] [finance_tech] [sweep] 1703/1960  Shampoo|TYL|44  primary=0.00022570171920710771  diverged=False
+[2026-09-13 06:10:18] [finance_tech] [sweep] 1704/1960  Shampoo|TYL|45  primary=0.0002261452061474008  diverged=False
+[2026-09-13 06:10:56] [finance_tech] [sweep] 1705/1960  Shampoo|TYL|46  primary=0.0002269428321924159  diverged=False
+[2026-09-13 06:11:34] [finance_tech] [sweep] 1706/1960  Shampoo|UBER|42  primary=0.0007103431287785651  diverged=False
+[2026-09-13 06:12:11] [finance_tech] [sweep] 1707/1960  Shampoo|UBER|43  primary=0.0007252178456581814  diverged=False
+[2026-09-13 06:12:49] [finance_tech] [sweep] 1708/1960  Shampoo|UBER|44  primary=0.0007085646961776304  diverged=False
+[2026-09-13 06:13:27] [finance_tech] [sweep] 1709/1960  Shampoo|UBER|45  primary=0.0007036925411560166  diverged=False
+[2026-09-13 06:14:05] [finance_tech] [sweep] 1710/1960  Shampoo|UBER|46  primary=0.0007049064611045408  diverged=False
+[2026-09-13 06:14:42] [finance_tech] [sweep] 1711/1960  Shampoo|WDAY|42  primary=0.0004207817958546923  diverged=False
+[2026-09-13 06:15:20] [finance_tech] [sweep] 1712/1960  Shampoo|WDAY|43  primary=0.0004143048222962912  diverged=False
+[2026-09-13 06:15:59] [finance_tech] [sweep] 1714/1960  Shampoo|WDAY|45  primary=0.00041622629800400175  diverged=False
+[2026-09-13 06:16:40] [finance_tech] [sweep] 1715/1960  Shampoo|WDAY|46  primary=0.00041390771602655384  diverged=False
+[2026-09-13 06:18:11] [finance_tech] [sweep] 1716/1960  EvieKF|AAPL|42  primary=0.00018183985557505695  diverged=False
+[2026-09-13 06:19:42] [finance_tech] [sweep] 1717/1960  EvieKF|AAPL|43  primary=0.0001821462163534114  diverged=False
+[2026-09-13 06:21:13] [finance_tech] [sweep] 1718/1960  EvieKF|AAPL|44  primary=0.00018293432221210823  diverged=False
+[2026-09-13 06:22:44] [finance_tech] [sweep] 1719/1960  EvieKF|AAPL|45  primary=0.00018163612752995163  diverged=False
+[2026-09-13 06:24:16] [finance_tech] [sweep] 1720/1960  EvieKF|AAPL|46  primary=0.00018186305486966693  diverged=False
+[2026-09-13 06:25:47] [finance_tech] [sweep] 1721/1960  EvieKF|ACN|42  primary=0.00020608680431174223  diverged=False
+[2026-09-13 06:27:16] [finance_tech] [sweep] 1728/1960  EvieKF|ADBE|44  primary=0.0004701414909312334  diverged=False
+[2026-09-13 06:28:46] [finance_tech] [sweep] 1729/1960  EvieKF|ADBE|45  primary=0.0004701452753531239  diverged=False
+[2026-09-13 06:30:17] [finance_tech] [sweep] 1730/1960  EvieKF|ADBE|46  primary=0.0004694741317834804  diverged=False
+[2026-09-13 06:31:46] [finance_tech] [sweep] 1731/1960  EvieKF|ADI|42  primary=0.00034005872944675426  diverged=False
+[2026-09-13 06:33:16] [finance_tech] [sweep] 1732/1960  EvieKF|ADI|43  primary=0.0003392572598482566  diverged=False
+[2026-09-13 06:34:46] [finance_tech] [sweep] 1733/1960  EvieKF|ADI|44  primary=0.000339257851164177  diverged=False
+[2026-09-13 06:36:18] [finance_tech] [sweep] 1734/1960  EvieKF|ADI|45  primary=0.00033925828479585194  diverged=False
+[2026-09-13 06:37:48] [finance_tech] [sweep] 1735/1960  EvieKF|ADI|46  primary=0.00033925848190115873  diverged=False
+[2026-09-13 06:39:18] [finance_tech] [sweep] 1736/1960  EvieKF|ADSK|42  primary=0.00028978043763095107  diverged=False
+[2026-09-13 06:40:47] [finance_tech] [sweep] 1737/1960  EvieKF|ADSK|43  primary=0.0003013409398220204  diverged=False
+[2026-09-13 06:42:17] [finance_tech] [sweep] 1738/1960  EvieKF|ADSK|44  primary=0.00031053424669951987  diverged=False
+[2026-09-13 06:43:47] [finance_tech] [sweep] 1739/1960  EvieKF|ADSK|45  primary=0.00028899028187706356  diverged=False
+[2026-09-13 06:45:16] [finance_tech] [sweep] 1741/1960  EvieKF|AMD|42  primary=0.0008358025834673927  diverged=False
+[2026-09-13 06:46:45] [finance_tech] [sweep] 1742/1960  EvieKF|AMD|43  primary=0.000834030133706552  diverged=False
+[2026-09-13 06:48:14] [finance_tech] [sweep] 1743/1960  EvieKF|AMD|44  primary=0.0008363302737947494  diverged=False
+[2026-09-13 06:49:42] [finance_tech] [sweep] 1744/1960  EvieKF|AMD|45  primary=0.0008349983149735386  diverged=False
+[2026-09-13 06:51:10] [finance_tech] [sweep] 1745/1960  EvieKF|AMD|46  primary=0.0008357539378776752  diverged=False
+[2026-09-13 06:52:37] [finance_tech] [sweep] 1746/1960  EvieKF|AMZN|42  primary=0.0003368328645746544  diverged=False
+[2026-09-13 06:54:04] [finance_tech] [sweep] 1747/1960  EvieKF|AMZN|43  primary=0.00036020971164501533  diverged=False
+[2026-09-13 06:55:31] [finance_tech] [sweep] 1748/1960  EvieKF|AMZN|44  primary=0.00033285389974634485  diverged=False
+[2026-09-13 06:56:58] [finance_tech] [sweep] 1749/1960  EvieKF|AMZN|45  primary=0.00033500636853869  diverged=False
+[2026-09-13 06:58:24] [finance_tech] [sweep] 1750/1960  EvieKF|AMZN|46  primary=0.00033519507715941736  diverged=False
+[2026-09-13 06:59:50] [finance_tech] [sweep] 1751/1960  EvieKF|APH|42  primary=0.00023426905905128155  diverged=False
+[2026-09-13 07:01:17] [finance_tech] [sweep] 1752/1960  EvieKF|APH|43  primary=0.00022967684048193473  diverged=False
+[2026-09-13 07:02:43] [finance_tech] [sweep] 1753/1960  EvieKF|APH|44  primary=0.00023054520762155926  diverged=False
+[2026-09-13 07:04:10] [finance_tech] [sweep] 1754/1960  EvieKF|APH|45  primary=0.00022854332728360695  diverged=False
+[2026-09-13 07:05:36] [finance_tech] [sweep] 1756/1960  EvieKF|AVGO|42  primary=0.0008631954117426796  diverged=False
+[2026-09-13 07:07:03] [finance_tech] [sweep] 1757/1960  EvieKF|AVGO|43  primary=0.0008647832920942357  diverged=False
+[2026-09-13 07:08:29] [finance_tech] [sweep] 1758/1960  EvieKF|AVGO|44  primary=0.0008634789280159763  diverged=False
+[2026-09-13 07:09:55] [finance_tech] [sweep] 1759/1960  EvieKF|AVGO|45  primary=0.000863429099794418  diverged=False
+[2026-09-13 07:11:22] [finance_tech] [sweep] 1760/1960  EvieKF|AVGO|46  primary=0.0008632625063891133  diverged=False
+[2026-09-13 07:12:48] [finance_tech] [sweep] 1761/1960  EvieKF|CDNS|42  primary=0.0003914078549733238  diverged=False
+[2026-09-13 07:14:15] [finance_tech] [sweep] 1762/1960  EvieKF|CDNS|43  primary=0.00039101664036039324  diverged=False
+[2026-09-13 07:15:41] [finance_tech] [sweep] 1763/1960  EvieKF|CDNS|44  primary=0.0003909405577119696  diverged=False
+[2026-09-13 07:17:07] [finance_tech] [sweep] 1764/1960  EvieKF|CDNS|45  primary=0.0003909390202905766  diverged=False
+[2026-09-13 07:18:34] [finance_tech] [sweep] 1765/1960  EvieKF|CDNS|46  primary=0.00039096129319024465  diverged=False
+[2026-09-13 07:20:00] [finance_tech] [sweep] 1766/1960  EvieKF|CRM|42  primary=0.0004500136488959903  diverged=False
+[2026-09-13 07:21:26] [finance_tech] [sweep] 1767/1960  EvieKF|CRM|43  primary=0.00045170567969165783  diverged=False
+[2026-09-13 07:22:52] [finance_tech] [sweep] 1768/1960  EvieKF|CRM|44  primary=0.00045202633060475506  diverged=False
+[2026-09-13 07:24:18] [finance_tech] [sweep] 1769/1960  EvieKF|CRM|45  primary=0.00045023677210328443  diverged=False
+[2026-09-13 07:25:44] [finance_tech] [sweep] 1770/1960  EvieKF|CRM|46  primary=0.00045039260355883803  diverged=False
+[2026-09-13 07:27:10] [finance_tech] [sweep] 1771/1960  EvieKF|CSCO|42  primary=0.00014692177335736613  diverged=False
+[2026-09-13 07:28:36] [finance_tech] [sweep] 1773/1960  EvieKF|CSCO|44  primary=0.00014589770288063735  diverged=False
+[2026-09-13 07:30:01] [finance_tech] [sweep] 1774/1960  EvieKF|CSCO|45  primary=0.0001462143229902106  diverged=False
+[2026-09-13 07:31:28] [finance_tech] [sweep] 1775/1960  EvieKF|CSCO|46  primary=0.00015841958620560863  diverged=False
+[2026-09-13 07:32:54] [finance_tech] [sweep] 1877/1960  EvieKF|MU|43  primary=0.0008365984946962386  diverged=False
+[2026-09-13 07:34:20] [finance_tech] [sweep] 1878/1960  EvieKF|MU|44  primary=0.0008336840956299393  diverged=False
+[2026-09-13 07:35:46] [finance_tech] [sweep] 1879/1960  EvieKF|MU|45  primary=0.0008348568722053811  diverged=False
+[2026-09-13 07:37:12] [finance_tech] [sweep] 1880/1960  EvieKF|MU|46  primary=0.0008344733841204769  diverged=False
+[2026-09-13 07:38:38] [finance_tech] [sweep] 1881/1960  EvieKF|NOW|42  primary=0.0004215702177986266  diverged=False
+[2026-09-13 07:40:04] [finance_tech] [sweep] 1882/1960  EvieKF|NOW|43  primary=0.0004585800662873283  diverged=False
+[2026-09-13 07:41:31] [finance_tech] [sweep] 1883/1960  EvieKF|NOW|44  primary=0.0004248831007215712  diverged=False
+[2026-09-13 07:42:57] [finance_tech] [sweep] 1884/1960  EvieKF|NOW|45  primary=0.00042355249798487106  diverged=False
+[2026-09-13 07:44:22] [finance_tech] [sweep] 1885/1960  EvieKF|NOW|46  primary=0.00042349260950845383  diverged=False
+[2026-09-13 07:45:48] [finance_tech] [sweep] 1886/1960  EvieKF|NVDA|42  primary=0.0008906249804471536  diverged=False
+[2026-09-13 07:47:14] [finance_tech] [sweep] 1887/1960  EvieKF|NVDA|43  primary=0.0008933905255857599  diverged=False
+[2026-09-13 07:48:40] [finance_tech] [sweep] 1888/1960  EvieKF|NVDA|44  primary=0.0008910632638073472  diverged=False
+[2026-09-13 07:50:06] [finance_tech] [sweep] 1889/1960  EvieKF|NVDA|45  primary=0.0008901211792829806  diverged=False
+[2026-09-13 07:51:32] [finance_tech] [sweep] 1890/1960  EvieKF|NVDA|46  primary=0.0008915117966434943  diverged=False
+[2026-09-13 07:52:58] [finance_tech] [sweep] 1891/1960  EvieKF|NXPI|42  primary=0.0004586388585324458  diverged=False
+[2026-09-13 07:54:25] [finance_tech] [sweep] 1892/1960  EvieKF|NXPI|43  primary=0.0004593012007800016  diverged=False
+[2026-09-13 07:55:52] [finance_tech] [sweep] 1893/1960  EvieKF|NXPI|44  primary=0.0004587723532327279  diverged=False
+[2026-09-13 07:57:20] [finance_tech] [sweep] 1894/1960  EvieKF|NXPI|45  primary=0.0004584091425598817  diverged=False
+[2026-09-13 07:58:47] [finance_tech] [sweep] 1895/1960  EvieKF|NXPI|46  primary=0.0004583751120843178  diverged=False
+[2026-09-13 08:00:14] [finance_tech] [sweep] 1896/1960  EvieKF|ORCL|42  primary=0.0005477639260115447  diverged=False
+[2026-09-13 08:01:41] [finance_tech] [sweep] 1897/1960  EvieKF|ORCL|43  primary=0.0004367946632324703  diverged=False
+[2026-09-13 08:03:09] [finance_tech] [sweep] 1898/1960  EvieKF|ORCL|44  primary=0.00043678827702053007  diverged=False
+[2026-09-13 08:04:38] [finance_tech] [sweep] 1899/1960  EvieKF|ORCL|45  primary=0.00043683976092666544  diverged=False
+[2026-09-13 08:06:05] [finance_tech] [sweep] 1900/1960  EvieKF|ORCL|46  primary=0.00043679726502252004  diverged=False
+[2026-09-13 08:07:32] [finance_tech] [sweep] 1901/1960  EvieKF|PANW|42  primary=0.0007957940458492109  diverged=False
+[2026-09-13 08:08:59] [finance_tech] [sweep] 1902/1960  EvieKF|PANW|43  primary=0.0007959356543364799  diverged=False
+[2026-09-13 08:10:26] [finance_tech] [sweep] 1903/1960  EvieKF|PANW|44  primary=0.0008926002462958074  diverged=False
+[2026-09-13 08:11:53] [finance_tech] [sweep] 1904/1960  EvieKF|PANW|45  primary=0.0007961818556876699  diverged=False
+[2026-09-13 08:13:20] [finance_tech] [sweep] 1905/1960  EvieKF|PANW|46  primary=0.0007958044386973047  diverged=False
+[2026-09-13 08:14:47] [finance_tech] [sweep] 1906/1960  EvieKF|PTC|42  primary=0.00017518035712696256  diverged=False
+[2026-09-13 08:16:13] [finance_tech] [sweep] 1907/1960  EvieKF|PTC|43  primary=0.0001751757645733142  diverged=False
+[2026-09-13 08:17:40] [finance_tech] [sweep] 1908/1960  EvieKF|PTC|44  primary=0.0001756442838875705  diverged=False
+[2026-09-13 08:19:07] [finance_tech] [sweep] 1909/1960  EvieKF|PTC|45  primary=0.00017510261879396188  diverged=False
+[2026-09-13 08:20:34] [finance_tech] [sweep] 1910/1960  EvieKF|PTC|46  primary=0.0001753960888852518  diverged=False
+[2026-09-13 08:22:00] [finance_tech] [sweep] 1911/1960  EvieKF|PYPL|42  primary=0.00045316551501552264  diverged=False
+[2026-09-13 08:23:27] [finance_tech] [sweep] 1912/1960  EvieKF|PYPL|43  primary=0.0004519204298655192  diverged=False
+[2026-09-13 08:24:53] [finance_tech] [sweep] 1913/1960  EvieKF|PYPL|44  primary=0.0004565725103020668  diverged=False
+[2026-09-13 08:26:20] [finance_tech] [sweep] 1914/1960  EvieKF|PYPL|45  primary=0.0004541863997777303  diverged=False
+[2026-09-13 08:27:47] [finance_tech] [sweep] 1915/1960  EvieKF|PYPL|46  primary=0.0004677547141909599  diverged=False
+[2026-09-13 08:29:14] [finance_tech] [sweep] 1916/1960  EvieKF|QCOM|42  primary=0.0005163449064764397  diverged=False
+[2026-09-13 08:30:41] [finance_tech] [sweep] 1917/1960  EvieKF|QCOM|43  primary=0.0005048234311361161  diverged=False
+[2026-09-13 08:32:08] [finance_tech] [sweep] 1918/1960  EvieKF|QCOM|44  primary=0.0005083187389626074  diverged=False
+[2026-09-13 08:33:35] [finance_tech] [sweep] 1919/1960  EvieKF|QCOM|45  primary=0.0005058647778929857  diverged=False
+[2026-09-13 08:35:02] [finance_tech] [sweep] 1920/1960  EvieKF|QCOM|46  primary=0.0005045068800134003  diverged=False
+[2026-09-13 08:36:29] [finance_tech] [sweep] 1921/1960  EvieKF|ROP|42  primary=0.00011064508368098546  diverged=False
+[2026-09-13 08:37:56] [finance_tech] [sweep] 1922/1960  EvieKF|ROP|43  primary=0.00011066003411850601  diverged=False
+[2026-09-13 08:39:22] [finance_tech] [sweep] 1923/1960  EvieKF|ROP|44  primary=0.00011059405311705574  diverged=False
+[2026-09-13 08:40:49] [finance_tech] [sweep] 1924/1960  EvieKF|ROP|45  primary=0.00011162616549030183  diverged=False
+[2026-09-13 08:42:16] [finance_tech] [sweep] 1925/1960  EvieKF|ROP|46  primary=0.00011071403111730303  diverged=False
+[2026-09-13 08:43:43] [finance_tech] [sweep] 1926/1960  EvieKF|SNOW|42  primary=0.002366860798739512  diverged=False
+[2026-09-13 08:45:10] [finance_tech] [sweep] 1927/1960  EvieKF|SNOW|43  primary=0.0015124783876839035  diverged=False
+[2026-09-13 08:46:37] [finance_tech] [sweep] 1928/1960  EvieKF|SNOW|44  primary=0.0015105039154717681  diverged=False
+[2026-09-13 08:48:03] [finance_tech] [sweep] 1929/1960  EvieKF|SNOW|45  primary=0.0015336858843444684  diverged=False
+[2026-09-13 08:49:31] [finance_tech] [sweep] 1930/1960  EvieKF|SNOW|46  primary=0.0015762278793054983  diverged=False
+[2026-09-13 08:50:58] [finance_tech] [sweep] 1931/1960  EvieKF|TEL|42  primary=0.00016470194335967776  diverged=False
+[2026-09-13 08:52:25] [finance_tech] [sweep] 1932/1960  EvieKF|TEL|43  primary=0.00016474090122356618  diverged=False
+[2026-09-13 08:53:52] [finance_tech] [sweep] 1933/1960  EvieKF|TEL|44  primary=0.00016458447845209214  diverged=False
+[2026-09-13 08:55:19] [finance_tech] [sweep] 1934/1960  EvieKF|TEL|45  primary=0.00016467849768343426  diverged=False
+[2026-09-13 08:56:45] [finance_tech] [sweep] 1935/1960  EvieKF|TEL|46  primary=0.00016500368201858784  diverged=False
+[2026-09-13 08:58:12] [finance_tech] [sweep] 1936/1960  EvieKF|TSLA|42  primary=0.0013559069789823939  diverged=False
+[2026-09-13 08:59:38] [finance_tech] [sweep] 1937/1960  EvieKF|TSLA|43  primary=0.0013560962155868446  diverged=False
+[2026-09-13 09:01:03] [finance_tech] [sweep] 1938/1960  EvieKF|TSLA|44  primary=0.0013548498922358444  diverged=False
+[2026-09-13 09:02:29] [finance_tech] [sweep] 1939/1960  EvieKF|TSLA|45  primary=0.001356646825707024  diverged=False
+[2026-09-13 09:03:55] [finance_tech] [sweep] 1940/1960  EvieKF|TSLA|46  primary=0.001353999548922471  diverged=False
+[2026-09-13 09:05:21] [finance_tech] [sweep] 1941/1960  EvieKF|TXN|42  primary=0.00026504561383888206  diverged=False
+[2026-09-13 09:06:47] [finance_tech] [sweep] 1942/1960  EvieKF|TXN|43  primary=0.0002649725469016524  diverged=False
+[2026-09-13 09:08:13] [finance_tech] [sweep] 1943/1960  EvieKF|TXN|44  primary=0.0002651455856504894  diverged=False
+[2026-09-13 09:09:39] [finance_tech] [sweep] 1944/1960  EvieKF|TXN|45  primary=0.0002646212461133483  diverged=False
+[2026-09-13 09:11:05] [finance_tech] [sweep] 1945/1960  EvieKF|TXN|46  primary=0.0002640394700898065  diverged=False
+[2026-09-13 09:12:31] [finance_tech] [sweep] 1946/1960  EvieKF|TYL|42  primary=0.00022634986058744805  diverged=False
+[2026-09-13 09:13:58] [finance_tech] [sweep] 1947/1960  EvieKF|TYL|43  primary=0.00022646023955925432  diverged=False
+[2026-09-13 09:15:25] [finance_tech] [sweep] 1948/1960  EvieKF|TYL|44  primary=0.00022913022804512548  diverged=False
+[2026-09-13 09:16:52] [finance_tech] [sweep] 1949/1960  EvieKF|TYL|45  primary=0.00022661646522542157  diverged=False
+[2026-09-13 09:18:19] [finance_tech] [sweep] 1950/1960  EvieKF|TYL|46  primary=0.0002268530704357006  diverged=False
+[2026-09-13 09:19:46] [finance_tech] [sweep] 1951/1960  EvieKF|UBER|42  primary=0.0007060300296461078  diverged=False
+[2026-09-13 09:21:13] [finance_tech] [sweep] 1952/1960  EvieKF|UBER|43  primary=0.0007084020951264341  diverged=False
+[2026-09-13 09:22:40] [finance_tech] [sweep] 1953/1960  EvieKF|UBER|44  primary=0.0007035298876359429  diverged=False
+[2026-09-13 09:24:07] [finance_tech] [sweep] 1954/1960  EvieKF|UBER|45  primary=0.0007049319085101007  diverged=False
+[2026-09-13 09:25:35] [finance_tech] [sweep] 1955/1960  EvieKF|UBER|46  primary=0.0007041085668852632  diverged=False
+[2026-09-13 09:27:01] [finance_tech] [sweep] 1956/1960  EvieKF|WDAY|42  primary=0.0004142714398247855  diverged=False
+[2026-09-13 09:28:27] [finance_tech] [sweep] 1957/1960  EvieKF|WDAY|43  primary=0.00041554408607544837  diverged=False
+[2026-09-13 09:29:54] [finance_tech] [sweep] 1958/1960  EvieKF|WDAY|44  primary=0.00041496608551446493  diverged=False
+[2026-09-13 09:31:20] [finance_tech] [sweep] 1959/1960  EvieKF|WDAY|45  primary=0.0004142441532828591  diverged=False
+[2026-09-13 09:32:46] [finance_tech] [sweep] 1960/1960  EvieKF|WDAY|46  primary=0.00041717803710466855  diverged=False
+[2026-09-13 09:32:46] [finance_tech] [diverge] Sophia|NVDA|44: primary 0.0215 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Sophia|NVDA|46: primary 0.02387 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Lion|APH|44: primary 0.4785 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Lion|TXN|44: primary 0.1109 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|APH|45: primary 0.0972 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|FICO|44: primary 0.02411 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|FICO|46: primary 0.3586 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|HPE|44: primary 0.1739 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|IBM|45: primary 0.2714 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] EvieKF|IBM|46: primary 0.08696 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] [diverge] Shampoo|IBM|46: primary 0.07982 is >50.0x off the task peer median 0.000423
+[2026-09-13 09:32:46] [finance_tech] ====================================================================================================
+[2026-09-13 09:32:46] [finance_tech]   RESULTS  --  finance_tech   primary = test_mse (lower is better)
+[2026-09-13 09:32:46] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:32:46] [finance_tech]   AdamW       lr=1.00e-02  test_mse(task median over 5 seeds)=0.00051728   seed spread=[0.00050816, 0.00052621]   diverged_cells=0/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: wall_s=17.86  mean_step_size=0.001595  clip_freq=0.0001445  peak_mem_mb=17.49
+[2026-09-13 09:32:46] [finance_tech]   AdaBelief   lr=1.00e-02  test_mse(task median over 5 seeds)=0.000514278   seed spread=[0.00050271, 0.00052153]   diverged_cells=0/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: wall_s=23.03  mean_step_size=0.001771  clip_freq=0.0001445  peak_mem_mb=17.49
+[2026-09-13 09:32:46] [finance_tech]   SGD         lr=9.49e-01  test_mse(task median over 5 seeds)=0.00048965   seed spread=[0.00047307, 0.00064029]   diverged_cells=2/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: wall_s=17.87  mean_step_size=0.07708  clip_freq=0.3879  peak_mem_mb=17.49
+[2026-09-13 09:32:46] [finance_tech]   Sophia      lr=3.16e-03  test_mse(task median over 5 seeds)=0.000673157   seed spread=[0.00051814, 0.00073847]   diverged_cells=2/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: 
+[2026-09-13 09:32:46] [finance_tech]   Muon        lr=6.32e-01  test_mse(task median over 5 seeds)=0.000473198   seed spread=[0.00047288, 0.00047358]   diverged_cells=0/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: 
+[2026-09-13 09:32:46] [finance_tech]   Lion        lr=3.16e-03  test_mse(task median over 5 seeds)=0.000479927   seed spread=[0.00047443, 0.00059105]   diverged_cells=8/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: 
+[2026-09-13 09:32:46] [finance_tech]   Shampoo     lr=3.16e-01  knob=0.95  test_mse(task median over 5 seeds)=0.000772362   seed spread=[0.00047753, 0.0012599]   diverged_cells=7/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: wall_s=37.65  mean_step_size=0.0503  clip_freq=0.002364  peak_mem_mb=18.43
+[2026-09-13 09:32:46] [finance_tech]   EvieKF      lr=1.00e-01  knob=10  test_mse(task median over 5 seeds)=0.000485074   seed spread=[0.00047453, 0.0008192]   diverged_cells=2/245
+[2026-09-13 09:32:46] [finance_tech]              descriptive: wall_s=86.89  mean_step_size=0.01582  clip_freq=0.0008356  peak_mem_mb=18.53
+[2026-09-13 09:32:46] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:32:46] [finance_tech]   best optimizer on this task: Muon  (test_mse=0.000473198)
+[2026-09-13 09:32:46] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:32:46] [finance_tech]   within-task paired Wilcoxon across 49 units (seed-median per unit), reference = AdamW:
+[2026-09-13 09:32:46] [finance_tech]     AdaBelief  vs AdamW: median Δ=-3.613e-07  wins 27/49  wilcoxon p=0.477  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     SGD        vs AdamW: median Δ=-1.094e-05  wins 44/49  wilcoxon p=3.09e-11  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     Sophia     vs AdamW: median Δ=+8.048e-06  wins 13/49  wilcoxon p=7.15e-05  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     Muon       vs AdamW: median Δ=-1.089e-05  wins 45/49  wilcoxon p=2.35e-11  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     Lion       vs AdamW: median Δ=-1.1e-05  wins 45/49  wilcoxon p=2.04e-11  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     Shampoo    vs AdamW: median Δ=-7.529e-06  wins 39/49  wilcoxon p=5.96e-07  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]     EvieKF     vs AdamW: median Δ=-1.044e-05  wins 42/49  wilcoxon p=7.76e-10  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:32:46] [finance_tech]   wrote /kaggle/working/checkpoints/finance_tech/results_raw.csv
+[2026-09-13 09:32:46] [finance_tech] ====================================================================================================
+[2026-09-13 09:32:46] [finance_tech]   wrote /kaggle/working/checkpoints/finance_tech/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-13 09:32:46] [finance_tech] ====================================================================================================
+[2026-09-13 09:32:46] [finance_tech]   DONE 2026-09-13T09:32:46.888648
+[2026-09-13 09:51:26] [finance_tech] ====================================================================================================
+[2026-09-13 09:51:26] [finance_tech]   finance_tech  |  domain=finance  device=cuda  torch=2.10.0+cu128
+[2026-09-13 09:51:26] [finance_tech]   primary=test_mse  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 09:51:26] [finance_tech] ====================================================================================================
+[2026-09-13 09:51:27] [finance_tech] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 09:51:27] [finance_tech] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 09:51:28] [finance_tech] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-13 09:51:28] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:51:28] [finance_tech] [lr-search] units=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 09:51:28] [finance_tech] [lr-search] EvieKF: cached lr=9.999e-02  knob=10
+[2026-09-13 09:51:28] [finance_tech] [lr-search] AdamW: cached lr=1.000e-02
+[2026-09-13 09:51:28] [finance_tech] [lr-search] AdaBelief: cached lr=1.000e-02
+[2026-09-13 09:51:28] [finance_tech] [lr-search] Muon: cached lr=6.325e-01
+[2026-09-13 09:51:28] [finance_tech] [lr-search] Shampoo: cached lr=3.162e-01  knob=0.95
+[2026-09-13 09:51:28] [finance_tech] [lr-search] Sophia: cached lr=3.162e-03
+[2026-09-13 09:51:28] [finance_tech] [lr-search] Lion: cached lr=3.162e-03
+[2026-09-13 09:51:28] [finance_tech] [lr-search] SGD: cached lr=9.487e-01
+[2026-09-13 09:51:28] [finance_tech] [lr-search] frozen: EvieKF=9.999e-02/k=10, AdamW=1.000e-02, AdaBelief=1.000e-02, Muon=6.325e-01, Shampoo=3.162e-01/k=0.95, Sophia=3.162e-03, Lion=3.162e-03, SGD=9.487e-01
+[2026-09-13 09:51:28] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:51:28] [finance_tech] [sweep] 8 optimizers x 49 units x 5 seeds = 1960 cells
+[2026-09-13 09:51:28] [finance_tech] ====================================================================================================
+[2026-09-13 09:51:28] [finance_tech]   RESULTS  --  finance_tech   primary = test_mse (lower is better)
+[2026-09-13 09:51:28] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:51:28] [finance_tech]   [complete-case] using 37/49 units; dropped 12 where some optimizer diverged or failed: ['AAPL', 'APH', 'CDNS', 'CRM', 'FICO', 'GOOGL', 'HPE', 'IBM', 'KLAC', 'MCHP', 'NVDA', 'TXN']
+[2026-09-13 09:51:28] [finance_tech]   (dropped for ALL optimizers, not just the failing one -- keeps the comparison paired; see CLAUDE.md sec 6)
+[2026-09-13 09:51:28] [finance_tech]   EvieKF      lr=1.00e-01  knob=10  test_mse(task median over 5 seeds)=0.000414966   seed spread=[0.00041424, 0.00041718]   diverged_cells=2/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000495905  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: wall_s=86.89  mean_step_size=0.01582  clip_freq=0.0008356  peak_mem_mb=18.53
+[2026-09-13 09:51:28] [finance_tech]   AdamW       lr=1.00e-02  test_mse(task median over 5 seeds)=0.000433363   seed spread=[0.00042422, 0.00045192]   diverged_cells=0/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000526998  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: wall_s=17.86  mean_step_size=0.001595  clip_freq=0.0001445  peak_mem_mb=17.49
+[2026-09-13 09:51:28] [finance_tech]   AdaBelief   lr=1.00e-02  test_mse(task median over 5 seeds)=0.000437449   seed spread=[0.00043186, 0.00045757]   diverged_cells=0/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000521957  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: wall_s=23.03  mean_step_size=0.001771  clip_freq=0.0001445  peak_mem_mb=17.49
+[2026-09-13 09:51:28] [finance_tech]   Muon        lr=6.32e-01  test_mse(task median over 5 seeds)=0.000414749   seed spread=[0.00041462, 0.00041496]   diverged_cells=0/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000492517  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: 
+[2026-09-13 09:51:28] [finance_tech]   Shampoo     lr=3.16e-01  knob=0.95  test_mse(task median over 5 seeds)=0.0004217   seed spread=[0.0004143, 0.00045839]   diverged_cells=7/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000521494  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: wall_s=37.65  mean_step_size=0.0503  clip_freq=0.002364  peak_mem_mb=18.43
+[2026-09-13 09:51:28] [finance_tech]   Sophia      lr=3.16e-03  test_mse(task median over 5 seeds)=0.000455938   seed spread=[0.00043045, 0.00045978]   diverged_cells=2/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000643558  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: 
+[2026-09-13 09:51:28] [finance_tech]   Lion        lr=3.16e-03  test_mse(task median over 5 seeds)=0.000415024   seed spread=[0.00041463, 0.00041675]   diverged_cells=8/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000493332  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: 
+[2026-09-13 09:51:28] [finance_tech]   SGD         lr=9.49e-01  test_mse(task median over 5 seeds)=0.000415372   seed spread=[0.00041503, 0.00042352]   diverged_cells=2/245
+[2026-09-13 09:51:28] [finance_tech]              descriptive: unit-MEAN variant=0.000503202  (primary uses the unit-MEDIAN; y is not target-standardised, so a mean over units is dominated by the highest-variance ones)
+[2026-09-13 09:51:28] [finance_tech]              descriptive: wall_s=17.87  mean_step_size=0.07708  clip_freq=0.3879  peak_mem_mb=17.49
+[2026-09-13 09:51:28] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:51:28] [finance_tech]   best optimizer on this task: Muon  (test_mse=0.000414749)
+[2026-09-13 09:51:28] [finance_tech] ----------------------------------------------------------------------------------------------------
+[2026-09-13 09:51:28] [finance_tech]   within-task paired Wilcoxon across 37 complete-case units (seed-median per unit), reference = AdamW:
+[2026-09-13 09:51:28] [finance_tech]     EvieKF     vs AdamW: median Δ=-1.044e-05  wins 31/37  wilcoxon p=9.61e-08  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     AdaBelief  vs AdamW: median Δ=-5.815e-07  wins 21/37  wilcoxon p=0.309  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     Muon       vs AdamW: median Δ=-1.089e-05  wins 34/37  wilcoxon p=3.68e-09  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     Shampoo    vs AdamW: median Δ=-8.405e-06  wins 31/37  wilcoxon p=7.24e-08  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     Sophia     vs AdamW: median Δ=+6.478e-06  wins 10/37  wilcoxon p=0.0017  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     Lion       vs AdamW: median Δ=-1.1e-05  wins 34/37  wilcoxon p=3.68e-09  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]     SGD        vs AdamW: median Δ=-1.094e-05  wins 33/37  wilcoxon p=6.5e-09  (descriptive; the confirmatory test is the 12-task one)
+[2026-09-13 09:51:28] [finance_tech]   wrote /kaggle/working/checkpoints/finance_tech/results_raw.csv
+[2026-09-13 09:51:28] [finance_tech] ====================================================================================================
+[2026-09-13 09:51:28] [finance_tech]   wrote /kaggle/working/checkpoints/finance_tech/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-13 09:51:28] [finance_tech] ====================================================================================================
+[2026-09-13 09:51:28] [finance_tech]   DONE 2026-09-13T09:51:28.427525

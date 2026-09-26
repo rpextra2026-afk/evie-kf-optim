@@ -1,0 +1,1726 @@
+{
+  "cells": {
+    "EvieKF|full|42": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.01,
+      "knob_used": 3000.0,
+      "primary": 38.59,
+      "best_val_primary": 37.73,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 2170.078583717346,
+      "sec_per_step": 0.2170078583717346,
+      "mean_step_size": 0.004118210099408368,
+      "clip_freq": 0.6298,
+      "peak_mem_mb": 867.271484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          15.95
+        ],
+        [
+          1000,
+          25.78
+        ],
+        [
+          1500,
+          30.23
+        ],
+        [
+          2000,
+          32.74
+        ],
+        [
+          2500,
+          34.59
+        ],
+        [
+          3000,
+          35.31
+        ],
+        [
+          3500,
+          34.84
+        ],
+        [
+          4000,
+          35.36
+        ],
+        [
+          4500,
+          34.83
+        ],
+        [
+          5000,
+          33.84
+        ],
+        [
+          5500,
+          34.33
+        ],
+        [
+          6000,
+          34.65
+        ],
+        [
+          6500,
+          35.89
+        ],
+        [
+          7000,
+          36.64
+        ],
+        [
+          7500,
+          36.63
+        ],
+        [
+          8000,
+          36.95
+        ],
+        [
+          8500,
+          37.73
+        ],
+        [
+          9000,
+          37.35
+        ],
+        [
+          9500,
+          37.7
+        ],
+        [
+          10000,
+          37.49
+        ]
+      ],
+      "steps_to_best_val": 8500,
+      "steps_to_90pct_best": 6500,
+      "frac_budget_to_90pct_best": 0.65,
+      "wallclock_to_90pct_best_s": 1407.1025593280792,
+      "train_loss_at_25pct": 2.3033772373365533,
+      "train_loss_at_50pct": 0.448655635319491,
+      "train_loss_at_75pct": 0.021825313066509533,
+      "final_train_loss": 0.005197011167183518,
+      "gen_gap_loss": 4.206952403276786,
+      "auc_val_curve": 34.32157894736842,
+      "update_weight_ratio": 0.005306914881100837,
+      "update_cos_sim_sampled": -0.007676704124262041,
+      "grad_norm_mean": 1.6972768699686975,
+      "grad_norm_p95": 3.979865241050719,
+      "weight_norm_start": 102.79897673464966,
+      "weight_norm_end": 6206.81454410717,
+      "weight_norm_growth": 60.378174387168656,
+      "throughput_samples_per_s": 589.8403908522793,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 64.04,
+      "test_loss": 4.21214941444397,
+      "ece": 0.35133403541594743,
+      "eviekf_cos_mean": 0.6480094478053096,
+      "eviekf_cos_min": 0.5146771639757137,
+      "eviekf_b_simple_mean": 11.536471444006704,
+      "eviekf_tr_sigma_mean": 170.8867443587922,
+      "eviekf_eff_rank_mean": 158086.96136164892,
+      "eviekf_gain_lo_min": 0.0035658308770507574,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 9980,
+      "eviekf_role_gain": {
+        "other": [
+          0.10447560995817184,
+          1.0,
+          4293576.868203163,
+          20
+        ],
+        "head": [
+          0.20116634666919708,
+          0.9999994039535522,
+          134.75843811035156,
+          1
+        ]
+      },
+      "recorded": true
+    },
+    "EvieKF|full|43": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.01,
+      "knob_used": 3000.0,
+      "primary": 37.16,
+      "best_val_primary": 37.65,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 2172.3760991096497,
+      "sec_per_step": 0.21723760991096497,
+      "mean_step_size": 0.0041355338381914575,
+      "clip_freq": 0.6405,
+      "peak_mem_mb": 867.271484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          16.87
+        ],
+        [
+          1000,
+          24.79
+        ],
+        [
+          1500,
+          30.97
+        ],
+        [
+          2000,
+          32.41
+        ],
+        [
+          2500,
+          34.35
+        ],
+        [
+          3000,
+          35.29
+        ],
+        [
+          3500,
+          36.22
+        ],
+        [
+          4000,
+          35.64
+        ],
+        [
+          4500,
+          35.35
+        ],
+        [
+          5000,
+          33.98
+        ],
+        [
+          5500,
+          34.88
+        ],
+        [
+          6000,
+          34.92
+        ],
+        [
+          6500,
+          35.02
+        ],
+        [
+          7000,
+          36.72
+        ],
+        [
+          7500,
+          36.28
+        ],
+        [
+          8000,
+          36.68
+        ],
+        [
+          8500,
+          37.65
+        ],
+        [
+          9000,
+          37.43
+        ],
+        [
+          9500,
+          36.82
+        ],
+        [
+          10000,
+          37.6
+        ]
+      ],
+      "steps_to_best_val": 8500,
+      "steps_to_90pct_best": 3500,
+      "frac_budget_to_90pct_best": 0.35,
+      "wallclock_to_90pct_best_s": 756.4699499607086,
+      "train_loss_at_25pct": 2.333099820804155,
+      "train_loss_at_50pct": 0.520593060223944,
+      "train_loss_at_75pct": 0.02679230136774962,
+      "final_train_loss": 0.005527132656425238,
+      "gen_gap_loss": 4.257259319064766,
+      "auc_val_curve": 34.34921052631579,
+      "update_weight_ratio": 0.005345741301192497,
+      "update_cos_sim_sampled": -0.011970490806444111,
+      "grad_norm_mean": 1.7345858623605221,
+      "grad_norm_p95": 4.0160817861557,
+      "weight_norm_start": 102.86897427512258,
+      "weight_norm_end": 6085.957656523559,
+      "weight_norm_growth": 59.162227478293836,
+      "throughput_samples_per_s": 589.2165728230067,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 63.55,
+      "test_loss": 4.262786451721191,
+      "ece": 0.3602367139980197,
+      "eviekf_cos_mean": 0.6413186601528525,
+      "eviekf_cos_min": 0.49986531041421595,
+      "eviekf_b_simple_mean": 11.404821340556891,
+      "eviekf_tr_sigma_mean": 172.24687458259723,
+      "eviekf_eff_rank_mean": 145123.0178328889,
+      "eviekf_gain_lo_min": 0.0034112499561160803,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 9980,
+      "eviekf_role_gain": {
+        "other": [
+          0.08093488216400146,
+          1.0,
+          4147253.276120186,
+          20
+        ],
+        "head": [
+          0.2004823386669159,
+          1.0,
+          145.7537078857422,
+          1
+        ]
+      },
+      "recorded": true
+    },
+    "EvieKF|full|44": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.01,
+      "knob_used": 3000.0,
+      "primary": 37.54,
+      "best_val_primary": 37.61,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 2172.3773880004883,
+      "sec_per_step": 0.21723773880004882,
+      "mean_step_size": 0.004024707600867458,
+      "clip_freq": 0.6418,
+      "peak_mem_mb": 867.271484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          16.86
+        ],
+        [
+          1000,
+          25.61
+        ],
+        [
+          1500,
+          30.6
+        ],
+        [
+          2000,
+          32.92
+        ],
+        [
+          2500,
+          33.92
+        ],
+        [
+          3000,
+          36.57
+        ],
+        [
+          3500,
+          35.9
+        ],
+        [
+          4000,
+          35.53
+        ],
+        [
+          4500,
+          34.42
+        ],
+        [
+          5000,
+          34.17
+        ],
+        [
+          5500,
+          34.46
+        ],
+        [
+          6000,
+          34.93
+        ],
+        [
+          6500,
+          35.88
+        ],
+        [
+          7000,
+          36.22
+        ],
+        [
+          7500,
+          37.01
+        ],
+        [
+          8000,
+          37.15
+        ],
+        [
+          8500,
+          37.61
+        ],
+        [
+          9000,
+          37.19
+        ],
+        [
+          9500,
+          37.45
+        ],
+        [
+          10000,
+          37.39
+        ]
+      ],
+      "steps_to_best_val": 8500,
+      "steps_to_90pct_best": 3000,
+      "frac_budget_to_90pct_best": 0.3,
+      "wallclock_to_90pct_best_s": 647.8904137611389,
+      "train_loss_at_25pct": 2.2850348610756943,
+      "train_loss_at_50pct": 0.4103661837090052,
+      "train_loss_at_75pct": 0.020764412146811517,
+      "final_train_loss": 0.004481530282646418,
+      "gen_gap_loss": 4.28326712160334,
+      "auc_val_curve": 34.45605263157895,
+      "update_weight_ratio": 0.005281144349336565,
+      "update_cos_sim_sampled": -0.014809232589188669,
+      "grad_norm_mean": 1.863141509219259,
+      "grad_norm_p95": 4.3034196376800535,
+      "weight_norm_start": 102.82608361066242,
+      "weight_norm_end": 6070.454139977329,
+      "weight_norm_growth": 59.03613097783937,
+      "throughput_samples_per_s": 589.2162232355699,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 63.92,
+      "test_loss": 4.287748651885987,
+      "ece": 0.3629874560073018,
+      "eviekf_cos_mean": 0.641490222550195,
+      "eviekf_cos_min": 0.514505276602257,
+      "eviekf_b_simple_mean": 13.181190375310951,
+      "eviekf_tr_sigma_mean": 189.77590916049957,
+      "eviekf_eff_rank_mean": 149114.42719739507,
+      "eviekf_gain_lo_min": 0.0036296711768954992,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 9980,
+      "eviekf_role_gain": {
+        "other": [
+          0.0864931121468544,
+          1.0,
+          4213954.302532196,
+          20
+        ],
+        "head": [
+          0.2631990313529968,
+          0.9999998211860657,
+          156.5602264404297,
+          1
+        ]
+      },
+      "recorded": true
+    },
+    "AdamW|full|42": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 35.52,
+      "best_val_primary": 35.77,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1415.4354782104492,
+      "sec_per_step": 0.14154354782104492,
+      "mean_step_size": 0.0006186938886156219,
+      "clip_freq": 0.5679,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          11.59
+        ],
+        [
+          1000,
+          22.44
+        ],
+        [
+          1500,
+          26.33
+        ],
+        [
+          2000,
+          28.97
+        ],
+        [
+          2500,
+          31.52
+        ],
+        [
+          3000,
+          34.2
+        ],
+        [
+          3500,
+          31.6
+        ],
+        [
+          4000,
+          30.17
+        ],
+        [
+          4500,
+          32.0
+        ],
+        [
+          5000,
+          31.37
+        ],
+        [
+          5500,
+          32.39
+        ],
+        [
+          6000,
+          33.43
+        ],
+        [
+          6500,
+          34.1
+        ],
+        [
+          7000,
+          34.34
+        ],
+        [
+          7500,
+          35.15
+        ],
+        [
+          8000,
+          35.62
+        ],
+        [
+          8500,
+          35.41
+        ],
+        [
+          9000,
+          35.52
+        ],
+        [
+          9500,
+          35.77
+        ],
+        [
+          10000,
+          35.55
+        ]
+      ],
+      "steps_to_best_val": 9500,
+      "steps_to_90pct_best": 3000,
+      "frac_budget_to_90pct_best": 0.3,
+      "wallclock_to_90pct_best_s": 422.1127030849457,
+      "train_loss_at_25pct": 2.557244634584284,
+      "train_loss_at_50pct": 0.6829241756847184,
+      "train_loss_at_75pct": 0.02024698220985145,
+      "final_train_loss": 0.0030992532847449183,
+      "gen_gap_loss": 5.17613666361589,
+      "auc_val_curve": 31.78421052631579,
+      "update_weight_ratio": 0.003282845805836465,
+      "update_cos_sim_sampled": -0.007073837555837788,
+      "grad_norm_mean": 1.0002330220442266,
+      "grad_norm_p95": 2.089566671848297,
+      "weight_norm_start": 102.79897673464966,
+      "weight_norm_end": 939.7746965061348,
+      "weight_norm_growth": 9.141868201002941,
+      "throughput_samples_per_s": 904.3153288896773,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 61.26,
+      "test_loss": 5.179235916900635,
+      "ece": 0.4078208716198802,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "AdamW|full|43": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 36.91,
+      "best_val_primary": 36.37,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1416.4487216472626,
+      "sec_per_step": 0.14164487216472627,
+      "mean_step_size": 0.0005992998876000829,
+      "clip_freq": 0.5609,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          13.48
+        ],
+        [
+          1000,
+          21.58
+        ],
+        [
+          1500,
+          26.85
+        ],
+        [
+          2000,
+          27.32
+        ],
+        [
+          2500,
+          32.76
+        ],
+        [
+          3000,
+          33.23
+        ],
+        [
+          3500,
+          34.3
+        ],
+        [
+          4000,
+          33.54
+        ],
+        [
+          4500,
+          32.5
+        ],
+        [
+          5000,
+          32.58
+        ],
+        [
+          5500,
+          32.27
+        ],
+        [
+          6000,
+          34.02
+        ],
+        [
+          6500,
+          34.33
+        ],
+        [
+          7000,
+          35.62
+        ],
+        [
+          7500,
+          35.45
+        ],
+        [
+          8000,
+          35.85
+        ],
+        [
+          8500,
+          35.93
+        ],
+        [
+          9000,
+          36.12
+        ],
+        [
+          9500,
+          35.77
+        ],
+        [
+          10000,
+          36.37
+        ]
+      ],
+      "steps_to_best_val": 10000,
+      "steps_to_90pct_best": 3500,
+      "frac_budget_to_90pct_best": 0.35,
+      "wallclock_to_90pct_best_s": 492.9562051296234,
+      "train_loss_at_25pct": 2.5136225093237297,
+      "train_loss_at_50pct": 0.6361404908173701,
+      "train_loss_at_75pct": 0.01825531587466741,
+      "final_train_loss": 0.0021189588587731123,
+      "gen_gap_loss": 5.090531140323356,
+      "auc_val_curve": 32.365526315789474,
+      "update_weight_ratio": 0.003251906725708579,
+      "update_cos_sim_sampled": -0.005528460719974183,
+      "grad_norm_mean": 0.9811603480624966,
+      "grad_norm_p95": 2.0105239391326903,
+      "weight_norm_start": 102.86897427512258,
+      "weight_norm_end": 926.9914542269828,
+      "weight_norm_growth": 9.011380357966324,
+      "throughput_samples_per_s": 903.6684353185908,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 62.72,
+      "test_loss": 5.092650099182129,
+      "ece": 0.4016673730492592,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "AdamW|full|44": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 36.08,
+      "best_val_primary": 36.49,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1415.845009803772,
+      "sec_per_step": 0.1415845009803772,
+      "mean_step_size": 0.0006159328854836296,
+      "clip_freq": 0.565,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          12.83
+        ],
+        [
+          1000,
+          20.73
+        ],
+        [
+          1500,
+          26.26
+        ],
+        [
+          2000,
+          28.9
+        ],
+        [
+          2500,
+          32.84
+        ],
+        [
+          3000,
+          32.29
+        ],
+        [
+          3500,
+          33.14
+        ],
+        [
+          4000,
+          32.79
+        ],
+        [
+          4500,
+          32.26
+        ],
+        [
+          5000,
+          33.0
+        ],
+        [
+          5500,
+          32.81
+        ],
+        [
+          6000,
+          33.35
+        ],
+        [
+          6500,
+          34.6
+        ],
+        [
+          7000,
+          35.72
+        ],
+        [
+          7500,
+          35.82
+        ],
+        [
+          8000,
+          36.04
+        ],
+        [
+          8500,
+          35.93
+        ],
+        [
+          9000,
+          36.49
+        ],
+        [
+          9500,
+          36.44
+        ],
+        [
+          10000,
+          36.31
+        ]
+      ],
+      "steps_to_best_val": 9000,
+      "steps_to_90pct_best": 6500,
+      "frac_budget_to_90pct_best": 0.65,
+      "wallclock_to_90pct_best_s": 917.244354724884,
+      "train_loss_at_25pct": 2.496176240595764,
+      "train_loss_at_50pct": 0.5831461659292545,
+      "train_loss_at_75pct": 0.01536321344416969,
+      "final_train_loss": 0.002177321584895253,
+      "gen_gap_loss": 5.033192066232488,
+      "auc_val_curve": 32.31473684210526,
+      "update_weight_ratio": 0.003291560307661858,
+      "update_cos_sim_sampled": -0.00976281555169648,
+      "grad_norm_mean": 1.0492633061655796,
+      "grad_norm_p95": 2.2368316531181334,
+      "weight_norm_start": 102.82608361066242,
+      "weight_norm_end": 935.9646844523094,
+      "weight_norm_growth": 9.10240526125859,
+      "throughput_samples_per_s": 904.0537566872525,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 61.43,
+      "test_loss": 5.035369387817383,
+      "ece": 0.4036228674992919,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "AdaBelief|full|42": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 36.18,
+      "best_val_primary": 35.88,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1454.3573534488678,
+      "sec_per_step": 0.14543573534488677,
+      "mean_step_size": 0.0006716181406178349,
+      "clip_freq": 0.5497,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          12.74
+        ],
+        [
+          1000,
+          22.02
+        ],
+        [
+          1500,
+          26.29
+        ],
+        [
+          2000,
+          29.12
+        ],
+        [
+          2500,
+          33.08
+        ],
+        [
+          3000,
+          34.65
+        ],
+        [
+          3500,
+          32.35
+        ],
+        [
+          4000,
+          29.69
+        ],
+        [
+          4500,
+          32.95
+        ],
+        [
+          5000,
+          31.51
+        ],
+        [
+          5500,
+          32.87
+        ],
+        [
+          6000,
+          32.93
+        ],
+        [
+          6500,
+          34.04
+        ],
+        [
+          7000,
+          34.81
+        ],
+        [
+          7500,
+          35.09
+        ],
+        [
+          8000,
+          35.68
+        ],
+        [
+          8500,
+          35.88
+        ],
+        [
+          9000,
+          35.58
+        ],
+        [
+          9500,
+          35.86
+        ],
+        [
+          10000,
+          35.61
+        ]
+      ],
+      "steps_to_best_val": 8500,
+      "steps_to_90pct_best": 3000,
+      "frac_budget_to_90pct_best": 0.3,
+      "wallclock_to_90pct_best_s": 434.1917881965637,
+      "train_loss_at_25pct": 2.541225426687675,
+      "train_loss_at_50pct": 0.6594211560193,
+      "train_loss_at_75pct": 0.020378581597835763,
+      "final_train_loss": 0.0028562210500240326,
+      "gen_gap_loss": 5.000049391132593,
+      "auc_val_curve": 32.03026315789474,
+      "update_weight_ratio": 0.003439725088013229,
+      "update_cos_sim_sampled": -0.014587723143169794,
+      "grad_norm_mean": 0.9592488957337104,
+      "grad_norm_p95": 2.002791690826414,
+      "weight_norm_start": 102.79897673464966,
+      "weight_norm_end": 1013.2661295995745,
+      "weight_norm_growth": 9.856772526200066,
+      "throughput_samples_per_s": 880.1138158820484,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 61.77,
+      "test_loss": 5.002905612182617,
+      "ece": 0.39437898861318826,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "AdaBelief|full|43": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 36.71,
+      "best_val_primary": 36.56,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1454.9555242061615,
+      "sec_per_step": 0.14549555242061615,
+      "mean_step_size": 0.0006512967209290573,
+      "clip_freq": 0.5316,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          13.37
+        ],
+        [
+          1000,
+          22.06
+        ],
+        [
+          1500,
+          27.01
+        ],
+        [
+          2000,
+          28.53
+        ],
+        [
+          2500,
+          33.03
+        ],
+        [
+          3000,
+          31.7
+        ],
+        [
+          3500,
+          33.17
+        ],
+        [
+          4000,
+          33.65
+        ],
+        [
+          4500,
+          30.47
+        ],
+        [
+          5000,
+          32.1
+        ],
+        [
+          5500,
+          32.62
+        ],
+        [
+          6000,
+          34.31
+        ],
+        [
+          6500,
+          34.08
+        ],
+        [
+          7000,
+          35.7
+        ],
+        [
+          7500,
+          36.28
+        ],
+        [
+          8000,
+          36.01
+        ],
+        [
+          8500,
+          36.44
+        ],
+        [
+          9000,
+          36.56
+        ],
+        [
+          9500,
+          36.42
+        ],
+        [
+          10000,
+          36.52
+        ]
+      ],
+      "steps_to_best_val": 9000,
+      "steps_to_90pct_best": 6000,
+      "frac_budget_to_90pct_best": 0.6,
+      "wallclock_to_90pct_best_s": 871.1816942691803,
+      "train_loss_at_25pct": 2.5027749240936092,
+      "train_loss_at_50pct": 0.6434373448140666,
+      "train_loss_at_75pct": 0.01806738381362098,
+      "final_train_loss": 0.002018160535953939,
+      "gen_gap_loss": 5.005719828508235,
+      "auc_val_curve": 32.372894736842106,
+      "update_weight_ratio": 0.0033898176480835034,
+      "update_cos_sim_sampled": -0.004556238663645962,
+      "grad_norm_mean": 0.8986456169182435,
+      "grad_norm_p95": 1.8512272715568543,
+      "weight_norm_start": 102.86897427512258,
+      "weight_norm_end": 997.6558672731721,
+      "weight_norm_growth": 9.698316468140785,
+      "throughput_samples_per_s": 879.7519777784142,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 62.66,
+      "test_loss": 5.007737989044189,
+      "ece": 0.39957369337826965,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "AdaBelief|full|44": {
+      "opt": "AdaBelief",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 36.22,
+      "best_val_primary": 35.71,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1452.4415154457092,
+      "sec_per_step": 0.14524415154457093,
+      "mean_step_size": 0.0006652152962644753,
+      "clip_freq": 0.5383,
+      "peak_mem_mb": 795.0771484375,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          13.85
+        ],
+        [
+          1000,
+          21.38
+        ],
+        [
+          1500,
+          26.84
+        ],
+        [
+          2000,
+          29.14
+        ],
+        [
+          2500,
+          32.74
+        ],
+        [
+          3000,
+          33.07
+        ],
+        [
+          3500,
+          33.71
+        ],
+        [
+          4000,
+          32.72
+        ],
+        [
+          4500,
+          29.79
+        ],
+        [
+          5000,
+          32.4
+        ],
+        [
+          5500,
+          31.68
+        ],
+        [
+          6000,
+          32.87
+        ],
+        [
+          6500,
+          34.62
+        ],
+        [
+          7000,
+          34.48
+        ],
+        [
+          7500,
+          35.35
+        ],
+        [
+          8000,
+          35.52
+        ],
+        [
+          8500,
+          35.59
+        ],
+        [
+          9000,
+          35.71
+        ],
+        [
+          9500,
+          35.34
+        ],
+        [
+          10000,
+          35.6
+        ]
+      ],
+      "steps_to_best_val": 9000,
+      "steps_to_90pct_best": 3500,
+      "frac_budget_to_90pct_best": 0.35,
+      "wallclock_to_90pct_best_s": 505.60847210884094,
+      "train_loss_at_25pct": 2.4817780208674267,
+      "train_loss_at_50pct": 0.5797109742362397,
+      "train_loss_at_75pct": 0.015204551929450262,
+      "final_train_loss": 0.0018450933857820928,
+      "gen_gap_loss": 5.077748255689535,
+      "auc_val_curve": 31.982894736842105,
+      "update_weight_ratio": 0.0034453445770943844,
+      "update_cos_sim_sampled": -0.007967546881352048,
+      "grad_norm_mean": 0.9565128113456071,
+      "grad_norm_p95": 2.0611931324005126,
+      "weight_norm_start": 102.82608361066242,
+      "weight_norm_end": 1002.3510423756555,
+      "weight_norm_growth": 9.748023139449007,
+      "throughput_samples_per_s": 881.2747269945721,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 62.73,
+      "test_loss": 5.079593349075317,
+      "ece": 0.4038883848190308,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "Muon|full|42": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.006325,
+      "knob_used": null,
+      "primary": 42.17,
+      "best_val_primary": 42.23,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1808.9483609199524,
+      "sec_per_step": 0.18089483609199525,
+      "mean_step_size": 0.0007057082423323989,
+      "clip_freq": 0.4096,
+      "peak_mem_mb": 752.1171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          25.27
+        ],
+        [
+          1000,
+          35.71
+        ],
+        [
+          1500,
+          38.57
+        ],
+        [
+          2000,
+          38.21
+        ],
+        [
+          2500,
+          37.33
+        ],
+        [
+          3000,
+          37.11
+        ],
+        [
+          3500,
+          36.54
+        ],
+        [
+          4000,
+          37.28
+        ],
+        [
+          4500,
+          37.42
+        ],
+        [
+          5000,
+          38.38
+        ],
+        [
+          5500,
+          38.34
+        ],
+        [
+          6000,
+          38.46
+        ],
+        [
+          6500,
+          39.9
+        ],
+        [
+          7000,
+          40.15
+        ],
+        [
+          7500,
+          39.97
+        ],
+        [
+          8000,
+          40.64
+        ],
+        [
+          8500,
+          41.48
+        ],
+        [
+          9000,
+          41.35
+        ],
+        [
+          9500,
+          41.67
+        ],
+        [
+          10000,
+          42.23
+        ]
+      ],
+      "steps_to_best_val": 10000,
+      "steps_to_90pct_best": 8000,
+      "frac_budget_to_90pct_best": 0.8,
+      "wallclock_to_90pct_best_s": 1454.0002791881561,
+      "train_loss_at_25pct": 0.7551860996575863,
+      "train_loss_at_50pct": 0.12122627299347961,
+      "train_loss_at_75pct": 0.008619247059619957,
+      "final_train_loss": 5.024133679398801e-05,
+      "gen_gap_loss": 5.304562821712523,
+      "auc_val_curve": 38.54,
+      "update_weight_ratio": 0.0024617338949467246,
+      "update_cos_sim_sampled": -0.004306268695312014,
+      "grad_norm_mean": 0.8187623143004312,
+      "grad_norm_p95": 1.951379424333572,
+      "weight_norm_start": 102.79897673464966,
+      "weight_norm_end": 1429.4227606012128,
+      "weight_norm_growth": 13.905029077195165,
+      "throughput_samples_per_s": 707.5934436011472,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 66.65,
+      "test_loss": 5.304613063049317,
+      "ece": 0.4064096891343594,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "Muon|full|43": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.006325,
+      "knob_used": null,
+      "primary": 41.88,
+      "best_val_primary": 42.01,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1756.1406116485596,
+      "sec_per_step": 0.17561406116485595,
+      "mean_step_size": 0.0007051786752980077,
+      "clip_freq": 0.4063,
+      "peak_mem_mb": 752.1171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          25.93
+        ],
+        [
+          1000,
+          34.49
+        ],
+        [
+          1500,
+          38.8
+        ],
+        [
+          2000,
+          37.4
+        ],
+        [
+          2500,
+          35.94
+        ],
+        [
+          3000,
+          35.62
+        ],
+        [
+          3500,
+          36.2
+        ],
+        [
+          4000,
+          36.56
+        ],
+        [
+          4500,
+          36.99
+        ],
+        [
+          5000,
+          36.41
+        ],
+        [
+          5500,
+          38.67
+        ],
+        [
+          6000,
+          37.55
+        ],
+        [
+          6500,
+          39.12
+        ],
+        [
+          7000,
+          39.11
+        ],
+        [
+          7500,
+          39.94
+        ],
+        [
+          8000,
+          40.31
+        ],
+        [
+          8500,
+          41.33
+        ],
+        [
+          9000,
+          41.26
+        ],
+        [
+          9500,
+          41.71
+        ],
+        [
+          10000,
+          42.01
+        ]
+      ],
+      "steps_to_best_val": 10000,
+      "steps_to_90pct_best": 8500,
+      "frac_budget_to_90pct_best": 0.85,
+      "wallclock_to_90pct_best_s": 1488.8534491062164,
+      "train_loss_at_25pct": 0.7388014651397835,
+      "train_loss_at_50pct": 0.11354562067626203,
+      "train_loss_at_75pct": 0.008015393583083119,
+      "final_train_loss": 1.5561651252937736e-05,
+      "gen_gap_loss": 5.445869706750846,
+      "auc_val_curve": 37.96736842105263,
+      "update_weight_ratio": 0.0024612510547968483,
+      "update_cos_sim_sampled": -0.004718295457932894,
+      "grad_norm_mean": 0.8061147188784366,
+      "grad_norm_p95": 1.9022525370120982,
+      "weight_norm_start": 102.86897427512258,
+      "weight_norm_end": 1428.243762900806,
+      "weight_norm_growth": 13.884106193972293,
+      "throughput_samples_per_s": 728.8710206402053,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 67.13,
+      "test_loss": 5.445885268402099,
+      "ece": 0.41746287235617635,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    },
+    "Muon|full|44": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.006325,
+      "knob_used": null,
+      "primary": 41.44,
+      "best_val_primary": 41.03,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1758.0381698608398,
+      "sec_per_step": 0.175803816986084,
+      "mean_step_size": 0.0007051931107038169,
+      "clip_freq": 0.397,
+      "peak_mem_mb": 752.1171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11271432,
+      "val_curve": [
+        [
+          500,
+          25.11
+        ],
+        [
+          1000,
+          35.17
+        ],
+        [
+          1500,
+          38.49
+        ],
+        [
+          2000,
+          36.86
+        ],
+        [
+          2500,
+          36.33
+        ],
+        [
+          3000,
+          35.97
+        ],
+        [
+          3500,
+          36.95
+        ],
+        [
+          4000,
+          37.43
+        ],
+        [
+          4500,
+          37.67
+        ],
+        [
+          5000,
+          38.35
+        ],
+        [
+          5500,
+          38.46
+        ],
+        [
+          6000,
+          39.08
+        ],
+        [
+          6500,
+          38.61
+        ],
+        [
+          7000,
+          38.84
+        ],
+        [
+          7500,
+          39.28
+        ],
+        [
+          8000,
+          39.98
+        ],
+        [
+          8500,
+          40.09
+        ],
+        [
+          9000,
+          40.51
+        ],
+        [
+          9500,
+          41.03
+        ],
+        [
+          10000,
+          40.77
+        ]
+      ],
+      "steps_to_best_val": 9500,
+      "steps_to_90pct_best": 8000,
+      "frac_budget_to_90pct_best": 0.8,
+      "wallclock_to_90pct_best_s": 1403.415335893631,
+      "train_loss_at_25pct": 0.7594759752682736,
+      "train_loss_at_50pct": 0.10949763854243887,
+      "train_loss_at_75pct": 0.008617857414295448,
+      "final_train_loss": 0.00019214023632230237,
+      "gen_gap_loss": 5.241250014838751,
+      "auc_val_curve": 38.002105263157894,
+      "update_weight_ratio": 0.002459579651216749,
+      "update_cos_sim_sampled": -0.004759473654425972,
+      "grad_norm_mean": 0.7944751239727251,
+      "grad_norm_p95": 1.88327394723892,
+      "weight_norm_start": 102.82608361066242,
+      "weight_norm_end": 1428.2632536204947,
+      "weight_norm_growth": 13.890087062232453,
+      "throughput_samples_per_s": 728.0843055309318,
+      "flops_per_step_est": 1691825995776.0,
+      "total_flops_est": 1.691825995776e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 66.96,
+      "test_loss": 5.241442155075073,
+      "ece": 0.4164757677093148,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "recorded": true
+    }
+  },
+  "meta": {
+    "task_name": "vision_tinyimagenet",
+    "domain": "vision",
+    "primary_metric": "test_top1_acc",
+    "primary_lower_better": false,
+    "lr_used": {
+      "EvieKF": 0.01,
+      "AdamW": 0.003162,
+      "AdaBelief": 0.003162,
+      "Muon": 0.006325
+    },
+    "knob_used": {
+      "EvieKF": 3000.0,
+      "AdamW": null,
+      "AdaBelief": null,
+      "Muon": null
+    },
+    "opt_names": [
+      "EvieKF",
+      "AdamW",
+      "AdaBelief",
+      "Muon"
+    ],
+    "opt_set": "scalegen",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_steps": 10000,
+    "units": [
+      "full"
+    ],
+    "peer_median_primary": 37.035,
+    "nonstandard_ppl_caveat": null,
+    "torch": "2.10.0+cu128",
+    "device": "cuda",
+    "timestamp": "2026-09-14T18:07:58.703908"
+  }
+}

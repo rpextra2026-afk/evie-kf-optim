@@ -1,0 +1,108 @@
+{
+  "task_name": "vision_cifar10_modelsize",
+  "sweep_type": "modelsize",
+  "base_task_name": "vision_cifar10",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "reference": "AdamW",
+  "grid_labels": [
+    "small",
+    "large",
+    "baseline"
+  ],
+  "grid_x": {
+    "small": 8192.0,
+    "large": 131072.0,
+    "baseline": 32768.0
+  },
+  "grid_is_baseline": {
+    "small": false,
+    "large": false,
+    "baseline": true
+  },
+  "arms": [
+    "AdamW",
+    "AdaBelief",
+    "EvieKF"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "eviekf_sweep_gamma": 3000.0,
+  "c1_row": null,
+  "table": {
+    "small": {
+      "AdamW": 80.53,
+      "AdaBelief": 79.99,
+      "EvieKF": 81.17
+    },
+    "large": {
+      "AdamW": 81.91,
+      "AdaBelief": 82.34,
+      "EvieKF": 81.34
+    },
+    "baseline": {
+      "AdamW": NaN,
+      "AdaBelief": NaN,
+      "EvieKF": NaN
+    }
+  },
+  "per_seed": {
+    "small": {
+      "AdamW": [
+        80.85,
+        80.3,
+        80.53
+      ],
+      "AdaBelief": [
+        80.75,
+        79.99,
+        79.32
+      ],
+      "EvieKF": [
+        81.25,
+        81.17,
+        80.58
+      ]
+    },
+    "large": {
+      "AdamW": [
+        81.91,
+        81.59,
+        82.19
+      ],
+      "AdaBelief": [
+        81.96,
+        82.34,
+        83.02
+      ],
+      "EvieKF": [
+        81.57,
+        81.34,
+        80.96
+      ]
+    },
+    "baseline": {
+      "AdamW": [],
+      "AdaBelief": [],
+      "EvieKF": []
+    }
+  },
+  "deltas": {
+    "AdaBelief": {
+      "small": -0.006705575561902474,
+      "large": 0.005249664265657513,
+      "baseline": NaN
+    },
+    "EvieKF": {
+      "small": 0.007947348814106551,
+      "large": -0.00695885728238302,
+      "baseline": NaN
+    }
+  },
+  "spearman_batch_vs_delta": {},
+  "nonstandard_ppl_caveat": null,
+  "note": "fixed step budget per grid point; absolute values not comparable across grid points, only within-grid-point arm deltas (CLAUDE.md sec 9.2/9.3)"
+}

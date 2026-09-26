@@ -1,0 +1,108 @@
+{
+  "task_name": "finance_tech_modelsize",
+  "sweep_type": "modelsize",
+  "base_task_name": "finance_tech",
+  "primary_metric": "test_mse",
+  "primary_lower_better": true,
+  "reference": "AdamW",
+  "grid_labels": [
+    "small",
+    "large",
+    "baseline"
+  ],
+  "grid_x": {
+    "small": 512.0,
+    "large": 8192.0,
+    "baseline": 2048.0
+  },
+  "grid_is_baseline": {
+    "small": false,
+    "large": false,
+    "baseline": true
+  },
+  "arms": [
+    "AdamW",
+    "AdaBelief",
+    "EvieKF"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "eviekf_sweep_gamma": 3000.0,
+  "c1_row": null,
+  "table": {
+    "small": {
+      "AdamW": 0.000473837314713371,
+      "AdaBelief": 0.0004701422688444217,
+      "EvieKF": 0.0004716063855969425
+    },
+    "large": {
+      "AdamW": 0.0005610326200778722,
+      "AdaBelief": 0.0005792939230529331,
+      "EvieKF": 0.0005008569096017541
+    },
+    "baseline": {
+      "AdamW": NaN,
+      "AdaBelief": NaN,
+      "EvieKF": NaN
+    }
+  },
+  "per_seed": {
+    "small": {
+      "AdamW": [
+        0.00048099673921405116,
+        0.000473837314713371,
+        0.0004732270689713227
+      ],
+      "AdaBelief": [
+        0.0004701422688444217,
+        0.0004768157464683264,
+        0.00046422225845415156
+      ],
+      "EvieKF": [
+        0.0004637526980379473,
+        0.0004763761661829519,
+        0.0004716063855969425
+      ]
+    },
+    "large": {
+      "AdamW": [
+        0.0005496823813310922,
+        0.0006234293189014349,
+        0.0005610326200778722
+      ],
+      "AdaBelief": [
+        0.0005636539304154111,
+        0.0006192863436606076,
+        0.0005792939230529331
+      ],
+      "EvieKF": [
+        0.0004929227360752766,
+        0.0005282412374873337,
+        0.0005008569096017541
+      ]
+    },
+    "baseline": {
+      "AdamW": [],
+      "AdaBelief": [],
+      "EvieKF": []
+    }
+  },
+  "deltas": {
+    "AdaBelief": {
+      "small": 0.00779813187820475,
+      "large": -0.03254944957126759,
+      "baseline": NaN
+    },
+    "EvieKF": {
+      "small": 0.0047082174559806116,
+      "large": 0.10725884435697455,
+      "baseline": NaN
+    }
+  },
+  "spearman_batch_vs_delta": {},
+  "nonstandard_ppl_caveat": null,
+  "note": "fixed step budget per grid point; absolute values not comparable across grid points, only within-grid-point arm deltas (CLAUDE.md sec 9.2/9.3)"
+}

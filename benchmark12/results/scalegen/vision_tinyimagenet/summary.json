@@ -1,0 +1,75 @@
+{
+  "task_name": "vision_tinyimagenet",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "scalegen",
+  "opt_names": [
+    "EvieKF",
+    "AdamW",
+    "AdaBelief",
+    "Muon"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 37.54,
+    "AdamW": 36.08,
+    "AdaBelief": 36.22,
+    "Muon": 41.88
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 37.54,
+    "AdamW": 36.08,
+    "AdaBelief": 36.22,
+    "Muon": 41.88
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 38.59,
+      "43": 37.16,
+      "44": 37.54
+    },
+    "AdamW": {
+      "42": 35.52,
+      "43": 36.91,
+      "44": 36.08
+    },
+    "AdaBelief": {
+      "42": 36.18,
+      "43": 36.71,
+      "44": 36.22
+    },
+    "Muon": {
+      "42": 42.17,
+      "43": 41.88,
+      "44": 41.44
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.01,
+    "AdamW": 0.003162,
+    "AdaBelief": 0.003162,
+    "Muon": 0.006325
+  },
+  "knob_used": {
+    "EvieKF": 3000.0,
+    "AdamW": null,
+    "AdaBelief": null,
+    "Muon": null
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null
+}

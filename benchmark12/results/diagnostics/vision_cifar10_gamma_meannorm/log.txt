@@ -1,0 +1,37 @@
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm]   vision_cifar10_gamma_meannorm  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 20:38:01] [vision_cifar10_gamma_meannorm] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 21:12:58] [vision_cifar10_gamma_meannorm] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-23 21:12:58] [vision_cifar10_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 21:12:58] [vision_cifar10_gamma_meannorm] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKFm']
+[2026-09-23 21:20:28] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=0.1  score=79.36
+[2026-09-23 21:27:53] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=0.3  score=77.68
+[2026-09-23 21:35:18] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=1  score=80.84
+[2026-09-23 21:42:42] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=3  score=79.94
+[2026-09-23 21:50:05] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=10  score=79.16
+[2026-09-23 21:57:29] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=30  score=81.98
+[2026-09-23 22:04:54] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm  lr=9.999e-02  knob=100  score=79.76
+[2026-09-23 22:04:54] [vision_cifar10_gamma_meannorm] [lr-search] EvieKFm: FROZEN lr=9.999e-02  knob=30  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-23 22:04:54] [vision_cifar10_gamma_meannorm] [lr-search] frozen: EvieKFm=9.999e-02/k=30
+[2026-09-23 22:04:54] [vision_cifar10_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 22:04:54] [vision_cifar10_gamma_meannorm] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 22:34:26] [vision_cifar10_gamma_meannorm] [sweep] 1/5  EvieKFm|full|42  primary=81.23  diverged=False
+[2026-09-23 23:03:58] [vision_cifar10_gamma_meannorm] [sweep] 2/5  EvieKFm|full|43  primary=81.67  diverged=False
+[2026-09-23 23:33:28] [vision_cifar10_gamma_meannorm] [sweep] 3/5  EvieKFm|full|44  primary=81.62  diverged=False
+[2026-09-24 00:02:56] [vision_cifar10_gamma_meannorm] [sweep] 4/5  EvieKFm|full|45  primary=81.39  diverged=False
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] [sweep] 5/5  EvieKFm|full|46  primary=81.29  diverged=False
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] ====================================================================================================
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   RESULTS  --  vision_cifar10_gamma_meannorm   primary = test_top1_acc (higher is better)
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   EvieKFm     lr=1.00e-01  knob=30  test_top1_acc(task median over 5 seeds)=81.39   seed spread=[81.23, 81.67]   diverged_cells=0/5
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]              descriptive: wall_s=1762  mean_step_size=0.004975  clip_freq=0.00054  peak_mem_mb=851.1
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   best optimizer on this task: EvieKFm  (test_top1_acc=81.39)
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   wrote /kaggle/working/checkpoints/vision_cifar10_gamma_meannorm/results_raw.csv
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] ====================================================================================================
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   wrote /kaggle/working/checkpoints/vision_cifar10_gamma_meannorm/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm] ====================================================================================================
+[2026-09-24 00:32:26] [vision_cifar10_gamma_meannorm]   DONE 2026-09-24T00:32:26.357779

@@ -1,0 +1,43 @@
+TASK ablation_finance_tech_diag_absolute   primary = test_mse (lower better)
+  cells 490   units 49   seeds [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+
+TASK NUMBER  (median over seeds of the per-seed unit-median)
+  optimizer            primary   vs EvieKF       unit-MEAN
+  EvieDiagAbs    0.00043102749              0.000516891324
+  (unit-MEAN is the OLD aggregation, shown so its distortion is visible; the target is not standardised, so a mean over units is dominated by the highest-variance ones)
+
+SEED STABILITY  (spread of the per-seed task number, complete-case)
+  EvieDiagAbs  spread   18.58%   [0.000390579, 0.000463156]
+
+DIVERGENCE  (cells flagged, of 490 per optimizer)
+  EvieDiagAbs    0
+
+WALL-CLOCK per cell  (telemetry-bearing cells only; the step budget is fixed, NOT wall-clock matched)
+  EvieDiagAbs  n= 490  mean     59.0s
+
+EVIE-KF MECHANISM TELEMETRY  (descriptive only, never tested)
+  eviekf_n_active_steps      mean      9978.7  [9346, 9980]
+                             wiring canary: 0 would mean set_noise() never fired and this WAS silently AdamW
+  eviekf_cos_mean            mean     0.99997  [0.99777, 1]
+                             cos(preconditioned dir, plain Adam dir); 1.0 = the operator changed nothing
+  eviekf_b_simple_mean       mean      45.831  [14.472, 145.81]
+                             tr(Sigma_z)/||y||^2 -- gradient noise relative to signal
+  eviekf_eff_rank_mean       mean           0  [0, 0]
+                             effective rank of the Kronecker noise spectrum
+  eviekf_gain_lo_min         mean           1  [1, 1]
+                             smallest gain applied; 1.0 = no shrinkage anywhere
+  eviekf_gain_hi_max         mean           1  [1, 1]
+                             largest gain; always <= 1 by construction
+
+TUNED SECOND AXIS (knob) RESPONSE at the frozen LR
+  EvieDiagAbs: frozen lr=0.01 knob=3   lr-boundary-extends=0 knob-boundary-extends=1
+      knob=0.3333    score=0.000540106
+      knob=1         score=0.000540086
+      knob=3         score=0.00053981   <-- frozen
+      knob=10        score=0.00054018
+      knob=30        score=0.000541334
+      knob=100       score=0.000541359
+      knob=300       score=0.000540462
+      knob=1000      score=0.000540564
+      knob=3000      score=0.000540487
+      spread across the knob axis: 0.29% over a 9001x range

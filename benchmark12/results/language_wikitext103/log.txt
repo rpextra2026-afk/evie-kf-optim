@@ -1,0 +1,391 @@
+[2026-09-12 17:00:38] [language_wikitext103] ====================================================================================================
+[2026-09-12 17:00:38] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-12 17:00:38] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-12 17:00:38] [language_wikitext103] ====================================================================================================
+[2026-09-12 17:00:39] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-12 17:00:39] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-12 17:01:53] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-12 17:01:55] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-12 17:01:55] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-12 17:17:33] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=309.38
+[2026-09-12 17:33:09] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=303.983
+[2026-09-12 17:48:46] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=297.709
+[2026-09-12 18:04:21] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=290.788
+[2026-09-12 18:19:56] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=286.382
+[2026-09-12 18:35:31] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=287.492
+[2026-09-12 18:51:05] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=301.216
+[2026-09-12 19:06:42] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=169.399
+[2026-09-12 19:22:19] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=166.006
+[2026-09-12 19:37:55] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=161.509
+[2026-09-12 19:53:33] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=155.151
+[2026-09-12 20:09:11] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=149.012
+[2026-09-12 20:24:48] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=143.17
+[2026-09-12 20:40:25] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=140.436
+[2026-09-12 20:56:05] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=94.4602
+[2026-09-12 21:11:45] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=94.0615
+[2026-09-12 21:27:25] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=92.308
+[2026-09-12 21:43:06] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=89.5386
+[2026-09-12 21:58:46] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=86.2241
+[2026-09-12 22:14:26] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=82.3382
+[2026-09-12 22:30:04] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=79.215
+[2026-09-12 22:45:43] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=77.4907
+[2026-09-12 23:01:23] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=78.7222
+[2026-09-12 23:17:03] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=79.1134
+[2026-09-12 23:32:43] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=74.5024
+[2026-09-12 23:48:23] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=74.3654
+[2026-09-13 00:04:04] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=71.1125
+[2026-09-13 00:19:44] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=66.2783
+[2026-09-13 00:35:19] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=165.399
+[2026-09-13 00:50:54] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=153.143
+[2026-09-13 01:00:34] [language_wikitext103] [signal] EvieKF/full/seed42/LR: checkpointed at step 1553; exiting cleanly
+[2026-09-13 06:23:11] [language_wikitext103] ====================================================================================================
+[2026-09-13 06:23:11] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-13 06:23:11] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 06:23:11] [language_wikitext103] ====================================================================================================
+[2026-09-13 06:23:12] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 06:23:12] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 06:24:35] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-13 06:24:37] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-13 06:24:37] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 06:38:59] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=126.737
+[2026-09-13 06:53:30] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=110.756
+[2026-09-13 07:08:03] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=108.861
+[2026-09-13 07:22:37] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=100.036
+[2026-09-13 07:37:10] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=91.9057
+[2026-09-13 07:51:25] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=306.164
+[2026-09-13 08:05:45] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=298.077
+[2026-09-13 08:20:07] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=289.742
+[2026-09-13 08:34:27] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=277.534
+[2026-09-13 08:48:43] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=272.259
+[2026-09-13 09:03:03] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=262.106
+[2026-09-13 09:17:23] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=261.173
+[2026-09-13 09:31:30] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=436.647
+[2026-09-13 09:45:41] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=424.424
+[2026-09-13 09:59:52] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=409.997
+[2026-09-13 10:14:02] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=423.178
+[2026-09-13 10:28:09] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=405.877
+[2026-09-13 10:42:15] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=398.579
+[2026-09-13 10:56:20] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=374.689
+[2026-09-13 10:56:20] [language_wikitext103] [lr-search] EvieKF: knob pick 3000 at grid edge -> extend [9000.0, 27000.0] and re-search (boundary check #1)
+[2026-09-13 11:10:45] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=9000  score=334.058
+[2026-09-13 11:25:11] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=27000  score=392.338
+[2026-09-13 11:39:40] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=9000  score=141.812
+[2026-09-13 11:54:10] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=27000  score=148.253
+[2026-09-13 12:08:40] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=9000  score=77.0597
+[2026-09-13 12:23:11] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=27000  score=77.0877
+[2026-09-13 12:37:41] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=9000  score=63.2995
+[2026-09-13 12:52:07] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=27000  score=61.3367
+[2026-09-13 13:06:33] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=9000  score=84.6343
+[2026-09-13 13:21:01] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=27000  score=76.8964
+[2026-09-13 13:35:18] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=9000  score=246.845
+[2026-09-13 13:49:41] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=27000  score=227.541
+[2026-09-13 14:03:55] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=9000  score=378.565
+[2026-09-13 14:18:09] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=27000  score=335.213
+[2026-09-13 14:18:09] [language_wikitext103] [lr-search] EvieKF: knob pick 27000 at grid edge -> extend [81000.0, 243000.0] and re-search (boundary check #2)
+[2026-09-13 14:23:08] [language_wikitext103] [signal] EvieKF/full/seed42/LR: checkpointed at step 860; exiting cleanly
+[2026-09-13 15:53:42] [language_wikitext103] ====================================================================================================
+[2026-09-13 15:53:42] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-13 15:53:42] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-13 15:53:42] [language_wikitext103] ====================================================================================================
+[2026-09-13 15:53:42] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 15:53:42] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 15:54:59] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-13 15:55:01] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-13 15:55:01] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 15:55:01] [language_wikitext103] [lr-search] EvieKF: knob pick 3000 at grid edge -> extend [9000.0, 27000.0] and re-search (boundary check #2)
+[2026-09-13 15:55:01] [language_wikitext103] [lr-search] EvieKF: knob pick 27000 at grid edge -> extend [81000.0, 243000.0] and re-search (boundary check #3)
+[2026-09-13 16:09:31] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=81000  score=477.78
+[2026-09-13 16:23:56] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-05  knob=243000  score=590.7
+[2026-09-13 16:38:17] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=81000  score=160.524
+[2026-09-13 16:52:42] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-04  knob=243000  score=177.314
+[2026-09-13 17:07:06] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=81000  score=78.4563
+[2026-09-13 17:21:20] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-04  knob=243000  score=81.6407
+[2026-09-13 17:35:35] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=81000  score=59.8645
+[2026-09-13 17:49:49] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-03  knob=243000  score=59.1768
+[2026-09-13 18:04:03] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=81000  score=72.4536
+[2026-09-13 18:18:16] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-03  knob=243000  score=68.5878
+[2026-09-13 18:32:26] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=81000  score=243.154
+[2026-09-13 18:46:35] [language_wikitext103] [lr-search] EvieKF  lr=1.000e-02  knob=243000  score=226.957
+[2026-09-13 19:00:37] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=81000  score=324.327
+[2026-09-13 19:14:38] [language_wikitext103] [lr-search] EvieKF  lr=3.162e-02  knob=243000  score=314.335
+[2026-09-13 19:14:38] [language_wikitext103] [lr-search] EvieKF: FROZEN lr=1.000e-03  knob=243000  (LR boundary checks: 0, knob boundary checks: 3)
+[2026-09-13 19:23:14] [language_wikitext103] [lr-search] AdamW  lr=3.162e-05  knob=-  score=318.136
+[2026-09-13 19:31:51] [language_wikitext103] [lr-search] AdamW  lr=1.000e-04  knob=-  score=172.582
+[2026-09-13 19:40:27] [language_wikitext103] [lr-search] AdamW  lr=3.162e-04  knob=-  score=92.8337
+[2026-09-13 19:49:03] [language_wikitext103] [lr-search] AdamW  lr=1.000e-03  knob=-  score=79.5771
+[2026-09-13 19:57:39] [language_wikitext103] [lr-search] AdamW  lr=3.162e-03  knob=-  score=171.357
+[2026-09-13 20:06:11] [language_wikitext103] [lr-search] AdamW  lr=1.000e-02  knob=-  score=303.547
+[2026-09-13 20:14:37] [language_wikitext103] [lr-search] AdamW  lr=3.162e-02  knob=-  score=451.095
+[2026-09-13 20:14:37] [language_wikitext103] [lr-search] AdamW: FROZEN lr=1.000e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 20:23:23] [language_wikitext103] [lr-search] AdaBelief  lr=3.162e-05  knob=-  score=261.338
+[2026-09-13 20:32:09] [language_wikitext103] [lr-search] AdaBelief  lr=1.000e-04  knob=-  score=147.852
+[2026-09-13 20:40:55] [language_wikitext103] [lr-search] AdaBelief  lr=3.162e-04  knob=-  score=87.736
+[2026-09-13 20:49:41] [language_wikitext103] [lr-search] AdaBelief  lr=1.000e-03  knob=-  score=79.8704
+[2026-09-13 20:58:21] [language_wikitext103] [lr-search] AdaBelief  lr=3.162e-03  knob=-  score=237.439
+[2026-09-13 21:06:59] [language_wikitext103] [lr-search] AdaBelief  lr=1.000e-02  knob=-  score=313.318
+[2026-09-13 21:15:36] [language_wikitext103] [lr-search] AdaBelief  lr=3.162e-02  knob=-  score=495.964
+[2026-09-13 21:15:36] [language_wikitext103] [lr-search] AdaBelief: FROZEN lr=1.000e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 21:24:58] [language_wikitext103] [lr-search] Muon  lr=6.325e-04  knob=-  score=55.6792
+[2026-09-13 21:34:24] [language_wikitext103] [lr-search] Muon  lr=2.000e-03  knob=-  score=49.713
+[2026-09-13 21:43:50] [language_wikitext103] [lr-search] Muon  lr=6.325e-03  knob=-  score=49.9089
+[2026-09-13 21:53:09] [language_wikitext103] [lr-search] Muon  lr=2.000e-02  knob=-  score=277.457
+[2026-09-13 22:02:23] [language_wikitext103] [lr-search] Muon  lr=6.325e-02  knob=-  score=431.46
+[2026-09-13 22:11:35] [language_wikitext103] [lr-search] Muon  lr=2.000e-01  knob=-  score=477.552
+[2026-09-13 22:20:46] [language_wikitext103] [lr-search] Muon  lr=6.325e-01  knob=-  score=498.688
+[2026-09-13 22:20:46] [language_wikitext103] [lr-search] Muon: FROZEN lr=2.000e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 22:33:25] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.9  score=342.634
+[2026-09-13 22:46:03] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.95  score=342.384
+[2026-09-13 22:58:42] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.99  score=341.719
+[2026-09-13 23:11:20] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.999  score=342.334
+[2026-09-13 23:24:00] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.9  score=201.047
+[2026-09-13 23:36:39] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.95  score=201.155
+[2026-09-13 23:49:19] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.99  score=202.06
+[2026-09-13 23:53:40] [language_wikitext103] [signal] Shampoo/full/seed42/LR: checkpointed at step 860; exiting cleanly
+[2026-09-14 10:44:44] [language_wikitext103] ====================================================================================================
+[2026-09-14 10:44:44] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-14 10:44:44] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-14 10:44:44] [language_wikitext103] ====================================================================================================
+[2026-09-14 10:44:45] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 10:44:45] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 10:46:05] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-14 10:46:07] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-14 10:46:07] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-14 10:46:07] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-14 10:46:07] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-14 10:46:07] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-14 10:46:07] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-14 10:59:14] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.999  score=204.179
+[2026-09-14 11:12:16] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.9  score=122.233
+[2026-09-14 11:25:17] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.95  score=122.24
+[2026-09-14 11:38:20] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.99  score=123.391
+[2026-09-14 11:51:22] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.999  score=125.738
+[2026-09-14 12:04:26] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.9  score=73.944
+[2026-09-14 12:17:30] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.95  score=73.6422
+[2026-09-14 12:30:34] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.99  score=74.2781
+[2026-09-14 12:43:37] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.999  score=77.9083
+[2026-09-14 12:56:41] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.9  score=63.0071
+[2026-09-14 13:09:45] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.95  score=63.4565
+[2026-09-14 13:22:49] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.99  score=65.9339
+[2026-09-14 13:35:54] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.999  score=71.5027
+[2026-09-14 13:48:57] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.9  score=76.6012
+[2026-09-14 14:02:00] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.95  score=78.3767
+[2026-09-14 14:15:04] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.99  score=80.8139
+[2026-09-14 14:28:07] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.999  score=99.5271
+[2026-09-14 14:41:01] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.9  score=248.068
+[2026-09-14 14:53:55] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.95  score=277.178
+[2026-09-14 15:06:53] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.99  score=246.939
+[2026-09-14 15:19:49] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.999  score=280.061
+[2026-09-14 15:19:49] [language_wikitext103] [lr-search] Shampoo: knob pick 0.9 at grid edge -> extend [0.85, 0.8] and re-search (boundary check #1)
+[2026-09-14 15:32:49] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.8  score=342.767
+[2026-09-14 15:45:48] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.85  score=342.748
+[2026-09-14 15:58:49] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.8  score=201.234
+[2026-09-14 16:11:50] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-04  knob=0.85  score=201.15
+[2026-09-14 16:24:51] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.8  score=122.276
+[2026-09-14 16:37:53] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-04  knob=0.85  score=121.994
+[2026-09-14 16:50:56] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.8  score=73.8211
+[2026-09-14 17:03:59] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-03  knob=0.85  score=74.0828
+[2026-09-14 17:17:02] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.8  score=62.9387
+[2026-09-14 17:30:05] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-03  knob=0.85  score=63.1366
+[2026-09-14 17:43:07] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.8  score=84.1155
+[2026-09-14 17:56:10] [language_wikitext103] [lr-search] Shampoo  lr=1.000e-02  knob=0.85  score=77.7067
+[2026-09-14 18:09:05] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.8  score=228.005
+[2026-09-14 18:22:01] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-02  knob=0.85  score=243.372
+[2026-09-14 18:22:01] [language_wikitext103] [lr-search] Shampoo: knob pick 0.8 at grid edge -> extend [0.75, 0.7] and re-search (boundary check #2)
+[2026-09-14 18:35:00] [language_wikitext103] [lr-search] Shampoo  lr=3.162e-05  knob=0.7  score=342.651
+[2026-09-14 18:44:40] [language_wikitext103] [signal] Shampoo/full/seed42/LR: checkpointed at step 1867; exiting cleanly
+[2026-09-16 08:21:43] [language_wikitext103] ====================================================================================================
+[2026-09-16 08:21:43] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 08:21:43] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 08:21:43] [language_wikitext103] ====================================================================================================
+[2026-09-16 08:21:44] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 08:21:44] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 08:23:00] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-16 08:23:02] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] Shampoo: knob pick 0.9 at grid edge -> extend [0.85, 0.8] and re-search (boundary check #3)
+[2026-09-16 08:23:02] [language_wikitext103] [lr-search] Shampoo: FROZEN lr=3.162e-03  knob=0.8  (LR boundary checks: 0, knob boundary checks: 3)
+[2026-09-16 08:52:47] [language_wikitext103] [lr-search] Sophia  lr=3.162e-05  knob=-  score=412.15
+[2026-09-16 09:22:39] [language_wikitext103] [lr-search] Sophia  lr=1.000e-04  knob=-  score=230.252
+[2026-09-16 09:52:39] [language_wikitext103] [lr-search] Sophia  lr=3.162e-04  knob=-  score=125.563
+[2026-09-16 10:22:40] [language_wikitext103] [lr-search] Sophia  lr=1.000e-03  knob=-  score=79.5535
+[2026-09-16 10:52:31] [language_wikitext103] [lr-search] Sophia  lr=3.162e-03  knob=-  score=271.374
+[2026-09-16 11:22:11] [language_wikitext103] [lr-search] Sophia  lr=1.000e-02  knob=-  score=215.284
+[2026-09-16 11:51:23] [language_wikitext103] [lr-search] Sophia  lr=3.162e-02  knob=-  score=493.619
+[2026-09-16 11:51:23] [language_wikitext103] [lr-search] Sophia: FROZEN lr=1.000e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-16 12:00:51] [language_wikitext103] [lr-search] Lion  lr=3.162e-06  knob=-  score=2275.95
+[2026-09-16 12:10:18] [language_wikitext103] [lr-search] Lion  lr=1.000e-05  knob=-  score=472.608
+[2026-09-16 12:19:48] [language_wikitext103] [lr-search] Lion  lr=3.162e-05  knob=-  score=180.819
+[2026-09-16 12:29:20] [language_wikitext103] [lr-search] Lion  lr=1.000e-04  knob=-  score=102.79
+[2026-09-16 12:38:55] [language_wikitext103] [lr-search] Lion  lr=3.162e-04  knob=-  score=138.759
+[2026-09-16 12:48:09] [language_wikitext103] [lr-search] Lion  lr=1.000e-03  knob=-  score=318.646
+[2026-09-16 12:57:20] [language_wikitext103] [lr-search] Lion  lr=3.162e-03  knob=-  score=408.711
+[2026-09-16 12:57:20] [language_wikitext103] [lr-search] Lion: FROZEN lr=1.000e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-16 13:06:48] [language_wikitext103] [lr-search] SGD  lr=9.487e-04  knob=-  score=728.034
+[2026-09-16 13:16:19] [language_wikitext103] [lr-search] SGD  lr=3.000e-03  knob=-  score=511.033
+[2026-09-16 13:25:48] [language_wikitext103] [lr-search] SGD  lr=9.487e-03  knob=-  score=330.809
+[2026-09-16 13:35:16] [language_wikitext103] [lr-search] SGD  lr=3.000e-02  knob=-  score=211.671
+[2026-09-16 13:44:45] [language_wikitext103] [lr-search] SGD  lr=9.487e-02  knob=-  score=188.173
+[2026-09-16 13:54:18] [language_wikitext103] [lr-search] SGD  lr=3.000e-01  knob=-  score=266.334
+[2026-09-16 14:03:45] [language_wikitext103] [lr-search] SGD  lr=9.487e-01  knob=-  score=920.404
+[2026-09-16 14:03:45] [language_wikitext103] [lr-search] SGD: FROZEN lr=9.487e-02  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-16 14:03:45] [language_wikitext103] [lr-search] frozen: EvieKF=1.000e-03/k=243000, AdamW=1.000e-03, AdaBelief=1.000e-03, Muon=2.000e-03, Shampoo=3.162e-03/k=0.8, Sophia=1.000e-03, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-16 14:03:45] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-16 14:03:45] [language_wikitext103] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-16 15:04:55] [language_wikitext103] [sweep] 1/40  EvieKF|full|42  primary=35.70158095775134  diverged=False
+[2026-09-16 16:06:05] [language_wikitext103] [sweep] 2/40  EvieKF|full|43  primary=35.18734397764208  diverged=False
+[2026-09-16 17:07:15] [language_wikitext103] [sweep] 3/40  EvieKF|full|44  primary=35.568204198812886  diverged=False
+[2026-09-16 18:06:42] [language_wikitext103] [signal] EvieKF/full/seed45: checkpointed at step 9730; exiting cleanly
+[2026-09-16 19:00:02] [language_wikitext103] ====================================================================================================
+[2026-09-16 19:00:02] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-16 19:00:02] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-16 19:00:02] [language_wikitext103] ====================================================================================================
+[2026-09-16 19:00:03] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 19:00:03] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 19:01:19] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-16 19:01:20] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.8
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] Sophia: cached lr=1.000e-03
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-16 19:01:20] [language_wikitext103] [lr-search] frozen: EvieKF=1.000e-03/k=243000, AdamW=1.000e-03, AdaBelief=1.000e-03, Muon=2.000e-03, Shampoo=3.162e-03/k=0.8, Sophia=1.000e-03, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-16 19:01:20] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-16 19:01:20] [language_wikitext103] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-16 19:01:26] [language_wikitext103] [resume] EvieKF/full/seed45 from step 9730/10000
+[2026-09-16 19:03:26] [language_wikitext103] [sweep] 4/40  EvieKF|full|45  primary=35.40535422416017  diverged=False
+[2026-09-16 20:05:55] [language_wikitext103] [sweep] 5/40  EvieKF|full|46  primary=35.29658643142957  diverged=False
+[2026-09-16 20:46:48] [language_wikitext103] [sweep] 6/40  AdamW|full|42  primary=40.781186856386675  diverged=False
+[2026-09-16 21:27:51] [language_wikitext103] [sweep] 7/40  AdamW|full|43  primary=40.61073976202778  diverged=False
+[2026-09-16 22:08:43] [language_wikitext103] [sweep] 8/40  AdamW|full|44  primary=39.99304734044105  diverged=False
+[2026-09-16 22:49:36] [language_wikitext103] [sweep] 9/40  AdamW|full|45  primary=39.80186149482162  diverged=False
+[2026-09-16 23:30:27] [language_wikitext103] [sweep] 10/40  AdamW|full|46  primary=39.81585119856582  diverged=False
+[2026-09-17 00:11:32] [language_wikitext103] [sweep] 11/40  AdaBelief|full|42  primary=42.164026853093986  diverged=False
+[2026-09-17 00:52:37] [language_wikitext103] [sweep] 12/40  AdaBelief|full|43  primary=39.65938466913958  diverged=False
+[2026-09-17 01:33:44] [language_wikitext103] [sweep] 13/40  AdaBelief|full|44  primary=42.324648434359055  diverged=False
+[2026-09-17 02:14:52] [language_wikitext103] [sweep] 14/40  AdaBelief|full|45  primary=41.16592650740584  diverged=False
+[2026-09-17 02:55:58] [language_wikitext103] [sweep] 15/40  AdaBelief|full|46  primary=39.64861091925702  diverged=False
+[2026-09-17 03:39:17] [language_wikitext103] [sweep] 16/40  Muon|full|42  primary=33.57829993382573  diverged=False
+[2026-09-17 04:22:32] [language_wikitext103] [sweep] 17/40  Muon|full|43  primary=33.56549435917099  diverged=False
+[2026-09-17 04:45:00] [language_wikitext103] [signal] Muon/full/seed44: checkpointed at step 5190; exiting cleanly
+[2026-09-17 06:28:23] [language_wikitext103] ====================================================================================================
+[2026-09-17 06:28:23] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-17 06:28:23] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-17 06:28:23] [language_wikitext103] ====================================================================================================
+[2026-09-17 06:28:24] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 06:28:24] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 06:29:36] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-17 06:29:38] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.8
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] Sophia: cached lr=1.000e-03
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-17 06:29:38] [language_wikitext103] [lr-search] frozen: EvieKF=1.000e-03/k=243000, AdamW=1.000e-03, AdaBelief=1.000e-03, Muon=2.000e-03, Shampoo=3.162e-03/k=0.8, Sophia=1.000e-03, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-17 06:29:38] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-17 06:29:38] [language_wikitext103] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-17 06:29:43] [language_wikitext103] [resume] Muon/full/seed44 from step 5190/10000
+[2026-09-17 06:48:37] [language_wikitext103] [sweep] 18/40  Muon|full|44  primary=33.467962699162356  diverged=False
+[2026-09-17 07:27:35] [language_wikitext103] [sweep] 19/40  Muon|full|45  primary=33.489112205574855  diverged=False
+[2026-09-17 08:06:29] [language_wikitext103] [sweep] 20/40  Muon|full|46  primary=33.46688714290274  diverged=False
+[2026-09-17 08:59:09] [language_wikitext103] [sweep] 21/40  Shampoo|full|42  primary=36.58117431812438  diverged=False
+[2026-09-17 09:51:48] [language_wikitext103] [sweep] 22/40  Shampoo|full|43  primary=36.15583465841582  diverged=False
+[2026-09-17 10:44:28] [language_wikitext103] [sweep] 23/40  Shampoo|full|44  primary=36.0544010431687  diverged=False
+[2026-09-17 11:37:06] [language_wikitext103] [sweep] 24/40  Shampoo|full|45  primary=36.262939090476245  diverged=False
+[2026-09-17 12:29:45] [language_wikitext103] [sweep] 25/40  Shampoo|full|46  primary=36.24769404163141  diverged=False
+[2026-09-17 14:23:38] [language_wikitext103] [sweep] 26/40  Sophia|full|42  primary=39.36533263076336  diverged=False
+[2026-09-17 16:13:23] [language_wikitext103] [signal] Sophia/full/seed43: checkpointed at step 9646; exiting cleanly
+[2026-09-17 22:23:08] [language_wikitext103] ====================================================================================================
+[2026-09-17 22:23:08] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-17 22:23:08] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-17 22:23:08] [language_wikitext103] ====================================================================================================
+[2026-09-17 22:23:08] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 22:23:08] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 22:24:36] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-17 22:24:38] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.8
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] Sophia: cached lr=1.000e-03
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-17 22:24:38] [language_wikitext103] [lr-search] frozen: EvieKF=1.000e-03/k=243000, AdamW=1.000e-03, AdaBelief=1.000e-03, Muon=2.000e-03, Shampoo=3.162e-03/k=0.8, Sophia=1.000e-03, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-17 22:24:38] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-17 22:24:38] [language_wikitext103] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-17 22:24:44] [language_wikitext103] [resume] Sophia/full/seed43 from step 9646/10000
+[2026-09-17 22:29:07] [language_wikitext103] [sweep] 27/40  Sophia|full|43  primary=41.12334490163367  diverged=False
+[2026-09-18 00:22:31] [language_wikitext103] [sweep] 28/40  Sophia|full|44  primary=39.951357316970494  diverged=False
+[2026-09-18 02:15:53] [language_wikitext103] [sweep] 29/40  Sophia|full|45  primary=39.260229519272244  diverged=False
+[2026-09-18 04:09:03] [language_wikitext103] [sweep] 30/40  Sophia|full|46  primary=39.51006298872623  diverged=False
+[2026-09-18 04:44:44] [language_wikitext103] [sweep] 31/40  Lion|full|42  primary=49.345633253528284  diverged=False
+[2026-09-18 05:20:26] [language_wikitext103] [sweep] 32/40  Lion|full|43  primary=41.65970015021668  diverged=False
+[2026-09-18 05:56:19] [language_wikitext103] [sweep] 33/40  Lion|full|44  primary=47.3081898460743  diverged=False
+[2026-09-18 06:32:12] [language_wikitext103] [sweep] 34/40  Lion|full|45  primary=48.68010437918648  diverged=False
+[2026-09-18 07:08:05] [language_wikitext103] [sweep] 35/40  Lion|full|46  primary=43.63659252425274  diverged=False
+[2026-09-18 07:43:47] [language_wikitext103] [sweep] 36/40  SGD|full|42  primary=59.7459767341297  diverged=False
+[2026-09-18 08:08:05] [language_wikitext103] [signal] SGD/full/seed43: checkpointed at step 6827; exiting cleanly
+[2026-09-18 09:07:58] [language_wikitext103] ====================================================================================================
+[2026-09-18 09:07:58] [language_wikitext103]   language_wikitext103  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-18 09:07:58] [language_wikitext103]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-18 09:07:58] [language_wikitext103] ====================================================================================================
+[2026-09-18 09:07:58] [language_wikitext103] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-18 09:07:58] [language_wikitext103] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-18 09:09:24] [language_wikitext103] [data] wikitext103: vocab=16000  train_tok=101425671  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.082
+[2026-09-18 09:09:26] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] EvieKF: cached lr=1.000e-03  knob=243000
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] AdamW: cached lr=1.000e-03
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] AdaBelief: cached lr=1.000e-03
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] Muon: cached lr=2.000e-03
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.8
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] Sophia: cached lr=1.000e-03
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] Lion: cached lr=1.000e-04
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-18 09:09:26] [language_wikitext103] [lr-search] frozen: EvieKF=1.000e-03/k=243000, AdamW=1.000e-03, AdaBelief=1.000e-03, Muon=2.000e-03, Shampoo=3.162e-03/k=0.8, Sophia=1.000e-03, Lion=1.000e-04, SGD=9.487e-02
+[2026-09-18 09:09:26] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-18 09:09:26] [language_wikitext103] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-18 09:09:31] [language_wikitext103] [resume] SGD/full/seed43 from step 6827/10000
+[2026-09-18 09:21:00] [language_wikitext103] [sweep] 37/40  SGD|full|43  primary=56.63598525477994  diverged=False
+[2026-09-18 09:56:38] [language_wikitext103] [sweep] 38/40  SGD|full|44  primary=60.62088940578709  diverged=False
+[2026-09-18 10:32:15] [language_wikitext103] [sweep] 39/40  SGD|full|45  primary=55.999664919795975  diverged=False
+[2026-09-18 11:07:51] [language_wikitext103] [sweep] 40/40  SGD|full|46  primary=59.8284586973016  diverged=False
+[2026-09-18 11:07:51] [language_wikitext103] ====================================================================================================
+[2026-09-18 11:07:51] [language_wikitext103]   RESULTS  --  language_wikitext103   primary = test_perplexity (lower is better)
+[2026-09-18 11:07:51] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-18 11:07:51] [language_wikitext103]   EvieKF      lr=1.00e-03  knob=243000  test_perplexity(task median over 5 seeds)=35.4054   seed spread=[35.187, 35.702]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=3674  mean_step_size=0.0002963  clip_freq=0.17  peak_mem_mb=2370
+[2026-09-18 11:07:51] [language_wikitext103]   AdamW       lr=1.00e-03  test_perplexity(task median over 5 seeds)=39.993   seed spread=[39.802, 40.781]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=2447  mean_step_size=0.0002613  clip_freq=0.00186  peak_mem_mb=2856
+[2026-09-18 11:07:51] [language_wikitext103]   AdaBelief   lr=1.00e-03  test_perplexity(task median over 5 seeds)=41.1659   seed spread=[39.649, 42.325]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=2459  mean_step_size=0.000287  clip_freq=0.00182  peak_mem_mb=2856
+[2026-09-18 11:07:51] [language_wikitext103]   Muon        lr=2.00e-03  test_perplexity(task median over 5 seeds)=33.4891   seed spread=[33.467, 33.578]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=2461  mean_step_size=0.000247  clip_freq=0.0031  peak_mem_mb=2838
+[2026-09-18 11:07:51] [language_wikitext103]   Shampoo     lr=3.16e-03  knob=0.8  test_perplexity(task median over 5 seeds)=36.2477   seed spread=[36.054, 36.581]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=3148  mean_step_size=0.0008078  clip_freq=0.0016  peak_mem_mb=2995
+[2026-09-18 11:07:51] [language_wikitext103]   Sophia      lr=1.00e-03  test_perplexity(task median over 5 seeds)=39.5101   seed spread=[39.26, 41.123]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=6799  mean_step_size=0.0002181  clip_freq=0.00888  peak_mem_mb=8642
+[2026-09-18 11:07:51] [language_wikitext103]   Lion        lr=1.00e-04  test_perplexity(task median over 5 seeds)=47.3082   seed spread=[41.66, 49.346]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=2142  mean_step_size=6.546e-05  clip_freq=0.01256  peak_mem_mb=2822
+[2026-09-18 11:07:51] [language_wikitext103]   SGD         lr=9.49e-02  test_perplexity(task median over 5 seeds)=59.746   seed spread=[56, 60.621]   diverged_cells=0/5
+[2026-09-18 11:07:51] [language_wikitext103]              descriptive: wall_s=2131  mean_step_size=6.901e-05  clip_freq=0.5827  peak_mem_mb=2822
+[2026-09-18 11:07:51] [language_wikitext103] ----------------------------------------------------------------------------------------------------
+[2026-09-18 11:07:51] [language_wikitext103]   best optimizer on this task: Muon  (test_perplexity=33.4891)
+[2026-09-18 11:07:51] [language_wikitext103]   wrote /kaggle/working/checkpoints/language_wikitext103/results_raw.csv
+[2026-09-18 11:07:51] [language_wikitext103] ====================================================================================================
+[2026-09-18 11:07:51] [language_wikitext103]   wrote /kaggle/working/checkpoints/language_wikitext103/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-18 11:07:51] [language_wikitext103] ====================================================================================================
+[2026-09-18 11:07:51] [language_wikitext103]   DONE 2026-09-18T11:07:51.406256

@@ -1,0 +1,32 @@
+TASK language_wikitext2_evie_no_rescale   primary = test_perplexity (lower better)
+  cells 5   units 1   seeds [42, 43, 44, 45, 46]
+
+TASK NUMBER  (median over seeds of the per-seed unit-median)
+  optimizer            primary   vs EvieKF       unit-MEAN
+  EvieKFr           97.0312291                  97.0312291
+  (unit-MEAN is the OLD aggregation, shown so its distortion is visible; the target is not standardised, so a mean over units is dominated by the highest-variance ones)
+
+SEED STABILITY  (spread of the per-seed task number, complete-case)
+  EvieKFr      spread    2.98%   [94.809, 97.6329]
+
+DIVERGENCE  (cells flagged, of 5 per optimizer)
+  EvieKFr        0
+
+WALL-CLOCK per cell  (telemetry-bearing cells only; the step budget is fixed, NOT wall-clock matched)
+  EvieKFr      n=   5  mean   3699.7s
+
+EVIE-KF MECHANISM TELEMETRY  (descriptive only, never tested)
+  eviekf_n_active_steps      mean        9980  [9980, 9980]
+                             wiring canary: 0 would mean set_noise() never fired and this WAS silently AdamW
+  eviekf_cos_mean            mean     0.88885  [0.88571, 0.89214]
+                             cos(preconditioned dir, plain Adam dir); 1.0 = the operator changed nothing
+  eviekf_b_simple_mean       mean      10.188  [9.8469, 10.712]
+                             tr(Sigma_z)/||y||^2 -- gradient noise relative to signal
+  eviekf_eff_rank_mean       mean       41656  [39139, 45841]
+                             effective rank of the Kronecker noise spectrum
+  eviekf_gain_lo_min         mean    0.041949  [0.041113, 0.044056]
+                             smallest gain applied; 1.0 = no shrinkage anywhere
+  eviekf_gain_hi_max         mean           1  [1, 1]
+                             largest gain; always <= 1 by construction
+
+TUNED SECOND AXIS (knob) RESPONSE at the frozen LR

@@ -1,0 +1,7 @@
+metric               EvieKF      AdamW  AdaBelief        SGD     Sophia       Muon       Lion    Shampoo
+test_mse (x1e-4)     2.8251     2.9279     2.9665     2.7846     3.1110     3.2608     2.9053     3.1922
+test_rmse           0.01539    0.01562    0.01574    0.01519    0.01615    0.01706    0.01572    0.01679
+test_mae            0.01088    0.01096    0.01109    0.01080    0.01129    0.01216    0.01093    0.01186
+diverged_runs         2/985      0/985      0/985     13/985     18/985     34/985     30/985     21/985
+
+(rmse/mae exclude finance_tech)

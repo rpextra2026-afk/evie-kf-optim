@@ -1,0 +1,1035 @@
+[2026-09-16 14:22:32] [finance_tech_modelsize] ====================================================================================================
+[2026-09-16 14:22:32] [finance_tech_modelsize]   finance_tech_modelsize  |  modelsize sweep on finance_tech  device=cuda  torch=2.10.0+cu128
+[2026-09-16 14:22:32] [finance_tech_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_mse is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-16 14:22:32] [finance_tech_modelsize] ====================================================================================================
+[2026-09-16 14:22:32] [finance_tech_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 14:22:32] [finance_tech_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 14:22:33] [finance_tech_modelsize] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-16 14:22:33] [finance_tech_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-16 14:22:33] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 14:22:33] [finance_tech_modelsize] [small] LR search  (modelsize = [32, 16])
+[2026-09-16 14:23:14] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e-05  score=0.00143088
+[2026-09-16 14:23:49] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=1.000e-04  score=0.00093364
+[2026-09-16 14:24:25] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e-04  score=0.000802533
+[2026-09-16 14:25:00] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=1.000e-03  score=0.000687745
+[2026-09-16 14:25:35] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e-03  score=0.000629737
+[2026-09-16 14:26:10] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=1.000e-02  score=0.000548174
+[2026-09-16 14:26:45] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e-02  score=0.000546647
+[2026-09-16 14:26:45] [finance_tech_modelsize] [small] [lr-search] AdamW: pick 3.162e-02 at grid edge -> extend with [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-16 14:27:19] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=9.999e-02  score=0.000574137
+[2026-09-16 14:27:55] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e-01  score=0.000539667
+[2026-09-16 14:27:55] [finance_tech_modelsize] [small] [lr-search] AdamW: pick 3.162e-01 at grid edge -> extend with [0.9999, 3.162] and re-search (boundary check #2)
+[2026-09-16 14:28:29] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=9.999e-01  score=0.000539474
+[2026-09-16 14:29:04] [finance_tech_modelsize] [small] [lr-search] AdamW  lr=3.162e+00  score=0.000540149
+[2026-09-16 14:29:04] [finance_tech_modelsize] [small] [lr-search] AdamW: FROZEN lr=9.999e-01  (boundary checks: 2)
+[2026-09-16 14:29:49] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-05  score=0.000976721
+[2026-09-16 14:30:34] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-04  score=0.000867878
+[2026-09-16 14:31:20] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-04  score=0.000773514
+[2026-09-16 14:32:05] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-03  score=0.000680381
+[2026-09-16 14:32:51] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-03  score=0.000599183
+[2026-09-16 14:33:36] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-02  score=0.000549985
+[2026-09-16 14:34:21] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-02  score=0.000544176
+[2026-09-16 14:34:21] [finance_tech_modelsize] [small] [lr-search] AdaBelief: pick 3.162e-02 at grid edge -> extend with [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-16 14:35:07] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=9.999e-02  score=0.000543449
+[2026-09-16 14:35:52] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-01  score=0.000540724
+[2026-09-16 14:35:52] [finance_tech_modelsize] [small] [lr-search] AdaBelief: pick 3.162e-01 at grid edge -> extend with [0.9999, 3.162] and re-search (boundary check #2)
+[2026-09-16 14:36:37] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=9.999e-01  score=0.00054018
+[2026-09-16 14:37:22] [finance_tech_modelsize] [small] [lr-search] AdaBelief  lr=3.162e+00  score=0.000540647
+[2026-09-16 14:37:22] [finance_tech_modelsize] [small] [lr-search] AdaBelief: FROZEN lr=9.999e-01  (boundary checks: 2)
+[2026-09-16 14:40:02] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e-05  score=0.00142837
+[2026-09-16 14:42:44] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=1.000e-04  score=0.000891511
+[2026-09-16 14:45:24] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e-04  score=0.000695529
+[2026-09-16 14:48:04] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=1.000e-03  score=0.00065837
+[2026-09-16 14:50:44] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e-03  score=0.000556119
+[2026-09-16 14:53:24] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=1.000e-02  score=0.000550294
+[2026-09-16 14:56:03] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e-02  score=0.000541868
+[2026-09-16 14:56:03] [finance_tech_modelsize] [small] [lr-search] EvieKF: pick 3.162e-02 at grid edge -> extend with [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-16 14:58:39] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=9.999e-02  score=0.000547809
+[2026-09-16 15:01:15] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e-01  score=0.000539657
+[2026-09-16 15:01:15] [finance_tech_modelsize] [small] [lr-search] EvieKF: pick 3.162e-01 at grid edge -> extend with [0.9999, 3.162] and re-search (boundary check #2)
+[2026-09-16 15:03:51] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=9.999e-01  score=0.00053971
+[2026-09-16 15:06:28] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e+00  score=0.000539566
+[2026-09-16 15:06:28] [finance_tech_modelsize] [small] [lr-search] EvieKF: pick 3.162e+00 at grid edge -> extend with [9.999, 31.62] and re-search (boundary check #3)
+[2026-09-16 15:09:04] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=9.999e+00  score=0.000539703
+[2026-09-16 15:11:40] [finance_tech_modelsize] [small] [lr-search] EvieKF  lr=3.162e+01  score=0.000540994
+[2026-09-16 15:11:40] [finance_tech_modelsize] [small] [lr-search] EvieKF: FROZEN lr=3.162e+00  (fixed knob=3000)  (boundary checks: 3)
+[2026-09-16 15:11:40] [finance_tech_modelsize] [small] sweep cells
+[2026-09-16 15:11:58] [finance_tech_modelsize] [small] small|AdamW|AAPL|42  primary=0.00018233750705365782  diverged=False
+[2026-09-16 15:12:15] [finance_tech_modelsize] [small] small|AdamW|AAPL|43  primary=0.00018331325716442533  diverged=False
+[2026-09-16 15:12:32] [finance_tech_modelsize] [small] small|AdamW|AAPL|44  primary=0.0001819129816438786  diverged=False
+[2026-09-16 15:12:50] [finance_tech_modelsize] [small] small|AdamW|ACN|42  primary=0.00020774820494273352  diverged=False
+[2026-09-16 15:13:07] [finance_tech_modelsize] [small] small|AdamW|ACN|43  primary=0.0002070526006045165  diverged=False
+[2026-09-16 15:13:25] [finance_tech_modelsize] [small] small|AdamW|ACN|44  primary=0.00020461738424957114  diverged=False
+[2026-09-16 15:13:42] [finance_tech_modelsize] [small] small|AdamW|ADBE|42  primary=0.00046996598836606144  diverged=False
+[2026-09-16 15:13:59] [finance_tech_modelsize] [small] small|AdamW|ADBE|43  primary=0.0004697725886390323  diverged=False
+[2026-09-16 15:14:16] [finance_tech_modelsize] [small] small|AdamW|ADBE|44  primary=0.00046928759132112773  diverged=False
+[2026-09-16 15:14:34] [finance_tech_modelsize] [small] small|AdamW|ADI|42  primary=0.00034148281528836204  diverged=False
+[2026-09-16 15:14:51] [finance_tech_modelsize] [small] small|AdamW|ADI|43  primary=0.00033996877058473215  diverged=False
+[2026-09-16 15:15:09] [finance_tech_modelsize] [small] small|AdamW|ADI|44  primary=0.0003393225411258677  diverged=False
+[2026-09-16 15:15:26] [finance_tech_modelsize] [small] small|AdamW|ADSK|42  primary=0.00029185437966906835  diverged=False
+[2026-09-16 15:15:44] [finance_tech_modelsize] [small] small|AdamW|ADSK|43  primary=0.0002899058163166046  diverged=False
+[2026-09-16 15:16:02] [finance_tech_modelsize] [small] small|AdamW|ADSK|44  primary=0.00028849266981952407  diverged=False
+[2026-09-16 15:16:19] [finance_tech_modelsize] [small] small|AdamW|AMD|42  primary=0.0008350983656272686  diverged=False
+[2026-09-16 15:16:36] [finance_tech_modelsize] [small] small|AdamW|AMD|43  primary=0.0008352773372458402  diverged=False
+[2026-09-16 15:16:54] [finance_tech_modelsize] [small] small|AdamW|AMD|44  primary=0.0008356853452309099  diverged=False
+[2026-09-16 15:17:11] [finance_tech_modelsize] [small] small|AdamW|AMZN|42  primary=0.0003329407837655809  diverged=False
+[2026-09-16 15:17:28] [finance_tech_modelsize] [small] small|AdamW|AMZN|43  primary=0.0003308471706178453  diverged=False
+[2026-09-16 15:17:46] [finance_tech_modelsize] [small] small|AdamW|AMZN|44  primary=0.000330243949536924  diverged=False
+[2026-09-16 15:18:03] [finance_tech_modelsize] [small] small|AdamW|APH|42  primary=0.00022806057696619992  diverged=False
+[2026-09-16 15:18:21] [finance_tech_modelsize] [small] small|AdamW|APH|43  primary=0.0002292723212607954  diverged=False
+[2026-09-16 15:18:38] [finance_tech_modelsize] [small] small|AdamW|APH|44  primary=0.0002282567558780549  diverged=False
+[2026-09-16 15:18:55] [finance_tech_modelsize] [small] small|AdamW|AVGO|42  primary=0.0008659566994066592  diverged=False
+[2026-09-16 15:19:13] [finance_tech_modelsize] [small] small|AdamW|AVGO|43  primary=0.000861167276977862  diverged=False
+[2026-09-16 15:19:31] [finance_tech_modelsize] [small] small|AdamW|AVGO|44  primary=0.0008688504418368062  diverged=False
+[2026-09-16 15:19:48] [finance_tech_modelsize] [small] small|AdamW|CDNS|42  primary=0.0003911927342414856  diverged=False
+[2026-09-16 15:20:05] [finance_tech_modelsize] [small] small|AdamW|CDNS|43  primary=0.00039133303379886367  diverged=False
+[2026-09-16 15:20:23] [finance_tech_modelsize] [small] small|AdamW|CDNS|44  primary=0.0003909753270880886  diverged=False
+[2026-09-16 15:20:40] [finance_tech_modelsize] [small] small|AdamW|CRM|42  primary=0.0004490371497850569  diverged=False
+[2026-09-16 15:20:58] [finance_tech_modelsize] [small] small|AdamW|CRM|43  primary=0.0004495234479979863  diverged=False
+[2026-09-16 15:21:15] [finance_tech_modelsize] [small] small|AdamW|CRM|44  primary=0.0004502692944789059  diverged=False
+[2026-09-16 15:21:33] [finance_tech_modelsize] [small] small|AdamW|CSCO|42  primary=0.00014669405759642364  diverged=False
+[2026-09-16 15:21:50] [finance_tech_modelsize] [small] small|AdamW|CSCO|43  primary=0.00014705981605898135  diverged=False
+[2026-09-16 15:22:07] [finance_tech_modelsize] [small] small|AdamW|CSCO|44  primary=0.00014674870504273308  diverged=False
+[2026-09-16 15:22:24] [finance_tech_modelsize] [small] small|AdamW|CTSH|42  primary=0.00017230108222633441  diverged=False
+[2026-09-16 15:22:42] [finance_tech_modelsize] [small] small|AdamW|CTSH|43  primary=0.00017015216132951162  diverged=False
+[2026-09-16 15:22:59] [finance_tech_modelsize] [small] small|AdamW|CTSH|44  primary=0.0001727459291932444  diverged=False
+[2026-09-16 15:23:16] [finance_tech_modelsize] [small] small|AdamW|FICO|42  primary=0.0003442433933732371  diverged=False
+[2026-09-16 15:23:33] [finance_tech_modelsize] [small] small|AdamW|FICO|43  primary=0.0003449677553757158  diverged=False
+[2026-09-16 15:23:51] [finance_tech_modelsize] [small] small|AdamW|FICO|44  primary=0.0003443579115564861  diverged=False
+[2026-09-16 15:24:08] [finance_tech_modelsize] [small] small|AdamW|FTNT|42  primary=0.0007145460005159732  diverged=False
+[2026-09-16 15:24:25] [finance_tech_modelsize] [small] small|AdamW|FTNT|43  primary=0.0007146175891634017  diverged=False
+[2026-09-16 15:24:43] [finance_tech_modelsize] [small] small|AdamW|FTNT|44  primary=0.000714489391871861  diverged=False
+[2026-09-16 15:25:00] [finance_tech_modelsize] [small] small|AdamW|GLW|42  primary=0.0002344922611006984  diverged=False
+[2026-09-16 15:25:17] [finance_tech_modelsize] [small] small|AdamW|GLW|43  primary=0.00023486961921056113  diverged=False
+[2026-09-16 15:25:34] [finance_tech_modelsize] [small] small|AdamW|GLW|44  primary=0.0002352316622380857  diverged=False
+[2026-09-16 15:25:52] [finance_tech_modelsize] [small] small|AdamW|GOOGL|42  primary=0.000310000781186674  diverged=False
+[2026-09-16 15:26:10] [finance_tech_modelsize] [small] small|AdamW|GOOGL|43  primary=0.00030796300797235397  diverged=False
+[2026-09-16 15:26:27] [finance_tech_modelsize] [small] small|AdamW|GOOGL|44  primary=0.0003073770533163081  diverged=False
+[2026-09-16 15:26:44] [finance_tech_modelsize] [small] small|AdamW|GPN|42  primary=0.0003287518623644713  diverged=False
+[2026-09-16 15:27:01] [finance_tech_modelsize] [small] small|AdamW|GPN|43  primary=0.0003278828250668036  diverged=False
+[2026-09-16 15:27:19] [finance_tech_modelsize] [small] small|AdamW|GPN|44  primary=0.00032417176577149244  diverged=False
+[2026-09-16 15:27:36] [finance_tech_modelsize] [small] small|AdamW|GRMN|42  primary=0.0003291114415756609  diverged=False
+[2026-09-16 15:27:53] [finance_tech_modelsize] [small] small|AdamW|GRMN|43  primary=0.00033254684909941656  diverged=False
+[2026-09-16 15:28:10] [finance_tech_modelsize] [small] small|AdamW|GRMN|44  primary=0.00033156589540854963  diverged=False
+[2026-09-16 15:28:27] [finance_tech_modelsize] [small] small|AdamW|HPE|42  primary=0.0005711889986334176  diverged=False
+[2026-09-16 15:28:45] [finance_tech_modelsize] [small] small|AdamW|HPE|43  primary=0.0005709974673287622  diverged=False
+[2026-09-16 15:29:02] [finance_tech_modelsize] [small] small|AdamW|HPE|44  primary=0.0005724270795953685  diverged=False
+[2026-09-16 15:29:20] [finance_tech_modelsize] [small] small|AdamW|HPQ|42  primary=0.0003403409448250261  diverged=False
+[2026-09-16 15:29:37] [finance_tech_modelsize] [small] small|AdamW|HPQ|43  primary=0.00034081786082535196  diverged=False
+[2026-09-16 15:29:54] [finance_tech_modelsize] [small] small|AdamW|HPQ|44  primary=0.00034078317029135566  diverged=False
+[2026-09-16 15:30:11] [finance_tech_modelsize] [small] small|AdamW|IBM|42  primary=0.00017254001327923367  diverged=False
+[2026-09-16 15:30:29] [finance_tech_modelsize] [small] small|AdamW|IBM|43  primary=0.00017375098886313262  diverged=False
+[2026-09-16 15:30:46] [finance_tech_modelsize] [small] small|AdamW|IBM|44  primary=0.00017236482608255256  diverged=False
+[2026-09-16 15:31:03] [finance_tech_modelsize] [small] small|AdamW|INTC|42  primary=0.0009385248025258383  diverged=False
+[2026-09-16 15:31:21] [finance_tech_modelsize] [small] small|AdamW|INTC|43  primary=0.0009386741295062676  diverged=False
+[2026-09-16 15:31:38] [finance_tech_modelsize] [small] small|AdamW|INTC|44  primary=0.0009397161070001189  diverged=False
+[2026-09-16 15:31:55] [finance_tech_modelsize] [small] small|AdamW|INTU|42  primary=0.00028817148672209843  diverged=False
+[2026-09-16 15:32:13] [finance_tech_modelsize] [small] small|AdamW|INTU|43  primary=0.00029183374274344674  diverged=False
+[2026-09-16 15:32:30] [finance_tech_modelsize] [small] small|AdamW|INTU|44  primary=0.00028823475752558025  diverged=False
+[2026-09-16 15:32:47] [finance_tech_modelsize] [small] small|AdamW|KEYS|42  primary=0.00037847771201022834  diverged=False
+[2026-09-16 15:33:05] [finance_tech_modelsize] [small] small|AdamW|KEYS|43  primary=0.0003788645068804423  diverged=False
+[2026-09-16 15:33:22] [finance_tech_modelsize] [small] small|AdamW|KEYS|44  primary=0.0003823012171327606  diverged=False
+[2026-09-16 15:33:39] [finance_tech_modelsize] [small] small|AdamW|KLAC|42  primary=0.0006320500973040464  diverged=False
+[2026-09-16 15:33:56] [finance_tech_modelsize] [small] small|AdamW|KLAC|43  primary=0.0006323916808007255  diverged=False
+[2026-09-16 15:34:14] [finance_tech_modelsize] [small] small|AdamW|KLAC|44  primary=0.0006329565846100055  diverged=False
+[2026-09-16 15:34:31] [finance_tech_modelsize] [small] small|AdamW|LRCX|42  primary=0.0006497591418564004  diverged=False
+[2026-09-16 15:34:48] [finance_tech_modelsize] [small] small|AdamW|LRCX|43  primary=0.0006503724153079684  diverged=False
+[2026-09-16 15:35:06] [finance_tech_modelsize] [small] small|AdamW|LRCX|44  primary=0.0006494308826784608  diverged=False
+[2026-09-16 15:35:23] [finance_tech_modelsize] [small] small|AdamW|MCHP|42  primary=0.0005254214087491313  diverged=False
+[2026-09-16 15:35:40] [finance_tech_modelsize] [small] small|AdamW|MCHP|43  primary=0.0005243972101539531  diverged=False
+[2026-09-16 15:35:57] [finance_tech_modelsize] [small] small|AdamW|MCHP|44  primary=0.0005248485418854567  diverged=False
+[2026-09-16 15:36:14] [finance_tech_modelsize] [small] small|AdamW|META|42  primary=0.0004577219673672562  diverged=False
+[2026-09-16 15:36:32] [finance_tech_modelsize] [small] small|AdamW|META|43  primary=0.0004591981663643939  diverged=False
+[2026-09-16 15:36:49] [finance_tech_modelsize] [small] small|AdamW|META|44  primary=0.00045791043425506015  diverged=False
+[2026-09-16 15:37:07] [finance_tech_modelsize] [small] small|AdamW|MRVL|42  primary=0.0010474481910624832  diverged=False
+[2026-09-16 15:37:24] [finance_tech_modelsize] [small] small|AdamW|MRVL|43  primary=0.0010375822031939471  diverged=False
+[2026-09-16 15:37:41] [finance_tech_modelsize] [small] small|AdamW|MRVL|44  primary=0.0010357738802672695  diverged=False
+[2026-09-16 15:37:59] [finance_tech_modelsize] [small] small|AdamW|MSFT|42  primary=0.00016557858892218776  diverged=False
+[2026-09-16 15:38:16] [finance_tech_modelsize] [small] small|AdamW|MSFT|43  primary=0.0001672424927905754  diverged=False
+[2026-09-16 15:38:33] [finance_tech_modelsize] [small] small|AdamW|MSFT|44  primary=0.00016538645066912212  diverged=False
+[2026-09-16 15:38:50] [finance_tech_modelsize] [small] small|AdamW|MSI|42  primary=152.47083746693121  diverged=True
+[2026-09-16 15:39:08] [finance_tech_modelsize] [small] small|AdamW|MSI|43  primary=0.00012111683528890054  diverged=False
+[2026-09-16 15:39:25] [finance_tech_modelsize] [small] small|AdamW|MSI|44  primary=0.00012070037148616932  diverged=False
+[2026-09-16 15:39:43] [finance_tech_modelsize] [small] small|AdamW|MU|42  primary=0.0008316095228548403  diverged=False
+[2026-09-16 15:40:00] [finance_tech_modelsize] [small] small|AdamW|MU|43  primary=0.0008341010916169989  diverged=False
+[2026-09-16 15:40:18] [finance_tech_modelsize] [small] small|AdamW|MU|44  primary=0.0008343479463032313  diverged=False
+[2026-09-16 15:40:35] [finance_tech_modelsize] [small] small|AdamW|NOW|42  primary=0.000423757897482978  diverged=False
+[2026-09-16 15:40:53] [finance_tech_modelsize] [small] small|AdamW|NOW|43  primary=0.00042194019234369673  diverged=False
+[2026-09-16 15:41:10] [finance_tech_modelsize] [small] small|AdamW|NOW|44  primary=0.000421258807182312  diverged=False
+[2026-09-16 15:41:28] [finance_tech_modelsize] [small] small|AdamW|NVDA|42  primary=0.0008914629145274086  diverged=False
+[2026-09-16 15:41:46] [finance_tech_modelsize] [small] small|AdamW|NVDA|43  primary=0.0009091274132804265  diverged=False
+[2026-09-16 15:42:03] [finance_tech_modelsize] [small] small|AdamW|NVDA|44  primary=0.0008958535534994942  diverged=False
+[2026-09-16 15:42:21] [finance_tech_modelsize] [small] small|AdamW|NXPI|42  primary=0.0004587491189152741  diverged=False
+[2026-09-16 15:42:38] [finance_tech_modelsize] [small] small|AdamW|NXPI|43  primary=0.0004591491104157503  diverged=False
+[2026-09-16 15:42:56] [finance_tech_modelsize] [small] small|AdamW|NXPI|44  primary=0.0004585473169636792  diverged=False
+[2026-09-16 15:43:14] [finance_tech_modelsize] [small] small|AdamW|ORCL|42  primary=0.000437071162556845  diverged=False
+[2026-09-16 15:43:32] [finance_tech_modelsize] [small] small|AdamW|ORCL|43  primary=0.00043684898545502356  diverged=False
+[2026-09-16 15:43:49] [finance_tech_modelsize] [small] small|AdamW|ORCL|44  primary=0.0004367885135468983  diverged=False
+[2026-09-16 15:44:07] [finance_tech_modelsize] [small] small|AdamW|PANW|42  primary=0.0007960137193370017  diverged=False
+[2026-09-16 15:44:24] [finance_tech_modelsize] [small] small|AdamW|PANW|43  primary=0.0007958601994119632  diverged=False
+[2026-09-16 15:44:42] [finance_tech_modelsize] [small] small|AdamW|PANW|44  primary=0.0007959117840050132  diverged=False
+[2026-09-16 15:44:59] [finance_tech_modelsize] [small] small|AdamW|PTC|42  primary=0.00017526560517215224  diverged=False
+[2026-09-16 15:45:17] [finance_tech_modelsize] [small] small|AdamW|PTC|43  primary=0.00017709221947130073  diverged=False
+[2026-09-16 15:45:35] [finance_tech_modelsize] [small] small|AdamW|PTC|44  primary=0.00017627703134345  diverged=False
+[2026-09-16 15:45:52] [finance_tech_modelsize] [small] small|AdamW|PYPL|42  primary=0.0004630383104085922  diverged=False
+[2026-09-16 15:46:09] [finance_tech_modelsize] [small] small|AdamW|PYPL|43  primary=0.00045180631180604297  diverged=False
+[2026-09-16 15:46:27] [finance_tech_modelsize] [small] small|AdamW|PYPL|44  primary=0.000451493076980114  diverged=False
+[2026-09-16 15:46:45] [finance_tech_modelsize] [small] small|AdamW|QCOM|42  primary=0.0005018561290054725  diverged=False
+[2026-09-16 15:47:03] [finance_tech_modelsize] [small] small|AdamW|QCOM|43  primary=0.0005050517579235097  diverged=False
+[2026-09-16 15:47:21] [finance_tech_modelsize] [small] small|AdamW|QCOM|44  primary=0.0005060098473987882  diverged=False
+[2026-09-16 15:47:39] [finance_tech_modelsize] [small] small|AdamW|ROP|42  primary=0.00011078031763197883  diverged=False
+[2026-09-16 15:47:57] [finance_tech_modelsize] [small] small|AdamW|ROP|43  primary=0.00011065272151162384  diverged=False
+[2026-09-16 15:48:15] [finance_tech_modelsize] [small] small|AdamW|ROP|44  primary=0.00011048946904126929  diverged=False
+[2026-09-16 15:48:33] [finance_tech_modelsize] [small] small|AdamW|SNOW|42  primary=0.001526691224596916  diverged=False
+[2026-09-16 15:48:50] [finance_tech_modelsize] [small] small|AdamW|SNOW|43  primary=0.001525984171333663  diverged=False
+[2026-09-16 15:49:08] [finance_tech_modelsize] [small] small|AdamW|SNOW|44  primary=0.0015248876372608569  diverged=False
+[2026-09-16 15:49:25] [finance_tech_modelsize] [small] small|AdamW|TEL|42  primary=0.00016472541860171726  diverged=False
+[2026-09-16 15:49:42] [finance_tech_modelsize] [small] small|AdamW|TEL|43  primary=0.00016465222354603823  diverged=False
+[2026-09-16 15:50:00] [finance_tech_modelsize] [small] small|AdamW|TEL|44  primary=0.00016478414612787742  diverged=False
+[2026-09-16 15:50:17] [finance_tech_modelsize] [small] small|AdamW|TSLA|42  primary=0.00135589671916649  diverged=False
+[2026-09-16 15:50:35] [finance_tech_modelsize] [small] small|AdamW|TSLA|43  primary=0.0013641526953118747  diverged=False
+[2026-09-16 15:50:52] [finance_tech_modelsize] [small] small|AdamW|TSLA|44  primary=0.001355934989908354  diverged=False
+[2026-09-16 15:51:10] [finance_tech_modelsize] [small] small|AdamW|TXN|42  primary=0.000265145861597919  diverged=False
+[2026-09-16 15:51:28] [finance_tech_modelsize] [small] small|AdamW|TXN|43  primary=0.00026569048327112956  diverged=False
+[2026-09-16 15:51:45] [finance_tech_modelsize] [small] small|AdamW|TXN|44  primary=0.0002652414970927768  diverged=False
+[2026-09-16 15:52:04] [finance_tech_modelsize] [small] small|AdamW|TYL|42  primary=0.0002259509785780831  diverged=False
+[2026-09-16 15:52:21] [finance_tech_modelsize] [small] small|AdamW|TYL|43  primary=0.0002248957358970844  diverged=False
+[2026-09-16 15:52:39] [finance_tech_modelsize] [small] small|AdamW|TYL|44  primary=0.00022708983333022506  diverged=False
+[2026-09-16 15:52:57] [finance_tech_modelsize] [small] small|AdamW|UBER|42  primary=0.0007018259608409774  diverged=False
+[2026-09-16 15:53:15] [finance_tech_modelsize] [small] small|AdamW|UBER|43  primary=0.0007020974872817456  diverged=False
+[2026-09-16 15:53:32] [finance_tech_modelsize] [small] small|AdamW|UBER|44  primary=0.0007013410959445255  diverged=False
+[2026-09-16 15:53:50] [finance_tech_modelsize] [small] small|AdamW|WDAY|42  primary=0.00041496318269085573  diverged=False
+[2026-09-16 15:54:07] [finance_tech_modelsize] [small] small|AdamW|WDAY|43  primary=0.00041419267654418945  diverged=False
+[2026-09-16 15:54:25] [finance_tech_modelsize] [small] small|AdamW|WDAY|44  primary=0.0004144329335782435  diverged=False
+[2026-09-16 15:54:48] [finance_tech_modelsize] [small] small|AdaBelief|AAPL|42  primary=0.00018599806796936762  diverged=False
+[2026-09-16 15:55:10] [finance_tech_modelsize] [small] small|AdaBelief|AAPL|43  primary=0.00018163691595117883  diverged=False
+[2026-09-16 15:55:33] [finance_tech_modelsize] [small] small|AdaBelief|AAPL|44  primary=0.00018164413000540757  diverged=False
+[2026-09-16 15:55:56] [finance_tech_modelsize] [small] small|AdaBelief|ACN|42  primary=0.00020511257191183706  diverged=False
+[2026-09-16 15:56:18] [finance_tech_modelsize] [small] small|AdaBelief|ACN|43  primary=0.00020557886393612654  diverged=False
+[2026-09-16 15:56:41] [finance_tech_modelsize] [small] small|AdaBelief|ACN|44  primary=0.00020570394696381986  diverged=False
+[2026-09-16 15:57:03] [finance_tech_modelsize] [small] small|AdaBelief|ADBE|42  primary=0.0004693115199053729  diverged=False
+[2026-09-16 15:57:26] [finance_tech_modelsize] [small] small|AdaBelief|ADBE|43  primary=0.0004692829790569487  diverged=False
+[2026-09-16 15:57:49] [finance_tech_modelsize] [small] small|AdaBelief|ADBE|44  primary=0.0004699294056211199  diverged=False
+[2026-09-16 15:58:12] [finance_tech_modelsize] [small] small|AdaBelief|ADI|42  primary=0.00033938084487561827  diverged=False
+[2026-09-16 15:58:36] [finance_tech_modelsize] [small] small|AdaBelief|ADI|43  primary=0.00033926262111260146  diverged=False
+[2026-09-16 15:58:59] [finance_tech_modelsize] [small] small|AdaBelief|ADI|44  primary=0.0003400453657069534  diverged=False
+[2026-09-16 15:59:23] [finance_tech_modelsize] [small] small|AdaBelief|ADSK|42  primary=0.00028775939865717813  diverged=False
+[2026-09-16 15:59:47] [finance_tech_modelsize] [small] small|AdaBelief|ADSK|43  primary=0.0002908715534777868  diverged=False
+[2026-09-16 16:00:10] [finance_tech_modelsize] [small] small|AdaBelief|ADSK|44  primary=0.0002890747020799647  diverged=False
+[2026-09-16 16:00:33] [finance_tech_modelsize] [small] small|AdaBelief|AMD|42  primary=0.0008354270584368832  diverged=False
+[2026-09-16 16:00:55] [finance_tech_modelsize] [small] small|AdaBelief|AMD|43  primary=0.0008352080350199705  diverged=False
+[2026-09-16 16:01:18] [finance_tech_modelsize] [small] small|AdaBelief|AMD|44  primary=0.0008397980657204119  diverged=False
+[2026-09-16 16:01:41] [finance_tech_modelsize] [small] small|AdaBelief|AMZN|42  primary=0.00033433565860072143  diverged=False
+[2026-09-16 16:02:04] [finance_tech_modelsize] [small] small|AdaBelief|AMZN|43  primary=0.00033394448340885225  diverged=False
+[2026-09-16 16:02:27] [finance_tech_modelsize] [small] small|AdaBelief|AMZN|44  primary=0.000334736531373685  diverged=False
+[2026-09-16 16:02:49] [finance_tech_modelsize] [small] small|AdaBelief|APH|42  primary=0.0002287821400733221  diverged=False
+[2026-09-16 16:03:12] [finance_tech_modelsize] [small] small|AdaBelief|APH|43  primary=0.00022738460431653986  diverged=False
+[2026-09-16 16:03:34] [finance_tech_modelsize] [small] small|AdaBelief|APH|44  primary=0.00022949479402057708  diverged=False
+[2026-09-16 16:03:57] [finance_tech_modelsize] [small] small|AdaBelief|AVGO|42  primary=0.0008636441811051949  diverged=False
+[2026-09-16 16:04:20] [finance_tech_modelsize] [small] small|AdaBelief|AVGO|43  primary=0.0008633624782007208  diverged=False
+[2026-09-16 16:04:42] [finance_tech_modelsize] [small] small|AdaBelief|AVGO|44  primary=0.0008655718710056688  diverged=False
+[2026-09-16 16:05:04] [finance_tech_modelsize] [small] small|AdaBelief|CDNS|42  primary=0.0003909786384572428  diverged=False
+[2026-09-16 16:05:27] [finance_tech_modelsize] [small] small|AdaBelief|CDNS|43  primary=0.0003909411096068286  diverged=False
+[2026-09-16 16:05:49] [finance_tech_modelsize] [small] small|AdaBelief|CDNS|44  primary=0.00039101798067647944  diverged=False
+[2026-09-16 16:06:12] [finance_tech_modelsize] [small] small|AdaBelief|CRM|42  primary=0.0004569376823763368  diverged=False
+[2026-09-16 16:06:35] [finance_tech_modelsize] [small] small|AdaBelief|CRM|43  primary=0.00045699436986257157  diverged=False
+[2026-09-16 16:06:57] [finance_tech_modelsize] [small] small|AdaBelief|CRM|44  primary=0.00045040573077227073  diverged=False
+[2026-09-16 16:07:20] [finance_tech_modelsize] [small] small|AdaBelief|CSCO|42  primary=0.00014620738488341133  diverged=False
+[2026-09-16 16:07:42] [finance_tech_modelsize] [small] small|AdaBelief|CSCO|43  primary=0.00014798386544777602  diverged=False
+[2026-09-16 16:08:05] [finance_tech_modelsize] [small] small|AdaBelief|CSCO|44  primary=0.0001474785071516794  diverged=False
+[2026-09-16 16:08:28] [finance_tech_modelsize] [small] small|AdaBelief|CTSH|42  primary=0.00016921484675356952  diverged=False
+[2026-09-16 16:08:50] [finance_tech_modelsize] [small] small|AdaBelief|CTSH|43  primary=0.00017090023510039798  diverged=False
+[2026-09-16 16:09:13] [finance_tech_modelsize] [small] small|AdaBelief|CTSH|44  primary=0.00017186080810254213  diverged=False
+[2026-09-16 16:09:35] [finance_tech_modelsize] [small] small|AdaBelief|FICO|42  primary=0.00034433887118384953  diverged=False
+[2026-09-16 16:09:58] [finance_tech_modelsize] [small] small|AdaBelief|FICO|43  primary=0.000345283360392959  diverged=False
+[2026-09-16 16:10:20] [finance_tech_modelsize] [small] small|AdaBelief|FICO|44  primary=0.00034514018309810175  diverged=False
+[2026-09-16 16:10:43] [finance_tech_modelsize] [small] small|AdaBelief|FTNT|42  primary=0.000714463610497732  diverged=False
+[2026-09-16 16:11:05] [finance_tech_modelsize] [small] small|AdaBelief|FTNT|43  primary=0.0007149029976476438  diverged=False
+[2026-09-16 16:11:28] [finance_tech_modelsize] [small] small|AdaBelief|FTNT|44  primary=0.0007146127009517932  diverged=False
+[2026-09-16 16:11:51] [finance_tech_modelsize] [small] small|AdaBelief|GLW|42  primary=0.0002346667781393364  diverged=False
+[2026-09-16 16:12:13] [finance_tech_modelsize] [small] small|AdaBelief|GLW|43  primary=0.0002337810854432444  diverged=False
+[2026-09-16 16:12:36] [finance_tech_modelsize] [small] small|AdaBelief|GLW|44  primary=0.00023398942575252876  diverged=False
+[2026-09-16 16:12:58] [finance_tech_modelsize] [small] small|AdaBelief|GOOGL|42  primary=0.00030771922812890756  diverged=False
+[2026-09-16 16:13:21] [finance_tech_modelsize] [small] small|AdaBelief|GOOGL|43  primary=0.0003085727138178689  diverged=False
+[2026-09-16 16:13:43] [finance_tech_modelsize] [small] small|AdaBelief|GOOGL|44  primary=0.00030886153222391843  diverged=False
+[2026-09-16 16:14:06] [finance_tech_modelsize] [small] small|AdaBelief|GPN|42  primary=0.0003280406078648946  diverged=False
+[2026-09-16 16:14:28] [finance_tech_modelsize] [small] small|AdaBelief|GPN|43  primary=0.0003294157524588247  diverged=False
+[2026-09-16 16:14:51] [finance_tech_modelsize] [small] small|AdaBelief|GPN|44  primary=0.0003337033053554555  diverged=False
+[2026-09-16 16:15:13] [finance_tech_modelsize] [small] small|AdaBelief|GRMN|42  primary=0.0004553754651357257  diverged=False
+[2026-09-16 16:15:36] [finance_tech_modelsize] [small] small|AdaBelief|GRMN|43  primary=0.00033056229431793174  diverged=False
+[2026-09-16 16:15:59] [finance_tech_modelsize] [small] small|AdaBelief|GRMN|44  primary=0.00032883401585634425  diverged=False
+[2026-09-16 16:16:21] [finance_tech_modelsize] [small] small|AdaBelief|HPE|42  primary=0.0005712813601411622  diverged=False
+[2026-09-16 16:16:44] [finance_tech_modelsize] [small] small|AdaBelief|HPE|43  primary=0.0005715178518459715  diverged=False
+[2026-09-16 16:17:07] [finance_tech_modelsize] [small] small|AdaBelief|HPE|44  primary=0.0005705094542996637  diverged=False
+[2026-09-16 16:17:30] [finance_tech_modelsize] [small] small|AdaBelief|HPQ|42  primary=0.00034074398575636446  diverged=False
+[2026-09-16 16:17:52] [finance_tech_modelsize] [small] small|AdaBelief|HPQ|43  primary=0.00034033514992900626  diverged=False
+[2026-09-16 16:18:15] [finance_tech_modelsize] [small] small|AdaBelief|HPQ|44  primary=0.0003432510469956373  diverged=False
+[2026-09-16 16:18:38] [finance_tech_modelsize] [small] small|AdaBelief|IBM|42  primary=0.00017351101315210736  diverged=False
+[2026-09-16 16:19:00] [finance_tech_modelsize] [small] small|AdaBelief|IBM|43  primary=0.0001717835822433391  diverged=False
+[2026-09-16 16:19:23] [finance_tech_modelsize] [small] small|AdaBelief|IBM|44  primary=0.00017169784143488244  diverged=False
+[2026-09-16 16:19:45] [finance_tech_modelsize] [small] small|AdaBelief|INTC|42  primary=0.0009394167434601556  diverged=False
+[2026-09-16 16:20:08] [finance_tech_modelsize] [small] small|AdaBelief|INTC|43  primary=0.0010332206569651447  diverged=False
+[2026-09-16 16:20:31] [finance_tech_modelsize] [small] small|AdaBelief|INTC|44  primary=29.89552589699074  diverged=True
+[2026-09-16 16:20:53] [finance_tech_modelsize] [small] small|AdaBelief|INTU|42  primary=0.0002878055212989686  diverged=False
+[2026-09-16 16:21:16] [finance_tech_modelsize] [small] small|AdaBelief|INTU|43  primary=0.0002881562110608217  diverged=False
+[2026-09-16 16:21:39] [finance_tech_modelsize] [small] small|AdaBelief|INTU|44  primary=0.00028839920248304097  diverged=False
+[2026-09-16 16:22:02] [finance_tech_modelsize] [small] small|AdaBelief|KEYS|42  primary=0.0003786707051502642  diverged=False
+[2026-09-16 16:22:24] [finance_tech_modelsize] [small] small|AdaBelief|KEYS|43  primary=0.0003780963462452556  diverged=False
+[2026-09-16 16:22:47] [finance_tech_modelsize] [small] small|AdaBelief|KEYS|44  primary=0.0003787781032480935  diverged=False
+[2026-09-16 16:23:09] [finance_tech_modelsize] [small] small|AdaBelief|KLAC|42  primary=0.0006364250466937111  diverged=False
+[2026-09-16 16:23:32] [finance_tech_modelsize] [small] small|AdaBelief|KLAC|43  primary=0.0006353893765696773  diverged=False
+[2026-09-16 16:23:54] [finance_tech_modelsize] [small] small|AdaBelief|KLAC|44  primary=0.0006387004303553748  diverged=False
+[2026-09-16 16:24:17] [finance_tech_modelsize] [small] small|AdaBelief|LRCX|42  primary=0.0006489920474234081  diverged=False
+[2026-09-16 16:24:39] [finance_tech_modelsize] [small] small|AdaBelief|LRCX|43  primary=0.000650179094423062  diverged=False
+[2026-09-16 16:25:02] [finance_tech_modelsize] [small] small|AdaBelief|LRCX|44  primary=0.0006492764309600547  diverged=False
+[2026-09-16 16:25:24] [finance_tech_modelsize] [small] small|AdaBelief|MCHP|42  primary=0.0005233187681783444  diverged=False
+[2026-09-16 16:25:47] [finance_tech_modelsize] [small] small|AdaBelief|MCHP|43  primary=0.0005366966995612654  diverged=False
+[2026-09-16 16:26:09] [finance_tech_modelsize] [small] small|AdaBelief|MCHP|44  primary=0.0005269674239335236  diverged=False
+[2026-09-16 16:26:32] [finance_tech_modelsize] [small] small|AdaBelief|META|42  primary=0.00045782369825075257  diverged=False
+[2026-09-16 16:26:54] [finance_tech_modelsize] [small] small|AdaBelief|META|43  primary=0.00045784469108161685  diverged=False
+[2026-09-16 16:27:17] [finance_tech_modelsize] [small] small|AdaBelief|META|44  primary=0.0004576564584888002  diverged=False
+[2026-09-16 16:27:39] [finance_tech_modelsize] [small] small|AdaBelief|MRVL|42  primary=0.0011155394019273224  diverged=False
+[2026-09-16 16:28:02] [finance_tech_modelsize] [small] small|AdaBelief|MRVL|43  primary=0.001037245231961447  diverged=False
+[2026-09-16 16:28:24] [finance_tech_modelsize] [small] small|AdaBelief|MRVL|44  primary=0.0010363085087014253  diverged=False
+[2026-09-16 16:28:47] [finance_tech_modelsize] [small] small|AdaBelief|MSFT|42  primary=0.00016562352893213745  diverged=False
+[2026-09-16 16:29:09] [finance_tech_modelsize] [small] small|AdaBelief|MSFT|43  primary=0.0001653305516041145  diverged=False
+[2026-09-16 16:29:31] [finance_tech_modelsize] [small] small|AdaBelief|MSFT|44  primary=0.00016548951703404625  diverged=False
+[2026-09-16 16:29:54] [finance_tech_modelsize] [small] small|AdaBelief|MSI|42  primary=0.00011980207390570766  diverged=False
+[2026-09-16 16:30:16] [finance_tech_modelsize] [small] small|AdaBelief|MSI|43  primary=0.0001205516456769257  diverged=False
+[2026-09-16 16:30:39] [finance_tech_modelsize] [small] small|AdaBelief|MSI|44  primary=0.00012119684033292942  diverged=False
+[2026-09-16 16:31:01] [finance_tech_modelsize] [small] small|AdaBelief|MU|42  primary=0.3600076746057581  diverged=False
+[2026-09-16 16:31:23] [finance_tech_modelsize] [small] small|AdaBelief|MU|43  primary=0.0008371383267104941  diverged=False
+[2026-09-16 16:31:46] [finance_tech_modelsize] [small] small|AdaBelief|MU|44  primary=0.0008328825866103803  diverged=False
+[2026-09-16 16:32:08] [finance_tech_modelsize] [small] small|AdaBelief|NOW|42  primary=0.0004230681865934342  diverged=False
+[2026-09-16 16:32:31] [finance_tech_modelsize] [small] small|AdaBelief|NOW|43  primary=0.000424396518677  diverged=False
+[2026-09-16 16:32:53] [finance_tech_modelsize] [small] small|AdaBelief|NOW|44  primary=0.00042162021947285487  diverged=False
+[2026-09-16 16:33:16] [finance_tech_modelsize] [small] small|AdaBelief|NVDA|42  primary=0.000889939132821623  diverged=False
+[2026-09-16 16:33:39] [finance_tech_modelsize] [small] small|AdaBelief|NVDA|43  primary=0.0008890980450564592  diverged=False
+[2026-09-16 16:34:01] [finance_tech_modelsize] [small] small|AdaBelief|NVDA|44  primary=0.000890537938743672  diverged=False
+[2026-09-16 16:34:23] [finance_tech_modelsize] [small] small|AdaBelief|NXPI|42  primary=0.00045855688162086425  diverged=False
+[2026-09-16 16:34:46] [finance_tech_modelsize] [small] small|AdaBelief|NXPI|43  primary=0.00045836920087987727  diverged=False
+[2026-09-16 16:35:08] [finance_tech_modelsize] [small] small|AdaBelief|NXPI|44  primary=0.0004586618875997454  diverged=False
+[2026-09-16 16:35:31] [finance_tech_modelsize] [small] small|AdaBelief|ORCL|42  primary=0.00043701447507061024  diverged=False
+[2026-09-16 16:35:53] [finance_tech_modelsize] [small] small|AdaBelief|ORCL|43  primary=0.0004367958852853725  diverged=False
+[2026-09-16 16:36:15] [finance_tech_modelsize] [small] small|AdaBelief|ORCL|44  primary=0.0004376732010059256  diverged=False
+[2026-09-16 16:36:38] [finance_tech_modelsize] [small] small|AdaBelief|PANW|42  primary=0.0007958393188039209  diverged=False
+[2026-09-16 16:37:00] [finance_tech_modelsize] [small] small|AdaBelief|PANW|43  primary=0.0007959012487891373  diverged=False
+[2026-09-16 16:37:22] [finance_tech_modelsize] [small] small|AdaBelief|PANW|44  primary=0.000795942108342602  diverged=False
+[2026-09-16 16:37:45] [finance_tech_modelsize] [small] small|AdaBelief|PTC|42  primary=0.0001781197294356331  diverged=False
+[2026-09-16 16:38:07] [finance_tech_modelsize] [small] small|AdaBelief|PTC|43  primary=0.00017563738520183262  diverged=False
+[2026-09-16 16:38:30] [finance_tech_modelsize] [small] small|AdaBelief|PTC|44  primary=0.00017535447995498698  diverged=False
+[2026-09-16 16:38:52] [finance_tech_modelsize] [small] small|AdaBelief|PYPL|42  primary=0.00045306359728177387  diverged=False
+[2026-09-16 16:39:15] [finance_tech_modelsize] [small] small|AdaBelief|PYPL|43  primary=0.0004544765998919805  diverged=False
+[2026-09-16 16:39:37] [finance_tech_modelsize] [small] small|AdaBelief|PYPL|44  primary=0.0004526390073200067  diverged=False
+[2026-09-16 16:40:00] [finance_tech_modelsize] [small] small|AdaBelief|QCOM|42  primary=0.000503680220356694  diverged=False
+[2026-09-16 16:40:22] [finance_tech_modelsize] [small] small|AdaBelief|QCOM|43  primary=0.0005045018341175463  diverged=False
+[2026-09-16 16:40:44] [finance_tech_modelsize] [small] small|AdaBelief|QCOM|44  primary=0.0005028886848656589  diverged=False
+[2026-09-16 16:41:07] [finance_tech_modelsize] [small] small|AdaBelief|ROP|42  primary=0.00011157014816211015  diverged=False
+[2026-09-16 16:41:29] [finance_tech_modelsize] [small] small|AdaBelief|ROP|43  primary=0.00011047399627468574  diverged=False
+[2026-09-16 16:41:52] [finance_tech_modelsize] [small] small|AdaBelief|ROP|44  primary=0.00011051791133704009  diverged=False
+[2026-09-16 16:42:14] [finance_tech_modelsize] [small] small|AdaBelief|SNOW|42  primary=0.0015235722338387725  diverged=False
+[2026-09-16 16:42:36] [finance_tech_modelsize] [small] small|AdaBelief|SNOW|43  primary=0.0015732006195488327  diverged=False
+[2026-09-16 16:42:59] [finance_tech_modelsize] [small] small|AdaBelief|SNOW|44  primary=0.0015274245257771344  diverged=False
+[2026-09-16 16:43:22] [finance_tech_modelsize] [small] small|AdaBelief|TEL|42  primary=0.00017448605368377038  diverged=False
+[2026-09-16 16:43:44] [finance_tech_modelsize] [small] small|AdaBelief|TEL|43  primary=0.0001650601428337198  diverged=False
+[2026-09-16 16:44:07] [finance_tech_modelsize] [small] small|AdaBelief|TEL|44  primary=0.0001649384992936301  diverged=False
+[2026-09-16 16:44:29] [finance_tech_modelsize] [small] small|AdaBelief|TSLA|42  primary=0.0013554625498141096  diverged=False
+[2026-09-16 16:44:52] [finance_tech_modelsize] [small] small|AdaBelief|TSLA|43  primary=0.0013554258261873422  diverged=False
+[2026-09-16 16:45:14] [finance_tech_modelsize] [small] small|AdaBelief|TSLA|44  primary=0.0013551269886923618  diverged=False
+[2026-09-16 16:45:37] [finance_tech_modelsize] [small] small|AdaBelief|TXN|42  primary=0.0002668602441353773  diverged=False
+[2026-09-16 16:45:59] [finance_tech_modelsize] [small] small|AdaBelief|TXN|43  primary=0.00026507514021384025  diverged=False
+[2026-09-16 16:46:22] [finance_tech_modelsize] [small] small|AdaBelief|TXN|44  primary=0.0002650939046390473  diverged=False
+[2026-09-16 16:46:44] [finance_tech_modelsize] [small] small|AdaBelief|TYL|42  primary=0.00022618070481315492  diverged=False
+[2026-09-16 16:47:07] [finance_tech_modelsize] [small] small|AdaBelief|TYL|43  primary=0.00022621204455693564  diverged=False
+[2026-09-16 16:47:30] [finance_tech_modelsize] [small] small|AdaBelief|TYL|44  primary=0.00022547416113041067  diverged=False
+[2026-09-16 16:47:53] [finance_tech_modelsize] [small] small|AdaBelief|UBER|42  primary=0.0006981005131358832  diverged=False
+[2026-09-16 16:48:17] [finance_tech_modelsize] [small] small|AdaBelief|UBER|43  primary=0.0007101746512130952  diverged=False
+[2026-09-16 16:48:40] [finance_tech_modelsize] [small] small|AdaBelief|UBER|44  primary=0.0007188363709080387  diverged=False
+[2026-09-16 16:49:03] [finance_tech_modelsize] [small] small|AdaBelief|WDAY|42  primary=0.00041466646573760295  diverged=False
+[2026-09-16 16:49:26] [finance_tech_modelsize] [small] small|AdaBelief|WDAY|43  primary=0.00041981670376542326  diverged=False
+[2026-09-16 16:49:49] [finance_tech_modelsize] [small] small|AdaBelief|WDAY|44  primary=0.0004169216693995835  diverged=False
+[2026-09-16 16:51:07] [finance_tech_modelsize] [small] small|EvieKF|AAPL|42  primary=0.00018197029986709515  diverged=False
+[2026-09-16 16:52:25] [finance_tech_modelsize] [small] small|EvieKF|AAPL|43  primary=0.0001817866962738138  diverged=False
+[2026-09-16 16:53:42] [finance_tech_modelsize] [small] small|EvieKF|AAPL|44  primary=0.00018423054584119686  diverged=False
+[2026-09-16 16:55:01] [finance_tech_modelsize] [small] small|EvieKF|ACN|42  primary=0.00020560456646813286  diverged=False
+[2026-09-16 16:56:20] [finance_tech_modelsize] [small] small|EvieKF|ACN|43  primary=0.00020577453037418385  diverged=False
+[2026-09-16 16:57:39] [finance_tech_modelsize] [small] small|EvieKF|ACN|44  primary=0.0002055271829246844  diverged=False
+[2026-09-16 16:58:57] [finance_tech_modelsize] [small] small|EvieKF|ADBE|42  primary=0.0004693369859110111  diverged=False
+[2026-09-16 17:00:16] [finance_tech_modelsize] [small] small|EvieKF|ADBE|43  primary=0.00046929985127121054  diverged=False
+[2026-09-16 17:01:35] [finance_tech_modelsize] [small] small|EvieKF|ADBE|44  primary=0.00047004782648944353  diverged=False
+[2026-09-16 17:02:54] [finance_tech_modelsize] [small] small|EvieKF|ADI|42  primary=0.00033926041353316537  diverged=False
+[2026-09-16 17:04:12] [finance_tech_modelsize] [small] small|EvieKF|ADI|43  primary=0.0003394652059469273  diverged=False
+[2026-09-16 17:05:31] [finance_tech_modelsize] [small] small|EvieKF|ADI|44  primary=0.0003395805125514035  diverged=False
+[2026-09-16 17:06:50] [finance_tech_modelsize] [small] small|EvieKF|ADSK|42  primary=0.000296195111577473  diverged=False
+[2026-09-16 17:08:09] [finance_tech_modelsize] [small] small|EvieKF|ADSK|43  primary=0.00028848588939697024  diverged=False
+[2026-09-16 17:09:28] [finance_tech_modelsize] [small] small|EvieKF|ADSK|44  primary=0.00029166348317943554  diverged=False
+[2026-09-16 17:10:47] [finance_tech_modelsize] [small] small|EvieKF|AMD|42  primary=0.0008358105465217873  diverged=False
+[2026-09-16 17:12:05] [finance_tech_modelsize] [small] small|EvieKF|AMD|43  primary=0.0008351292717393744  diverged=False
+[2026-09-16 17:13:24] [finance_tech_modelsize] [small] small|EvieKF|AMD|44  primary=0.0008449239863289727  diverged=False
+[2026-09-16 17:14:43] [finance_tech_modelsize] [small] small|EvieKF|AMZN|42  primary=0.0003332104632463405  diverged=False
+[2026-09-16 17:16:01] [finance_tech_modelsize] [small] small|EvieKF|AMZN|43  primary=0.0003296050918165338  diverged=False
+[2026-09-16 17:17:20] [finance_tech_modelsize] [small] small|EvieKF|AMZN|44  primary=0.0003292854658510319  diverged=False
+[2026-09-16 17:18:38] [finance_tech_modelsize] [small] small|EvieKF|APH|42  primary=0.000230315816465509  diverged=False
+[2026-09-16 17:19:57] [finance_tech_modelsize] [small] small|EvieKF|APH|43  primary=0.00022965273450291346  diverged=False
+[2026-09-16 17:21:16] [finance_tech_modelsize] [small] small|EvieKF|APH|44  primary=0.00022790444985268607  diverged=False
+[2026-09-16 17:22:34] [finance_tech_modelsize] [small] small|EvieKF|AVGO|42  primary=0.0008635891493035372  diverged=False
+[2026-09-16 17:23:51] [finance_tech_modelsize] [small] small|EvieKF|AVGO|43  primary=0.0008646403513257466  diverged=False
+[2026-09-16 17:25:10] [finance_tech_modelsize] [small] small|EvieKF|AVGO|44  primary=0.0008629709482192993  diverged=False
+[2026-09-16 17:26:29] [finance_tech_modelsize] [small] small|EvieKF|CDNS|42  primary=0.00039115240649571494  diverged=False
+[2026-09-16 17:27:48] [finance_tech_modelsize] [small] small|EvieKF|CDNS|43  primary=0.00039145642172091854  diverged=False
+[2026-09-16 17:29:06] [finance_tech_modelsize] [small] small|EvieKF|CDNS|44  primary=0.0003909388231852698  diverged=False
+[2026-09-16 17:30:25] [finance_tech_modelsize] [small] small|EvieKF|CRM|42  primary=0.0004506308250326328  diverged=False
+[2026-09-16 17:31:43] [finance_tech_modelsize] [small] small|EvieKF|CRM|43  primary=0.00044887031985338404  diverged=False
+[2026-09-16 17:33:01] [finance_tech_modelsize] [small] small|EvieKF|CRM|44  primary=0.0004481079165266935  diverged=False
+[2026-09-16 17:34:19] [finance_tech_modelsize] [small] small|EvieKF|CSCO|42  primary=0.00014612210727242566  diverged=False
+[2026-09-16 17:35:37] [finance_tech_modelsize] [small] small|EvieKF|CSCO|43  primary=0.00014804756988293278  diverged=False
+[2026-09-16 17:36:55] [finance_tech_modelsize] [small] small|EvieKF|CSCO|44  primary=0.00014550233920099874  diverged=False
+[2026-09-16 17:38:13] [finance_tech_modelsize] [small] small|EvieKF|CTSH|42  primary=0.00017166295379557938  diverged=False
+[2026-09-16 17:39:31] [finance_tech_modelsize] [small] small|EvieKF|CTSH|43  primary=0.00017102456912792549  diverged=False
+[2026-09-16 17:40:49] [finance_tech_modelsize] [small] small|EvieKF|CTSH|44  primary=0.00016981863943988054  diverged=False
+[2026-09-16 17:42:07] [finance_tech_modelsize] [small] small|EvieKF|FICO|42  primary=0.00034819421156373606  diverged=False
+[2026-09-16 17:43:26] [finance_tech_modelsize] [small] small|EvieKF|FICO|43  primary=0.0003440952490246485  diverged=False
+[2026-09-16 17:44:44] [finance_tech_modelsize] [small] small|EvieKF|FICO|44  primary=0.00035177321030349326  diverged=False
+[2026-09-16 17:46:02] [finance_tech_modelsize] [small] small|EvieKF|FTNT|42  primary=0.0007144986164002191  diverged=False
+[2026-09-16 17:47:20] [finance_tech_modelsize] [small] small|EvieKF|FTNT|43  primary=0.0007144581703912644  diverged=False
+[2026-09-16 17:48:39] [finance_tech_modelsize] [small] small|EvieKF|FTNT|44  primary=0.0007154851678817991  diverged=False
+[2026-09-16 17:49:58] [finance_tech_modelsize] [small] small|EvieKF|GLW|42  primary=0.00023431472835086642  diverged=False
+[2026-09-16 17:51:18] [finance_tech_modelsize] [small] small|EvieKF|GLW|43  primary=0.00023505966814737472  diverged=False
+[2026-09-16 17:52:36] [finance_tech_modelsize] [small] small|EvieKF|GLW|44  primary=0.00023602414383459342  diverged=False
+[2026-09-16 17:53:54] [finance_tech_modelsize] [small] small|EvieKF|GOOGL|42  primary=0.0003109815771932955  diverged=False
+[2026-09-16 17:55:12] [finance_tech_modelsize] [small] small|EvieKF|GOOGL|43  primary=0.00030936131243983276  diverged=False
+[2026-09-16 17:56:31] [finance_tech_modelsize] [small] small|EvieKF|GOOGL|44  primary=0.00030823353500593277  diverged=False
+[2026-09-16 17:57:49] [finance_tech_modelsize] [small] small|EvieKF|GPN|42  primary=0.0003286301301269935  diverged=False
+[2026-09-16 17:59:08] [finance_tech_modelsize] [small] small|EvieKF|GPN|43  primary=0.000328536564237857  diverged=False
+[2026-09-16 18:00:27] [finance_tech_modelsize] [small] small|EvieKF|GPN|44  primary=0.00032953119703701565  diverged=False
+[2026-09-16 18:01:45] [finance_tech_modelsize] [small] small|EvieKF|GRMN|42  primary=0.00033356836706242236  diverged=False
+[2026-09-16 18:03:04] [finance_tech_modelsize] [small] small|EvieKF|GRMN|43  primary=31.04691116898148  diverged=True
+[2026-09-16 18:04:23] [finance_tech_modelsize] [small] small|EvieKF|GRMN|44  primary=0.0003344884546345504  diverged=False
+[2026-09-16 18:05:42] [finance_tech_modelsize] [small] small|EvieKF|HPE|42  primary=0.0005720675248524238  diverged=False
+[2026-09-16 18:07:00] [finance_tech_modelsize] [small] small|EvieKF|HPE|43  primary=0.0005714335189811114  diverged=False
+[2026-09-16 18:08:18] [finance_tech_modelsize] [small] small|EvieKF|HPE|44  primary=38901971.862068966  diverged=True
+[2026-09-16 18:09:38] [finance_tech_modelsize] [small] small|EvieKF|HPQ|42  primary=0.00034015523220496204  diverged=False
+[2026-09-16 18:10:56] [finance_tech_modelsize] [small] small|EvieKF|HPQ|43  primary=0.00034008695492668755  diverged=False
+[2026-09-16 18:12:14] [finance_tech_modelsize] [small] small|EvieKF|HPQ|44  primary=0.00034061925751822334  diverged=False
+[2026-09-16 18:13:32] [finance_tech_modelsize] [small] small|EvieKF|IBM|42  primary=0.00017213663726887375  diverged=False
+[2026-09-16 18:14:50] [finance_tech_modelsize] [small] small|EvieKF|IBM|43  primary=0.0001741419866602257  diverged=False
+[2026-09-16 18:16:08] [finance_tech_modelsize] [small] small|EvieKF|IBM|44  primary=0.00017271784168702584  diverged=False
+[2026-09-16 18:17:26] [finance_tech_modelsize] [small] small|EvieKF|INTC|42  primary=0.0757074860668687  diverged=False
+[2026-09-16 18:18:45] [finance_tech_modelsize] [small] small|EvieKF|INTC|43  primary=0.0009460284438713518  diverged=False
+[2026-09-16 18:20:04] [finance_tech_modelsize] [small] small|EvieKF|INTC|44  primary=0.0009399798339006131  diverged=False
+[2026-09-16 18:21:22] [finance_tech_modelsize] [small] small|EvieKF|INTU|42  primary=0.0002896041860656133  diverged=False
+[2026-09-16 18:22:42] [finance_tech_modelsize] [small] small|EvieKF|INTU|43  primary=0.0002869620682701232  diverged=False
+[2026-09-16 18:24:00] [finance_tech_modelsize] [small] small|EvieKF|INTU|44  primary=0.00028750304349515804  diverged=False
+[2026-09-16 18:25:19] [finance_tech_modelsize] [small] small|EvieKF|KEYS|42  primary=0.0003778578699097153  diverged=False
+[2026-09-16 18:26:37] [finance_tech_modelsize] [small] small|EvieKF|KEYS|43  primary=0.0003779953302339066  diverged=False
+[2026-09-16 18:27:56] [finance_tech_modelsize] [small] small|EvieKF|KEYS|44  primary=0.0003804870585138484  diverged=False
+[2026-09-16 18:29:14] [finance_tech_modelsize] [small] small|EvieKF|KLAC|42  primary=0.0006320495454091874  diverged=False
+[2026-09-16 18:30:33] [finance_tech_modelsize] [small] small|EvieKF|KLAC|43  primary=0.0006321941024411923  diverged=False
+[2026-09-16 18:31:52] [finance_tech_modelsize] [small] small|EvieKF|KLAC|44  primary=0.0006338281448556002  diverged=False
+[2026-09-16 18:33:10] [finance_tech_modelsize] [small] small|EvieKF|LRCX|42  primary=0.0006489659506807883  diverged=False
+[2026-09-16 18:34:28] [finance_tech_modelsize] [small] small|EvieKF|LRCX|43  primary=0.0006505256449734723  diverged=False
+[2026-09-16 18:35:47] [finance_tech_modelsize] [small] small|EvieKF|LRCX|44  primary=0.0006503659108328441  diverged=False
+[2026-09-16 18:37:05] [finance_tech_modelsize] [small] small|EvieKF|MCHP|42  primary=0.0005297374236520636  diverged=False
+[2026-09-16 18:38:23] [finance_tech_modelsize] [small] small|EvieKF|MCHP|43  primary=0.0005234418801529697  diverged=False
+[2026-09-16 18:39:43] [finance_tech_modelsize] [small] small|EvieKF|MCHP|44  primary=0.0005248311966184586  diverged=False
+[2026-09-16 18:41:01] [finance_tech_modelsize] [small] small|EvieKF|META|42  primary=0.00045761503513504123  diverged=False
+[2026-09-16 18:42:22] [finance_tech_modelsize] [small] small|EvieKF|META|43  primary=0.00045751213277660826  diverged=False
+[2026-09-16 18:43:41] [finance_tech_modelsize] [small] small|EvieKF|META|44  primary=0.00045789909437767365  diverged=False
+[2026-09-16 18:44:58] [finance_tech_modelsize] [small] small|EvieKF|MRVL|42  primary=0.0010363480086049075  diverged=False
+[2026-09-16 18:46:16] [finance_tech_modelsize] [small] small|EvieKF|MRVL|43  primary=0.0010426918034831052  diverged=False
+[2026-09-16 18:47:34] [finance_tech_modelsize] [small] small|EvieKF|MRVL|44  primary=0.0010374067794708978  diverged=False
+[2026-09-16 18:48:53] [finance_tech_modelsize] [small] small|EvieKF|MSFT|42  primary=0.00016543726441721436  diverged=False
+[2026-09-16 18:50:10] [finance_tech_modelsize] [small] small|EvieKF|MSFT|43  primary=0.00016583904387458922  diverged=False
+[2026-09-16 18:51:28] [finance_tech_modelsize] [small] small|EvieKF|MSFT|44  primary=0.00016518564963782274  diverged=False
+[2026-09-16 18:52:46] [finance_tech_modelsize] [small] small|EvieKF|MSI|42  primary=0.00011977843112415737  diverged=False
+[2026-09-16 18:54:04] [finance_tech_modelsize] [small] small|EvieKF|MSI|43  primary=0.00012000807851710648  diverged=False
+[2026-09-16 18:55:22] [finance_tech_modelsize] [small] small|EvieKF|MSI|44  primary=0.00011946010605368033  diverged=False
+[2026-09-16 18:56:41] [finance_tech_modelsize] [small] small|EvieKF|MU|42  primary=0.0008343522037778582  diverged=False
+[2026-09-16 18:57:59] [finance_tech_modelsize] [small] small|EvieKF|MU|43  primary=0.0008430788441309853  diverged=False
+[2026-09-16 18:59:17] [finance_tech_modelsize] [small] small|EvieKF|MU|44  primary=0.0008340247724422071  diverged=False
+[2026-09-16 19:00:34] [finance_tech_modelsize] [small] small|EvieKF|NOW|42  primary=0.00042479151771182105  diverged=False
+[2026-09-16 19:01:53] [finance_tech_modelsize] [small] small|EvieKF|NOW|43  primary=0.0004241589515928238  diverged=False
+[2026-09-16 19:03:11] [finance_tech_modelsize] [small] small|EvieKF|NOW|44  primary=0.00042441231863839284  diverged=False
+[2026-09-16 19:04:29] [finance_tech_modelsize] [small] small|EvieKF|NVDA|42  primary=0.0008924771395940629  diverged=False
+[2026-09-16 19:05:47] [finance_tech_modelsize] [small] small|EvieKF|NVDA|43  primary=0.000891809898709494  diverged=False
+[2026-09-16 19:07:05] [finance_tech_modelsize] [small] small|EvieKF|NVDA|44  primary=0.0008899005790236135  diverged=False
+[2026-09-16 19:08:23] [finance_tech_modelsize] [small] small|EvieKF|NXPI|42  primary=0.00045934713576450823  diverged=False
+[2026-09-16 19:09:41] [finance_tech_modelsize] [small] small|EvieKF|NXPI|43  primary=0.0004600506511929935  diverged=False
+[2026-09-16 19:10:59] [finance_tech_modelsize] [small] small|EvieKF|NXPI|44  primary=347740.5399449036  diverged=True
+[2026-09-16 19:12:17] [finance_tech_modelsize] [small] small|EvieKF|ORCL|42  primary=0.0004384587839166954  diverged=False
+[2026-09-16 19:13:35] [finance_tech_modelsize] [small] small|EvieKF|ORCL|43  primary=0.00043898489740159776  diverged=False
+[2026-09-16 19:14:53] [finance_tech_modelsize] [small] small|EvieKF|ORCL|44  primary=0.00043686688261688073  diverged=False
+[2026-09-16 19:16:11] [finance_tech_modelsize] [small] small|EvieKF|PANW|42  primary=0.0007958495218283052  diverged=False
+[2026-09-16 19:17:29] [finance_tech_modelsize] [small] small|EvieKF|PANW|43  primary=0.0007957939509373561  diverged=False
+[2026-09-16 19:18:46] [finance_tech_modelsize] [small] small|EvieKF|PANW|44  primary=0.0007965448935320422  diverged=False
+[2026-09-16 19:20:05] [finance_tech_modelsize] [small] small|EvieKF|PTC|42  primary=0.00017548279550971179  diverged=False
+[2026-09-16 19:21:24] [finance_tech_modelsize] [small] small|EvieKF|PTC|43  primary=0.0001752626288820196  diverged=False
+[2026-09-16 19:22:42] [finance_tech_modelsize] [small] small|EvieKF|PTC|44  primary=0.00017508206071046293  diverged=False
+[2026-09-16 19:24:01] [finance_tech_modelsize] [small] small|EvieKF|PYPL|42  primary=0.0004513574453691641  diverged=False
+[2026-09-16 19:25:19] [finance_tech_modelsize] [small] small|EvieKF|PYPL|43  primary=0.00044987645621101063  diverged=False
+[2026-09-16 19:26:36] [finance_tech_modelsize] [small] small|EvieKF|PYPL|44  primary=0.0004574035915235678  diverged=False
+[2026-09-16 19:27:54] [finance_tech_modelsize] [small] small|EvieKF|QCOM|42  primary=0.0005027325380416144  diverged=False
+[2026-09-16 19:29:12] [finance_tech_modelsize] [small] small|EvieKF|QCOM|43  primary=0.0005066373912745683  diverged=False
+[2026-09-16 19:30:31] [finance_tech_modelsize] [small] small|EvieKF|QCOM|44  primary=0.0005052957742933243  diverged=False
+[2026-09-16 19:31:49] [finance_tech_modelsize] [small] small|EvieKF|ROP|42  primary=0.00011054025322356552  diverged=False
+[2026-09-16 19:33:06] [finance_tech_modelsize] [small] small|EvieKF|ROP|43  primary=0.00011048087524989295  diverged=False
+[2026-09-16 19:34:26] [finance_tech_modelsize] [small] small|EvieKF|ROP|44  primary=0.00011071770713127479  diverged=False
+[2026-09-16 19:35:45] [finance_tech_modelsize] [small] small|EvieKF|SNOW|42  primary=0.0015106661877500901  diverged=False
+[2026-09-16 19:37:04] [finance_tech_modelsize] [small] small|EvieKF|SNOW|43  primary=0.0015127090139126559  diverged=False
+[2026-09-16 19:38:23] [finance_tech_modelsize] [small] small|EvieKF|SNOW|44  primary=0.0014986998717719262  diverged=False
+[2026-09-16 19:39:42] [finance_tech_modelsize] [small] small|EvieKF|TEL|42  primary=0.00016474373953998404  diverged=False
+[2026-09-16 19:41:00] [finance_tech_modelsize] [small] small|EvieKF|TEL|43  primary=0.00016519204570502832  diverged=False
+[2026-09-16 19:42:18] [finance_tech_modelsize] [small] small|EvieKF|TEL|44  primary=0.00016917394740240916  diverged=False
+[2026-09-16 19:43:37] [finance_tech_modelsize] [small] small|EvieKF|TSLA|42  primary=0.001355667094715306  diverged=False
+[2026-09-16 19:44:55] [finance_tech_modelsize] [small] small|EvieKF|TSLA|43  primary=0.001356719458689455  diverged=False
+[2026-09-16 19:46:13] [finance_tech_modelsize] [small] small|EvieKF|TSLA|44  primary=0.0013577311091084298  diverged=False
+[2026-09-16 19:47:32] [finance_tech_modelsize] [small] small|EvieKF|TXN|42  primary=0.00026537241443755133  diverged=False
+[2026-09-16 19:48:50] [finance_tech_modelsize] [small] small|EvieKF|TXN|43  primary=0.00026584113085711443  diverged=False
+[2026-09-16 19:50:10] [finance_tech_modelsize] [small] small|EvieKF|TXN|44  primary=0.0002653272379012335  diverged=False
+[2026-09-16 19:51:29] [finance_tech_modelsize] [small] small|EvieKF|TYL|42  primary=0.00023102624312279716  diverged=False
+[2026-09-16 19:52:47] [finance_tech_modelsize] [small] small|EvieKF|TYL|43  primary=0.00022517113143174106  diverged=False
+[2026-09-16 19:54:05] [finance_tech_modelsize] [small] small|EvieKF|TYL|44  primary=0.0002302257590508335  diverged=False
+[2026-09-16 19:55:24] [finance_tech_modelsize] [small] small|EvieKF|UBER|42  primary=0.000704597209540891  diverged=False
+[2026-09-16 19:56:41] [finance_tech_modelsize] [small] small|EvieKF|UBER|43  primary=0.0007060956682117892  diverged=False
+[2026-09-16 19:57:59] [finance_tech_modelsize] [small] small|EvieKF|UBER|44  primary=0.000702182067112184  diverged=False
+[2026-09-16 19:59:16] [finance_tech_modelsize] [small] small|EvieKF|WDAY|42  primary=0.0004158648964646575  diverged=False
+[2026-09-16 20:00:34] [finance_tech_modelsize] [small] small|EvieKF|WDAY|43  primary=0.00041458252575490384  diverged=False
+[2026-09-16 20:01:53] [finance_tech_modelsize] [small] small|EvieKF|WDAY|44  primary=0.0004155898055472931  diverged=False
+[2026-09-16 20:01:53] [finance_tech_modelsize] [diverge] small|AdaBelief|MU|42: 0.36 is >50.0x off the grid-point peer median 0.0003911
+[2026-09-16 20:01:53] [finance_tech_modelsize] [diverge] small|EvieKF|INTC|42: 0.07571 is >50.0x off the grid-point peer median 0.0003911
+[2026-09-16 20:01:53] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 20:01:53] [finance_tech_modelsize] [large] LR search  (modelsize = [128, 64])
+[2026-09-16 20:02:28] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=3.162e-05  score=0.000764895
+[2026-09-16 20:03:03] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=1.000e-04  score=0.000584409
+[2026-09-16 20:03:38] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=3.162e-04  score=0.000560989
+[2026-09-16 20:04:13] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=1.000e-03  score=0.000557438
+[2026-09-16 20:04:48] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=3.162e-03  score=0.000539206
+[2026-09-16 20:05:23] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=1.000e-02  score=0.000539637
+[2026-09-16 20:05:58] [finance_tech_modelsize] [large] [lr-search] AdamW  lr=3.162e-02  score=0.000541371
+[2026-09-16 20:05:58] [finance_tech_modelsize] [large] [lr-search] AdamW: FROZEN lr=3.162e-03  (boundary checks: 0)
+[2026-09-16 20:06:43] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-05  score=0.000731336
+[2026-09-16 20:07:28] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-04  score=0.000578138
+[2026-09-16 20:08:13] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-04  score=0.000562293
+[2026-09-16 20:08:58] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-03  score=0.000555687
+[2026-09-16 20:09:43] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-03  score=0.000539019
+[2026-09-16 20:10:27] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-02  score=0.000549024
+[2026-09-16 20:11:12] [finance_tech_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-02  score=0.000545953
+[2026-09-16 20:11:12] [finance_tech_modelsize] [large] [lr-search] AdaBelief: FROZEN lr=3.162e-03  (boundary checks: 0)
+[2026-09-16 20:14:14] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=3.162e-05  score=0.000647871
+[2026-09-16 20:17:18] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=1.000e-04  score=0.000564644
+[2026-09-16 20:20:18] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=3.162e-04  score=0.000552604
+[2026-09-16 20:23:19] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=1.000e-03  score=0.000550093
+[2026-09-16 20:26:19] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=3.162e-03  score=0.000543337
+[2026-09-16 20:29:20] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=1.000e-02  score=0.000538467
+[2026-09-16 20:32:20] [finance_tech_modelsize] [large] [lr-search] EvieKF  lr=3.162e-02  score=0.000539914
+[2026-09-16 20:32:20] [finance_tech_modelsize] [large] [lr-search] EvieKF: FROZEN lr=1.000e-02  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 20:32:20] [finance_tech_modelsize] [large] sweep cells
+[2026-09-16 20:32:38] [finance_tech_modelsize] [large] large|AdamW|AAPL|42  primary=0.00018719132378618554  diverged=False
+[2026-09-16 20:32:55] [finance_tech_modelsize] [large] large|AdamW|AAPL|43  primary=0.00020797586157208397  diverged=False
+[2026-09-16 20:33:12] [finance_tech_modelsize] [large] large|AdamW|AAPL|44  primary=0.00018536305380245996  diverged=False
+[2026-09-16 20:33:30] [finance_tech_modelsize] [large] large|AdamW|ACN|42  primary=0.00021343983749233227  diverged=False
+[2026-09-16 20:33:47] [finance_tech_modelsize] [large] large|AdamW|ACN|43  primary=0.00022439562060214854  diverged=False
+[2026-09-16 20:34:05] [finance_tech_modelsize] [large] large|AdamW|ACN|44  primary=0.00025395648898901763  diverged=False
+[2026-09-16 20:34:22] [finance_tech_modelsize] [large] large|AdamW|ADBE|42  primary=0.0004709765078529479  diverged=False
+[2026-09-16 20:34:40] [finance_tech_modelsize] [large] large|AdamW|ADBE|43  primary=0.00047783888679332835  diverged=False
+[2026-09-16 20:34:57] [finance_tech_modelsize] [large] large|AdamW|ADBE|44  primary=0.0005153252018822564  diverged=False
+[2026-09-16 20:35:15] [finance_tech_modelsize] [large] large|AdamW|ADI|42  primary=0.00036393886520749046  diverged=False
+[2026-09-16 20:35:32] [finance_tech_modelsize] [large] large|AdamW|ADI|43  primary=0.00035154787951676304  diverged=False
+[2026-09-16 20:35:50] [finance_tech_modelsize] [large] large|AdamW|ADI|44  primary=0.0003306869240034194  diverged=False
+[2026-09-16 20:36:08] [finance_tech_modelsize] [large] large|AdamW|ADSK|42  primary=0.0002934154536989  diverged=False
+[2026-09-16 20:36:25] [finance_tech_modelsize] [large] large|AdamW|ADSK|43  primary=0.000321330847563567  diverged=False
+[2026-09-16 20:36:43] [finance_tech_modelsize] [large] large|AdamW|ADSK|44  primary=0.00030059657163090177  diverged=False
+[2026-09-16 20:37:00] [finance_tech_modelsize] [large] large|AdamW|AMD|42  primary=0.000848010261222799  diverged=False
+[2026-09-16 20:37:18] [finance_tech_modelsize] [large] large|AdamW|AMD|43  primary=0.0008879045330027424  diverged=False
+[2026-09-16 20:37:35] [finance_tech_modelsize] [large] large|AdamW|AMD|44  primary=0.0009450986587181293  diverged=False
+[2026-09-16 20:37:53] [finance_tech_modelsize] [large] large|AdamW|AMZN|42  primary=0.0003332573348882968  diverged=False
+[2026-09-16 20:38:10] [finance_tech_modelsize] [large] large|AdamW|AMZN|43  primary=0.0003501631358943919  diverged=False
+[2026-09-16 20:38:28] [finance_tech_modelsize] [large] large|AdamW|AMZN|44  primary=0.00035737494312266193  diverged=False
+[2026-09-16 20:38:45] [finance_tech_modelsize] [large] large|AdamW|APH|42  primary=0.00022826996193361031  diverged=False
+[2026-09-16 20:39:03] [finance_tech_modelsize] [large] large|AdamW|APH|43  primary=0.00032562238198739513  diverged=False
+[2026-09-16 20:39:21] [finance_tech_modelsize] [large] large|AdamW|APH|44  primary=0.0003493762520885972  diverged=False
+[2026-09-16 20:39:38] [finance_tech_modelsize] [large] large|AdamW|AVGO|42  primary=0.0013712729726518904  diverged=False
+[2026-09-16 20:39:55] [finance_tech_modelsize] [large] large|AdamW|AVGO|43  primary=0.0010433589655255515  diverged=False
+[2026-09-16 20:40:13] [finance_tech_modelsize] [large] large|AdamW|AVGO|44  primary=0.001610822936214467  diverged=False
+[2026-09-16 20:40:30] [finance_tech_modelsize] [large] large|AdamW|CDNS|42  primary=0.0004000114227728869  diverged=False
+[2026-09-16 20:40:48] [finance_tech_modelsize] [large] large|AdamW|CDNS|43  primary=0.0005510602363202938  diverged=False
+[2026-09-16 20:41:05] [finance_tech_modelsize] [large] large|AdamW|CDNS|44  primary=0.000457278398609666  diverged=False
+[2026-09-16 20:41:23] [finance_tech_modelsize] [large] large|AdamW|CRM|42  primary=0.00045649924133189774  diverged=False
+[2026-09-16 20:41:41] [finance_tech_modelsize] [large] large|AdamW|CRM|43  primary=0.0004638837916510446  diverged=False
+[2026-09-16 20:41:59] [finance_tech_modelsize] [large] large|AdamW|CRM|44  primary=0.0004553805898737024  diverged=False
+[2026-09-16 20:42:16] [finance_tech_modelsize] [large] large|AdamW|CSCO|42  primary=0.00015115503359723975  diverged=False
+[2026-09-16 20:42:34] [finance_tech_modelsize] [large] large|AdamW|CSCO|43  primary=0.00014934063982711268  diverged=False
+[2026-09-16 20:42:52] [finance_tech_modelsize] [large] large|AdamW|CSCO|44  primary=0.00015085429032012898  diverged=False
+[2026-09-16 20:43:10] [finance_tech_modelsize] [large] large|AdamW|CTSH|42  primary=0.00017227045206165818  diverged=False
+[2026-09-16 20:43:27] [finance_tech_modelsize] [large] large|AdamW|CTSH|43  primary=0.00017127501113074168  diverged=False
+[2026-09-16 20:43:44] [finance_tech_modelsize] [large] large|AdamW|CTSH|44  primary=0.0001756008024568911  diverged=False
+[2026-09-16 20:44:02] [finance_tech_modelsize] [large] large|AdamW|FICO|42  primary=0.0007745588898028016  diverged=False
+[2026-09-16 20:44:21] [finance_tech_modelsize] [large] large|AdamW|FICO|43  primary=0.0015992924334510925  diverged=False
+[2026-09-16 20:44:39] [finance_tech_modelsize] [large] large|AdamW|FICO|44  primary=0.00044870218902668627  diverged=False
+[2026-09-16 20:44:57] [finance_tech_modelsize] [large] large|AdamW|FTNT|42  primary=0.0007164469629368454  diverged=False
+[2026-09-16 20:45:16] [finance_tech_modelsize] [large] large|AdamW|FTNT|43  primary=0.0009204064096723284  diverged=False
+[2026-09-16 20:45:35] [finance_tech_modelsize] [large] large|AdamW|FTNT|44  primary=0.0007168800427169396  diverged=False
+[2026-09-16 20:45:54] [finance_tech_modelsize] [large] large|AdamW|GLW|42  primary=0.00023599414440689893  diverged=False
+[2026-09-16 20:46:13] [finance_tech_modelsize] [large] large|AdamW|GLW|43  primary=0.00024275834519396384  diverged=False
+[2026-09-16 20:46:32] [finance_tech_modelsize] [large] large|AdamW|GLW|44  primary=0.00023333436597591984  diverged=False
+[2026-09-16 20:46:52] [finance_tech_modelsize] [large] large|AdamW|GOOGL|42  primary=0.00045201292744389285  diverged=False
+[2026-09-16 20:47:11] [finance_tech_modelsize] [large] large|AdamW|GOOGL|43  primary=0.0003685444672271688  diverged=False
+[2026-09-16 20:47:29] [finance_tech_modelsize] [large] large|AdamW|GOOGL|44  primary=0.0003169211485083141  diverged=False
+[2026-09-16 20:47:48] [finance_tech_modelsize] [large] large|AdamW|GPN|42  primary=0.00032784503997949064  diverged=False
+[2026-09-16 20:48:06] [finance_tech_modelsize] [large] large|AdamW|GPN|43  primary=0.0003400134740683137  diverged=False
+[2026-09-16 20:48:24] [finance_tech_modelsize] [large] large|AdamW|GPN|44  primary=0.00032688164837145934  diverged=False
+[2026-09-16 20:48:42] [finance_tech_modelsize] [large] large|AdamW|GRMN|42  primary=0.00036206104294963615  diverged=False
+[2026-09-16 20:49:00] [finance_tech_modelsize] [large] large|AdamW|GRMN|43  primary=0.00036969859764058753  diverged=False
+[2026-09-16 20:49:19] [finance_tech_modelsize] [large] large|AdamW|GRMN|44  primary=0.0005428288033399632  diverged=False
+[2026-09-16 20:49:37] [finance_tech_modelsize] [large] large|AdamW|HPE|42  primary=0.0006095036093530984  diverged=False
+[2026-09-16 20:49:55] [finance_tech_modelsize] [large] large|AdamW|HPE|43  primary=0.0006193831434537625  diverged=False
+[2026-09-16 20:50:13] [finance_tech_modelsize] [large] large|AdamW|HPE|44  primary=0.0005987364284951111  diverged=False
+[2026-09-16 20:50:31] [finance_tech_modelsize] [large] large|AdamW|HPQ|42  primary=0.00033773343872140957  diverged=False
+[2026-09-16 20:50:49] [finance_tech_modelsize] [large] large|AdamW|HPQ|43  primary=0.00033298150572196516  diverged=False
+[2026-09-16 20:51:07] [finance_tech_modelsize] [large] large|AdamW|HPQ|44  primary=0.00033884061865074926  diverged=False
+[2026-09-16 20:51:25] [finance_tech_modelsize] [large] large|AdamW|IBM|42  primary=0.00030375583461983495  diverged=False
+[2026-09-16 20:51:43] [finance_tech_modelsize] [large] large|AdamW|IBM|43  primary=0.0002655157494166541  diverged=False
+[2026-09-16 20:52:00] [finance_tech_modelsize] [large] large|AdamW|IBM|44  primary=0.00037050121044986464  diverged=False
+[2026-09-16 20:52:18] [finance_tech_modelsize] [large] large|AdamW|INTC|42  primary=0.000945048830496571  diverged=False
+[2026-09-16 20:52:36] [finance_tech_modelsize] [large] large|AdamW|INTC|43  primary=0.0009443387783393658  diverged=False
+[2026-09-16 20:52:53] [finance_tech_modelsize] [large] large|AdamW|INTC|44  primary=0.0010064143352407626  diverged=False
+[2026-09-16 20:53:11] [finance_tech_modelsize] [large] large|AdamW|INTU|42  primary=0.00031469052746182396  diverged=False
+[2026-09-16 20:53:28] [finance_tech_modelsize] [large] large|AdamW|INTU|43  primary=0.00030626563562287227  diverged=False
+[2026-09-16 20:53:45] [finance_tech_modelsize] [large] large|AdamW|INTU|44  primary=0.0002990167725969244  diverged=False
+[2026-09-16 20:54:03] [finance_tech_modelsize] [large] large|AdamW|KEYS|42  primary=0.00037704312870668813  diverged=False
+[2026-09-16 20:54:20] [finance_tech_modelsize] [large] large|AdamW|KEYS|43  primary=0.0003776308871054834  diverged=False
+[2026-09-16 20:54:37] [finance_tech_modelsize] [large] large|AdamW|KEYS|44  primary=0.00038109185506207075  diverged=False
+[2026-09-16 20:54:54] [finance_tech_modelsize] [large] large|AdamW|KLAC|42  primary=0.0006382204395122628  diverged=False
+[2026-09-16 20:55:11] [finance_tech_modelsize] [large] large|AdamW|KLAC|43  primary=0.0009496782822583719  diverged=False
+[2026-09-16 20:55:29] [finance_tech_modelsize] [large] large|AdamW|KLAC|44  primary=0.0006676000892800629  diverged=False
+[2026-09-16 20:55:46] [finance_tech_modelsize] [large] large|AdamW|LRCX|42  primary=0.0006572431909344184  diverged=False
+[2026-09-16 20:56:04] [finance_tech_modelsize] [large] large|AdamW|LRCX|43  primary=0.0006852559153995816  diverged=False
+[2026-09-16 20:56:22] [finance_tech_modelsize] [large] large|AdamW|LRCX|44  primary=0.0006511534647966818  diverged=False
+[2026-09-16 20:56:39] [finance_tech_modelsize] [large] large|AdamW|MCHP|42  primary=0.0005240851924532936  diverged=False
+[2026-09-16 20:56:56] [finance_tech_modelsize] [large] large|AdamW|MCHP|43  primary=0.0005190098884875181  diverged=False
+[2026-09-16 20:57:14] [finance_tech_modelsize] [large] large|AdamW|MCHP|44  primary=0.000560023600146884  diverged=False
+[2026-09-16 20:57:32] [finance_tech_modelsize] [large] large|AdamW|META|42  primary=0.0005789461938090295  diverged=False
+[2026-09-16 20:57:49] [finance_tech_modelsize] [large] large|AdamW|META|43  primary=0.000498431330581881  diverged=False
+[2026-09-16 20:58:06] [finance_tech_modelsize] [large] large|AdamW|META|44  primary=0.0004938012399013687  diverged=False
+[2026-09-16 20:58:24] [finance_tech_modelsize] [large] large|AdamW|MRVL|42  primary=0.0010822535191894209  diverged=False
+[2026-09-16 20:58:42] [finance_tech_modelsize] [large] large|AdamW|MRVL|43  primary=0.0010907082330612909  diverged=False
+[2026-09-16 20:59:00] [finance_tech_modelsize] [large] large|AdamW|MRVL|44  primary=0.0010334074339538655  diverged=False
+[2026-09-16 20:59:17] [finance_tech_modelsize] [large] large|AdamW|MSFT|42  primary=0.0002184801946872126  diverged=False
+[2026-09-16 20:59:35] [finance_tech_modelsize] [large] large|AdamW|MSFT|43  primary=0.0001745799152308671  diverged=False
+[2026-09-16 20:59:52] [finance_tech_modelsize] [large] large|AdamW|MSFT|44  primary=0.00016514876137965572  diverged=False
+[2026-09-16 21:00:09] [finance_tech_modelsize] [large] large|AdamW|MSI|42  primary=0.00012180209159851074  diverged=False
+[2026-09-16 21:00:27] [finance_tech_modelsize] [large] large|AdamW|MSI|43  primary=0.0004038321120398385  diverged=False
+[2026-09-16 21:00:44] [finance_tech_modelsize] [large] large|AdamW|MSI|44  primary=0.00012142110675100296  diverged=False
+[2026-09-16 21:01:01] [finance_tech_modelsize] [large] large|AdamW|MU|42  primary=0.0008469771928888149  diverged=False
+[2026-09-16 21:01:19] [finance_tech_modelsize] [large] large|AdamW|MU|43  primary=0.001030109546802662  diverged=False
+[2026-09-16 21:01:36] [finance_tech_modelsize] [large] large|AdamW|MU|44  primary=0.0008829639702246933  diverged=False
+[2026-09-16 21:01:53] [finance_tech_modelsize] [large] large|AdamW|NOW|42  primary=0.0005779925319883559  diverged=False
+[2026-09-16 21:02:11] [finance_tech_modelsize] [large] large|AdamW|NOW|43  primary=0.0007100707481777857  diverged=False
+[2026-09-16 21:02:28] [finance_tech_modelsize] [large] large|AdamW|NOW|44  primary=0.0007934491785745772  diverged=False
+[2026-09-16 21:02:46] [finance_tech_modelsize] [large] large|AdamW|NVDA|42  primary=0.0010748179185958136  diverged=False
+[2026-09-16 21:03:04] [finance_tech_modelsize] [large] large|AdamW|NVDA|43  primary=0.001903902916681199  diverged=False
+[2026-09-16 21:03:21] [finance_tech_modelsize] [large] large|AdamW|NVDA|44  primary=0.0020997691406774775  diverged=False
+[2026-09-16 21:03:38] [finance_tech_modelsize] [large] large|AdamW|NXPI|42  primary=0.00047572572861821196  diverged=False
+[2026-09-16 21:03:56] [finance_tech_modelsize] [large] large|AdamW|NXPI|43  primary=0.00048298464662115766  diverged=False
+[2026-09-16 21:04:13] [finance_tech_modelsize] [large] large|AdamW|NXPI|44  primary=0.00045062966911589146  diverged=False
+[2026-09-16 21:04:30] [finance_tech_modelsize] [large] large|AdamW|ORCL|42  primary=0.0011508203057384995  diverged=False
+[2026-09-16 21:04:48] [finance_tech_modelsize] [large] large|AdamW|ORCL|43  primary=0.0011344415643227794  diverged=False
+[2026-09-16 21:05:05] [finance_tech_modelsize] [large] large|AdamW|ORCL|44  primary=0.0005674355086826143  diverged=False
+[2026-09-16 21:05:23] [finance_tech_modelsize] [large] large|AdamW|PANW|42  primary=0.0008445059417918989  diverged=False
+[2026-09-16 21:05:40] [finance_tech_modelsize] [large] large|AdamW|PANW|43  primary=0.002590789157114211  diverged=False
+[2026-09-16 21:05:57] [finance_tech_modelsize] [large] large|AdamW|PANW|44  primary=0.0010797178289692873  diverged=False
+[2026-09-16 21:06:15] [finance_tech_modelsize] [large] large|AdamW|PTC|42  primary=0.00019838310107982978  diverged=False
+[2026-09-16 21:06:32] [finance_tech_modelsize] [large] large|AdamW|PTC|43  primary=0.0002793757215378776  diverged=False
+[2026-09-16 21:06:49] [finance_tech_modelsize] [large] large|AdamW|PTC|44  primary=0.0002068566187979683  diverged=False
+[2026-09-16 21:07:06] [finance_tech_modelsize] [large] large|AdamW|PYPL|42  primary=0.00045417059833804767  diverged=False
+[2026-09-16 21:07:24] [finance_tech_modelsize] [large] large|AdamW|PYPL|43  primary=0.0004571559838950634  diverged=False
+[2026-09-16 21:07:41] [finance_tech_modelsize] [large] large|AdamW|PYPL|44  primary=0.00044763063391049703  diverged=False
+[2026-09-16 21:07:59] [finance_tech_modelsize] [large] large|AdamW|QCOM|42  primary=0.0005765816679707279  diverged=False
+[2026-09-16 21:08:16] [finance_tech_modelsize] [large] large|AdamW|QCOM|43  primary=0.0005421306563432886  diverged=False
+[2026-09-16 21:08:33] [finance_tech_modelsize] [large] large|AdamW|QCOM|44  primary=0.000623291052838482  diverged=False
+[2026-09-16 21:08:50] [finance_tech_modelsize] [large] large|AdamW|ROP|42  primary=0.0001402816503609299  diverged=False
+[2026-09-16 21:09:08] [finance_tech_modelsize] [large] large|AdamW|ROP|43  primary=0.0001324965820583717  diverged=False
+[2026-09-16 21:09:26] [finance_tech_modelsize] [large] large|AdamW|ROP|44  primary=0.00019204920088803328  diverged=False
+[2026-09-16 21:09:43] [finance_tech_modelsize] [large] large|AdamW|SNOW|42  primary=0.001625023577191414  diverged=False
+[2026-09-16 21:10:00] [finance_tech_modelsize] [large] large|AdamW|SNOW|43  primary=0.0015178302285868094  diverged=False
+[2026-09-16 21:10:17] [finance_tech_modelsize] [large] large|AdamW|SNOW|44  primary=0.0015566160372637828  diverged=False
+[2026-09-16 21:10:34] [finance_tech_modelsize] [large] large|AdamW|TEL|42  primary=0.00016651304547118131  diverged=False
+[2026-09-16 21:10:52] [finance_tech_modelsize] [large] large|AdamW|TEL|43  primary=0.00020211517180084552  diverged=False
+[2026-09-16 21:11:09] [finance_tech_modelsize] [large] large|AdamW|TEL|44  primary=0.00017456899559687054  diverged=False
+[2026-09-16 21:11:26] [finance_tech_modelsize] [large] large|AdamW|TSLA|42  primary=0.0013700726905155702  diverged=False
+[2026-09-16 21:11:44] [finance_tech_modelsize] [large] large|AdamW|TSLA|43  primary=0.0013682718485430942  diverged=False
+[2026-09-16 21:12:01] [finance_tech_modelsize] [large] large|AdamW|TSLA|44  primary=0.0013790672919789298  diverged=False
+[2026-09-16 21:12:19] [finance_tech_modelsize] [large] large|AdamW|TXN|42  primary=0.00026215427609347795  diverged=False
+[2026-09-16 21:12:36] [finance_tech_modelsize] [large] large|AdamW|TXN|43  primary=0.0002636763035620331  diverged=False
+[2026-09-16 21:12:53] [finance_tech_modelsize] [large] large|AdamW|TXN|44  primary=0.00026221664021254846  diverged=False
+[2026-09-16 21:13:11] [finance_tech_modelsize] [large] large|AdamW|TYL|42  primary=0.00026168932438527467  diverged=False
+[2026-09-16 21:13:28] [finance_tech_modelsize] [large] large|AdamW|TYL|43  primary=0.00023877407823290144  diverged=False
+[2026-09-16 21:13:45] [finance_tech_modelsize] [large] large|AdamW|TYL|44  primary=0.0002550456337827854  diverged=False
+[2026-09-16 21:14:02] [finance_tech_modelsize] [large] large|AdamW|UBER|42  primary=0.0007443854086835619  diverged=False
+[2026-09-16 21:14:19] [finance_tech_modelsize] [large] large|AdamW|UBER|43  primary=0.0006893810252068748  diverged=False
+[2026-09-16 21:14:36] [finance_tech_modelsize] [large] large|AdamW|UBER|44  primary=0.0007289828024279904  diverged=False
+[2026-09-16 21:14:53] [finance_tech_modelsize] [large] large|AdamW|WDAY|42  primary=0.0010969078579506316  diverged=False
+[2026-09-16 21:15:10] [finance_tech_modelsize] [large] large|AdamW|WDAY|43  primary=0.0004705075513232838  diverged=False
+[2026-09-16 21:15:28] [finance_tech_modelsize] [large] large|AdamW|WDAY|44  primary=0.00042988795351672483  diverged=False
+[2026-09-16 21:15:50] [finance_tech_modelsize] [large] large|AdaBelief|AAPL|42  primary=0.0001860851490939105  diverged=False
+[2026-09-16 21:16:13] [finance_tech_modelsize] [large] large|AdaBelief|AAPL|43  primary=0.00021200402388497005  diverged=False
+[2026-09-16 21:16:35] [finance_tech_modelsize] [large] large|AdaBelief|AAPL|44  primary=0.0001927664670994673  diverged=False
+[2026-09-16 21:16:57] [finance_tech_modelsize] [large] large|AdaBelief|ACN|42  primary=0.0002138783179578327  diverged=False
+[2026-09-16 21:17:20] [finance_tech_modelsize] [large] large|AdaBelief|ACN|43  primary=0.00023172263588224138  diverged=False
+[2026-09-16 21:17:42] [finance_tech_modelsize] [large] large|AdaBelief|ACN|44  primary=0.00024151015612814162  diverged=False
+[2026-09-16 21:18:05] [finance_tech_modelsize] [large] large|AdaBelief|ADBE|42  primary=0.000490820360562158  diverged=False
+[2026-09-16 21:18:28] [finance_tech_modelsize] [large] large|AdaBelief|ADBE|43  primary=0.0004716499378441503  diverged=False
+[2026-09-16 21:18:51] [finance_tech_modelsize] [large] large|AdaBelief|ADBE|44  primary=0.0005614160308762202  diverged=False
+[2026-09-16 21:19:14] [finance_tech_modelsize] [large] large|AdaBelief|ADI|42  primary=0.00035725612804372473  diverged=False
+[2026-09-16 21:19:36] [finance_tech_modelsize] [large] large|AdaBelief|ADI|43  primary=0.00034971263200517683  diverged=False
+[2026-09-16 21:19:58] [finance_tech_modelsize] [large] large|AdaBelief|ADI|44  primary=0.00033064868557390083  diverged=False
+[2026-09-16 21:20:21] [finance_tech_modelsize] [large] large|AdaBelief|ADSK|42  primary=0.0003017945579750828  diverged=False
+[2026-09-16 21:20:44] [finance_tech_modelsize] [large] large|AdaBelief|ADSK|43  primary=0.0003274751127396942  diverged=False
+[2026-09-16 21:21:06] [finance_tech_modelsize] [large] large|AdaBelief|ADSK|44  primary=0.0003015492209997127  diverged=False
+[2026-09-16 21:21:29] [finance_tech_modelsize] [large] large|AdaBelief|AMD|42  primary=0.0008449709762341131  diverged=False
+[2026-09-16 21:21:51] [finance_tech_modelsize] [large] large|AdaBelief|AMD|43  primary=0.0008813777455577144  diverged=False
+[2026-09-16 21:22:14] [finance_tech_modelsize] [large] large|AdaBelief|AMD|44  primary=0.000850214371605525  diverged=False
+[2026-09-16 21:22:37] [finance_tech_modelsize] [large] large|AdaBelief|AMZN|42  primary=0.0003325612772078741  diverged=False
+[2026-09-16 21:22:59] [finance_tech_modelsize] [large] large|AdaBelief|AMZN|43  primary=0.00034590104900339923  diverged=False
+[2026-09-16 21:23:22] [finance_tech_modelsize] [large] large|AdaBelief|AMZN|44  primary=0.0003407454049145734  diverged=False
+[2026-09-16 21:23:45] [finance_tech_modelsize] [large] large|AdaBelief|APH|42  primary=0.0002297788818992635  diverged=False
+[2026-09-16 21:24:07] [finance_tech_modelsize] [large] large|AdaBelief|APH|43  primary=0.0003066062730140787  diverged=False
+[2026-09-16 21:24:30] [finance_tech_modelsize] [large] large|AdaBelief|APH|44  primary=0.0003207725664925954  diverged=False
+[2026-09-16 21:24:53] [finance_tech_modelsize] [large] large|AdaBelief|AVGO|42  primary=0.0010895032100576572  diverged=False
+[2026-09-16 21:25:15] [finance_tech_modelsize] [large] large|AdaBelief|AVGO|43  primary=0.0010484403403347763  diverged=False
+[2026-09-16 21:25:38] [finance_tech_modelsize] [large] large|AdaBelief|AVGO|44  primary=0.0017197157340074973  diverged=False
+[2026-09-16 21:26:00] [finance_tech_modelsize] [large] large|AdaBelief|CDNS|42  primary=0.00041773702417101177  diverged=False
+[2026-09-16 21:26:23] [finance_tech_modelsize] [large] large|AdaBelief|CDNS|43  primary=0.0004686291807543033  diverged=False
+[2026-09-16 21:26:45] [finance_tech_modelsize] [large] large|AdaBelief|CDNS|44  primary=0.0004590148175204242  diverged=False
+[2026-09-16 21:27:08] [finance_tech_modelsize] [large] large|AdaBelief|CRM|42  primary=0.00045575181800852377  diverged=False
+[2026-09-16 21:27:30] [finance_tech_modelsize] [large] large|AdaBelief|CRM|43  primary=0.00045872877829920047  diverged=False
+[2026-09-16 21:27:53] [finance_tech_modelsize] [large] large|AdaBelief|CRM|44  primary=0.00047683069314906205  diverged=False
+[2026-09-16 21:28:15] [finance_tech_modelsize] [large] large|AdaBelief|CSCO|42  primary=0.0001497880688735417  diverged=False
+[2026-09-16 21:28:38] [finance_tech_modelsize] [large] large|AdaBelief|CSCO|43  primary=0.00014866843188881244  diverged=False
+[2026-09-16 21:29:01] [finance_tech_modelsize] [large] large|AdaBelief|CSCO|44  primary=0.00017053996602063457  diverged=False
+[2026-09-16 21:29:23] [finance_tech_modelsize] [large] large|AdaBelief|CTSH|42  primary=0.00017401581955334497  diverged=False
+[2026-09-16 21:29:46] [finance_tech_modelsize] [large] large|AdaBelief|CTSH|43  primary=0.00017171400407003977  diverged=False
+[2026-09-16 21:30:08] [finance_tech_modelsize] [large] large|AdaBelief|CTSH|44  primary=0.0001755976881930437  diverged=False
+[2026-09-16 21:30:31] [finance_tech_modelsize] [large] large|AdaBelief|FICO|42  primary=0.0006253903820401146  diverged=False
+[2026-09-16 21:30:53] [finance_tech_modelsize] [large] large|AdaBelief|FICO|43  primary=0.0009822511168384048  diverged=False
+[2026-09-16 21:31:15] [finance_tech_modelsize] [large] large|AdaBelief|FICO|44  primary=0.00039213060071228675  diverged=False
+[2026-09-16 21:31:38] [finance_tech_modelsize] [large] large|AdaBelief|FTNT|42  primary=0.0007794627121516637  diverged=False
+[2026-09-16 21:32:00] [finance_tech_modelsize] [large] large|AdaBelief|FTNT|43  primary=0.0007868741870557189  diverged=False
+[2026-09-16 21:32:22] [finance_tech_modelsize] [large] large|AdaBelief|FTNT|44  primary=0.000726939114944014  diverged=False
+[2026-09-16 21:32:45] [finance_tech_modelsize] [large] large|AdaBelief|GLW|42  primary=0.00024905702266743576  diverged=False
+[2026-09-16 21:33:07] [finance_tech_modelsize] [large] large|AdaBelief|GLW|43  primary=0.0003507437292860929  diverged=False
+[2026-09-16 21:33:30] [finance_tech_modelsize] [large] large|AdaBelief|GLW|44  primary=0.00025767186489054764  diverged=False
+[2026-09-16 21:33:52] [finance_tech_modelsize] [large] large|AdaBelief|GOOGL|42  primary=0.0004631422420658132  diverged=False
+[2026-09-16 21:34:15] [finance_tech_modelsize] [large] large|AdaBelief|GOOGL|43  primary=0.0005685783252514228  diverged=False
+[2026-09-16 21:34:37] [finance_tech_modelsize] [large] large|AdaBelief|GOOGL|44  primary=0.0003105970247397347  diverged=False
+[2026-09-16 21:35:00] [finance_tech_modelsize] [large] large|AdaBelief|GPN|42  primary=0.00032859193111853626  diverged=False
+[2026-09-16 21:35:22] [finance_tech_modelsize] [large] large|AdaBelief|GPN|43  primary=0.0003272745580900283  diverged=False
+[2026-09-16 21:35:45] [finance_tech_modelsize] [large] large|AdaBelief|GPN|44  primary=0.0003352079678464819  diverged=False
+[2026-09-16 21:36:07] [finance_tech_modelsize] [large] large|AdaBelief|GRMN|42  primary=0.0003572994517901587  diverged=False
+[2026-09-16 21:36:30] [finance_tech_modelsize] [large] large|AdaBelief|GRMN|43  primary=0.0003630445984305528  diverged=False
+[2026-09-16 21:36:52] [finance_tech_modelsize] [large] large|AdaBelief|GRMN|44  primary=0.0005707721861581954  diverged=False
+[2026-09-16 21:37:15] [finance_tech_modelsize] [large] large|AdaBelief|HPE|42  primary=0.0006031984912938085  diverged=False
+[2026-09-16 21:37:37] [finance_tech_modelsize] [large] large|AdaBelief|HPE|43  primary=0.000630966291345399  diverged=False
+[2026-09-16 21:38:00] [finance_tech_modelsize] [large] large|AdaBelief|HPE|44  primary=0.0006025475289287238  diverged=False
+[2026-09-16 21:38:22] [finance_tech_modelsize] [large] large|AdaBelief|HPQ|42  primary=0.0003380523945288683  diverged=False
+[2026-09-16 21:38:45] [finance_tech_modelsize] [large] large|AdaBelief|HPQ|43  primary=0.00035471303595436946  diverged=False
+[2026-09-16 21:39:08] [finance_tech_modelsize] [large] large|AdaBelief|HPQ|44  primary=0.00033693327001793676  diverged=False
+[2026-09-16 21:39:30] [finance_tech_modelsize] [large] large|AdaBelief|IBM|42  primary=0.0003651128638358343  diverged=False
+[2026-09-16 21:39:53] [finance_tech_modelsize] [large] large|AdaBelief|IBM|43  primary=0.00026373064549511704  diverged=False
+[2026-09-16 21:40:15] [finance_tech_modelsize] [large] large|AdaBelief|IBM|44  primary=0.000377508698317109  diverged=False
+[2026-09-16 21:40:38] [finance_tech_modelsize] [large] large|AdaBelief|INTC|42  primary=0.0009518177421004684  diverged=False
+[2026-09-16 21:41:00] [finance_tech_modelsize] [large] large|AdaBelief|INTC|43  primary=0.0009423992621204841  diverged=False
+[2026-09-16 21:41:23] [finance_tech_modelsize] [large] large|AdaBelief|INTC|44  primary=0.0010067959311147216  diverged=False
+[2026-09-16 21:41:45] [finance_tech_modelsize] [large] large|AdaBelief|INTU|42  primary=0.0003068890994188016  diverged=False
+[2026-09-16 21:42:08] [finance_tech_modelsize] [large] large|AdaBelief|INTU|43  primary=0.00029922816803846407  diverged=False
+[2026-09-16 21:42:31] [finance_tech_modelsize] [large] large|AdaBelief|INTU|44  primary=0.00029915389875886304  diverged=False
+[2026-09-16 21:42:53] [finance_tech_modelsize] [large] large|AdaBelief|KEYS|42  primary=0.0003757486047670823  diverged=False
+[2026-09-16 21:43:16] [finance_tech_modelsize] [large] large|AdaBelief|KEYS|43  primary=0.00037976108895715815  diverged=False
+[2026-09-16 21:43:39] [finance_tech_modelsize] [large] large|AdaBelief|KEYS|44  primary=0.00038004192964051123  diverged=False
+[2026-09-16 21:44:01] [finance_tech_modelsize] [large] large|AdaBelief|KLAC|42  primary=0.0006326688502831433  diverged=False
+[2026-09-16 21:44:24] [finance_tech_modelsize] [large] large|AdaBelief|KLAC|43  primary=0.0009404717299042555  diverged=False
+[2026-09-16 21:44:46] [finance_tech_modelsize] [large] large|AdaBelief|KLAC|44  primary=0.0007842328182603947  diverged=False
+[2026-09-16 21:45:09] [finance_tech_modelsize] [large] large|AdaBelief|LRCX|42  primary=0.0006979449243141861  diverged=False
+[2026-09-16 21:45:32] [finance_tech_modelsize] [large] large|AdaBelief|LRCX|43  primary=0.0007002244077662312  diverged=False
+[2026-09-16 21:45:54] [finance_tech_modelsize] [large] large|AdaBelief|LRCX|44  primary=0.0006656575770605178  diverged=False
+[2026-09-16 21:46:17] [finance_tech_modelsize] [large] large|AdaBelief|MCHP|42  primary=0.00052201570499511  diverged=False
+[2026-09-16 21:46:40] [finance_tech_modelsize] [large] large|AdaBelief|MCHP|43  primary=0.0005195408507629678  diverged=False
+[2026-09-16 21:47:02] [finance_tech_modelsize] [large] large|AdaBelief|MCHP|44  primary=0.0005187113133687821  diverged=False
+[2026-09-16 21:47:25] [finance_tech_modelsize] [large] large|AdaBelief|META|42  primary=0.0005768038941629278  diverged=False
+[2026-09-16 21:47:47] [finance_tech_modelsize] [large] large|AdaBelief|META|43  primary=0.000498417226023644  diverged=False
+[2026-09-16 21:48:09] [finance_tech_modelsize] [large] large|AdaBelief|META|44  primary=0.0004905570509298792  diverged=False
+[2026-09-16 21:48:32] [finance_tech_modelsize] [large] large|AdaBelief|MRVL|42  primary=0.0012130244541420508  diverged=False
+[2026-09-16 21:48:55] [finance_tech_modelsize] [large] large|AdaBelief|MRVL|43  primary=0.0010897279889495284  diverged=False
+[2026-09-16 21:49:18] [finance_tech_modelsize] [large] large|AdaBelief|MRVL|44  primary=0.0011042073447868307  diverged=False
+[2026-09-16 21:49:41] [finance_tech_modelsize] [large] large|AdaBelief|MSFT|42  primary=0.0002260693008937533  diverged=False
+[2026-09-16 21:50:03] [finance_tech_modelsize] [large] large|AdaBelief|MSFT|43  primary=0.0001729256892330432  diverged=False
+[2026-09-16 21:50:26] [finance_tech_modelsize] [large] large|AdaBelief|MSFT|44  primary=0.00016489609208687273  diverged=False
+[2026-09-16 21:50:49] [finance_tech_modelsize] [large] large|AdaBelief|MSI|42  primary=0.00012119002048931425  diverged=False
+[2026-09-16 21:51:11] [finance_tech_modelsize] [large] large|AdaBelief|MSI|43  primary=0.00014594833923395347  diverged=False
+[2026-09-16 21:51:34] [finance_tech_modelsize] [large] large|AdaBelief|MSI|44  primary=0.0001209567266481894  diverged=False
+[2026-09-16 21:51:56] [finance_tech_modelsize] [large] large|AdaBelief|MU|42  primary=0.0008469631589909709  diverged=False
+[2026-09-16 21:52:19] [finance_tech_modelsize] [large] large|AdaBelief|MU|43  primary=0.0010267612795350413  diverged=False
+[2026-09-16 21:52:42] [finance_tech_modelsize] [large] large|AdaBelief|MU|44  primary=0.0008852894974764062  diverged=False
+[2026-09-16 21:53:04] [finance_tech_modelsize] [large] large|AdaBelief|NOW|42  primary=0.0006976121947878883  diverged=False
+[2026-09-16 21:53:27] [finance_tech_modelsize] [large] large|AdaBelief|NOW|43  primary=0.0006076188314528692  diverged=False
+[2026-09-16 21:53:50] [finance_tech_modelsize] [large] large|AdaBelief|NOW|44  primary=0.000587536512859284  diverged=False
+[2026-09-16 21:54:13] [finance_tech_modelsize] [large] large|AdaBelief|NVDA|42  primary=0.0009120922713052659  diverged=False
+[2026-09-16 21:54:35] [finance_tech_modelsize] [large] large|AdaBelief|NVDA|43  primary=0.001965141800976304  diverged=False
+[2026-09-16 21:54:58] [finance_tech_modelsize] [large] large|AdaBelief|NVDA|44  primary=0.0023660393303664273  diverged=False
+[2026-09-16 21:55:20] [finance_tech_modelsize] [large] large|AdaBelief|NXPI|42  primary=0.00048752888503481864  diverged=False
+[2026-09-16 21:55:43] [finance_tech_modelsize] [large] large|AdaBelief|NXPI|43  primary=0.0012798483378302623  diverged=False
+[2026-09-16 21:56:06] [finance_tech_modelsize] [large] large|AdaBelief|NXPI|44  primary=0.0004522509811338314  diverged=False
+[2026-09-16 21:56:29] [finance_tech_modelsize] [large] large|AdaBelief|ORCL|42  primary=0.0007247283029808569  diverged=False
+[2026-09-16 21:56:51] [finance_tech_modelsize] [large] large|AdaBelief|ORCL|43  primary=0.0010403765257073457  diverged=False
+[2026-09-16 21:57:14] [finance_tech_modelsize] [large] large|AdaBelief|ORCL|44  primary=0.0005535549981884225  diverged=False
+[2026-09-16 21:57:36] [finance_tech_modelsize] [large] large|AdaBelief|PANW|42  primary=0.0008444351375482644  diverged=False
+[2026-09-16 21:57:59] [finance_tech_modelsize] [large] large|AdaBelief|PANW|43  primary=0.0026148990461021472  diverged=False
+[2026-09-16 21:58:22] [finance_tech_modelsize] [large] large|AdaBelief|PANW|44  primary=0.0018103156879449346  diverged=False
+[2026-09-16 21:58:44] [finance_tech_modelsize] [large] large|AdaBelief|PTC|42  primary=0.00021997925938752592  diverged=False
+[2026-09-16 21:59:07] [finance_tech_modelsize] [large] large|AdaBelief|PTC|43  primary=0.0002540849819385185  diverged=False
+[2026-09-16 21:59:30] [finance_tech_modelsize] [large] large|AdaBelief|PTC|44  primary=0.0001918125562566929  diverged=False
+[2026-09-16 21:59:52] [finance_tech_modelsize] [large] large|AdaBelief|PYPL|42  primary=0.0004664425738155842  diverged=False
+[2026-09-16 22:00:15] [finance_tech_modelsize] [large] large|AdaBelief|PYPL|43  primary=0.0004518761299550533  diverged=False
+[2026-09-16 22:00:37] [finance_tech_modelsize] [large] large|AdaBelief|PYPL|44  primary=0.0004497487097978592  diverged=False
+[2026-09-16 22:01:00] [finance_tech_modelsize] [large] large|AdaBelief|QCOM|42  primary=0.0004997272734288816  diverged=False
+[2026-09-16 22:01:23] [finance_tech_modelsize] [large] large|AdaBelief|QCOM|43  primary=0.0005313025186301539  diverged=False
+[2026-09-16 22:01:46] [finance_tech_modelsize] [large] large|AdaBelief|QCOM|44  primary=0.0005071823086057391  diverged=False
+[2026-09-16 22:02:08] [finance_tech_modelsize] [large] large|AdaBelief|ROP|42  primary=0.00012472859293064743  diverged=False
+[2026-09-16 22:02:31] [finance_tech_modelsize] [large] large|AdaBelief|ROP|43  primary=0.000131252729309299  diverged=False
+[2026-09-16 22:02:53] [finance_tech_modelsize] [large] large|AdaBelief|ROP|44  primary=0.000215523102611461  diverged=False
+[2026-09-16 22:03:16] [finance_tech_modelsize] [large] large|AdaBelief|SNOW|42  primary=0.0016740278913340437  diverged=False
+[2026-09-16 22:03:38] [finance_tech_modelsize] [large] large|AdaBelief|SNOW|43  primary=0.0015461168704776589  diverged=False
+[2026-09-16 22:04:01] [finance_tech_modelsize] [large] large|AdaBelief|SNOW|44  primary=0.0015768791557452002  diverged=False
+[2026-09-16 22:04:23] [finance_tech_modelsize] [large] large|AdaBelief|TEL|42  primary=0.00022307586259942837  diverged=False
+[2026-09-16 22:04:46] [finance_tech_modelsize] [large] large|AdaBelief|TEL|43  primary=0.00016929703966650383  diverged=False
+[2026-09-16 22:05:09] [finance_tech_modelsize] [large] large|AdaBelief|TEL|44  primary=0.00018009965224240822  diverged=False
+[2026-09-16 22:05:31] [finance_tech_modelsize] [large] large|AdaBelief|TSLA|42  primary=0.0013741687998745612  diverged=False
+[2026-09-16 22:05:54] [finance_tech_modelsize] [large] large|AdaBelief|TSLA|43  primary=0.0013687096006883299  diverged=False
+[2026-09-16 22:06:17] [finance_tech_modelsize] [large] large|AdaBelief|TSLA|44  primary=0.001374979813893636  diverged=False
+[2026-09-16 22:06:39] [finance_tech_modelsize] [large] large|AdaBelief|TXN|42  primary=0.00026230762402216595  diverged=False
+[2026-09-16 22:07:02] [finance_tech_modelsize] [large] large|AdaBelief|TXN|43  primary=0.00026187560861072845  diverged=False
+[2026-09-16 22:07:25] [finance_tech_modelsize] [large] large|AdaBelief|TXN|44  primary=0.00026387360597413684  diverged=False
+[2026-09-16 22:07:47] [finance_tech_modelsize] [large] large|AdaBelief|TYL|42  primary=0.0002501332964846697  diverged=False
+[2026-09-16 22:08:10] [finance_tech_modelsize] [large] large|AdaBelief|TYL|43  primary=0.000249587511890149  diverged=False
+[2026-09-16 22:08:33] [finance_tech_modelsize] [large] large|AdaBelief|TYL|44  primary=0.0002550257655678603  diverged=False
+[2026-09-16 22:08:55] [finance_tech_modelsize] [large] large|AdaBelief|UBER|42  primary=0.0007475825997305588  diverged=False
+[2026-09-16 22:09:18] [finance_tech_modelsize] [large] large|AdaBelief|UBER|43  primary=0.0006924292046419332  diverged=False
+[2026-09-16 22:09:40] [finance_tech_modelsize] [large] large|AdaBelief|UBER|44  primary=0.0006993737753847955  diverged=False
+[2026-09-16 22:10:03] [finance_tech_modelsize] [large] large|AdaBelief|WDAY|42  primary=0.002286087189401899  diverged=False
+[2026-09-16 22:10:25] [finance_tech_modelsize] [large] large|AdaBelief|WDAY|43  primary=0.00041440143794208375  diverged=False
+[2026-09-16 22:10:48] [finance_tech_modelsize] [large] large|AdaBelief|WDAY|44  primary=0.00042907603375323406  diverged=False
+[2026-09-16 22:12:18] [finance_tech_modelsize] [large] large|EvieKF|AAPL|42  primary=0.00030093736670635363  diverged=False
+[2026-09-16 22:13:48] [finance_tech_modelsize] [large] large|EvieKF|AAPL|43  primary=0.00018778098402199921  diverged=False
+[2026-09-16 22:15:18] [finance_tech_modelsize] [large] large|EvieKF|AAPL|44  primary=0.00018714135759091252  diverged=False
+[2026-09-16 22:16:49] [finance_tech_modelsize] [large] large|EvieKF|ACN|42  primary=0.0002278771704782254  diverged=False
+[2026-09-16 22:18:18] [finance_tech_modelsize] [large] large|EvieKF|ACN|43  primary=0.00020660274716281386  diverged=False
+[2026-09-16 22:19:48] [finance_tech_modelsize] [large] large|EvieKF|ACN|44  primary=0.0002056152101546999  diverged=False
+[2026-09-16 22:21:19] [finance_tech_modelsize] [large] large|EvieKF|ADBE|42  primary=0.00046701201055415726  diverged=False
+[2026-09-16 22:22:48] [finance_tech_modelsize] [large] large|EvieKF|ADBE|43  primary=0.0004709910936456509  diverged=False
+[2026-09-16 22:24:18] [finance_tech_modelsize] [large] large|EvieKF|ADBE|44  primary=0.0004857294064350229  diverged=False
+[2026-09-16 22:25:48] [finance_tech_modelsize] [large] large|EvieKF|ADI|42  primary=0.00036385978655840355  diverged=False
+[2026-09-16 22:27:17] [finance_tech_modelsize] [large] large|EvieKF|ADI|43  primary=0.00033330873995230943  diverged=False
+[2026-09-16 22:28:47] [finance_tech_modelsize] [large] large|EvieKF|ADI|44  primary=0.00033408316670271456  diverged=False
+[2026-09-16 22:30:16] [finance_tech_modelsize] [large] large|EvieKF|ADSK|42  primary=0.00029999305489202026  diverged=False
+[2026-09-16 22:31:46] [finance_tech_modelsize] [large] large|EvieKF|ADSK|43  primary=0.00030210464404373575  diverged=False
+[2026-09-16 22:33:15] [finance_tech_modelsize] [large] large|EvieKF|ADSK|44  primary=0.00030573887169045745  diverged=False
+[2026-09-16 22:34:45] [finance_tech_modelsize] [large] large|EvieKF|AMD|42  primary=0.0008585207046024383  diverged=False
+[2026-09-16 22:36:17] [finance_tech_modelsize] [large] large|EvieKF|AMD|43  primary=0.0008531157617215757  diverged=False
+[2026-09-16 22:37:50] [finance_tech_modelsize] [large] large|EvieKF|AMD|44  primary=0.0008728862912566574  diverged=False
+[2026-09-16 22:39:21] [finance_tech_modelsize] [large] large|EvieKF|AMZN|42  primary=0.0003359345768494581  diverged=False
+[2026-09-16 22:40:58] [finance_tech_modelsize] [large] large|EvieKF|AMZN|43  primary=0.0003446966567367473  diverged=False
+[2026-09-16 22:42:30] [finance_tech_modelsize] [large] large|EvieKF|AMZN|44  primary=0.00034386861734289343  diverged=False
+[2026-09-16 22:44:02] [finance_tech_modelsize] [large] large|EvieKF|APH|42  primary=0.00022991218421825025  diverged=False
+[2026-09-16 22:45:33] [finance_tech_modelsize] [large] large|EvieKF|APH|43  primary=0.00022768917143660248  diverged=False
+[2026-09-16 22:47:04] [finance_tech_modelsize] [large] large|EvieKF|APH|44  primary=0.0002282310533460486  diverged=False
+[2026-09-16 22:48:36] [finance_tech_modelsize] [large] large|EvieKF|AVGO|42  primary=0.0008829508824323221  diverged=False
+[2026-09-16 22:50:08] [finance_tech_modelsize] [large] large|EvieKF|AVGO|43  primary=0.0008970995744069418  diverged=False
+[2026-09-16 22:51:40] [finance_tech_modelsize] [large] large|EvieKF|AVGO|44  primary=0.0008990718889488745  diverged=False
+[2026-09-16 22:53:11] [finance_tech_modelsize] [large] large|EvieKF|CDNS|42  primary=0.0003987844816591374  diverged=False
+[2026-09-16 22:54:43] [finance_tech_modelsize] [large] large|EvieKF|CDNS|43  primary=0.00039200043236767805  diverged=False
+[2026-09-16 22:56:15] [finance_tech_modelsize] [large] large|EvieKF|CDNS|44  primary=0.0003915916359613812  diverged=False
+[2026-09-16 22:57:48] [finance_tech_modelsize] [large] large|EvieKF|CRM|42  primary=0.00047352295073251874  diverged=False
+[2026-09-16 22:59:21] [finance_tech_modelsize] [large] large|EvieKF|CRM|43  primary=0.00045567254225413006  diverged=False
+[2026-09-16 23:00:52] [finance_tech_modelsize] [large] large|EvieKF|CRM|44  primary=0.00046279490309417566  diverged=False
+[2026-09-16 23:02:25] [finance_tech_modelsize] [large] large|EvieKF|CSCO|42  primary=0.00015231779722309617  diverged=False
+[2026-09-16 23:03:56] [finance_tech_modelsize] [large] large|EvieKF|CSCO|43  primary=0.00014755037174653756  diverged=False
+[2026-09-16 23:05:29] [finance_tech_modelsize] [large] large|EvieKF|CSCO|44  primary=0.000147263524393556  diverged=False
+[2026-09-16 23:07:00] [finance_tech_modelsize] [large] large|EvieKF|CTSH|42  primary=0.000171244775176679  diverged=False
+[2026-09-16 23:08:30] [finance_tech_modelsize] [large] large|EvieKF|CTSH|43  primary=0.00016996443823531822  diverged=False
+[2026-09-16 23:10:01] [finance_tech_modelsize] [large] large|EvieKF|CTSH|44  primary=0.0001703172567344847  diverged=False
+[2026-09-16 23:11:31] [finance_tech_modelsize] [large] large|EvieKF|FICO|42  primary=0.0003478624044902741  diverged=False
+[2026-09-16 23:13:03] [finance_tech_modelsize] [large] large|EvieKF|FICO|43  primary=0.000387464960416158  diverged=False
+[2026-09-16 23:14:34] [finance_tech_modelsize] [large] large|EvieKF|FICO|44  primary=0.00038210357780809755  diverged=False
+[2026-09-16 23:16:05] [finance_tech_modelsize] [large] large|EvieKF|FTNT|42  primary=0.0007313090972799473  diverged=False
+[2026-09-16 23:17:36] [finance_tech_modelsize] [large] large|EvieKF|FTNT|43  primary=0.0007152069340307245  diverged=False
+[2026-09-16 23:19:07] [finance_tech_modelsize] [large] large|EvieKF|FTNT|44  primary=0.0007234822032312867  diverged=False
+[2026-09-16 23:20:38] [finance_tech_modelsize] [large] large|EvieKF|GLW|42  primary=0.0002402629328783227  diverged=False
+[2026-09-16 23:22:13] [finance_tech_modelsize] [large] large|EvieKF|GLW|43  primary=0.0002628636186715787  diverged=False
+[2026-09-16 23:23:44] [finance_tech_modelsize] [large] large|EvieKF|GLW|44  primary=0.00023678355116062063  diverged=False
+[2026-09-16 23:25:14] [finance_tech_modelsize] [large] large|EvieKF|GOOGL|42  primary=0.000339351200237476  diverged=False
+[2026-09-16 23:26:45] [finance_tech_modelsize] [large] large|EvieKF|GOOGL|43  primary=0.00036603220240779655  diverged=False
+[2026-09-16 23:28:16] [finance_tech_modelsize] [large] large|EvieKF|GOOGL|44  primary=0.000324543841459133  diverged=False
+[2026-09-16 23:29:46] [finance_tech_modelsize] [large] large|EvieKF|GPN|42  primary=0.00032850457404656383  diverged=False
+[2026-09-16 23:31:17] [finance_tech_modelsize] [large] large|EvieKF|GPN|43  primary=0.00032780565833919265  diverged=False
+[2026-09-16 23:32:48] [finance_tech_modelsize] [large] large|EvieKF|GPN|44  primary=0.0003326414596466791  diverged=False
+[2026-09-16 23:34:19] [finance_tech_modelsize] [large] large|EvieKF|GRMN|42  primary=0.00036143641623239667  diverged=False
+[2026-09-16 23:35:50] [finance_tech_modelsize] [large] large|EvieKF|GRMN|43  primary=0.0003327671339902928  diverged=False
+[2026-09-16 23:37:20] [finance_tech_modelsize] [large] large|EvieKF|GRMN|44  primary=0.000557305912176768  diverged=False
+[2026-09-16 23:38:51] [finance_tech_modelsize] [large] large|EvieKF|HPE|42  primary=0.0005666586602556294  diverged=False
+[2026-09-16 23:40:22] [finance_tech_modelsize] [large] large|EvieKF|HPE|43  primary=0.0005859940730292222  diverged=False
+[2026-09-16 23:41:52] [finance_tech_modelsize] [large] large|EvieKF|HPE|44  primary=0.0005794884315852461  diverged=False
+[2026-09-16 23:43:23] [finance_tech_modelsize] [large] large|EvieKF|HPQ|42  primary=0.0003406723182668131  diverged=False
+[2026-09-16 23:44:54] [finance_tech_modelsize] [large] large|EvieKF|HPQ|43  primary=0.0003370561848872553  diverged=False
+[2026-09-16 23:46:24] [finance_tech_modelsize] [large] large|EvieKF|HPQ|44  primary=0.0003398743571427764  diverged=False
+[2026-09-16 23:47:54] [finance_tech_modelsize] [large] large|EvieKF|IBM|42  primary=0.0003488350797582556  diverged=False
+[2026-09-16 23:49:25] [finance_tech_modelsize] [large] large|EvieKF|IBM|43  primary=0.0004171442496713507  diverged=False
+[2026-09-16 23:50:55] [finance_tech_modelsize] [large] large|EvieKF|IBM|44  primary=0.00024013418369192295  diverged=False
+[2026-09-16 23:52:25] [finance_tech_modelsize] [large] large|EvieKF|INTC|42  primary=0.0009817425851468688  diverged=False
+[2026-09-16 23:53:56] [finance_tech_modelsize] [large] large|EvieKF|INTC|43  primary=0.0009596530722562598  diverged=False
+[2026-09-16 23:55:26] [finance_tech_modelsize] [large] large|EvieKF|INTC|44  primary=0.0009415159149775429  diverged=False
+[2026-09-16 23:56:56] [finance_tech_modelsize] [large] large|EvieKF|INTU|42  primary=0.00029675004185822904  diverged=False
+[2026-09-16 23:58:26] [finance_tech_modelsize] [large] large|EvieKF|INTU|43  primary=0.0002881042738124807  diverged=False
+[2026-09-16 23:59:57] [finance_tech_modelsize] [large] large|EvieKF|INTU|44  primary=0.0004175538344988747  diverged=False
+[2026-09-17 00:01:27] [finance_tech_modelsize] [large] large|EvieKF|KEYS|42  primary=0.00037153007448181624  diverged=False
+[2026-09-17 00:02:57] [finance_tech_modelsize] [large] large|EvieKF|KEYS|43  primary=0.00037411092094672744  diverged=False
+[2026-09-17 00:04:27] [finance_tech_modelsize] [large] large|EvieKF|KEYS|44  primary=0.0003748823159424834  diverged=False
+[2026-09-17 00:05:58] [finance_tech_modelsize] [large] large|EvieKF|KLAC|42  primary=0.0006384765975689762  diverged=False
+[2026-09-17 00:07:27] [finance_tech_modelsize] [signal] EvieKF/KLAC/seed43: checkpointed at step 9935; exiting cleanly
+[2026-09-17 07:18:01] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 07:18:01] [finance_tech_modelsize]   finance_tech_modelsize  |  modelsize sweep on finance_tech  device=cuda  torch=2.10.0+cu128
+[2026-09-17 07:18:01] [finance_tech_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_mse is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 07:18:01] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 07:18:01] [finance_tech_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 07:18:01] [finance_tech_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 07:18:02] [finance_tech_modelsize] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-17 07:18:02] [finance_tech_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-17 07:18:02] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:18:02] [finance_tech_modelsize] [small] LR search  (modelsize = [32, 16])
+[2026-09-17 07:18:02] [finance_tech_modelsize] [small] sweep cells
+[2026-09-17 07:18:02] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:18:02] [finance_tech_modelsize] [large] LR search  (modelsize = [128, 64])
+[2026-09-17 07:18:02] [finance_tech_modelsize] [large] sweep cells
+[2026-09-17 07:18:07] [finance_tech_modelsize] [resume] EvieKF/KLAC/seed43 from step 9935/10000
+[2026-09-17 07:18:09] [finance_tech_modelsize] [large] large|EvieKF|KLAC|43  primary=0.0006299838817939556  diverged=False
+[2026-09-17 07:19:48] [finance_tech_modelsize] [large] large|EvieKF|KLAC|44  primary=0.0006470183531443278  diverged=False
+[2026-09-17 07:21:26] [finance_tech_modelsize] [large] large|EvieKF|LRCX|42  primary=0.0006478828175988777  diverged=False
+[2026-09-17 07:23:03] [finance_tech_modelsize] [large] large|EvieKF|LRCX|43  primary=0.000753139613797425  diverged=False
+[2026-09-17 07:24:39] [finance_tech_modelsize] [large] large|EvieKF|LRCX|44  primary=0.0007437309102406578  diverged=False
+[2026-09-17 07:26:16] [finance_tech_modelsize] [large] large|EvieKF|MCHP|42  primary=0.0005219629990360725  diverged=False
+[2026-09-17 07:27:53] [finance_tech_modelsize] [large] large|EvieKF|MCHP|43  primary=0.0005229775788922789  diverged=False
+[2026-09-17 07:29:29] [finance_tech_modelsize] [large] large|EvieKF|MCHP|44  primary=0.0005186211179803919  diverged=False
+[2026-09-17 07:31:05] [finance_tech_modelsize] [large] large|EvieKF|META|42  primary=0.00048185688144755813  diverged=False
+[2026-09-17 07:32:42] [finance_tech_modelsize] [large] large|EvieKF|META|43  primary=0.0004971204032688021  diverged=False
+[2026-09-17 07:34:18] [finance_tech_modelsize] [large] large|EvieKF|META|44  primary=0.000525146207344607  diverged=False
+[2026-09-17 07:35:55] [finance_tech_modelsize] [large] large|EvieKF|MRVL|42  primary=0.0010360323247455415  diverged=False
+[2026-09-17 07:37:31] [finance_tech_modelsize] [large] large|EvieKF|MRVL|43  primary=0.0010483719053722563  diverged=False
+[2026-09-17 07:39:08] [finance_tech_modelsize] [large] large|EvieKF|MRVL|44  primary=0.0010421602498917352  diverged=False
+[2026-09-17 07:40:45] [finance_tech_modelsize] [large] large|EvieKF|MSFT|42  primary=0.0001739534751448051  diverged=False
+[2026-09-17 07:42:21] [finance_tech_modelsize] [large] large|EvieKF|MSFT|43  primary=0.00023975010429109846  diverged=False
+[2026-09-17 07:43:58] [finance_tech_modelsize] [large] large|EvieKF|MSFT|44  primary=0.00016506974186216082  diverged=False
+[2026-09-17 07:45:36] [finance_tech_modelsize] [large] large|EvieKF|MSI|42  primary=0.00013330576832963045  diverged=False
+[2026-09-17 07:47:13] [finance_tech_modelsize] [large] large|EvieKF|MSI|43  primary=0.0009486323626583846  diverged=False
+[2026-09-17 07:48:51] [finance_tech_modelsize] [large] large|EvieKF|MSI|44  primary=0.00012023647429135741  diverged=False
+[2026-09-17 07:50:28] [finance_tech_modelsize] [large] large|EvieKF|MU|42  primary=0.0008924589270637149  diverged=False
+[2026-09-17 07:52:06] [finance_tech_modelsize] [large] large|EvieKF|MU|43  primary=0.0008432145314241843  diverged=False
+[2026-09-17 07:53:43] [finance_tech_modelsize] [large] large|EvieKF|MU|44  primary=0.0008773698062493057  diverged=False
+[2026-09-17 07:55:20] [finance_tech_modelsize] [large] large|EvieKF|NOW|42  primary=0.00043858663430289616  diverged=False
+[2026-09-17 07:56:58] [finance_tech_modelsize] [large] large|EvieKF|NOW|43  primary=0.0005019634489029172  diverged=False
+[2026-09-17 07:58:35] [finance_tech_modelsize] [large] large|EvieKF|NOW|44  primary=0.00041989064405834867  diverged=False
+[2026-09-17 08:00:12] [finance_tech_modelsize] [large] large|EvieKF|NVDA|42  primary=0.0009095972334897077  diverged=False
+[2026-09-17 08:01:49] [finance_tech_modelsize] [large] large|EvieKF|NVDA|43  primary=0.0009152899501184938  diverged=False
+[2026-09-17 08:03:26] [finance_tech_modelsize] [large] large|EvieKF|NVDA|44  primary=0.000947053312624573  diverged=False
+[2026-09-17 08:05:02] [finance_tech_modelsize] [large] large|EvieKF|NXPI|42  primary=0.00045477555803030977  diverged=False
+[2026-09-17 08:06:40] [finance_tech_modelsize] [large] large|EvieKF|NXPI|43  primary=0.0004729505412834735  diverged=False
+[2026-09-17 08:08:16] [finance_tech_modelsize] [large] large|EvieKF|NXPI|44  primary=0.0004536579709407712  diverged=False
+[2026-09-17 08:09:53] [finance_tech_modelsize] [large] large|EvieKF|ORCL|42  primary=0.0004362501795329745  diverged=False
+[2026-09-17 08:11:29] [finance_tech_modelsize] [large] large|EvieKF|ORCL|43  primary=0.0004365411463868681  diverged=False
+[2026-09-17 08:13:06] [finance_tech_modelsize] [large] large|EvieKF|ORCL|44  primary=0.0004397225048806932  diverged=False
+[2026-09-17 08:14:43] [finance_tech_modelsize] [large] large|EvieKF|PANW|42  primary=0.0008277028419409588  diverged=False
+[2026-09-17 08:16:19] [finance_tech_modelsize] [large] large|EvieKF|PANW|43  primary=0.000843322580787027  diverged=False
+[2026-09-17 08:17:55] [finance_tech_modelsize] [large] large|EvieKF|PANW|44  primary=0.0008368445619656022  diverged=False
+[2026-09-17 08:19:31] [finance_tech_modelsize] [large] large|EvieKF|PTC|42  primary=0.00024354158255158277  diverged=False
+[2026-09-17 08:21:08] [finance_tech_modelsize] [large] large|EvieKF|PTC|43  primary=0.00035398638753033186  diverged=False
+[2026-09-17 08:22:45] [finance_tech_modelsize] [large] large|EvieKF|PTC|44  primary=0.00020445335321325474  diverged=False
+[2026-09-17 08:24:21] [finance_tech_modelsize] [large] large|EvieKF|PYPL|42  primary=0.0004491110642751058  diverged=False
+[2026-09-17 08:25:57] [finance_tech_modelsize] [large] large|EvieKF|PYPL|43  primary=0.00045320885255932807  diverged=False
+[2026-09-17 08:27:34] [finance_tech_modelsize] [large] large|EvieKF|PYPL|44  primary=0.00046234047040343284  diverged=False
+[2026-09-17 08:29:10] [finance_tech_modelsize] [large] large|EvieKF|QCOM|42  primary=0.0005038506376049506  diverged=False
+[2026-09-17 08:30:46] [finance_tech_modelsize] [large] large|EvieKF|QCOM|43  primary=0.0005094468908965903  diverged=False
+[2026-09-17 08:32:22] [finance_tech_modelsize] [large] large|EvieKF|QCOM|44  primary=0.0006378266231092827  diverged=False
+[2026-09-17 08:33:59] [finance_tech_modelsize] [large] large|EvieKF|ROP|42  primary=0.00011264854086139214  diverged=False
+[2026-09-17 08:35:36] [finance_tech_modelsize] [large] large|EvieKF|ROP|43  primary=0.00011274325981657341  diverged=False
+[2026-09-17 08:37:13] [finance_tech_modelsize] [large] large|EvieKF|ROP|44  primary=0.00012490562306194709  diverged=False
+[2026-09-17 08:38:50] [finance_tech_modelsize] [large] large|EvieKF|SNOW|42  primary=0.0016142155872572452  diverged=False
+[2026-09-17 08:40:27] [finance_tech_modelsize] [large] large|EvieKF|SNOW|43  primary=0.001523813659991693  diverged=False
+[2026-09-17 08:42:03] [finance_tech_modelsize] [large] large|EvieKF|SNOW|44  primary=0.0016795893054489695  diverged=False
+[2026-09-17 08:43:40] [finance_tech_modelsize] [large] large|EvieKF|TEL|42  primary=0.0001658320663467286  diverged=False
+[2026-09-17 08:45:17] [finance_tech_modelsize] [large] large|EvieKF|TEL|43  primary=0.0001748180184414778  diverged=False
+[2026-09-17 08:46:53] [finance_tech_modelsize] [large] large|EvieKF|TEL|44  primary=0.00016533995352724872  diverged=False
+[2026-09-17 08:48:30] [finance_tech_modelsize] [large] large|EvieKF|TSLA|42  primary=0.0013645568180605363  diverged=False
+[2026-09-17 08:50:06] [finance_tech_modelsize] [large] large|EvieKF|TSLA|43  primary=0.0013543683323052412  diverged=False
+[2026-09-17 08:51:47] [finance_tech_modelsize] [large] large|EvieKF|TSLA|44  primary=0.0013628554800169065  diverged=False
+[2026-09-17 08:53:24] [finance_tech_modelsize] [large] large|EvieKF|TXN|42  primary=0.0002638061762486816  diverged=False
+[2026-09-17 08:55:01] [finance_tech_modelsize] [large] large|EvieKF|TXN|43  primary=0.0002595862501828128  diverged=False
+[2026-09-17 08:56:39] [finance_tech_modelsize] [large] large|EvieKF|TXN|44  primary=0.0002625384737574865  diverged=False
+[2026-09-17 08:58:16] [finance_tech_modelsize] [large] large|EvieKF|TYL|42  primary=0.00024562157572261873  diverged=False
+[2026-09-17 08:59:54] [finance_tech_modelsize] [large] large|EvieKF|TYL|43  primary=0.00023782919481317834  diverged=False
+[2026-09-17 09:01:31] [finance_tech_modelsize] [large] large|EvieKF|TYL|44  primary=0.0002669755310293228  diverged=False
+[2026-09-17 09:03:07] [finance_tech_modelsize] [large] large|EvieKF|UBER|42  primary=0.0007513538002967834  diverged=False
+[2026-09-17 09:04:43] [finance_tech_modelsize] [large] large|EvieKF|UBER|43  primary=0.0008326451963102313  diverged=False
+[2026-09-17 09:06:20] [finance_tech_modelsize] [large] large|EvieKF|UBER|44  primary=0.0007307988027451743  diverged=False
+[2026-09-17 09:07:58] [finance_tech_modelsize] [large] large|EvieKF|WDAY|42  primary=0.00042805085321525476  diverged=False
+[2026-09-17 09:09:35] [finance_tech_modelsize] [large] large|EvieKF|WDAY|43  primary=0.0010753361048636498  diverged=False
+[2026-09-17 09:11:11] [finance_tech_modelsize] [large] large|EvieKF|WDAY|44  primary=0.00042320033172508337  diverged=False
+[2026-09-17 09:11:12] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 09:11:12] [finance_tech_modelsize] [baseline] reusing the main run's frozen LR + seed [42, 43, 44] cells from checkpoints/finance_tech/
+[2026-09-17 09:11:12] [finance_tech_modelsize] [sweep] baseline point: 444 pieces NOT found under checkpoints/finance_tech/ -- run that main task first for a complete baseline column. Missing e.g. ['lr[AdamW]', 'lr[AdaBelief]', 'lr[EvieKF]', 'cell[AdamW|AAPL|42]', 'cell[AdamW|AAPL|43]', 'cell[AdamW|AAPL|44]'] ...
+[2026-09-17 09:11:12] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 09:11:12] [finance_tech_modelsize]   MODELSIZE SWEEP -- finance_tech_modelsize   primary=test_mse (lower is better)
+[2026-09-17 09:11:12] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 09:11:12] [finance_tech_modelsize]   grid point                x          AdamW    AdaBelief       EvieKF
+[2026-09-17 09:11:12] [finance_tech_modelsize]   small                   512     0.00047384   0.00047014   0.00047161
+[2026-09-17 09:11:12] [finance_tech_modelsize]   large                  8192     0.00056103   0.00057929   0.00050086
+[2026-09-17 09:11:12] [finance_tech_modelsize]   baseline               2048            nan          nan          nan   [reused baseline]
+[2026-09-17 09:11:12] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 09:11:12] [finance_tech_modelsize]   delta vs AdamW  (d>0 => arm beats AdamW at that grid point; direction-normalised relative)
+[2026-09-17 09:11:12] [finance_tech_modelsize]     small            AdaBelief:+0.008  EvieKF:+0.005
+[2026-09-17 09:11:12] [finance_tech_modelsize]     large            AdaBelief:-0.033  EvieKF:+0.107
+[2026-09-17 09:11:12] [finance_tech_modelsize]     baseline         AdaBelief:+nan  EvieKF:+nan
+[2026-09-17 09:11:12] [finance_tech_modelsize]   wrote /kaggle/working/checkpoints/finance_tech_modelsize/results_raw.csv
+[2026-09-17 09:11:12] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 09:11:12] [finance_tech_modelsize]   wrote /kaggle/working/checkpoints/finance_tech_modelsize/summary.json  and  /kaggle/working/checkpoints/finance_tech_modelsize/sweep_results.json
+[2026-09-17 09:11:12] [finance_tech_modelsize]   DONE 2026-09-17T09:11:12.620466
+[2026-09-17 19:25:36] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 19:25:36] [finance_tech_modelsize]   finance_tech_modelsize  |  modelsize sweep on finance_tech  device=cuda  torch=2.10.0+cu128
+[2026-09-17 19:25:36] [finance_tech_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_mse is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 19:25:36] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 19:25:36] [finance_tech_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 19:25:36] [finance_tech_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 19:25:37] [finance_tech_modelsize] [data] panel=tech: 49 usable tickers (dropped 0: []); LR-search tickers=['QCOM', 'APH', 'ACN', 'GPN', 'GLW', 'FTNT', 'AVGO', 'AMZN']
+[2026-09-17 19:25:37] [finance_tech_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-17 19:25:37] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:37] [finance_tech_modelsize] [small] LR search  (modelsize = [32, 16])
+[2026-09-17 19:25:37] [finance_tech_modelsize] [small] sweep cells
+[2026-09-17 19:25:37] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:37] [finance_tech_modelsize] [large] LR search  (modelsize = [128, 64])
+[2026-09-17 19:25:37] [finance_tech_modelsize] [large] sweep cells
+[2026-09-17 19:25:37] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:37] [finance_tech_modelsize] [baseline] reusing the main run's frozen LR + seed [42, 43, 44] cells from checkpoints/finance_tech/
+[2026-09-17 19:25:37] [finance_tech_modelsize] [sweep] baseline point: 444 pieces NOT found under checkpoints/finance_tech/ -- run that main task first for a complete baseline column. Missing e.g. ['lr[AdamW]', 'lr[AdaBelief]', 'lr[EvieKF]', 'cell[AdamW|AAPL|42]', 'cell[AdamW|AAPL|43]', 'cell[AdamW|AAPL|44]'] ...
+[2026-09-17 19:25:38] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 19:25:38] [finance_tech_modelsize]   MODELSIZE SWEEP -- finance_tech_modelsize   primary=test_mse (lower is better)
+[2026-09-17 19:25:38] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:38] [finance_tech_modelsize]   grid point                x          AdamW    AdaBelief       EvieKF
+[2026-09-17 19:25:38] [finance_tech_modelsize]   small                   512     0.00047384   0.00047014   0.00047161
+[2026-09-17 19:25:38] [finance_tech_modelsize]   large                  8192     0.00056103   0.00057929   0.00050086
+[2026-09-17 19:25:38] [finance_tech_modelsize]   baseline               2048            nan          nan          nan   [reused baseline]
+[2026-09-17 19:25:38] [finance_tech_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:25:38] [finance_tech_modelsize]   delta vs AdamW  (d>0 => arm beats AdamW at that grid point; direction-normalised relative)
+[2026-09-17 19:25:38] [finance_tech_modelsize]     small            AdaBelief:+0.008  EvieKF:+0.005
+[2026-09-17 19:25:38] [finance_tech_modelsize]     large            AdaBelief:-0.033  EvieKF:+0.107
+[2026-09-17 19:25:38] [finance_tech_modelsize]     baseline         AdaBelief:+nan  EvieKF:+nan
+[2026-09-17 19:25:38] [finance_tech_modelsize]   wrote /kaggle/working/checkpoints/finance_tech_modelsize/results_raw.csv
+[2026-09-17 19:25:38] [finance_tech_modelsize] ====================================================================================================
+[2026-09-17 19:25:38] [finance_tech_modelsize]   wrote /kaggle/working/checkpoints/finance_tech_modelsize/summary.json  and  /kaggle/working/checkpoints/finance_tech_modelsize/sweep_results.json
+[2026-09-17 19:25:38] [finance_tech_modelsize]   DONE 2026-09-17T19:25:38.319837

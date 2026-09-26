@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# run-time artefacts, never committed: results are committed under
+# benchmark12/results/ instead, already reduced.
+checkpoints/
+*.pt
+*.pt.bak

@@ -1,0 +1,133 @@
+{
+  "task_name": "vision_stl10",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "main",
+  "opt_names": [
+    "EvieKF",
+    "AdamW",
+    "AdaBelief",
+    "Muon",
+    "Shampoo",
+    "Sophia",
+    "Lion",
+    "SGD"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 48.5875,
+    "AdamW": 51.2875,
+    "AdaBelief": 50.8375,
+    "Muon": 48.85,
+    "Shampoo": 51.25,
+    "Sophia": 47.475,
+    "Lion": 49.9625,
+    "SGD": 47.75
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 48.5875,
+    "AdamW": 51.2875,
+    "AdaBelief": 50.8375,
+    "Muon": 48.85,
+    "Shampoo": 51.25,
+    "Sophia": 47.475,
+    "Lion": 49.9625,
+    "SGD": 47.75
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 52.075,
+      "43": 46.9375,
+      "44": 50.075,
+      "45": 48.225,
+      "46": 48.5875
+    },
+    "AdamW": {
+      "42": 51.2875,
+      "43": 50.175,
+      "44": 50.5125,
+      "45": 51.3125,
+      "46": 51.35
+    },
+    "AdaBelief": {
+      "42": 50.2625,
+      "43": 50.1875,
+      "44": 50.8375,
+      "45": 51.5625,
+      "46": 52.4
+    },
+    "Muon": {
+      "42": 49.1375,
+      "43": 48.85,
+      "44": 48.85,
+      "45": 50.05,
+      "46": 47.3375
+    },
+    "Shampoo": {
+      "42": 51.25,
+      "43": 51.425,
+      "44": 51.025,
+      "45": 50.7875,
+      "46": 52.6875
+    },
+    "Sophia": {
+      "42": 48.0125,
+      "43": 47.4625,
+      "44": 47.475,
+      "45": 46.5625,
+      "46": 48.6375
+    },
+    "Lion": {
+      "42": 49.5625,
+      "43": 49.9625,
+      "44": 50.725,
+      "45": 49.25,
+      "46": 50.225
+    },
+    "SGD": {
+      "42": 48.125,
+      "43": 47.5625,
+      "44": 47.925,
+      "45": 45.3875,
+      "46": 47.75
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.03162,
+    "AdamW": 0.01,
+    "AdaBelief": 0.003162,
+    "Muon": 0.02,
+    "Shampoo": 0.003162,
+    "Sophia": 0.003162,
+    "Lion": 0.003162,
+    "SGD": 0.3
+  },
+  "knob_used": {
+    "EvieKF": 3.0,
+    "AdamW": null,
+    "AdaBelief": null,
+    "Muon": null,
+    "Shampoo": 0.9,
+    "Sophia": null,
+    "Lion": null,
+    "SGD": null
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null
+}

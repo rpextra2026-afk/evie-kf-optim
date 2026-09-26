@@ -1,0 +1,133 @@
+{
+  "task_name": "language_wikitext2",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "main",
+  "opt_names": [
+    "EvieKF",
+    "AdamW",
+    "AdaBelief",
+    "Muon",
+    "Shampoo",
+    "Sophia",
+    "Lion",
+    "SGD"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 100.45674286767259,
+    "AdamW": 105.7006301989306,
+    "AdaBelief": 97.15342387463159,
+    "Muon": 83.62438927773732,
+    "Shampoo": 123.91236361546304,
+    "Sophia": 123.7504007454299,
+    "Lion": 106.64712839437772,
+    "SGD": 103.79600315146155
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 100.45674286767259,
+    "AdamW": 105.7006301989306,
+    "AdaBelief": 97.15342387463159,
+    "Muon": 83.62438927773732,
+    "Shampoo": 123.91236361546304,
+    "Sophia": 123.7504007454299,
+    "Lion": 106.64712839437772,
+    "SGD": 103.79600315146155
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 99.66651587713046,
+      "43": 98.33014102081073,
+      "44": 102.5627687890703,
+      "45": 100.45674286767259,
+      "46": 101.58756880933568
+    },
+    "AdamW": {
+      "42": 104.84609906927099,
+      "43": 105.86271187273277,
+      "44": 106.35276668896388,
+      "45": 103.75131158073818,
+      "46": 105.7006301989306
+    },
+    "AdaBelief": {
+      "42": 94.80155875980499,
+      "43": 97.15342387463159,
+      "44": 98.15293208494727,
+      "45": 97.07908936760143,
+      "46": 97.85046406293533
+    },
+    "Muon": {
+      "42": 84.41206281561622,
+      "43": 82.92233332064279,
+      "44": 83.62438927773732,
+      "45": 84.31561856364685,
+      "46": 83.18042571553251
+    },
+    "Shampoo": {
+      "42": 125.51845637322101,
+      "43": 123.04754021690235,
+      "44": 123.91236361546304,
+      "45": 126.42192951950688,
+      "46": 119.37518720030927
+    },
+    "Sophia": {
+      "42": 119.37526067993963,
+      "43": 124.60368507186318,
+      "44": 118.03525628248563,
+      "45": 123.7504007454299,
+      "46": 124.56253131914818
+    },
+    "Lion": {
+      "42": 110.08647369337709,
+      "43": 104.43653761738057,
+      "44": 111.10618812899142,
+      "45": 106.64712839437772,
+      "46": 106.12863789368316
+    },
+    "SGD": {
+      "42": 103.79600315146155,
+      "43": 103.18422468746179,
+      "44": 102.94166301482622,
+      "45": 104.24752004396652,
+      "46": 104.00161648821697
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.001,
+    "AdamW": 0.001,
+    "AdaBelief": 0.0003162,
+    "Muon": 0.006325,
+    "Shampoo": 0.003162,
+    "Sophia": 0.001,
+    "Lion": 0.0001,
+    "SGD": 0.09487
+  },
+  "knob_used": {
+    "EvieKF": 300.0,
+    "AdamW": null,
+    "AdaBelief": null,
+    "Muon": null,
+    "Shampoo": 0.95,
+    "Sophia": null,
+    "Lion": null,
+    "SGD": null
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)"
+}

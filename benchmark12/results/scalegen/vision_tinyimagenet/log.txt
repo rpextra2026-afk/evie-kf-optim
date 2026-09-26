@@ -1,0 +1,196 @@
+[2026-09-13 06:16:35] [vision_tinyimagenet] ====================================================================================================
+[2026-09-13 06:16:35] [vision_tinyimagenet]   vision_tinyimagenet  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-13 06:16:35] [vision_tinyimagenet]   primary=test_top1_acc  seeds=[42, 43, 44]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-13 06:16:35] [vision_tinyimagenet] ====================================================================================================
+[2026-09-13 06:16:35] [vision_tinyimagenet] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 06:16:35] [vision_tinyimagenet] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 06:16:41] [vision_tinyimagenet] [data] downloading http://cs231n.stanford.edu/tiny-imagenet-200.zip (attempt 1/3)
+[2026-09-13 06:17:24] [vision_tinyimagenet] [data] tinyimagenet: wrote cache /kaggle/working/checkpoints/_data/tinyimagenet/tinyimagenet.npz (train=100000 val=10000 classes=200)
+[2026-09-13 06:17:56] [vision_tinyimagenet] [data] tinyimagenet: train=90000 val=10000 test=10000 classes=200  mean=[0.48019999265670776, 0.4478999972343445, 0.39719998836517334] std=[0.2766000032424927, 0.2689000070095062, 0.2815999984741211]
+[2026-09-13 06:17:57] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-13 06:17:57] [vision_tinyimagenet] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon']
+[2026-09-13 06:26:20] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=6.2
+[2026-09-13 06:35:02] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=6.19
+[2026-09-13 06:43:42] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=6.35
+[2026-09-13 06:52:18] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=6.37
+[2026-09-13 07:00:57] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=6.34
+[2026-09-13 07:09:32] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=6.25
+[2026-09-13 07:18:09] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=6.05
+[2026-09-13 07:26:46] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=14.12
+[2026-09-13 07:35:25] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=13.51
+[2026-09-13 07:44:02] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=13.03
+[2026-09-13 07:52:42] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=12.36
+[2026-09-13 08:01:22] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=11.61
+[2026-09-13 08:10:00] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=11.08
+[2026-09-13 08:18:40] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=10.17
+[2026-09-13 08:27:18] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=23.13
+[2026-09-13 08:35:58] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=22.33
+[2026-09-13 08:44:36] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=21.77
+[2026-09-13 08:53:13] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=21.22
+[2026-09-13 09:01:51] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=20.77
+[2026-09-13 09:10:26] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=19.98
+[2026-09-13 09:19:03] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=19.31
+[2026-09-13 09:27:39] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=30
+[2026-09-13 09:36:16] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=29.63
+[2026-09-13 09:44:52] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=28.84
+[2026-09-13 09:53:31] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=28.63
+[2026-09-13 10:02:11] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=28.58
+[2026-09-13 10:10:45] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=28.27
+[2026-09-13 10:19:18] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=27.68
+[2026-09-13 10:27:50] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=34.16
+[2026-09-13 10:36:22] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=33.88
+[2026-09-13 10:44:55] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=33.82
+[2026-09-13 10:53:27] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=34.21
+[2026-09-13 11:02:00] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=34.25
+[2026-09-13 11:10:35] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=33.65
+[2026-09-13 11:19:09] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=34.03
+[2026-09-13 11:27:41] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=34.47
+[2026-09-13 11:36:14] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=34.82
+[2026-09-13 11:44:47] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=34.96
+[2026-09-13 11:53:19] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=35.89
+[2026-09-13 12:01:51] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=36.69
+[2026-09-13 12:10:23] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=36.85
+[2026-09-13 12:18:55] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=37.55
+[2026-09-13 12:27:21] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=28.71
+[2026-09-13 12:35:48] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=29.72
+[2026-09-13 12:44:15] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=30.52
+[2026-09-13 12:52:44] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=31.45
+[2026-09-13 13:01:14] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=32.76
+[2026-09-13 13:09:43] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=33.18
+[2026-09-13 13:18:13] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=33.91
+[2026-09-13 13:18:13] [vision_tinyimagenet] [lr-search] EvieKF: knob pick 3000 at grid edge -> extend [9000.0, 27000.0] and re-search (boundary check #1)
+[2026-09-13 13:26:45] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=9000  score=5.91
+[2026-09-13 13:35:17] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-05  knob=27000  score=5.55
+[2026-09-13 13:43:48] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=9000  score=9.2
+[2026-09-13 13:52:19] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-04  knob=27000  score=8.49
+[2026-09-13 14:00:50] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=9000  score=18.21
+[2026-09-13 14:09:22] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-04  knob=27000  score=17.23
+[2026-09-13 14:16:31] [vision_tinyimagenet] [signal] EvieKF/full/seed42/LR: checkpointed at step 2091; exiting cleanly
+[2026-09-13 18:16:57] [vision_tinyimagenet] ====================================================================================================
+[2026-09-13 18:16:57] [vision_tinyimagenet]   vision_tinyimagenet  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-13 18:16:57] [vision_tinyimagenet]   primary=test_top1_acc  seeds=[42, 43, 44]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-13 18:16:57] [vision_tinyimagenet] ====================================================================================================
+[2026-09-13 18:16:58] [vision_tinyimagenet] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 18:16:58] [vision_tinyimagenet] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 18:17:06] [vision_tinyimagenet] [data] tinyimagenet: warm cache hit at /kaggle/working/checkpoints/_data/tinyimagenet/tinyimagenet.npz, no network
+[2026-09-13 18:17:39] [vision_tinyimagenet] [data] tinyimagenet: train=90000 val=10000 test=10000 classes=200  mean=[0.48019999265670776, 0.4478999972343445, 0.39719998836517334] std=[0.2766000032424927, 0.2689000070095062, 0.2815999984741211]
+[2026-09-13 18:17:39] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-13 18:17:39] [vision_tinyimagenet] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon']
+[2026-09-13 18:17:39] [vision_tinyimagenet] [lr-search] EvieKF: knob pick 3000 at grid edge -> extend [9000.0, 27000.0] and re-search (boundary check #2)
+[2026-09-13 18:26:38] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=9000  score=27.08
+[2026-09-13 18:35:41] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-03  knob=27000  score=26.29
+[2026-09-13 18:44:44] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=9000  score=33.31
+[2026-09-13 18:53:46] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-03  knob=27000  score=33.25
+[2026-09-13 19:02:48] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=9000  score=36.95
+[2026-09-13 19:11:49] [vision_tinyimagenet] [lr-search] EvieKF  lr=1.000e-02  knob=27000  score=36.03
+[2026-09-13 19:20:49] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=9000  score=34.84
+[2026-09-13 19:29:48] [vision_tinyimagenet] [lr-search] EvieKF  lr=3.162e-02  knob=27000  score=35.3
+[2026-09-13 19:29:48] [vision_tinyimagenet] [lr-search] EvieKF: FROZEN lr=1.000e-02  knob=3000  (LR boundary checks: 0, knob boundary checks: 2)
+[2026-09-13 19:29:48] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 19:35:43] [vision_tinyimagenet] [lr-search] AdamW  lr=3.162e-05  knob=-  score=6.33
+[2026-09-13 19:35:43] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 19:41:37] [vision_tinyimagenet] [lr-search] AdamW  lr=1.000e-04  knob=-  score=14.8
+[2026-09-13 19:41:38] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 19:47:32] [vision_tinyimagenet] [lr-search] AdamW  lr=3.162e-04  knob=-  score=24.17
+[2026-09-13 19:47:32] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 19:53:27] [vision_tinyimagenet] [lr-search] AdamW  lr=1.000e-03  knob=-  score=30.53
+[2026-09-13 19:53:27] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 19:59:22] [vision_tinyimagenet] [lr-search] AdamW  lr=3.162e-03  knob=-  score=33.83
+[2026-09-13 19:59:22] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:05:14] [vision_tinyimagenet] [lr-search] AdamW  lr=1.000e-02  knob=-  score=33.77
+[2026-09-13 20:05:14] [vision_tinyimagenet] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:10:57] [vision_tinyimagenet] [lr-search] AdamW  lr=3.162e-02  knob=-  score=23.81
+[2026-09-13 20:10:57] [vision_tinyimagenet] [lr-search] AdamW: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 20:10:57] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:17:01] [vision_tinyimagenet] [lr-search] AdaBelief  lr=3.162e-05  knob=-  score=6.89
+[2026-09-13 20:17:01] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:23:06] [vision_tinyimagenet] [lr-search] AdaBelief  lr=1.000e-04  knob=-  score=16.36
+[2026-09-13 20:23:06] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:29:11] [vision_tinyimagenet] [lr-search] AdaBelief  lr=3.162e-04  knob=-  score=25.14
+[2026-09-13 20:29:11] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:35:16] [vision_tinyimagenet] [lr-search] AdaBelief  lr=1.000e-03  knob=-  score=30.8
+[2026-09-13 20:35:16] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:41:19] [vision_tinyimagenet] [lr-search] AdaBelief  lr=3.162e-03  knob=-  score=33.97
+[2026-09-13 20:41:19] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:47:21] [vision_tinyimagenet] [lr-search] AdaBelief  lr=1.000e-02  knob=-  score=32.55
+[2026-09-13 20:47:21] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:53:16] [vision_tinyimagenet] [lr-search] AdaBelief  lr=3.162e-02  knob=-  score=23.92
+[2026-09-13 20:53:16] [vision_tinyimagenet] [lr-search] AdaBelief: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 20:53:16] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:01:04] [vision_tinyimagenet] [lr-search] Muon  lr=6.325e-04  knob=-  score=40.61
+[2026-09-13 21:01:04] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:08:53] [vision_tinyimagenet] [lr-search] Muon  lr=2.000e-03  knob=-  score=43.43
+[2026-09-13 21:08:53] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:16:42] [vision_tinyimagenet] [lr-search] Muon  lr=6.325e-03  knob=-  score=44.31
+[2026-09-13 21:16:42] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:24:31] [vision_tinyimagenet] [lr-search] Muon  lr=2.000e-02  knob=-  score=42.84
+[2026-09-13 21:24:31] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:32:20] [vision_tinyimagenet] [lr-search] Muon  lr=6.325e-02  knob=-  score=41.39
+[2026-09-13 21:32:20] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:40:09] [vision_tinyimagenet] [lr-search] Muon  lr=2.000e-01  knob=-  score=38.68
+[2026-09-13 21:40:09] [vision_tinyimagenet] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:47:53] [vision_tinyimagenet] [lr-search] Muon  lr=6.325e-01  knob=-  score=28.47
+[2026-09-13 21:47:53] [vision_tinyimagenet] [lr-search] Muon: FROZEN lr=6.325e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 21:47:53] [vision_tinyimagenet] [lr-search] frozen: EvieKF=1.000e-02/k=3000, AdamW=3.162e-03, AdaBelief=3.162e-03, Muon=6.325e-03
+[2026-09-13 21:47:53] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-13 21:47:53] [vision_tinyimagenet] [sweep] 4 optimizers x 1 units x 3 seeds = 12 cells
+[2026-09-13 22:24:31] [vision_tinyimagenet] [sweep] 1/12  EvieKF|full|42  primary=38.59  diverged=False
+[2026-09-13 23:01:12] [vision_tinyimagenet] [sweep] 2/12  EvieKF|full|43  primary=37.16  diverged=False
+[2026-09-13 23:37:53] [vision_tinyimagenet] [sweep] 3/12  EvieKF|full|44  primary=37.54  diverged=False
+[2026-09-13 23:37:53] [vision_tinyimagenet] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 00:01:53] [vision_tinyimagenet] [sweep] 4/12  AdamW|full|42  primary=35.52  diverged=False
+[2026-09-14 00:01:53] [vision_tinyimagenet] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 00:25:54] [vision_tinyimagenet] [sweep] 5/12  AdamW|full|43  primary=36.91  diverged=False
+[2026-09-14 00:25:54] [vision_tinyimagenet] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 00:49:54] [vision_tinyimagenet] [sweep] 6/12  AdamW|full|44  primary=36.08  diverged=False
+[2026-09-14 00:49:55] [vision_tinyimagenet] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 01:14:33] [vision_tinyimagenet] [sweep] 7/12  AdaBelief|full|42  primary=36.18  diverged=False
+[2026-09-14 01:14:33] [vision_tinyimagenet] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 01:39:13] [vision_tinyimagenet] [sweep] 8/12  AdaBelief|full|43  primary=36.71  diverged=False
+[2026-09-14 01:39:13] [vision_tinyimagenet] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 02:03:50] [vision_tinyimagenet] [sweep] 9/12  AdaBelief|full|44  primary=36.22  diverged=False
+[2026-09-14 02:03:50] [vision_tinyimagenet] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 02:16:54] [vision_tinyimagenet] [signal] Muon/full/seed42: checkpointed at step 4153; exiting cleanly
+[2026-09-14 16:48:33] [vision_tinyimagenet] ====================================================================================================
+[2026-09-14 16:48:33] [vision_tinyimagenet]   vision_tinyimagenet  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-14 16:48:33] [vision_tinyimagenet]   primary=test_top1_acc  seeds=[42, 43, 44]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-14 16:48:33] [vision_tinyimagenet] ====================================================================================================
+[2026-09-14 16:48:34] [vision_tinyimagenet] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 16:48:34] [vision_tinyimagenet] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 16:48:39] [vision_tinyimagenet] [data] downloading http://cs231n.stanford.edu/tiny-imagenet-200.zip (attempt 1/3)
+[2026-09-14 16:50:44] [vision_tinyimagenet] [data] tinyimagenet: wrote cache /kaggle/working/checkpoints/_data/tinyimagenet/tinyimagenet.npz (train=100000 val=10000 classes=200)
+[2026-09-14 16:51:13] [vision_tinyimagenet] [data] tinyimagenet: train=90000 val=10000 test=10000 classes=200  mean=[0.48019999265670776, 0.4478999972343445, 0.39719998836517334] std=[0.2766000032424927, 0.2689000070095062, 0.2815999984741211]
+[2026-09-14 16:51:14] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon']
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] EvieKF: cached lr=1.000e-02  knob=3000
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] AdamW: cached lr=3.162e-03
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] AdaBelief: cached lr=3.162e-03
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-14 16:51:14] [vision_tinyimagenet] [lr-search] frozen: EvieKF=1.000e-02/k=3000, AdamW=3.162e-03, AdaBelief=3.162e-03, Muon=6.325e-03
+[2026-09-14 16:51:14] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-14 16:51:14] [vision_tinyimagenet] [sweep] 4 optimizers x 1 units x 3 seeds = 12 cells
+[2026-09-14 16:51:14] [vision_tinyimagenet] [resume] Muon/full/seed42 from step 4153/10000
+[2026-09-14 16:51:14] [vision_tinyimagenet] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 17:08:48] [vision_tinyimagenet] [sweep] 10/12  Muon|full|42  primary=42.17  diverged=False
+[2026-09-14 17:08:49] [vision_tinyimagenet] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 17:38:22] [vision_tinyimagenet] [sweep] 11/12  Muon|full|43  primary=41.88  diverged=False
+[2026-09-14 17:38:23] [vision_tinyimagenet] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 18:07:58] [vision_tinyimagenet] [sweep] 12/12  Muon|full|44  primary=41.44  diverged=False
+[2026-09-14 18:07:58] [vision_tinyimagenet] ====================================================================================================
+[2026-09-14 18:07:58] [vision_tinyimagenet]   RESULTS  --  vision_tinyimagenet   primary = test_top1_acc (higher is better)
+[2026-09-14 18:07:58] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-14 18:07:58] [vision_tinyimagenet]   EvieKF      lr=1.00e-02  knob=3000  test_top1_acc(task median over 3 seeds)=37.54   seed spread=[37.16, 38.59]   diverged_cells=0/3
+[2026-09-14 18:07:58] [vision_tinyimagenet]              descriptive: wall_s=2172  mean_step_size=0.004093  clip_freq=0.6374  peak_mem_mb=867.3
+[2026-09-14 18:07:58] [vision_tinyimagenet]   AdamW       lr=3.16e-03  test_top1_acc(task median over 3 seeds)=36.08   seed spread=[35.52, 36.91]   diverged_cells=0/3
+[2026-09-14 18:07:58] [vision_tinyimagenet]              descriptive: wall_s=1416  mean_step_size=0.0006113  clip_freq=0.5646  peak_mem_mb=795.1
+[2026-09-14 18:07:58] [vision_tinyimagenet]   AdaBelief   lr=3.16e-03  test_top1_acc(task median over 3 seeds)=36.22   seed spread=[36.18, 36.71]   diverged_cells=0/3
+[2026-09-14 18:07:58] [vision_tinyimagenet]              descriptive: wall_s=1454  mean_step_size=0.0006627  clip_freq=0.5399  peak_mem_mb=795.1
+[2026-09-14 18:07:58] [vision_tinyimagenet]   Muon        lr=6.32e-03  test_top1_acc(task median over 3 seeds)=41.88   seed spread=[41.44, 42.17]   diverged_cells=0/3
+[2026-09-14 18:07:58] [vision_tinyimagenet]              descriptive: wall_s=1774  mean_step_size=0.0007054  clip_freq=0.4043  peak_mem_mb=752.1
+[2026-09-14 18:07:58] [vision_tinyimagenet] ----------------------------------------------------------------------------------------------------
+[2026-09-14 18:07:58] [vision_tinyimagenet]   best optimizer on this task: Muon  (test_top1_acc=41.88)
+[2026-09-14 18:07:58] [vision_tinyimagenet]   wrote /kaggle/working/checkpoints/vision_tinyimagenet/results_raw.csv
+[2026-09-14 18:07:58] [vision_tinyimagenet] ====================================================================================================
+[2026-09-14 18:07:58] [vision_tinyimagenet]   wrote /kaggle/working/checkpoints/vision_tinyimagenet/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-14 18:07:58] [vision_tinyimagenet] ====================================================================================================
+[2026-09-14 18:07:58] [vision_tinyimagenet]   DONE 2026-09-14T18:07:58.716728

@@ -1,0 +1,18 @@
+\toprule
+size & params & AdamW & AdaBelief & Evie-KF & seeds & units \\
+\midrule
+\multicolumn{7}{l}{\emph{CIFAR-10 --- test top-1 accuracy (\%), higher is better}} \\
+\quad small & 2,797,610 & 80.53 & 79.99 & \textbf{81.17} & 3/3 & 1 \\
+\quad baseline (main run) & 11,173,962 & 81.55 & 81.47 & \textbf{81.94} & --- & 1 \\
+\quad large & 44,662,922 & 81.91 & \textbf{82.34} & 81.34 & 0/3 & 1 \\
+\midrule
+\multicolumn{7}{l}{\emph{WikiText-2 --- test perplexity, lower is better}} \\
+\quad small & 2,675,840 & 105.42 & 107.60 & \textbf{98.35} & 3/3 & 1 \\
+\quad baseline (main run) & 8,900,608 & 105.86 & \textbf{97.15} & 99.67 & --- & 1 \\
+\quad large & 22,213,248 & \textbf{93.32} & 95.63 & 109.78 & 0/3 & 1 \\
+\midrule
+\multicolumn{7}{l}{\emph{Finance-tech --- test MSE $\times10^{-4}$, lower is better}} \\
+\quad small & 737 & 3.7886 & 3.7867 & \textbf{3.7800} & 2/3 & 43 \\
+\quad baseline (main run) & 2,497 & 4.4420 & 4.4757 & \textbf{4.0295} & --- & 48 \\
+\quad large & 9,089 & 4.5417 & 4.5873 & \textbf{4.1989} & 3/3 & 49 \\
+\bottomrule

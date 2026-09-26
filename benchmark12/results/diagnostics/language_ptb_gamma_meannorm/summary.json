@@ -1,0 +1,52 @@
+{
+  "task_name": "language_ptb_gamma_meannorm",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKFm"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKFm": 200.06104676972197
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKFm": 200.06104676972197
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKFm": {
+      "42": 195.25537062379493,
+      "43": 202.7442062732106,
+      "44": 200.06104676972197,
+      "45": 198.84554793515113,
+      "46": 209.71514215152095
+    }
+  },
+  "lr_used": {
+    "EvieKFm": 0.001
+  },
+  "knob_used": {
+    "EvieKFm": 100.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)",
+  "pinned_lr": null,
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

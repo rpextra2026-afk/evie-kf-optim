@@ -1,0 +1,52 @@
+{
+  "task_name": "vision_cifar10_gamma_meannorm",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKFm"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKFm": 81.39
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKFm": 81.39
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKFm": {
+      "42": 81.23,
+      "43": 81.67,
+      "44": 81.62,
+      "45": 81.39,
+      "46": 81.29
+    }
+  },
+  "lr_used": {
+    "EvieKFm": 0.09999
+  },
+  "knob_used": {
+    "EvieKFm": 30.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": null,
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

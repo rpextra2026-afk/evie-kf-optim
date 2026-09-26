@@ -1,0 +1,37 @@
+[2026-09-23 19:38:57] [vision_cifar10_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:38:57] [vision_cifar10_evie_fixed_gamma]   vision_cifar10_evie_fixed_gamma  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-23 19:38:57] [vision_cifar10_evie_fixed_gamma]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-23 19:38:57] [vision_cifar10_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:38:57] [vision_cifar10_evie_fixed_gamma] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 19:38:58] [vision_cifar10_evie_fixed_gamma] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 20:15:45] [vision_cifar10_evie_fixed_gamma] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-23 20:15:45] [vision_cifar10_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:15:45] [vision_cifar10_evie_fixed_gamma] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF']
+[2026-09-23 20:23:16] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=37.24
+[2026-09-23 20:30:45] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=53.86
+[2026-09-23 20:38:13] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=66.84
+[2026-09-23 20:45:40] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=73.48
+[2026-09-23 20:53:09] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=77.3
+[2026-09-23 21:00:36] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=79.48
+[2026-09-23 21:08:02] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=79.18
+[2026-09-23 21:08:02] [vision_cifar10_evie_fixed_gamma] [lr-search] EvieKF: FROZEN lr=1.000e-02  knob=3000  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-23 21:08:02] [vision_cifar10_evie_fixed_gamma] [lr-search] frozen: EvieKF=1.000e-02/k=3000
+[2026-09-23 21:08:02] [vision_cifar10_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 21:08:02] [vision_cifar10_evie_fixed_gamma] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 21:37:57] [vision_cifar10_evie_fixed_gamma] [sweep] 1/5  EvieKF|full|42  primary=80.26  diverged=False
+[2026-09-23 22:07:56] [vision_cifar10_evie_fixed_gamma] [sweep] 2/5  EvieKF|full|43  primary=80.45  diverged=False
+[2026-09-23 22:37:57] [vision_cifar10_evie_fixed_gamma] [sweep] 3/5  EvieKF|full|44  primary=80.54  diverged=False
+[2026-09-23 23:08:01] [vision_cifar10_evie_fixed_gamma] [sweep] 4/5  EvieKF|full|45  primary=80.4  diverged=False
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] [sweep] 5/5  EvieKF|full|46  primary=80.32  diverged=False
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   RESULTS  --  vision_cifar10_evie_fixed_gamma   primary = test_top1_acc (higher is better)
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   EvieKF      lr=1.00e-02  knob=3000  test_top1_acc(task median over 5 seeds)=80.4   seed spread=[80.26, 80.54]   diverged_cells=0/5
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]              descriptive: wall_s=1793  mean_step_size=0.003069  clip_freq=0.4196  peak_mem_mb=851.1
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   best optimizer on this task: EvieKF  (test_top1_acc=80.4)
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/vision_cifar10_evie_fixed_gamma/results_raw.csv
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/vision_cifar10_evie_fixed_gamma/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:38:09] [vision_cifar10_evie_fixed_gamma]   DONE 2026-09-23T23:38:09.727891

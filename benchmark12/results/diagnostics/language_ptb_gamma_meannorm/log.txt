@@ -1,0 +1,43 @@
+[2026-09-23 20:36:48] [language_ptb_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:36:48] [language_ptb_gamma_meannorm]   language_ptb_gamma_meannorm  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-23 20:36:48] [language_ptb_gamma_meannorm]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-23 20:36:48] [language_ptb_gamma_meannorm]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-23 20:36:48] [language_ptb_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:36:49] [language_ptb_gamma_meannorm] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 20:36:49] [language_ptb_gamma_meannorm] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 20:36:52] [language_ptb_gamma_meannorm] [data] HF ptb_text_only failed (RuntimeError('Dataset scripts are no longer supported, but found ptb_text_only.py')); downloading raw Mikolov PTB
+[2026-09-23 20:36:53] [language_ptb_gamma_meannorm] [data] ptb: vocab=9999  train_tok=887521  val_tok=70390  test_tok=78669  train_oov(<unk>)=0.000
+[2026-09-23 20:36:53] [language_ptb_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:36:53] [language_ptb_gamma_meannorm] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKFm']
+[2026-09-23 20:49:46] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=0.1  score=217.433
+[2026-09-23 21:02:37] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=0.3  score=214.126
+[2026-09-23 21:15:28] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=1  score=223.525
+[2026-09-23 21:28:18] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=3  score=216.248
+[2026-09-23 21:41:08] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=10  score=214.452
+[2026-09-23 21:53:58] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=30  score=208.414
+[2026-09-23 22:06:48] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=100  score=207.721
+[2026-09-23 22:06:48] [language_ptb_gamma_meannorm] [lr-search] EvieKFm: knob pick 100 at grid edge -> extend [300.0, 900.0] and re-search (boundary check #1)
+[2026-09-23 22:19:38] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=300  score=218.621
+[2026-09-23 22:32:29] [language_ptb_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=900  score=220.988
+[2026-09-23 22:32:29] [language_ptb_gamma_meannorm] [lr-search] EvieKFm: FROZEN lr=1.000e-03  knob=100  (LR boundary checks: 0, knob boundary checks: 1)
+[2026-09-23 22:32:29] [language_ptb_gamma_meannorm] [lr-search] frozen: EvieKFm=1.000e-03/k=100
+[2026-09-23 22:32:29] [language_ptb_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 22:32:29] [language_ptb_gamma_meannorm] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 23:23:59] [language_ptb_gamma_meannorm] [sweep] 1/5  EvieKFm|full|42  primary=195.25537062379493  diverged=False
+[2026-09-24 00:15:27] [language_ptb_gamma_meannorm] [sweep] 2/5  EvieKFm|full|43  primary=202.7442062732106  diverged=False
+[2026-09-24 01:06:58] [language_ptb_gamma_meannorm] [sweep] 3/5  EvieKFm|full|44  primary=200.06104676972197  diverged=False
+[2026-09-24 01:58:29] [language_ptb_gamma_meannorm] [sweep] 4/5  EvieKFm|full|45  primary=198.84554793515113  diverged=False
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] [sweep] 5/5  EvieKFm|full|46  primary=209.71514215152095  diverged=False
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] ====================================================================================================
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   RESULTS  --  language_ptb_gamma_meannorm   primary = test_perplexity (lower is better)
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   EvieKFm     lr=1.00e-03  knob=100  test_perplexity(task median over 5 seeds)=200.061   seed spread=[195.26, 209.72]   diverged_cells=0/5
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]              descriptive: wall_s=3082  mean_step_size=0.0003002  clip_freq=0.3965  peak_mem_mb=1592
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   best optimizer on this task: EvieKFm  (test_perplexity=200.061)
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   wrote /kaggle/working/checkpoints/language_ptb_gamma_meannorm/results_raw.csv
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] ====================================================================================================
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   wrote /kaggle/working/checkpoints/language_ptb_gamma_meannorm/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm] ====================================================================================================
+[2026-09-24 02:50:03] [language_ptb_gamma_meannorm]   DONE 2026-09-24T02:50:03.330124

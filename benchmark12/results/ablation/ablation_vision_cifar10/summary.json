@@ -1,0 +1,93 @@
+{
+  "task_name": "ablation_vision_cifar10",
+  "primary_metric": "test_top1_acc",
+  "primary_lower_better": false,
+  "opt_set": "ablation",
+  "opt_names": [
+    "EvieKF",
+    "EvieKFu",
+    "EvieDiag"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 81.185,
+    "EvieKFu": 80.525,
+    "EvieDiag": 81.53
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 81.185,
+    "EvieKFu": 80.525,
+    "EvieDiag": 81.53
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 81.98,
+      "43": 81.24,
+      "44": 81.06,
+      "45": 81.34,
+      "46": 81.13,
+      "47": 81.36,
+      "48": 80.8,
+      "49": 80.35,
+      "50": 81.11,
+      "51": 81.3
+    },
+    "EvieKFu": {
+      "42": 81.24,
+      "43": 80.03,
+      "44": 80.73,
+      "45": 80.78,
+      "46": 80.59,
+      "47": 80.55,
+      "48": 80.04,
+      "49": 79.47,
+      "50": 80.5,
+      "51": 79.96
+    },
+    "EvieDiag": {
+      "42": 81.76,
+      "43": 80.96,
+      "44": 82.0,
+      "45": 81.23,
+      "46": 81.92,
+      "47": 81.49,
+      "48": 81.5,
+      "49": 80.75,
+      "50": 81.56,
+      "51": 82.06
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.01,
+    "EvieKFu": 0.01,
+    "EvieDiag": 0.01
+  },
+  "knob_used": {
+    "EvieKF": 1.0,
+    "EvieKFu": 100.0,
+    "EvieDiag": 1.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null
+}

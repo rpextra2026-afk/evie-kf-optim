@@ -1,0 +1,114 @@
+## Table 9 -- divergence and complete-case units
+
+Cells flagged diverged (non-finite loss, outside the task's absolute sane range, or beyond the peer-median factor), and the units on which they occurred. A unit on which any arm failed is dropped for every arm, so no arm is scored only on the units it survived. Covers 12 of 12 tasks: vision_cifar10, vision_cifar100, vision_stl10, vision_svhn, language_enwik8, language_ptb, language_wikitext103, language_wikitext2, finance_consumer_industrials, finance_finance, finance_healthcare, finance_tech.
+
+| Task | Optimizer | diverged | units |
+|---|---|---|---|
+| vis/cifar10 | EvieKF | 0/5 | -- |
+| vis/cifar10 | AdamW | 0/5 | -- |
+| vis/cifar10 | AdaBelief | 0/5 | -- |
+| vis/cifar10 | SGD | 0/5 | -- |
+| vis/cifar10 | Sophia | 0/5 | -- |
+| vis/cifar10 | Muon | 0/5 | -- |
+| vis/cifar10 | Lion | 0/5 | -- |
+| vis/cifar10 | Shampoo | 0/5 | -- |
+| vis/cifar10 | complete-case | 1/1 units | none dropped |
+| vis/cifar100 | EvieKF | 0/5 | -- |
+| vis/cifar100 | AdamW | 0/5 | -- |
+| vis/cifar100 | AdaBelief | 0/5 | -- |
+| vis/cifar100 | SGD | 0/5 | -- |
+| vis/cifar100 | Sophia | 0/5 | -- |
+| vis/cifar100 | Muon | 0/5 | -- |
+| vis/cifar100 | Lion | 0/5 | -- |
+| vis/cifar100 | Shampoo | 0/5 | -- |
+| vis/cifar100 | complete-case | 1/1 units | none dropped |
+| vis/stl10 | EvieKF | 0/5 | -- |
+| vis/stl10 | AdamW | 0/5 | -- |
+| vis/stl10 | AdaBelief | 0/5 | -- |
+| vis/stl10 | SGD | 0/5 | -- |
+| vis/stl10 | Sophia | 0/5 | -- |
+| vis/stl10 | Muon | 0/5 | -- |
+| vis/stl10 | Lion | 0/5 | -- |
+| vis/stl10 | Shampoo | 0/5 | -- |
+| vis/stl10 | complete-case | 1/1 units | none dropped |
+| vis/svhn | EvieKF | 0/5 | -- |
+| vis/svhn | AdamW | 0/5 | -- |
+| vis/svhn | AdaBelief | 0/5 | -- |
+| vis/svhn | SGD | 0/5 | -- |
+| vis/svhn | Sophia | 0/5 | -- |
+| vis/svhn | Muon | 0/5 | -- |
+| vis/svhn | Lion | 0/5 | -- |
+| vis/svhn | Shampoo | 0/5 | -- |
+| vis/svhn | complete-case | 1/1 units | none dropped |
+| lang/enwik8 | EvieKF | 0/5 | -- |
+| lang/enwik8 | AdamW | 0/5 | -- |
+| lang/enwik8 | AdaBelief | 0/5 | -- |
+| lang/enwik8 | SGD | 0/5 | -- |
+| lang/enwik8 | Sophia | 0/5 | -- |
+| lang/enwik8 | Muon | 0/5 | -- |
+| lang/enwik8 | Lion | 0/5 | -- |
+| lang/enwik8 | Shampoo | 0/5 | -- |
+| lang/enwik8 | complete-case | 1/1 units | none dropped |
+| lang/ptb | EvieKF | 0/5 | -- |
+| lang/ptb | AdamW | 0/5 | -- |
+| lang/ptb | AdaBelief | 0/5 | -- |
+| lang/ptb | SGD | 0/5 | -- |
+| lang/ptb | Sophia | 0/5 | -- |
+| lang/ptb | Muon | 0/5 | -- |
+| lang/ptb | Lion | 0/5 | -- |
+| lang/ptb | Shampoo | 0/5 | -- |
+| lang/ptb | complete-case | 1/1 units | none dropped |
+| lang/wikitext103 | EvieKF | 0/5 | -- |
+| lang/wikitext103 | AdamW | 0/5 | -- |
+| lang/wikitext103 | AdaBelief | 0/5 | -- |
+| lang/wikitext103 | SGD | 0/5 | -- |
+| lang/wikitext103 | Sophia | 0/5 | -- |
+| lang/wikitext103 | Muon | 0/5 | -- |
+| lang/wikitext103 | Lion | 0/5 | -- |
+| lang/wikitext103 | Shampoo | 0/5 | -- |
+| lang/wikitext103 | complete-case | 1/1 units | none dropped |
+| lang/wikitext2 | EvieKF | 0/5 | -- |
+| lang/wikitext2 | AdamW | 0/5 | -- |
+| lang/wikitext2 | AdaBelief | 0/5 | -- |
+| lang/wikitext2 | SGD | 0/5 | -- |
+| lang/wikitext2 | Sophia | 0/5 | -- |
+| lang/wikitext2 | Muon | 0/5 | -- |
+| lang/wikitext2 | Lion | 0/5 | -- |
+| lang/wikitext2 | Shampoo | 0/5 | -- |
+| lang/wikitext2 | complete-case | 1/1 units | none dropped |
+| fin/consumer_industrials | EvieKF | 0/250 | -- |
+| fin/consumer_industrials | AdamW | 0/250 | -- |
+| fin/consumer_industrials | AdaBelief | 0/250 | -- |
+| fin/consumer_industrials | SGD | 3/250 | CMI, NKE |
+| fin/consumer_industrials | Sophia | 0/250 | -- |
+| fin/consumer_industrials | Muon | 0/250 | -- |
+| fin/consumer_industrials | Lion | 0/250 | -- |
+| fin/consumer_industrials | Shampoo | 3/250 | CARR, GWW, PH |
+| fin/consumer_industrials | complete-case | 45/50 units | CARR, CMI, GWW, NKE, PH |
+| fin/finance | EvieKF | 0/245 | -- |
+| fin/finance | AdamW | 0/245 | -- |
+| fin/finance | AdaBelief | 0/245 | -- |
+| fin/finance | SGD | 4/245 | MKL, NDAQ, PGR, SCHW |
+| fin/finance | Sophia | 2/245 | ACGL, PGR |
+| fin/finance | Muon | 32/245 | ACGL, AFL, ALL, AMP, AXP, BRO, CB, CBOE, GL, GS, HIG, JPM, L, MET, PGR, RJF, TRV, WRB |
+| fin/finance | Lion | 17/245 | ACGL, AIG, AMP, AXP, BLK, CB, CBOE, CME, GL, HIG, JPM, PNC, RF, TRV |
+| fin/finance | Shampoo | 11/245 | ACGL, AFL, AXP, GL, L, PGR |
+| fin/finance | complete-case | 23/49 units | ACGL, AFL, AIG, ALL, AMP, AXP, BLK, BRO, CB, CBOE, CME, GL, GS, HIG, JPM, L, MET, MKL, NDAQ, PGR, PNC, RF, RJF, SCHW, TRV, WRB |
+| fin/healthcare | EvieKF | 0/245 | -- |
+| fin/healthcare | AdamW | 0/245 | -- |
+| fin/healthcare | AdaBelief | 0/245 | -- |
+| fin/healthcare | SGD | 4/245 | CAH, ELV, EW, HCA |
+| fin/healthcare | Sophia | 14/245 | AMGN, CAH, CI, DVA, EW, HCA, LLY, MDT, REGN, SYK, TMO, VRTX |
+| fin/healthcare | Muon | 2/245 | LLY, MCK |
+| fin/healthcare | Lion | 5/245 | BSX, JNJ, LLY, MCK, VRTX |
+| fin/healthcare | Shampoo | 0/245 | -- |
+| fin/healthcare | complete-case | 33/49 units | AMGN, BSX, CAH, CI, DVA, ELV, EW, HCA, JNJ, LLY, MCK, MDT, REGN, SYK, TMO, VRTX |
+| fin/tech | EvieKF | 2/245 | IBM |
+| fin/tech | AdamW | 0/245 | -- |
+| fin/tech | AdaBelief | 0/245 | -- |
+| fin/tech | SGD | 2/245 | CRM, FICO |
+| fin/tech | Sophia | 2/245 | NVDA |
+| fin/tech | Muon | 0/245 | -- |
+| fin/tech | Lion | 8/245 | AAPL, APH, CDNS, CRM, GOOGL, KLAC, MCHP, TXN |
+| fin/tech | Shampoo | 7/245 | APH, FICO, HPE, IBM |
+| fin/tech | complete-case | 37/49 units | AAPL, APH, CDNS, CRM, FICO, GOOGL, HPE, IBM, KLAC, MCHP, NVDA, TXN |

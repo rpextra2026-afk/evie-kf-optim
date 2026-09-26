@@ -1,0 +1,58 @@
+{
+  "task_name": "language_enwik8_evie_gamma81k",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKF"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 3.043377468708385
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 3.043377468708385
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 3.034479559364356,
+      "43": 3.0544399394800195,
+      "44": 3.043377468708385,
+      "45": 3.044248069896257,
+      "46": 3.0368608936624573
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.0003162
+  },
+  "knob_used": {
+    "EvieKF": 81000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": {
+    "EvieKF": {
+      "lr": 0.0003162,
+      "knob": 81000.0,
+      "note": "the best point the file's own search scored (3.6956); the run froze gamma=27000 (3.7103) because of the grid-reset-on-resume bug, FUTURE_WORK FW-2"
+    }
+  },
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

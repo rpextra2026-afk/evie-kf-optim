@@ -1,0 +1,206 @@
+\begin{table}[t]
+\centering
+\small
+\caption{LR-search score (best validation value, 1 seed, 25\% of the step budget) at the frozen learning rate, for each value of the knob. A flat response means the knob does not matter on that task. Same units and scaling as Table 1. Covers 12 of 12 tasks: vision\_cifar10, vision\_cifar100, vision\_stl10, vision\_svhn, language\_enwik8, language\_ptb, language\_wikitext103, language\_wikitext2, finance\_consumer\_industrials, finance\_finance, finance\_healthcare, finance\_tech.}
+\label{tab:table7_knob_sensitivity}
+\begin{tabular}{lrrrr}
+\toprule
+Task & Optimizer & knob & val score &  \\
+\midrule
+vis/cifar10 & EvieKF & 3 & 77.08 &  \\
+vis/cifar10 & EvieKF & 10 & 78.28 &  \\
+vis/cifar10 & EvieKF & 30 & 80.06 &  \\
+vis/cifar10 & EvieKF & 100 & 79.60 &  \\
+vis/cifar10 & EvieKF & 300 & 79.30 &  \\
+vis/cifar10 & EvieKF & 1000 & 80.28 &  \\
+vis/cifar10 & EvieKF & 3000 & 81.64 &  \\
+vis/cifar10 & EvieKF & 9000 & 80.70 &  \\
+vis/cifar10 & EvieKF & 27000 & 82.28 & frozen \\
+vis/cifar10 & EvieKF & 81000 & 80.74 &  \\
+vis/cifar10 & EvieKF & 243000 & 81.28 &  \\
+vis/cifar10 & EvieKF & spread &  & 6.75\% over 81000x \\
+vis/cifar10 & Shampoo & 0.9 & 81.44 &  \\
+vis/cifar10 & Shampoo & 0.95 & 82.42 & frozen \\
+vis/cifar10 & Shampoo & 0.99 & 82.00 &  \\
+vis/cifar10 & Shampoo & 0.999 & 81.62 &  \\
+vis/cifar10 & Shampoo & spread &  & 1.20\% over 1x \\
+vis/cifar100 & EvieKF & 3 & 43.00 &  \\
+vis/cifar100 & EvieKF & 10 & 44.18 &  \\
+vis/cifar100 & EvieKF & 30 & 45.54 &  \\
+vis/cifar100 & EvieKF & 100 & 47.82 &  \\
+vis/cifar100 & EvieKF & 300 & 49.20 &  \\
+vis/cifar100 & EvieKF & 1000 & 50.76 & frozen \\
+vis/cifar100 & EvieKF & 3000 & 49.96 &  \\
+vis/cifar100 & EvieKF & spread &  & 18.05\% over 1000x \\
+vis/cifar100 & Shampoo & 0.8 & 50.38 &  \\
+vis/cifar100 & Shampoo & 0.85 & 50.50 & frozen \\
+vis/cifar100 & Shampoo & 0.9 & 50.28 &  \\
+vis/cifar100 & Shampoo & 0.95 & 50.08 &  \\
+vis/cifar100 & Shampoo & 0.99 & 49.38 &  \\
+vis/cifar100 & Shampoo & 0.999 & 49.54 &  \\
+vis/cifar100 & Shampoo & spread &  & 2.27\% over 1x \\
+vis/stl10 & EvieKF & 0.3333 & 48.80 &  \\
+vis/stl10 & EvieKF & 1 & 49.80 &  \\
+vis/stl10 & EvieKF & 3 & 54.20 & frozen \\
+vis/stl10 & EvieKF & 10 & 52.40 &  \\
+vis/stl10 & EvieKF & 30 & 50.80 &  \\
+vis/stl10 & EvieKF & 100 & 52.80 &  \\
+vis/stl10 & EvieKF & 300 & 52.40 &  \\
+vis/stl10 & EvieKF & 1000 & 51.60 &  \\
+vis/stl10 & EvieKF & 3000 & 53.60 &  \\
+vis/stl10 & EvieKF & spread &  & 11.07\% over 9001x \\
+vis/stl10 & Shampoo & 0.8 & 53.20 &  \\
+vis/stl10 & Shampoo & 0.85 & 52.60 &  \\
+vis/stl10 & Shampoo & 0.9 & 54.80 & frozen \\
+vis/stl10 & Shampoo & 0.95 & 51.20 &  \\
+vis/stl10 & Shampoo & 0.99 & 51.40 &  \\
+vis/stl10 & Shampoo & 0.999 & 52.80 &  \\
+vis/stl10 & Shampoo & spread &  & 7.03\% over 1x \\
+vis/svhn & EvieKF & 3 & 93.57 &  \\
+vis/svhn & EvieKF & 10 & 93.83 & frozen \\
+vis/svhn & EvieKF & 30 & 93.45 &  \\
+vis/svhn & EvieKF & 100 & 93.42 &  \\
+vis/svhn & EvieKF & 300 & 93.17 &  \\
+vis/svhn & EvieKF & 1000 & 93.37 &  \\
+vis/svhn & EvieKF & 3000 & 93.24 &  \\
+vis/svhn & EvieKF & spread &  & 0.70\% over 1000x \\
+vis/svhn & Shampoo & 0.6 & 93.82 &  \\
+vis/svhn & Shampoo & 0.65 & 93.86 &  \\
+vis/svhn & Shampoo & 0.7 & 93.87 & frozen \\
+vis/svhn & Shampoo & 0.75 & 93.79 &  \\
+vis/svhn & Shampoo & 0.8 & 93.87 &  \\
+vis/svhn & Shampoo & 0.85 & 93.80 &  \\
+vis/svhn & Shampoo & 0.9 & 93.67 &  \\
+vis/svhn & Shampoo & 0.95 & 93.76 &  \\
+vis/svhn & Shampoo & 0.99 & 93.78 &  \\
+vis/svhn & Shampoo & 0.999 & 93.80 &  \\
+vis/svhn & Shampoo & spread &  & 0.22\% over 2x \\
+lang/enwik8 & EvieKF & 3 & 4.39 &  \\
+lang/enwik8 & EvieKF & 10 & 4.31 &  \\
+lang/enwik8 & EvieKF & 30 & 4.21 &  \\
+lang/enwik8 & EvieKF & 100 & 4.14 &  \\
+lang/enwik8 & EvieKF & 300 & 4.03 &  \\
+lang/enwik8 & EvieKF & 1000 & 3.96 &  \\
+lang/enwik8 & EvieKF & 3000 & 3.86 &  \\
+lang/enwik8 & EvieKF & 9000 & 3.75 &  \\
+lang/enwik8 & EvieKF & 27000 & 3.71 & frozen \\
+lang/enwik8 & EvieKF & 81000 & 3.70 &  \\
+lang/enwik8 & EvieKF & 243000 & 3.70 &  \\
+lang/enwik8 & EvieKF & spread &  & 18.92\% over 81000x \\
+lang/enwik8 & Shampoo & 0.7 & 3.92 &  \\
+lang/enwik8 & Shampoo & 0.75 & 3.79 & frozen \\
+lang/enwik8 & Shampoo & 0.8 & 3.89 &  \\
+lang/enwik8 & Shampoo & 0.85 & 3.97 &  \\
+lang/enwik8 & Shampoo & 0.9 & 3.93 &  \\
+lang/enwik8 & Shampoo & 0.95 & 3.96 &  \\
+lang/enwik8 & Shampoo & 0.99 & 3.95 &  \\
+lang/enwik8 & Shampoo & 0.999 & 4.85 &  \\
+lang/enwik8 & Shampoo & spread &  & 27.84\% over 1x \\
+lang/ptb & EvieKF & 3 & 201.29 &  \\
+lang/ptb & EvieKF & 10 & 186.28 & frozen \\
+lang/ptb & EvieKF & 30 & 205.72 &  \\
+lang/ptb & EvieKF & 100 & 198.82 &  \\
+lang/ptb & EvieKF & 300 & 202.92 &  \\
+lang/ptb & EvieKF & 1000 & 207.85 &  \\
+lang/ptb & EvieKF & 3000 & 209.75 &  \\
+lang/ptb & EvieKF & spread &  & 12.60\% over 1000x \\
+lang/ptb & Shampoo & 0.9 & 185.53 &  \\
+lang/ptb & Shampoo & 0.95 & 184.92 &  \\
+lang/ptb & Shampoo & 0.99 & 184.61 & frozen \\
+lang/ptb & Shampoo & 0.999 & 186.85 &  \\
+lang/ptb & Shampoo & spread &  & 1.21\% over 1x \\
+lang/wikitext103 & EvieKF & 3 & 77.49 &  \\
+lang/wikitext103 & EvieKF & 10 & 78.72 &  \\
+lang/wikitext103 & EvieKF & 30 & 79.11 &  \\
+lang/wikitext103 & EvieKF & 100 & 74.50 &  \\
+lang/wikitext103 & EvieKF & 300 & 74.37 &  \\
+lang/wikitext103 & EvieKF & 1000 & 71.11 &  \\
+lang/wikitext103 & EvieKF & 3000 & 66.28 &  \\
+lang/wikitext103 & EvieKF & 9000 & 63.30 &  \\
+lang/wikitext103 & EvieKF & 27000 & 61.34 &  \\
+lang/wikitext103 & EvieKF & 81000 & 59.86 &  \\
+lang/wikitext103 & EvieKF & 243000 & 59.18 & frozen \\
+lang/wikitext103 & EvieKF & spread &  & 33.69\% over 81000x \\
+lang/wikitext103 & Shampoo & 0.8 & 62.94 & frozen \\
+lang/wikitext103 & Shampoo & 0.85 & 63.14 &  \\
+lang/wikitext103 & Shampoo & 0.9 & 63.01 &  \\
+lang/wikitext103 & Shampoo & 0.95 & 63.46 &  \\
+lang/wikitext103 & Shampoo & 0.99 & 65.93 &  \\
+lang/wikitext103 & Shampoo & 0.999 & 71.50 &  \\
+lang/wikitext103 & Shampoo & spread &  & 13.61\% over 1x \\
+lang/wikitext2 & EvieKF & 3 & 100.50 &  \\
+lang/wikitext2 & EvieKF & 10 & 101.69 &  \\
+lang/wikitext2 & EvieKF & 30 & 98.39 &  \\
+lang/wikitext2 & EvieKF & 100 & 97.69 &  \\
+lang/wikitext2 & EvieKF & 300 & 97.60 & frozen \\
+lang/wikitext2 & EvieKF & 1000 & 98.34 &  \\
+lang/wikitext2 & EvieKF & 3000 & 99.66 &  \\
+lang/wikitext2 & EvieKF & spread &  & 4.19\% over 1000x \\
+lang/wikitext2 & Shampoo & 0.9 & 122.47 &  \\
+lang/wikitext2 & Shampoo & 0.95 & 121.90 & frozen \\
+lang/wikitext2 & Shampoo & 0.99 & 125.46 &  \\
+lang/wikitext2 & Shampoo & 0.999 & 132.92 &  \\
+lang/wikitext2 & Shampoo & spread &  & 9.04\% over 1x \\
+fin/consumer\_industrials & EvieKF & 3 & 3.6213 &  \\
+fin/consumer\_industrials & EvieKF & 10 & 3.6480 &  \\
+fin/consumer\_industrials & EvieKF & 30 & 3.6003 &  \\
+fin/consumer\_industrials & EvieKF & 100 & 3.6108 &  \\
+fin/consumer\_industrials & EvieKF & 300 & 3.5750 & frozen \\
+fin/consumer\_industrials & EvieKF & 1000 & 3.6149 &  \\
+fin/consumer\_industrials & EvieKF & 3000 & 3.6329 &  \\
+fin/consumer\_industrials & EvieKF & spread &  & 2.04\% over 1000x \\
+fin/consumer\_industrials & Shampoo & 0.9 & 3.6348 &  \\
+fin/consumer\_industrials & Shampoo & 0.95 & 3.6040 & frozen \\
+fin/consumer\_industrials & Shampoo & 0.99 & 3.6248 &  \\
+fin/consumer\_industrials & Shampoo & 0.999 & 3.6173 &  \\
+fin/consumer\_industrials & Shampoo & spread &  & 0.85\% over 1x \\
+fin/finance & EvieKF & 3 & 3.6488 &  \\
+fin/finance & EvieKF & 10 & 3.6415 &  \\
+fin/finance & EvieKF & 30 & 3.6468 &  \\
+fin/finance & EvieKF & 100 & 3.6419 &  \\
+fin/finance & EvieKF & 300 & 3.6355 &  \\
+fin/finance & EvieKF & 1000 & 3.6358 &  \\
+fin/finance & EvieKF & 3000 & 3.6276 &  \\
+fin/finance & EvieKF & 9000 & 3.6253 & frozen \\
+fin/finance & EvieKF & 27000 & 3.6331 &  \\
+fin/finance & EvieKF & spread &  & 0.65\% over 9000x \\
+fin/finance & Shampoo & 0.9 & 3.6378 &  \\
+fin/finance & Shampoo & 0.95 & 3.6333 &  \\
+fin/finance & Shampoo & 0.99 & 3.6294 & frozen \\
+fin/finance & Shampoo & 0.999 & 3.6343 &  \\
+fin/finance & Shampoo & spread &  & 0.23\% over 1x \\
+fin/healthcare & EvieKF & 3 & 2.4112 &  \\
+fin/healthcare & EvieKF & 10 & 2.4283 &  \\
+fin/healthcare & EvieKF & 30 & 2.4098 &  \\
+fin/healthcare & EvieKF & 100 & 2.4286 &  \\
+fin/healthcare & EvieKF & 300 & 2.4039 &  \\
+fin/healthcare & EvieKF & 1000 & 2.3772 & frozen \\
+fin/healthcare & EvieKF & 3000 & 2.4010 &  \\
+fin/healthcare & EvieKF & spread &  & 2.16\% over 1000x \\
+fin/healthcare & Shampoo & 0.9 & 2.3929 &  \\
+fin/healthcare & Shampoo & 0.95 & 2.3934 &  \\
+fin/healthcare & Shampoo & 0.99 & 2.3994 &  \\
+fin/healthcare & Shampoo & 0.999 & 2.3693 &  \\
+fin/healthcare & Shampoo & 0.999667 & 2.3750 &  \\
+fin/healthcare & Shampoo & 0.9999 & 2.3664 &  \\
+fin/healthcare & Shampoo & 0.999967 & 2.3639 &  \\
+fin/healthcare & Shampoo & 0.99999 & 2.3617 & frozen \\
+fin/healthcare & Shampoo & 0.999997 & 2.3638 &  \\
+fin/healthcare & Shampoo & 0.999999 & 2.3650 &  \\
+fin/healthcare & Shampoo & spread &  & 1.60\% over 1x \\
+fin/tech & EvieKF & 3 & 5.3854 &  \\
+fin/tech & EvieKF & 10 & 5.3715 & frozen \\
+fin/tech & EvieKF & 30 & 5.3978 &  \\
+fin/tech & EvieKF & 100 & 5.3803 &  \\
+fin/tech & EvieKF & 300 & 5.3774 &  \\
+fin/tech & EvieKF & 1000 & 5.3720 &  \\
+fin/tech & EvieKF & 3000 & 5.4693 &  \\
+fin/tech & EvieKF & spread &  & 1.82\% over 1000x \\
+fin/tech & Shampoo & 0.9 & 5.3845 &  \\
+fin/tech & Shampoo & 0.95 & 5.3660 & frozen \\
+fin/tech & Shampoo & 0.99 & 5.3953 &  \\
+fin/tech & Shampoo & 0.999 & 5.3832 &  \\
+fin/tech & Shampoo & spread &  & 0.55\% over 1x \\
+\bottomrule
+\end{tabular}
+\end{table}

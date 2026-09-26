@@ -1,0 +1,40 @@
+[2026-09-23 19:44:13] [vision_svhn_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:44:13] [vision_svhn_evie_fixed_gamma]   vision_svhn_evie_fixed_gamma  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-23 19:44:13] [vision_svhn_evie_fixed_gamma]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-23 19:44:13] [vision_svhn_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 19:44:14] [vision_svhn_evie_fixed_gamma] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 19:44:14] [vision_svhn_evie_fixed_gamma] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 19:44:54] [vision_svhn_evie_fixed_gamma] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-23 19:44:54] [vision_svhn_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 19:44:54] [vision_svhn_evie_fixed_gamma] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF']
+[2026-09-23 19:52:40] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=24.3926
+[2026-09-23 20:00:28] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=45.3863
+[2026-09-23 20:08:15] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=83.6473
+[2026-09-23 20:16:03] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=91.0046
+[2026-09-23 20:23:50] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=93.1477
+[2026-09-23 20:31:37] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=93.4753
+[2026-09-23 20:39:22] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=93.5708
+[2026-09-23 20:39:22] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF: LR pick 3.162e-02 at grid edge -> extend [0.09999, 0.3162] and re-search (boundary check #1)
+[2026-09-23 20:47:00] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=9.999e-02  knob=3000  score=93.3115
+[2026-09-23 20:54:33] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF  lr=3.162e-01  knob=3000  score=93.2705
+[2026-09-23 20:54:33] [vision_svhn_evie_fixed_gamma] [lr-search] EvieKF: FROZEN lr=3.162e-02  knob=3000  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-23 20:54:33] [vision_svhn_evie_fixed_gamma] [lr-search] frozen: EvieKF=3.162e-02/k=3000
+[2026-09-23 20:54:33] [vision_svhn_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:54:33] [vision_svhn_evie_fixed_gamma] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 21:25:45] [vision_svhn_evie_fixed_gamma] [sweep] 1/5  EvieKF|full|42  primary=95.07913337430854  diverged=False
+[2026-09-23 21:57:00] [vision_svhn_evie_fixed_gamma] [sweep] 2/5  EvieKF|full|43  primary=94.69883220651506  diverged=False
+[2026-09-23 22:28:19] [vision_svhn_evie_fixed_gamma] [sweep] 3/5  EvieKF|full|44  primary=94.7180393362016  diverged=False
+[2026-09-23 22:59:36] [vision_svhn_evie_fixed_gamma] [sweep] 4/5  EvieKF|full|45  primary=94.68730792870313  diverged=False
+[2026-09-23 23:30:53] [vision_svhn_evie_fixed_gamma] [sweep] 5/5  EvieKF|full|46  primary=94.6258451137062  diverged=False
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   RESULTS  --  vision_svhn_evie_fixed_gamma   primary = test_top1_acc (higher is better)
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   EvieKF      lr=3.16e-02  knob=3000  test_top1_acc(task median over 5 seeds)=94.6988   seed spread=[94.626, 95.079]   diverged_cells=0/5
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]              descriptive: wall_s=1864  mean_step_size=0.00556  clip_freq=0.00292  peak_mem_mb=851.1
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma] ----------------------------------------------------------------------------------------------------
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   best optimizer on this task: EvieKF  (test_top1_acc=94.6988)
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/vision_svhn_evie_fixed_gamma/results_raw.csv
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   wrote /kaggle/working/checkpoints/vision_svhn_evie_fixed_gamma/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma] ====================================================================================================
+[2026-09-23 23:30:54] [vision_svhn_evie_fixed_gamma]   DONE 2026-09-23T23:30:54.008935

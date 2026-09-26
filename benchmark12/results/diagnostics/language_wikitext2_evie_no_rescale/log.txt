@@ -1,0 +1,33 @@
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale] ====================================================================================================
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale]   language_wikitext2_evie_no_rescale  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale] ====================================================================================================
+[2026-09-23 20:36:17] [language_wikitext2_evie_no_rescale] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 20:36:18] [language_wikitext2_evie_no_rescale] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [lr-search] EvieKFr: PINNED lr=1.000e-03  knob=300  (no search on this arm)  -- the main run's frozen WikiText-2 (lr, gamma); the ONLY difference from those cells is that the global ||y||/||z|| rescale is off
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKFr']
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [lr-search] EvieKFr: cached lr=1.000e-03  knob=300
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [lr-search] frozen: EvieKFr=1.000e-03/k=300
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:36:25] [language_wikitext2_evie_no_rescale] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 21:37:54] [language_wikitext2_evie_no_rescale] [sweep] 1/5  EvieKFr|full|42  primary=97.6328799721615  diverged=False
+[2026-09-23 22:39:28] [language_wikitext2_evie_no_rescale] [sweep] 2/5  EvieKFr|full|43  primary=94.80904675389172  diverged=False
+[2026-09-23 23:41:08] [language_wikitext2_evie_no_rescale] [sweep] 3/5  EvieKFr|full|44  primary=97.03122908795132  diverged=False
+[2026-09-24 00:43:21] [language_wikitext2_evie_no_rescale] [sweep] 4/5  EvieKFr|full|45  primary=97.29538727509122  diverged=False
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] [sweep] 5/5  EvieKFr|full|46  primary=96.93572376044287  diverged=False
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] ====================================================================================================
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   RESULTS  --  language_wikitext2_evie_no_rescale   primary = test_perplexity (lower is better)
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] ----------------------------------------------------------------------------------------------------
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   EvieKFr     lr=1.00e-03  knob=300  test_perplexity(task median over 5 seeds)=97.0312   seed spread=[94.809, 97.633]   diverged_cells=0/5
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]              descriptive: wall_s=3700  mean_step_size=0.0002598  clip_freq=0.6655  peak_mem_mb=2377
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] ----------------------------------------------------------------------------------------------------
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   best optimizer on this task: EvieKFr  (test_perplexity=97.0312)
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   wrote /kaggle/working/checkpoints/language_wikitext2_evie_no_rescale/results_raw.csv
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] ====================================================================================================
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   wrote /kaggle/working/checkpoints/language_wikitext2_evie_no_rescale/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale] ====================================================================================================
+[2026-09-24 01:45:46] [language_wikitext2_evie_no_rescale]   DONE 2026-09-24T01:45:46.540088

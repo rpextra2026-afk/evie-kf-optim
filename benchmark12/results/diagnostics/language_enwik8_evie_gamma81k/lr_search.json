@@ -1,0 +1,10 @@
+{
+  "EvieKF": {
+    "lr": 0.0003162,
+    "knob": 81000.0,
+    "grid": {},
+    "complete": true,
+    "pinned": true,
+    "pinned_note": "the best point the file's own search scored (3.6956); the run froze gamma=27000 (3.7103) because of the grid-reset-on-resume bug, FUTURE_WORK FW-2"
+  }
+}

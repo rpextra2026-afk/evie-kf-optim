@@ -1,0 +1,135 @@
+[2026-09-16 14:20:19] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-16 14:20:19] [language_wikitext2_modelsize]   language_wikitext2_modelsize  |  modelsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-16 14:20:19] [language_wikitext2_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-16 14:20:19] [language_wikitext2_modelsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-16 14:20:19] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-16 14:20:19] [language_wikitext2_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 14:20:20] [language_wikitext2_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 14:20:29] [language_wikitext2_modelsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-16 14:20:29] [language_wikitext2_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-16 14:20:29] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 14:20:29] [language_wikitext2_modelsize] [small] LR search  (modelsize = {'n_layer': 3, 'd_model': 128, 'n_head': 4})
+[2026-09-16 14:23:44] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=3.162e-05  score=498.677
+[2026-09-16 14:26:56] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=1.000e-04  score=260.656
+[2026-09-16 14:30:09] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=3.162e-04  score=149.761
+[2026-09-16 14:33:22] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=1.000e-03  score=105.611
+[2026-09-16 14:36:35] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=3.162e-03  score=126.796
+[2026-09-16 14:39:47] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=1.000e-02  score=225.235
+[2026-09-16 14:42:57] [language_wikitext2_modelsize] [small] [lr-search] AdamW  lr=3.162e-02  score=383.657
+[2026-09-16 14:42:57] [language_wikitext2_modelsize] [small] [lr-search] AdamW: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 14:46:16] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-05  score=337.908
+[2026-09-16 14:49:35] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-04  score=218.129
+[2026-09-16 14:52:55] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-04  score=135.021
+[2026-09-16 14:56:16] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-03  score=105.603
+[2026-09-16 14:59:36] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-03  score=129.951
+[2026-09-16 15:02:54] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=1.000e-02  score=270.744
+[2026-09-16 15:06:10] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief  lr=3.162e-02  score=364.17
+[2026-09-16 15:06:10] [language_wikitext2_modelsize] [small] [lr-search] AdaBelief: FROZEN lr=1.000e-03  (boundary checks: 0)
+[2026-09-16 15:11:03] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=3.162e-05  score=675.428
+[2026-09-16 15:15:53] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=1.000e-04  score=237.787
+[2026-09-16 15:20:42] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=3.162e-04  score=137.931
+[2026-09-16 15:25:31] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=1.000e-03  score=107.962
+[2026-09-16 15:30:20] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=3.162e-03  score=118.934
+[2026-09-16 15:35:09] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=1.000e-02  score=198.315
+[2026-09-16 15:39:55] [language_wikitext2_modelsize] [small] [lr-search] EvieKF  lr=3.162e-02  score=279.287
+[2026-09-16 15:39:55] [language_wikitext2_modelsize] [small] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-16 15:39:55] [language_wikitext2_modelsize] [small] sweep cells
+[2026-09-16 15:52:52] [language_wikitext2_modelsize] [small] small|AdamW|full|42  primary=106.61291208768168  diverged=False
+[2026-09-16 16:05:49] [language_wikitext2_modelsize] [small] small|AdamW|full|43  primary=104.3879584123818  diverged=False
+[2026-09-16 16:18:47] [language_wikitext2_modelsize] [small] small|AdamW|full|44  primary=105.41796837384611  diverged=False
+[2026-09-16 16:32:07] [language_wikitext2_modelsize] [small] small|AdaBelief|full|42  primary=106.54863033548614  diverged=False
+[2026-09-16 16:45:28] [language_wikitext2_modelsize] [small] small|AdaBelief|full|43  primary=107.59759828462352  diverged=False
+[2026-09-16 16:58:48] [language_wikitext2_modelsize] [small] small|AdaBelief|full|44  primary=108.33303906627735  diverged=False
+[2026-09-16 17:18:15] [language_wikitext2_modelsize] [small] small|EvieKF|full|42  primary=97.43736082656184  diverged=False
+[2026-09-16 17:38:11] [language_wikitext2_modelsize] [small] small|EvieKF|full|43  primary=99.17135080465533  diverged=False
+[2026-09-16 17:57:53] [language_wikitext2_modelsize] [small] small|EvieKF|full|44  primary=98.34713426741611  diverged=False
+[2026-09-16 17:57:53] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-16 17:57:53] [language_wikitext2_modelsize] [large] LR search  (modelsize = {'n_layer': 9, 'd_model': 384, 'n_head': 12})
+[2026-09-16 18:18:35] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=3.162e-05  score=237.812
+[2026-09-16 18:39:20] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=1.000e-04  score=143.842
+[2026-09-16 19:00:06] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=3.162e-04  score=98.3302
+[2026-09-16 19:20:53] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=1.000e-03  score=107.63
+[2026-09-16 19:41:26] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=3.162e-03  score=226.091
+[2026-09-16 20:01:36] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=1.000e-02  score=333.616
+[2026-09-16 20:21:31] [language_wikitext2_modelsize] [large] [lr-search] AdamW  lr=3.162e-02  score=520.822
+[2026-09-16 20:21:31] [language_wikitext2_modelsize] [large] [lr-search] AdamW: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 20:42:26] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-05  score=210.162
+[2026-09-16 21:03:22] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-04  score=132.752
+[2026-09-16 21:24:18] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-04  score=96.349
+[2026-09-16 21:45:15] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-03  score=114.428
+[2026-09-16 22:05:56] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-03  score=256.041
+[2026-09-16 22:26:20] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=1.000e-02  score=334.939
+[2026-09-16 22:46:27] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief  lr=3.162e-02  score=600.103
+[2026-09-16 22:46:27] [language_wikitext2_modelsize] [large] [lr-search] AdaBelief: FROZEN lr=3.162e-04  (boundary checks: 0)
+[2026-09-16 23:12:44] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=3.162e-05  score=271.593
+[2026-09-16 23:39:02] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=1.000e-04  score=160.178
+[2026-09-17 00:05:15] [language_wikitext2_modelsize] [signal] EvieKF/full/seed42/LR: checkpointed at step 2498; exiting cleanly
+[2026-09-17 07:03:17] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-17 07:03:17] [language_wikitext2_modelsize]   language_wikitext2_modelsize  |  modelsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-17 07:03:17] [language_wikitext2_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 07:03:17] [language_wikitext2_modelsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 07:03:17] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-17 07:03:17] [language_wikitext2_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 07:03:17] [language_wikitext2_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 07:03:26] [language_wikitext2_modelsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-17 07:03:26] [language_wikitext2_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-17 07:03:26] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:03:26] [language_wikitext2_modelsize] [small] LR search  (modelsize = {'n_layer': 3, 'd_model': 128, 'n_head': 4})
+[2026-09-17 07:03:26] [language_wikitext2_modelsize] [small] sweep cells
+[2026-09-17 07:03:27] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 07:03:27] [language_wikitext2_modelsize] [large] LR search  (modelsize = {'n_layer': 9, 'd_model': 384, 'n_head': 12})
+[2026-09-17 07:31:54] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=3.162e-05  score=271.593
+[2026-09-17 08:00:36] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=1.000e-04  score=160.178
+[2026-09-17 08:29:27] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=3.162e-04  score=110.415
+[2026-09-17 08:58:12] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=1.000e-03  score=108.807
+[2026-09-17 09:26:43] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=3.162e-03  score=205.229
+[2026-09-17 09:55:08] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=1.000e-02  score=331.403
+[2026-09-17 10:23:10] [language_wikitext2_modelsize] [large] [lr-search] EvieKF  lr=3.162e-02  score=505.371
+[2026-09-17 10:23:10] [language_wikitext2_modelsize] [large] [lr-search] EvieKF: FROZEN lr=1.000e-03  (fixed knob=3000)  (boundary checks: 0)
+[2026-09-17 10:23:10] [language_wikitext2_modelsize] [large] sweep cells
+[2026-09-17 11:59:04] [language_wikitext2_modelsize] [large] large|AdamW|full|42  primary=92.34966289951957  diverged=False
+[2026-09-17 13:34:54] [language_wikitext2_modelsize] [large] large|AdamW|full|43  primary=93.53495162234887  diverged=False
+[2026-09-17 15:10:28] [language_wikitext2_modelsize] [large] large|AdamW|full|44  primary=93.31672977281123  diverged=False
+[2026-09-17 16:46:36] [language_wikitext2_modelsize] [large] large|AdaBelief|full|42  primary=94.08163583784187  diverged=False
+[2026-09-17 16:48:15] [language_wikitext2_modelsize] [signal] AdaBelief/full/seed43: checkpointed at step 174; exiting cleanly
+[2026-09-17 19:28:46] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-17 19:28:46] [language_wikitext2_modelsize]   language_wikitext2_modelsize  |  modelsize sweep on language_wikitext2  device=cuda  torch=2.10.0+cu128
+[2026-09-17 19:28:46] [language_wikitext2_modelsize]   NOTE: fixed 10000-step budget at every grid point -- absolute test_perplexity is NOT comparable across grid points; only the within-grid-point arm delta is (CLAUDE.md sec 9.2).
+[2026-09-17 19:28:46] [language_wikitext2_modelsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-17 19:28:46] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-17 19:28:46] [language_wikitext2_modelsize] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 19:28:46] [language_wikitext2_modelsize] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-17 19:28:54] [language_wikitext2_modelsize]   arms=['AdamW', 'AdaBelief', 'EvieKF']  seeds=[42, 43, 44]  grid=['small', 'large', 'baseline']
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] [small] LR search  (modelsize = {'n_layer': 3, 'd_model': 128, 'n_head': 4})
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] [small] sweep cells
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] [large] LR search  (modelsize = {'n_layer': 9, 'd_model': 384, 'n_head': 12})
+[2026-09-17 19:28:54] [language_wikitext2_modelsize] [large] sweep cells
+[2026-09-17 19:29:00] [language_wikitext2_modelsize] [resume] AdaBelief/full/seed43 from step 174/10000
+[2026-09-17 20:54:04] [language_wikitext2_modelsize] [large] large|AdaBelief|full|43  primary=95.62905881832079  diverged=False
+[2026-09-17 22:20:42] [language_wikitext2_modelsize] [large] large|AdaBelief|full|44  primary=95.80095222111451  diverged=False
+[2026-09-18 00:08:18] [language_wikitext2_modelsize] [large] large|EvieKF|full|42  primary=109.89785032004832  diverged=False
+[2026-09-18 01:55:52] [language_wikitext2_modelsize] [large] large|EvieKF|full|43  primary=105.42151339197213  diverged=False
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] [large] large|EvieKF|full|44  primary=109.78121049365292  diverged=False
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] [baseline] reusing the main run's frozen LR + seed [42, 43, 44] cells from checkpoints/language_wikitext2/
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] [sweep] baseline point: 12 pieces NOT found under checkpoints/language_wikitext2/ -- run that main task first for a complete baseline column. Missing e.g. ['lr[AdamW]', 'lr[AdaBelief]', 'lr[EvieKF]', 'cell[AdamW|full|42]', 'cell[AdamW|full|43]', 'cell[AdamW|full|44]'] ...
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   MODELSIZE SWEEP -- language_wikitext2_modelsize   primary=test_perplexity (lower is better)
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   grid point                x          AdamW    AdaBelief       EvieKF
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   small                  1536         105.42        107.6       98.347
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   large             4.147e+04         93.317       95.629       109.78
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   baseline          1.229e+04            nan          nan          nan   [reused baseline]
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] ----------------------------------------------------------------------------------------------------
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   delta vs AdamW  (d>0 => arm beats AdamW at that grid point; direction-normalised relative)
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]     small            AdaBelief:-0.021  EvieKF:+0.067
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]     large            AdaBelief:-0.025  EvieKF:-0.176
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]     baseline         AdaBelief:+nan  EvieKF:+nan
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   wrote /kaggle/working/checkpoints/language_wikitext2_modelsize/results_raw.csv
+[2026-09-18 03:43:22] [language_wikitext2_modelsize] ====================================================================================================
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   wrote /kaggle/working/checkpoints/language_wikitext2_modelsize/summary.json  and  /kaggle/working/checkpoints/language_wikitext2_modelsize/sweep_results.json
+[2026-09-18 03:43:22] [language_wikitext2_modelsize]   DONE 2026-09-18T03:43:22.964165

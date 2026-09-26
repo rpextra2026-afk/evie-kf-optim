@@ -1,0 +1,58 @@
+{
+  "task_name": "language_wikitext2_evie_no_rescale",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKFr"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKFr": 97.03122908795132
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKFr": 97.03122908795132
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKFr": {
+      "42": 97.6328799721615,
+      "43": 94.80904675389172,
+      "44": 97.03122908795132,
+      "45": 97.29538727509122,
+      "46": 96.93572376044287
+    }
+  },
+  "lr_used": {
+    "EvieKFr": 0.001
+  },
+  "knob_used": {
+    "EvieKFr": 300.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)",
+  "pinned_lr": {
+    "EvieKFr": {
+      "lr": 0.001,
+      "knob": 300.0,
+      "note": "the main run's frozen WikiText-2 (lr, gamma); the ONLY difference from those cells is that the global ||y||/||z|| rescale is off"
+    }
+  },
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

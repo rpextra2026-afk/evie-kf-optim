@@ -1,0 +1,102 @@
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute]   ablation_language_wikitext2_diag_absolute  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 19:37:06] [ablation_language_wikitext2_diag_absolute] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 19:37:16] [ablation_language_wikitext2_diag_absolute] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-23 19:37:16] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-23 19:37:16] [ablation_language_wikitext2_diag_absolute] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieDiagAbs']
+[2026-09-23 19:48:50] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=3  score=302.441
+[2026-09-23 20:00:30] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=10  score=302.43
+[2026-09-23 20:12:10] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=30  score=302.401
+[2026-09-23 20:23:49] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=100  score=302.315
+[2026-09-23 20:35:29] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=300  score=302.142
+[2026-09-23 20:47:08] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=1000  score=301.923
+[2026-09-23 20:58:47] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-05  knob=3000  score=301.949
+[2026-09-23 21:10:29] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=3  score=173.457
+[2026-09-23 21:22:09] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=10  score=173.431
+[2026-09-23 21:33:50] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=30  score=173.358
+[2026-09-23 21:45:31] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=100  score=173.123
+[2026-09-23 21:57:13] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=300  score=172.575
+[2026-09-23 22:08:53] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=1000  score=171.357
+[2026-09-23 22:20:34] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-04  knob=3000  score=169.877
+[2026-09-23 22:32:18] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=3  score=106.401
+[2026-09-23 22:44:00] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=10  score=106.386
+[2026-09-23 22:55:42] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=30  score=106.306
+[2026-09-23 23:07:25] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=100  score=106.106
+[2026-09-23 23:19:08] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=300  score=105.787
+[2026-09-23 23:30:51] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=1000  score=104.999
+[2026-09-23 23:42:33] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-04  knob=3000  score=103.819
+[2026-09-23 23:54:17] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=3  score=101.956
+[2026-09-24 00:06:01] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=10  score=102.449
+[2026-09-24 00:17:45] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=30  score=101.247
+[2026-09-24 00:29:30] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=100  score=103.2
+[2026-09-24 00:41:14] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=300  score=102.965
+[2026-09-24 00:52:58] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=1000  score=100.643
+[2026-09-24 01:04:42] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-03  knob=3000  score=102.462
+[2026-09-24 01:16:19] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=3  score=186.33
+[2026-09-24 01:27:58] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=10  score=190.614
+[2026-09-24 01:39:35] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=30  score=182.108
+[2026-09-24 01:51:12] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=100  score=193.134
+[2026-09-24 02:02:49] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=300  score=191.306
+[2026-09-24 02:14:25] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=1000  score=193.074
+[2026-09-24 02:26:02] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-03  knob=3000  score=204.564
+[2026-09-24 02:37:32] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=3  score=314.607
+[2026-09-24 02:49:02] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=10  score=316.714
+[2026-09-24 03:00:32] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=30  score=328.005
+[2026-09-24 03:12:02] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=100  score=329.53
+[2026-09-24 03:23:32] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=300  score=308.845
+[2026-09-24 03:35:01] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=1000  score=302.262
+[2026-09-24 03:46:29] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=1.000e-02  knob=3000  score=291.18
+[2026-09-24 03:57:54] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=3  score=490.869
+[2026-09-24 04:09:19] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=10  score=514.554
+[2026-09-24 04:20:43] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=30  score=484.117
+[2026-09-24 04:32:08] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=100  score=516.807
+[2026-09-24 04:43:33] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=300  score=497.846
+[2026-09-24 04:54:59] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=1000  score=462.777
+[2026-09-24 05:06:24] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs  lr=3.162e-02  knob=3000  score=463.92
+[2026-09-24 05:06:24] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs: FROZEN lr=1.000e-03  knob=1000  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-24 05:06:24] [ablation_language_wikitext2_diag_absolute] [lr-search] frozen: EvieDiagAbs=1.000e-03/k=1000
+[2026-09-24 05:06:24] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-24 05:06:24] [ablation_language_wikitext2_diag_absolute] [sweep] 1 optimizers x 1 units x 10 seeds = 10 cells
+[2026-09-24 05:22:04] [ablation_language_wikitext2_diag_absolute] [signal] EvieDiagAbs/full/seed42: checkpointed at step 3335; exiting cleanly
+[2026-09-24 07:57:01] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-24 07:57:01] [ablation_language_wikitext2_diag_absolute]   ablation_language_wikitext2_diag_absolute  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-24 07:57:01] [ablation_language_wikitext2_diag_absolute]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-24 07:57:01] [ablation_language_wikitext2_diag_absolute]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 07:57:01] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-24 07:57:02] [ablation_language_wikitext2_diag_absolute] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-24 07:57:02] [ablation_language_wikitext2_diag_absolute] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieDiagAbs']
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] [lr-search] EvieDiagAbs: cached lr=1.000e-03  knob=1000
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] [lr-search] frozen: EvieDiagAbs=1.000e-03/k=1000
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-24 07:57:10] [ablation_language_wikitext2_diag_absolute] [sweep] 1 optimizers x 1 units x 10 seeds = 10 cells
+[2026-09-24 07:57:16] [ablation_language_wikitext2_diag_absolute] [resume] EvieDiagAbs/full/seed42 from step 3335/10000
+[2026-09-24 08:26:32] [ablation_language_wikitext2_diag_absolute] [sweep] 1/10  EvieDiagAbs|full|42  primary=105.58292249933646  diverged=False
+[2026-09-24 09:10:20] [ablation_language_wikitext2_diag_absolute] [sweep] 2/10  EvieDiagAbs|full|43  primary=106.6826793811853  diverged=False
+[2026-09-24 09:53:59] [ablation_language_wikitext2_diag_absolute] [sweep] 3/10  EvieDiagAbs|full|44  primary=112.46350597674098  diverged=False
+[2026-09-24 10:37:46] [ablation_language_wikitext2_diag_absolute] [sweep] 4/10  EvieDiagAbs|full|45  primary=105.9546802378946  diverged=False
+[2026-09-24 11:21:42] [ablation_language_wikitext2_diag_absolute] [sweep] 5/10  EvieDiagAbs|full|46  primary=106.28770174931614  diverged=False
+[2026-09-24 12:05:28] [ablation_language_wikitext2_diag_absolute] [sweep] 6/10  EvieDiagAbs|full|47  primary=104.26583486174856  diverged=False
+[2026-09-24 12:49:13] [ablation_language_wikitext2_diag_absolute] [sweep] 7/10  EvieDiagAbs|full|48  primary=107.48300634938356  diverged=False
+[2026-09-24 13:33:51] [ablation_language_wikitext2_diag_absolute] [sweep] 8/10  EvieDiagAbs|full|49  primary=106.84962286422072  diverged=False
+[2026-09-24 14:18:09] [ablation_language_wikitext2_diag_absolute] [sweep] 9/10  EvieDiagAbs|full|50  primary=107.23577083357118  diverged=False
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] [sweep] 10/10  EvieDiagAbs|full|51  primary=107.16630495063973  diverged=False
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   RESULTS  --  ablation_language_wikitext2_diag_absolute   primary = test_perplexity (lower is better)
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   EvieDiagAbs  lr=1.00e-03  knob=1000  test_perplexity(task median over 10 seeds)=106.766   seed spread=[104.27, 112.46]   diverged_cells=0/10
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]              descriptive: wall_s=2638  mean_step_size=0.0002777  clip_freq=0.5359  peak_mem_mb=2271
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] ----------------------------------------------------------------------------------------------------
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   best optimizer on this task: EvieDiagAbs  (test_perplexity=106.766)
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   wrote /kaggle/working/checkpoints/ablation_language_wikitext2_diag_absolute/results_raw.csv
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   wrote /kaggle/working/checkpoints/ablation_language_wikitext2_diag_absolute/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute] ====================================================================================================
+[2026-09-24 15:02:42] [ablation_language_wikitext2_diag_absolute]   DONE 2026-09-24T15:02:42.091382

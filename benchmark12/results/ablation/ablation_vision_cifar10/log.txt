@@ -1,0 +1,295 @@
+[2026-09-13 16:19:54] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-13 16:19:54] [ablation_vision_cifar10]   ablation_vision_cifar10  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-13 16:19:54] [ablation_vision_cifar10]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-13 16:19:54] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-13 16:19:55] [ablation_vision_cifar10] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 16:19:55] [ablation_vision_cifar10] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 16:43:28] [ablation_vision_cifar10] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-13 16:43:28] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-13 16:43:28] [ablation_vision_cifar10] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-13 16:51:29] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=45.56
+[2026-09-13 16:59:28] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=44.36
+[2026-09-13 17:07:25] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=42.98
+[2026-09-13 17:15:22] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=41.6
+[2026-09-13 17:23:21] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=40.06
+[2026-09-13 17:31:17] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=38.6
+[2026-09-13 17:39:13] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=37.24
+[2026-09-13 17:47:08] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=63.6
+[2026-09-13 17:55:02] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=62.36
+[2026-09-13 18:02:56] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=61
+[2026-09-13 18:10:49] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=59.8
+[2026-09-13 18:18:44] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=58.3
+[2026-09-13 18:26:43] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=56.3
+[2026-09-13 18:34:38] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=53.92
+[2026-09-13 18:42:31] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=71.66
+[2026-09-13 18:50:25] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=71.58
+[2026-09-13 18:58:18] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=70.88
+[2026-09-13 19:06:11] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=69.72
+[2026-09-13 19:14:05] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=69.34
+[2026-09-13 19:21:58] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=68.08
+[2026-09-13 19:29:53] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=67.02
+[2026-09-13 19:37:47] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=76.66
+[2026-09-13 19:45:42] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=75.74
+[2026-09-13 19:53:35] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=75.96
+[2026-09-13 20:01:29] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=74.98
+[2026-09-13 20:09:22] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=74.42
+[2026-09-13 20:17:15] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=73.92
+[2026-09-13 20:25:07] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=72.84
+[2026-09-13 20:33:02] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=80.32
+[2026-09-13 20:40:58] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=79.16
+[2026-09-13 20:48:52] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=79.1
+[2026-09-13 20:56:47] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=78.56
+[2026-09-13 21:04:39] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=78.42
+[2026-09-13 21:12:31] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=77.2
+[2026-09-13 21:20:26] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=76.94
+[2026-09-13 21:28:19] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=80.56
+[2026-09-13 21:36:11] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=79.9
+[2026-09-13 21:44:03] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=80.14
+[2026-09-13 21:51:56] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=79.36
+[2026-09-13 21:59:50] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=80.46
+[2026-09-13 22:07:43] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=79.78
+[2026-09-13 22:15:36] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=79.82
+[2026-09-13 22:23:20] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=77.76
+[2026-09-13 22:31:05] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=79.14
+[2026-09-13 22:38:52] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=78.46
+[2026-09-13 22:46:44] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=77.76
+[2026-09-13 22:54:37] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=79.86
+[2026-09-13 23:02:27] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=79.8
+[2026-09-13 23:10:22] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=80.16
+[2026-09-13 23:10:22] [ablation_vision_cifar10] [lr-search] EvieKF: knob pick 3 at grid edge -> extend [1.0, 0.3333] and re-search (boundary check #1)
+[2026-09-13 23:18:15] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=0.3333  score=47.06
+[2026-09-13 23:26:07] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-05  knob=1  score=46.56
+[2026-09-13 23:34:00] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=0.3333  score=64.9
+[2026-09-13 23:41:52] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-04  knob=1  score=64.52
+[2026-09-13 23:49:44] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=0.3333  score=72.62
+[2026-09-13 23:57:36] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-04  knob=1  score=71.84
+[2026-09-14 00:05:32] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=0.3333  score=77.4
+[2026-09-14 00:13:28] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-03  knob=1  score=76.86
+[2026-09-14 00:19:51] [ablation_vision_cifar10] [signal] EvieKF/full/seed42/LR: checkpointed at step 2015; exiting cleanly
+[2026-09-14 11:00:51] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-14 11:00:51] [ablation_vision_cifar10]   ablation_vision_cifar10  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-14 11:00:51] [ablation_vision_cifar10]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-14 11:00:51] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-14 11:00:51] [ablation_vision_cifar10] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 11:00:51] [ablation_vision_cifar10] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 11:40:44] [ablation_vision_cifar10] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-14 11:40:44] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-14 11:40:44] [ablation_vision_cifar10] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-14 11:40:44] [ablation_vision_cifar10] [lr-search] EvieKF: knob pick 3 at grid edge -> extend [1.0, 0.3333] and re-search (boundary check #2)
+[2026-09-14 11:48:20] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=0.3333  score=80.32
+[2026-09-14 11:55:53] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-03  knob=1  score=79.58
+[2026-09-14 12:03:26] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=0.3333  score=80.42
+[2026-09-14 12:10:58] [ablation_vision_cifar10] [lr-search] EvieKF  lr=1.000e-02  knob=1  score=80.86
+[2026-09-14 12:18:26] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=0.3333  score=77.42
+[2026-09-14 12:25:56] [ablation_vision_cifar10] [lr-search] EvieKF  lr=3.162e-02  knob=1  score=77.62
+[2026-09-14 12:25:56] [ablation_vision_cifar10] [lr-search] EvieKF: FROZEN lr=1.000e-02  knob=1  (LR boundary checks: 0, knob boundary checks: 2)
+[2026-09-14 12:33:29] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=3  score=47.3
+[2026-09-14 12:41:02] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=10  score=46
+[2026-09-14 12:48:35] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=30  score=44.6
+[2026-09-14 12:56:08] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=100  score=41.9
+[2026-09-14 13:03:41] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=300  score=40.58
+[2026-09-14 13:11:14] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=1000  score=38.52
+[2026-09-14 13:18:47] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-05  knob=3000  score=36.94
+[2026-09-14 13:26:20] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=3  score=63.82
+[2026-09-14 13:33:52] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=10  score=62.98
+[2026-09-14 13:41:25] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=30  score=62
+[2026-09-14 13:48:58] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=100  score=60.46
+[2026-09-14 13:56:31] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=300  score=58.84
+[2026-09-14 14:04:04] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=1000  score=56.44
+[2026-09-14 14:11:36] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-04  knob=3000  score=53.68
+[2026-09-14 14:19:09] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=3  score=71.96
+[2026-09-14 14:26:42] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=10  score=71.42
+[2026-09-14 14:34:15] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=30  score=71.04
+[2026-09-14 14:41:48] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=100  score=70.6
+[2026-09-14 14:49:20] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=300  score=69.92
+[2026-09-14 14:56:54] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=1000  score=68.7
+[2026-09-14 15:04:27] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-04  knob=3000  score=67.5
+[2026-09-14 15:11:59] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=3  score=76.96
+[2026-09-14 15:19:32] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=10  score=76.46
+[2026-09-14 15:27:05] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=30  score=75.6
+[2026-09-14 15:34:38] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=100  score=74.72
+[2026-09-14 15:42:11] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=300  score=74.68
+[2026-09-14 15:49:45] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=1000  score=73.62
+[2026-09-14 15:57:18] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-03  knob=3000  score=72.8
+[2026-09-14 16:04:51] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=3  score=80.24
+[2026-09-14 16:12:24] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=10  score=80.12
+[2026-09-14 16:19:57] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=30  score=79.36
+[2026-09-14 16:27:29] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=100  score=78.44
+[2026-09-14 16:35:02] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=300  score=77.78
+[2026-09-14 16:42:35] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=1000  score=76.82
+[2026-09-14 16:50:08] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-03  knob=3000  score=76.84
+[2026-09-14 16:57:40] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=3  score=80.36
+[2026-09-14 17:05:14] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=10  score=79.8
+[2026-09-14 17:12:46] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=30  score=80.1
+[2026-09-14 17:20:18] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=100  score=80.58
+[2026-09-14 17:27:51] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=300  score=79.66
+[2026-09-14 17:35:23] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=1000  score=79.92
+[2026-09-14 17:42:56] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=1.000e-02  knob=3000  score=79.66
+[2026-09-14 17:50:25] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=3  score=78.5
+[2026-09-14 17:57:54] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=10  score=78.88
+[2026-09-14 18:05:25] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=30  score=78.72
+[2026-09-14 18:12:56] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=100  score=78.08
+[2026-09-14 18:20:27] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=300  score=78.98
+[2026-09-14 18:27:59] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=1000  score=79.72
+[2026-09-14 18:35:31] [ablation_vision_cifar10] [lr-search] EvieKFu  lr=3.162e-02  knob=3000  score=79.76
+[2026-09-14 18:35:31] [ablation_vision_cifar10] [lr-search] EvieKFu: FROZEN lr=1.000e-02  knob=100  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-14 18:41:37] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=3  score=47.16
+[2026-09-14 18:47:44] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=10  score=46.86
+[2026-09-14 18:53:52] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=30  score=46.66
+[2026-09-14 18:59:59] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=100  score=46.56
+[2026-09-14 19:00:48] [ablation_vision_cifar10] [signal] EvieDiag/full/seed42/LR: checkpointed at step 333; exiting cleanly
+[2026-09-14 19:24:16] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-14 19:24:16] [ablation_vision_cifar10]   ablation_vision_cifar10  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-14 19:24:16] [ablation_vision_cifar10]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-14 19:24:16] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-14 19:24:17] [ablation_vision_cifar10] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 19:24:17] [ablation_vision_cifar10] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 20:04:55] [ablation_vision_cifar10] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-14 20:04:55] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-14 20:04:55] [ablation_vision_cifar10] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-14 20:04:55] [ablation_vision_cifar10] [lr-search] EvieKF: cached lr=1.000e-02  knob=1
+[2026-09-14 20:04:55] [ablation_vision_cifar10] [lr-search] EvieKFu: cached lr=1.000e-02  knob=100
+[2026-09-14 20:11:17] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=300  score=46.54
+[2026-09-14 20:17:36] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=1000  score=46.58
+[2026-09-14 20:23:55] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=3000  score=46.6
+[2026-09-14 20:30:13] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=3  score=65.6
+[2026-09-14 20:36:30] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=10  score=65.6
+[2026-09-14 20:42:45] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=30  score=65.4
+[2026-09-14 20:49:01] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=100  score=65.22
+[2026-09-14 20:55:17] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=300  score=65.54
+[2026-09-14 21:01:34] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=1000  score=65.44
+[2026-09-14 21:07:49] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=3000  score=65.4
+[2026-09-14 21:14:05] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=3  score=72.6
+[2026-09-14 21:20:23] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=10  score=72.46
+[2026-09-14 21:26:38] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=30  score=72.44
+[2026-09-14 21:32:53] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=100  score=72.84
+[2026-09-14 21:39:08] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=300  score=72.48
+[2026-09-14 21:45:22] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=1000  score=72.5
+[2026-09-14 21:51:37] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=3000  score=72.96
+[2026-09-14 21:57:52] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=3  score=77.56
+[2026-09-14 22:04:06] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=10  score=77.78
+[2026-09-14 22:10:21] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=30  score=77.12
+[2026-09-14 22:16:38] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=100  score=77.22
+[2026-09-14 22:22:53] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=300  score=78.26
+[2026-09-14 22:29:08] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=1000  score=77.3
+[2026-09-14 22:35:24] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=3000  score=77.8
+[2026-09-14 22:41:42] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=3  score=80.5
+[2026-09-14 22:47:57] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=10  score=80.06
+[2026-09-14 22:54:12] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=30  score=79.84
+[2026-09-14 23:00:26] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=100  score=80.42
+[2026-09-14 23:06:41] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=300  score=80.1
+[2026-09-14 23:12:56] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=1000  score=80.9
+[2026-09-14 23:19:11] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=3000  score=80.04
+[2026-09-14 23:25:25] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=3  score=81.38
+[2026-09-14 23:31:38] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=10  score=81.06
+[2026-09-14 23:37:51] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=30  score=81.02
+[2026-09-14 23:44:04] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=100  score=80.92
+[2026-09-14 23:50:16] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=300  score=81.14
+[2026-09-14 23:56:28] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=1000  score=80.2
+[2026-09-15 00:02:40] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=3000  score=80.86
+[2026-09-15 00:08:45] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=3  score=78.32
+[2026-09-15 00:14:50] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=10  score=77.26
+[2026-09-15 00:20:55] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=30  score=77.44
+[2026-09-15 00:27:00] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=100  score=78.14
+[2026-09-15 00:33:04] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=300  score=76.9
+[2026-09-15 00:39:08] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=1000  score=77.08
+[2026-09-15 00:45:13] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=3000  score=76.94
+[2026-09-15 00:45:13] [ablation_vision_cifar10] [lr-search] EvieDiag: knob pick 3 at grid edge -> extend [1.0, 0.3333] and re-search (boundary check #1)
+[2026-09-15 00:51:28] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=0.3333  score=47.44
+[2026-09-15 00:57:44] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-05  knob=1  score=47.4
+[2026-09-15 01:03:59] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=0.3333  score=65.36
+[2026-09-15 01:10:14] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-04  knob=1  score=65.46
+[2026-09-15 01:16:30] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=0.3333  score=72.62
+[2026-09-15 01:22:44] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-04  knob=1  score=72.4
+[2026-09-15 01:29:00] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=0.3333  score=77.34
+[2026-09-15 01:35:15] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-03  knob=1  score=77.16
+[2026-09-15 01:41:31] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=0.3333  score=80.4
+[2026-09-15 01:47:48] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-03  knob=1  score=80.86
+[2026-09-15 01:54:03] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=0.3333  score=81.04
+[2026-09-15 02:00:19] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=1.000e-02  knob=1  score=82
+[2026-09-15 02:06:26] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=0.3333  score=76.6
+[2026-09-15 02:12:31] [ablation_vision_cifar10] [lr-search] EvieDiag  lr=3.162e-02  knob=1  score=76.16
+[2026-09-15 02:12:31] [ablation_vision_cifar10] [lr-search] EvieDiag: FROZEN lr=1.000e-02  knob=1  (LR boundary checks: 0, knob boundary checks: 1)
+[2026-09-15 02:12:31] [ablation_vision_cifar10] [lr-search] frozen: EvieKF=1.000e-02/k=1, EvieKFu=1.000e-02/k=100, EvieDiag=1.000e-02/k=1
+[2026-09-15 02:12:31] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-15 02:12:31] [ablation_vision_cifar10] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-15 02:43:33] [ablation_vision_cifar10] [sweep] 1/30  EvieKF|full|42  primary=81.98  diverged=False
+[2026-09-15 03:14:32] [ablation_vision_cifar10] [sweep] 2/30  EvieKF|full|43  primary=81.24  diverged=False
+[2026-09-15 03:24:13] [ablation_vision_cifar10] [signal] EvieKF/full/seed44: checkpointed at step 3129; exiting cleanly
+[2026-09-16 18:39:11] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-16 18:39:11] [ablation_vision_cifar10]   ablation_vision_cifar10  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-16 18:39:11] [ablation_vision_cifar10]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-16 18:39:11] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-16 18:39:12] [ablation_vision_cifar10] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 18:39:12] [ablation_vision_cifar10] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-16 19:08:31] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [lr-search] EvieKF: cached lr=1.000e-02  knob=1
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [lr-search] EvieKFu: cached lr=1.000e-02  knob=100
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [lr-search] EvieDiag: cached lr=1.000e-02  knob=1
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [lr-search] frozen: EvieKF=1.000e-02/k=1, EvieKFu=1.000e-02/k=100, EvieDiag=1.000e-02/k=1
+[2026-09-16 19:08:31] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-16 19:08:31] [ablation_vision_cifar10] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-16 19:08:32] [ablation_vision_cifar10] [resume] EvieKF/full/seed44 from step 3129/10000
+[2026-09-16 19:29:38] [ablation_vision_cifar10] [sweep] 3/30  EvieKF|full|44  primary=81.06  diverged=False
+[2026-09-16 20:00:08] [ablation_vision_cifar10] [sweep] 4/30  EvieKF|full|45  primary=81.34  diverged=False
+[2026-09-16 20:30:40] [ablation_vision_cifar10] [sweep] 5/30  EvieKF|full|46  primary=81.13  diverged=False
+[2026-09-16 21:01:11] [ablation_vision_cifar10] [sweep] 6/30  EvieKF|full|47  primary=81.36  diverged=False
+[2026-09-16 21:31:46] [ablation_vision_cifar10] [sweep] 7/30  EvieKF|full|48  primary=80.8  diverged=False
+[2026-09-16 22:02:25] [ablation_vision_cifar10] [sweep] 8/30  EvieKF|full|49  primary=80.35  diverged=False
+[2026-09-16 22:32:53] [ablation_vision_cifar10] [sweep] 9/30  EvieKF|full|50  primary=81.11  diverged=False
+[2026-09-16 23:03:30] [ablation_vision_cifar10] [sweep] 10/30  EvieKF|full|51  primary=81.3  diverged=False
+[2026-09-16 23:34:14] [ablation_vision_cifar10] [sweep] 11/30  EvieKFu|full|42  primary=81.24  diverged=False
+[2026-09-17 00:04:53] [ablation_vision_cifar10] [sweep] 12/30  EvieKFu|full|43  primary=80.03  diverged=False
+[2026-09-17 00:35:35] [ablation_vision_cifar10] [sweep] 13/30  EvieKFu|full|44  primary=80.73  diverged=False
+[2026-09-17 01:06:17] [ablation_vision_cifar10] [sweep] 14/30  EvieKFu|full|45  primary=80.78  diverged=False
+[2026-09-17 01:37:00] [ablation_vision_cifar10] [sweep] 15/30  EvieKFu|full|46  primary=80.59  diverged=False
+[2026-09-17 02:07:44] [ablation_vision_cifar10] [sweep] 16/30  EvieKFu|full|47  primary=80.55  diverged=False
+[2026-09-17 02:38:26] [ablation_vision_cifar10] [sweep] 17/30  EvieKFu|full|48  primary=80.04  diverged=False
+[2026-09-17 03:09:09] [ablation_vision_cifar10] [sweep] 18/30  EvieKFu|full|49  primary=79.47  diverged=False
+[2026-09-17 03:39:52] [ablation_vision_cifar10] [sweep] 19/30  EvieKFu|full|50  primary=80.5  diverged=False
+[2026-09-17 04:10:35] [ablation_vision_cifar10] [sweep] 20/30  EvieKFu|full|51  primary=79.96  diverged=False
+[2026-09-17 04:24:10] [ablation_vision_cifar10] [signal] EvieDiag/full/seed42: checkpointed at step 5500; exiting cleanly
+[2026-09-17 11:59:25] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-17 11:59:25] [ablation_vision_cifar10]   ablation_vision_cifar10  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-17 11:59:25] [ablation_vision_cifar10]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46, 47, 48, 49, 50, 51]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-17 11:59:25] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-17 11:59:26] [ablation_vision_cifar10] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-17 11:59:26] [ablation_vision_cifar10] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [data] cifar10: train=45000 val=5000 test=10000 classes=10  mean=[0.49140000343322754, 0.4821999967098236, 0.44670000672340393] std=[0.24699999392032623, 0.2433999925851822, 0.2615000009536743]
+[2026-09-17 12:21:54] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'EvieKFu', 'EvieDiag']
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [lr-search] EvieKF: cached lr=1.000e-02  knob=1
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [lr-search] EvieKFu: cached lr=1.000e-02  knob=100
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [lr-search] EvieDiag: cached lr=1.000e-02  knob=1
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [lr-search] frozen: EvieKF=1.000e-02/k=1, EvieKFu=1.000e-02/k=100, EvieDiag=1.000e-02/k=1
+[2026-09-17 12:21:54] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-17 12:21:54] [ablation_vision_cifar10] [sweep] 3 optimizers x 1 units x 10 seeds = 30 cells
+[2026-09-17 12:21:55] [ablation_vision_cifar10] [resume] EvieDiag/full/seed42 from step 5500/10000
+[2026-09-17 12:34:01] [ablation_vision_cifar10] [sweep] 21/30  EvieDiag|full|42  primary=81.76  diverged=False
+[2026-09-17 13:00:42] [ablation_vision_cifar10] [sweep] 22/30  EvieDiag|full|43  primary=80.96  diverged=False
+[2026-09-17 13:27:23] [ablation_vision_cifar10] [sweep] 23/30  EvieDiag|full|44  primary=82.0  diverged=False
+[2026-09-17 13:54:03] [ablation_vision_cifar10] [sweep] 24/30  EvieDiag|full|45  primary=81.23  diverged=False
+[2026-09-17 14:20:24] [ablation_vision_cifar10] [sweep] 25/30  EvieDiag|full|46  primary=81.92  diverged=False
+[2026-09-17 14:46:34] [ablation_vision_cifar10] [sweep] 26/30  EvieDiag|full|47  primary=81.49  diverged=False
+[2026-09-17 15:13:05] [ablation_vision_cifar10] [sweep] 27/30  EvieDiag|full|48  primary=81.5  diverged=False
+[2026-09-17 15:39:44] [ablation_vision_cifar10] [sweep] 28/30  EvieDiag|full|49  primary=80.75  diverged=False
+[2026-09-17 16:06:16] [ablation_vision_cifar10] [sweep] 29/30  EvieDiag|full|50  primary=81.56  diverged=False
+[2026-09-17 16:32:59] [ablation_vision_cifar10] [sweep] 30/30  EvieDiag|full|51  primary=82.06  diverged=False
+[2026-09-17 16:32:59] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   RESULTS  --  ablation_vision_cifar10   primary = test_top1_acc (higher is better)
+[2026-09-17 16:32:59] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   EvieKF      lr=1.00e-02  knob=1  test_top1_acc(task median over 10 seeds)=81.185   seed spread=[80.35, 81.98]   diverged_cells=0/10
+[2026-09-17 16:32:59] [ablation_vision_cifar10]              descriptive: wall_s=1831  mean_step_size=0.001559  clip_freq=0.00823  peak_mem_mb=851.1
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   EvieKFu     lr=1.00e-02  knob=100  test_top1_acc(task median over 10 seeds)=80.525   seed spread=[79.47, 81.24]   diverged_cells=0/10
+[2026-09-17 16:32:59] [ablation_vision_cifar10]              descriptive: wall_s=1834  mean_step_size=0.002126  clip_freq=0.287  peak_mem_mb=851.1
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   EvieDiag    lr=1.00e-02  knob=1  test_top1_acc(task median over 10 seeds)=81.53   seed spread=[80.75, 82.06]   diverged_cells=0/10
+[2026-09-17 16:32:59] [ablation_vision_cifar10]              descriptive: wall_s=1578  mean_step_size=0.001638  clip_freq=0.02193  peak_mem_mb=864.8
+[2026-09-17 16:32:59] [ablation_vision_cifar10] ----------------------------------------------------------------------------------------------------
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   best optimizer on this task: EvieDiag  (test_top1_acc=81.53)
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   wrote /kaggle/working/checkpoints/ablation_vision_cifar10/results_raw.csv
+[2026-09-17 16:32:59] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   wrote /kaggle/working/checkpoints/ablation_vision_cifar10/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-17 16:32:59] [ablation_vision_cifar10] ====================================================================================================
+[2026-09-17 16:32:59] [ablation_vision_cifar10]   DONE 2026-09-17T16:32:59.682223

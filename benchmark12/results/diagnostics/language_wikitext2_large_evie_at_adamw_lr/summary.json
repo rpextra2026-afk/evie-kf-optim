@@ -1,0 +1,54 @@
+{
+  "task_name": "language_wikitext2_large_evie_at_adamw_lr",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKF"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKF": 104.23222047631293
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKF": 104.23222047631293
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKF": {
+      "42": 104.47346365868093,
+      "43": 102.76526998624786,
+      "44": 104.23222047631293
+    }
+  },
+  "lr_used": {
+    "EvieKF": 0.0003162
+  },
+  "knob_used": {
+    "EvieKF": 3000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": "perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)",
+  "pinned_lr": {
+    "EvieKF": {
+      "lr": 0.0003162,
+      "knob": 3000.0,
+      "note": "the lr AdamW and AdaBelief both froze at the large size; gamma at the sweep's pinned 3000"
+    }
+  },
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

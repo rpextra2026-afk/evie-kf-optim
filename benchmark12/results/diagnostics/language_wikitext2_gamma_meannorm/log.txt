@@ -1,0 +1,39 @@
+[2026-09-23 20:38:57] [language_wikitext2_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:38:57] [language_wikitext2_gamma_meannorm]   language_wikitext2_gamma_meannorm  |  domain=language  device=cuda  torch=2.10.0+cu128
+[2026-09-23 20:38:57] [language_wikitext2_gamma_meannorm]   primary=test_perplexity  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=32
+[2026-09-23 20:38:57] [language_wikitext2_gamma_meannorm]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-23 20:38:57] [language_wikitext2_gamma_meannorm] ====================================================================================================
+[2026-09-23 20:38:58] [language_wikitext2_gamma_meannorm] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-23 20:38:58] [language_wikitext2_gamma_meannorm] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-23 20:39:08] [language_wikitext2_gamma_meannorm] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065
+[2026-09-23 20:39:08] [language_wikitext2_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 20:39:08] [language_wikitext2_gamma_meannorm] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKFm']
+[2026-09-23 20:53:55] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=0.1  score=102.115
+[2026-09-23 21:08:38] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=0.3  score=102.836
+[2026-09-23 21:23:23] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=1  score=103.52
+[2026-09-23 21:38:07] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=3  score=106.78
+[2026-09-23 21:52:49] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=10  score=103.212
+[2026-09-23 22:07:02] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=30  score=102.029
+[2026-09-23 22:21:31] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm  lr=1.000e-03  knob=100  score=105.176
+[2026-09-23 22:21:31] [language_wikitext2_gamma_meannorm] [lr-search] EvieKFm: FROZEN lr=1.000e-03  knob=30  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-23 22:21:31] [language_wikitext2_gamma_meannorm] [lr-search] frozen: EvieKFm=1.000e-03/k=30
+[2026-09-23 22:21:31] [language_wikitext2_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-23 22:21:31] [language_wikitext2_gamma_meannorm] [sweep] 1 optimizers x 1 units x 5 seeds = 5 cells
+[2026-09-23 23:20:29] [language_wikitext2_gamma_meannorm] [sweep] 1/5  EvieKFm|full|42  primary=97.868542773946  diverged=False
+[2026-09-24 00:19:23] [language_wikitext2_gamma_meannorm] [sweep] 2/5  EvieKFm|full|43  primary=98.89779635426554  diverged=False
+[2026-09-24 01:18:14] [language_wikitext2_gamma_meannorm] [sweep] 3/5  EvieKFm|full|44  primary=99.34875856151973  diverged=False
+[2026-09-24 02:16:58] [language_wikitext2_gamma_meannorm] [sweep] 4/5  EvieKFm|full|45  primary=98.15024676428904  diverged=False
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] [sweep] 5/5  EvieKFm|full|46  primary=98.47428964699415  diverged=False
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] ====================================================================================================
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   RESULTS  --  language_wikitext2_gamma_meannorm   primary = test_perplexity (lower is better)
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   [CAVEAT] perplexity uses a 16k whitespace-tokenized vocab + ~10M-param model at a fixed 10k-step budget -- within-task cross-optimizer ranking ONLY, NOT comparable to published WikiText/PTB perplexities (~33k vocab / BPE)
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   EvieKFm     lr=1.00e-03  knob=30  test_perplexity(task median over 5 seeds)=98.4743   seed spread=[97.869, 99.349]   diverged_cells=0/5
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]              descriptive: wall_s=3519  mean_step_size=0.0003152  clip_freq=0.8991  peak_mem_mb=2377
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] ----------------------------------------------------------------------------------------------------
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   best optimizer on this task: EvieKFm  (test_perplexity=98.4743)
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   wrote /kaggle/working/checkpoints/language_wikitext2_gamma_meannorm/results_raw.csv
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] ====================================================================================================
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   wrote /kaggle/working/checkpoints/language_wikitext2_gamma_meannorm/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm] ====================================================================================================
+[2026-09-24 03:15:43] [language_wikitext2_gamma_meannorm]   DONE 2026-09-24T03:15:43.204398

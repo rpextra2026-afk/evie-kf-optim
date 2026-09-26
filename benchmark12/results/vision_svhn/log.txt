@@ -1,0 +1,479 @@
+[2026-09-12 19:13:10] [vision_svhn] ====================================================================================================
+[2026-09-12 19:13:10] [vision_svhn]   vision_svhn  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-12 19:13:10] [vision_svhn]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-12 19:13:10] [vision_svhn] ====================================================================================================
+[2026-09-12 19:13:10] [vision_svhn] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-12 19:13:11] [vision_svhn] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-12 19:13:41] [vision_svhn] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-12 19:13:41] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-12 19:13:41] [vision_svhn] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-12 19:21:17] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=3  score=33.9203
+[2026-09-12 19:28:50] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=10  score=32.0775
+[2026-09-12 19:36:23] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=30  score=30.7398
+[2026-09-12 19:43:56] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=100  score=29.3202
+[2026-09-12 19:51:30] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=300  score=27.2318
+[2026-09-12 19:59:03] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=1000  score=25.6347
+[2026-09-12 20:06:36] [vision_svhn] [lr-search] EvieKF  lr=3.162e-05  knob=3000  score=24.3653
+[2026-09-12 20:14:09] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=3  score=80.89
+[2026-09-12 20:21:42] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=10  score=76.4947
+[2026-09-12 20:29:15] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=30  score=70.9255
+[2026-09-12 20:36:47] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=100  score=65.6293
+[2026-09-12 20:44:21] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=300  score=60.3877
+[2026-09-12 20:51:55] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=1000  score=53.7538
+[2026-09-12 20:59:28] [vision_svhn] [lr-search] EvieKF  lr=1.000e-04  knob=3000  score=45.3999
+[2026-09-12 21:07:06] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=3  score=91.9465
+[2026-09-12 21:14:49] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=10  score=91.4141
+[2026-09-12 21:22:32] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=30  score=90.718
+[2026-09-12 21:30:10] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=100  score=89.1482
+[2026-09-12 21:37:51] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=300  score=87.6058
+[2026-09-12 21:45:29] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=1000  score=85.4081
+[2026-09-12 21:53:09] [vision_svhn] [lr-search] EvieKF  lr=3.162e-04  knob=3000  score=83.579
+[2026-09-12 22:00:53] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=3  score=92.9429
+[2026-09-12 22:08:33] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=10  score=92.9156
+[2026-09-12 22:16:13] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=30  score=92.7655
+[2026-09-12 22:23:53] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=100  score=92.3014
+[2026-09-12 22:31:31] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=300  score=92.2058
+[2026-09-12 22:39:10] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=1000  score=91.8373
+[2026-09-12 22:46:51] [vision_svhn] [lr-search] EvieKF  lr=1.000e-03  knob=3000  score=91.1138
+[2026-09-12 22:54:32] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=3  score=93.1886
+[2026-09-12 23:02:12] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=10  score=93.2296
+[2026-09-12 23:09:50] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=30  score=92.9702
+[2026-09-12 23:17:28] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=100  score=93.2432
+[2026-09-12 23:25:06] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=300  score=93.0521
+[2026-09-12 23:32:44] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=1000  score=92.9839
+[2026-09-12 23:40:23] [vision_svhn] [lr-search] EvieKF  lr=3.162e-03  knob=3000  score=93.0794
+[2026-09-12 23:48:00] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=3  score=93.5708
+[2026-09-12 23:55:36] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=10  score=93.8302
+[2026-09-13 00:03:13] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=30  score=93.448
+[2026-09-13 00:10:51] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=100  score=93.4207
+[2026-09-13 00:18:28] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=300  score=93.175
+[2026-09-13 00:26:05] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=1000  score=93.3661
+[2026-09-13 00:33:42] [vision_svhn] [lr-search] EvieKF  lr=1.000e-02  knob=3000  score=93.2432
+[2026-09-13 00:41:13] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=3  score=92.9293
+[2026-09-13 00:48:46] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=10  score=92.9702
+[2026-09-13 00:56:20] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=30  score=93.3661
+[2026-09-13 01:03:59] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=100  score=93.7756
+[2026-09-13 01:11:39] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=300  score=92.8064
+[2026-09-13 01:19:19] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=1000  score=93.5162
+[2026-09-13 01:26:58] [vision_svhn] [lr-search] EvieKF  lr=3.162e-02  knob=3000  score=93.3388
+[2026-09-13 01:26:58] [vision_svhn] [lr-search] EvieKF: FROZEN lr=1.000e-02  knob=10  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 01:26:58] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:31:36] [vision_svhn] [lr-search] AdamW  lr=3.162e-05  knob=-  score=35.3126
+[2026-09-13 01:31:37] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:36:15] [vision_svhn] [lr-search] AdamW  lr=1.000e-04  knob=-  score=84.7666
+[2026-09-13 01:36:15] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:40:54] [vision_svhn] [lr-search] AdamW  lr=3.162e-04  knob=-  score=92.2604
+[2026-09-13 01:40:55] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:45:34] [vision_svhn] [lr-search] AdamW  lr=1.000e-03  knob=-  score=93.0385
+[2026-09-13 01:45:34] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:50:13] [vision_svhn] [lr-search] AdamW  lr=3.162e-03  knob=-  score=93.7756
+[2026-09-13 01:50:13] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:54:52] [vision_svhn] [lr-search] AdamW  lr=1.000e-02  knob=-  score=93.5572
+[2026-09-13 01:54:52] [vision_svhn] [fairness] AdamW/full/seed42/LR: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 01:59:26] [vision_svhn] [lr-search] AdamW  lr=3.162e-02  knob=-  score=93.5435
+[2026-09-13 01:59:26] [vision_svhn] [lr-search] AdamW: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 01:59:26] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:04:17] [vision_svhn] [lr-search] AdaBelief  lr=3.162e-05  knob=-  score=49.5359
+[2026-09-13 02:04:17] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:09:08] [vision_svhn] [lr-search] AdaBelief  lr=1.000e-04  knob=-  score=87.3055
+[2026-09-13 02:09:09] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:14:00] [vision_svhn] [lr-search] AdaBelief  lr=3.162e-04  knob=-  score=92.0966
+[2026-09-13 02:14:00] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:18:51] [vision_svhn] [lr-search] AdaBelief  lr=1.000e-03  knob=-  score=93.0521
+[2026-09-13 02:18:51] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:23:42] [vision_svhn] [lr-search] AdaBelief  lr=3.162e-03  knob=-  score=93.8302
+[2026-09-13 02:23:42] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:28:32] [vision_svhn] [lr-search] AdaBelief  lr=1.000e-02  knob=-  score=93.4343
+[2026-09-13 02:28:32] [vision_svhn] [fairness] AdaBelief/full/seed42/LR: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:33:18] [vision_svhn] [lr-search] AdaBelief  lr=3.162e-02  knob=-  score=80.2211
+[2026-09-13 02:33:18] [vision_svhn] [lr-search] AdaBelief: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 02:33:18] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:39:34] [vision_svhn] [lr-search] Muon  lr=6.325e-04  knob=-  score=93.8302
+[2026-09-13 02:39:34] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:45:49] [vision_svhn] [lr-search] Muon  lr=2.000e-03  knob=-  score=94.3898
+[2026-09-13 02:45:49] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:52:04] [vision_svhn] [lr-search] Muon  lr=6.325e-03  knob=-  score=94.6492
+[2026-09-13 02:52:04] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 02:58:19] [vision_svhn] [lr-search] Muon  lr=2.000e-02  knob=-  score=94.5127
+[2026-09-13 02:58:19] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 03:04:34] [vision_svhn] [lr-search] Muon  lr=6.325e-02  knob=-  score=94.54
+[2026-09-13 03:04:34] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 03:10:49] [vision_svhn] [lr-search] Muon  lr=2.000e-01  knob=-  score=94.1441
+[2026-09-13 03:10:49] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 03:13:07] [vision_svhn] [signal] Muon/full/seed42/LR: checkpointed at step 931; exiting cleanly
+[2026-09-13 06:53:58] [vision_svhn] ====================================================================================================
+[2026-09-13 06:53:58] [vision_svhn]   vision_svhn  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-13 06:53:58] [vision_svhn]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-13 06:53:58] [vision_svhn] ====================================================================================================
+[2026-09-13 06:53:59] [vision_svhn] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 06:53:59] [vision_svhn] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 06:54:15] [vision_svhn] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-13 06:54:15] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-13 06:54:15] [vision_svhn] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 06:54:15] [vision_svhn] [lr-search] EvieKF: cached lr=1.000e-02  knob=10
+[2026-09-13 06:54:15] [vision_svhn] [lr-search] AdamW: cached lr=3.162e-03
+[2026-09-13 06:54:15] [vision_svhn] [lr-search] AdaBelief: cached lr=3.162e-03
+[2026-09-13 06:54:15] [vision_svhn] [fairness] Muon/full/seed42/LR: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:00:21] [vision_svhn] [lr-search] Muon  lr=6.325e-01  knob=-  score=92.9156
+[2026-09-13 07:00:21] [vision_svhn] [lr-search] Muon: FROZEN lr=6.325e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 07:00:22] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:05:12] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.9  score=32.7054
+[2026-09-13 07:05:12] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:10:02] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.95  score=32.7464
+[2026-09-13 07:10:02] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:14:52] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.99  score=32.9102
+[2026-09-13 07:14:52] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:19:43] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.999  score=33.2924
+[2026-09-13 07:19:43] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:24:33] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.9  score=84.3025
+[2026-09-13 07:24:33] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:29:24] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.95  score=84.2206
+[2026-09-13 07:29:24] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:34:15] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.99  score=84.6028
+[2026-09-13 07:34:15] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:39:05] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.999  score=84.7256
+[2026-09-13 07:39:05] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:43:55] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.9  score=92.5744
+[2026-09-13 07:43:55] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:48:46] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.95  score=92.5471
+[2026-09-13 07:48:46] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:53:36] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.99  score=92.7245
+[2026-09-13 07:53:36] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 07:58:26] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.999  score=92.5471
+[2026-09-13 07:58:27] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:03:17] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.9  score=93.8165
+[2026-09-13 08:03:17] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:08:07] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.95  score=93.6937
+[2026-09-13 08:08:07] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:12:58] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.99  score=93.5162
+[2026-09-13 08:12:58] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:17:48] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.999  score=93.5299
+[2026-09-13 08:17:48] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:22:38] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.9  score=93.6664
+[2026-09-13 08:22:38] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:27:28] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.95  score=93.7619
+[2026-09-13 08:27:28] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:32:18] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.99  score=93.7756
+[2026-09-13 08:32:18] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:37:08] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.999  score=93.8029
+[2026-09-13 08:37:09] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:41:58] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.9  score=93.6254
+[2026-09-13 08:41:58] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:46:47] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.95  score=93.68
+[2026-09-13 08:46:48] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:51:37] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.99  score=93.7346
+[2026-09-13 08:51:37] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 08:56:27] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.999  score=93.7892
+[2026-09-13 08:56:27] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:01:15] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.9  score=93.4207
+[2026-09-13 09:01:15] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:06:03] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.95  score=93.5845
+[2026-09-13 09:06:03] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:10:51] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.99  score=93.2569
+[2026-09-13 09:10:51] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:15:39] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.999  score=93.6391
+[2026-09-13 09:15:39] [vision_svhn] [lr-search] Shampoo: knob pick 0.9 at grid edge -> extend [0.85, 0.8] and re-search (boundary check #1)
+[2026-09-13 09:15:39] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:20:29] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.8  score=32.6645
+[2026-09-13 09:20:29] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:25:19] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.85  score=32.6372
+[2026-09-13 09:25:19] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:30:09] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.8  score=84.3025
+[2026-09-13 09:30:10] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:35:00] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.85  score=84.166
+[2026-09-13 09:35:00] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:39:50] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.8  score=92.6426
+[2026-09-13 09:39:50] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:44:40] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.85  score=92.6153
+[2026-09-13 09:44:40] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:49:31] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.8  score=93.6937
+[2026-09-13 09:49:31] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:54:21] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.85  score=93.6527
+[2026-09-13 09:54:21] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 09:59:11] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.8  score=93.8711
+[2026-09-13 09:59:11] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:04:01] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.85  score=93.8029
+[2026-09-13 10:04:02] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:08:51] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.8  score=93.6254
+[2026-09-13 10:08:51] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:13:40] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.85  score=93.5435
+[2026-09-13 10:13:40] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:18:28] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.8  score=93.68
+[2026-09-13 10:18:28] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:23:16] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.85  score=93.4889
+[2026-09-13 10:23:16] [vision_svhn] [lr-search] Shampoo: knob pick 0.8 at grid edge -> extend [0.75, 0.7] and re-search (boundary check #2)
+[2026-09-13 10:23:16] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:28:06] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.7  score=32.7327
+[2026-09-13 10:28:06] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:32:56] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.75  score=32.6781
+[2026-09-13 10:32:56] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:37:46] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.7  score=84.0841
+[2026-09-13 10:37:46] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:42:36] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.75  score=84.0704
+[2026-09-13 10:42:37] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:47:27] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.7  score=92.5607
+[2026-09-13 10:47:27] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:52:17] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.75  score=92.6699
+[2026-09-13 10:52:18] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 10:57:08] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.7  score=93.5162
+[2026-09-13 10:57:08] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:01:58] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.75  score=93.3934
+[2026-09-13 11:01:58] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:06:48] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.7  score=93.8711
+[2026-09-13 11:06:49] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:11:39] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.75  score=93.7892
+[2026-09-13 11:11:39] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:16:28] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.7  score=93.3524
+[2026-09-13 11:16:28] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:21:18] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.75  score=93.4616
+[2026-09-13 11:21:18] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:26:06] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.7  score=93.7483
+[2026-09-13 11:26:06] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:30:53] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.75  score=93.7483
+[2026-09-13 11:30:53] [vision_svhn] [lr-search] Shampoo: knob pick 0.7 at grid edge -> extend [0.65, 0.6] and re-search (boundary check #3)
+[2026-09-13 11:30:54] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:35:44] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.6  score=32.8146
+[2026-09-13 11:35:44] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:40:34] [vision_svhn] [lr-search] Shampoo  lr=3.162e-05  knob=0.65  score=32.7737
+[2026-09-13 11:40:34] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:45:24] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.6  score=84.0704
+[2026-09-13 11:45:25] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:50:15] [vision_svhn] [lr-search] Shampoo  lr=1.000e-04  knob=0.65  score=84.1114
+[2026-09-13 11:50:15] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:55:05] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.6  score=92.7655
+[2026-09-13 11:55:05] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 11:59:56] [vision_svhn] [lr-search] Shampoo  lr=3.162e-04  knob=0.65  score=92.7655
+[2026-09-13 11:59:56] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:04:46] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.6  score=93.6937
+[2026-09-13 12:04:46] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:09:37] [vision_svhn] [lr-search] Shampoo  lr=1.000e-03  knob=0.65  score=93.7073
+[2026-09-13 12:09:37] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:14:27] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.6  score=93.8165
+[2026-09-13 12:14:27] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:19:17] [vision_svhn] [lr-search] Shampoo  lr=3.162e-03  knob=0.65  score=93.8575
+[2026-09-13 12:19:17] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:24:07] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.6  score=93.7073
+[2026-09-13 12:24:07] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:28:56] [vision_svhn] [lr-search] Shampoo  lr=1.000e-02  knob=0.65  score=93.3661
+[2026-09-13 12:28:56] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:33:44] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.6  score=93.2569
+[2026-09-13 12:33:44] [vision_svhn] [fairness] Shampoo/full/seed42/LR: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:38:32] [vision_svhn] [lr-search] Shampoo  lr=3.162e-02  knob=0.65  score=93.8575
+[2026-09-13 12:38:32] [vision_svhn] [lr-search] Shampoo: FROZEN lr=3.162e-03  knob=0.7  (LR boundary checks: 0, knob boundary checks: 3)
+[2026-09-13 12:38:32] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 12:57:52] [vision_svhn] [lr-search] Sophia  lr=3.162e-05  knob=-  score=24.1742
+[2026-09-13 12:57:52] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 13:17:13] [vision_svhn] [lr-search] Sophia  lr=1.000e-04  knob=-  score=61.4524
+[2026-09-13 13:17:13] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 13:36:34] [vision_svhn] [lr-search] Sophia  lr=3.162e-04  knob=-  score=91.3459
+[2026-09-13 13:36:34] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 13:55:54] [vision_svhn] [lr-search] Sophia  lr=1.000e-03  knob=-  score=93.4343
+[2026-09-13 13:55:54] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 14:15:13] [vision_svhn] [lr-search] Sophia  lr=3.162e-03  knob=-  score=93.6527
+[2026-09-13 14:15:13] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 14:34:17] [vision_svhn] [lr-search] Sophia  lr=1.000e-02  knob=-  score=93.3661
+[2026-09-13 14:34:18] [vision_svhn] [fairness] Sophia/full/seed42/LR: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 14:53:05] [vision_svhn] [lr-search] Sophia  lr=3.162e-02  knob=-  score=93.6527
+[2026-09-13 14:53:05] [vision_svhn] [lr-search] Sophia: FROZEN lr=3.162e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 14:53:05] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 14:53:55] [vision_svhn] [signal] Lion/full/seed42/LR: checkpointed at step 467; exiting cleanly
+[2026-09-13 16:04:11] [vision_svhn] ====================================================================================================
+[2026-09-13 16:04:11] [vision_svhn]   vision_svhn  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-13 16:04:11] [vision_svhn]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-13 16:04:11] [vision_svhn] ====================================================================================================
+[2026-09-13 16:04:12] [vision_svhn] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-13 16:04:12] [vision_svhn] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-13 16:04:29] [vision_svhn] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-13 16:04:29] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] EvieKF: cached lr=1.000e-02  knob=10
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] AdamW: cached lr=3.162e-03
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] AdaBelief: cached lr=3.162e-03
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.7
+[2026-09-13 16:04:29] [vision_svhn] [lr-search] Sophia: cached lr=3.162e-03
+[2026-09-13 16:04:29] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:09:14] [vision_svhn] [lr-search] Lion  lr=3.162e-06  knob=-  score=19.7243
+[2026-09-13 16:09:14] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:14:04] [vision_svhn] [lr-search] Lion  lr=1.000e-05  knob=-  score=26.9315
+[2026-09-13 16:14:04] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:18:55] [vision_svhn] [lr-search] Lion  lr=3.162e-05  knob=-  score=61.2203
+[2026-09-13 16:18:55] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:23:45] [vision_svhn] [lr-search] Lion  lr=1.000e-04  knob=-  score=91.2913
+[2026-09-13 16:23:45] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:28:35] [vision_svhn] [lr-search] Lion  lr=3.162e-04  knob=-  score=93.2432
+[2026-09-13 16:28:36] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:33:25] [vision_svhn] [lr-search] Lion  lr=1.000e-03  knob=-  score=93.4753
+[2026-09-13 16:33:26] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:38:14] [vision_svhn] [lr-search] Lion  lr=3.162e-03  knob=-  score=93.9121
+[2026-09-13 16:38:14] [vision_svhn] [lr-search] Lion: LR pick 3.162e-03 at grid edge -> extend [0.009999, 0.03162] and re-search (boundary check #1)
+[2026-09-13 16:38:14] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:42:56] [vision_svhn] [lr-search] Lion  lr=9.999e-03  knob=-  score=66.8305
+[2026-09-13 16:42:56] [vision_svhn] [fairness] Lion/full/seed42/LR: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:47:27] [vision_svhn] [lr-search] Lion  lr=3.162e-02  knob=-  score=19.7106
+[2026-09-13 16:47:27] [vision_svhn] [lr-search] Lion: FROZEN lr=3.162e-03  (LR boundary checks: 1, knob boundary checks: 0)
+[2026-09-13 16:47:28] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:52:15] [vision_svhn] [lr-search] SGD  lr=9.487e-04  knob=-  score=22.932
+[2026-09-13 16:52:15] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 16:57:03] [vision_svhn] [lr-search] SGD  lr=3.000e-03  knob=-  score=27.573
+[2026-09-13 16:57:03] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 17:01:52] [vision_svhn] [lr-search] SGD  lr=9.487e-03  knob=-  score=54.5864
+[2026-09-13 17:01:52] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 17:06:40] [vision_svhn] [lr-search] SGD  lr=3.000e-02  knob=-  score=91.7554
+[2026-09-13 17:06:41] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 17:11:28] [vision_svhn] [lr-search] SGD  lr=9.487e-02  knob=-  score=93.2296
+[2026-09-13 17:11:29] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 17:16:16] [vision_svhn] [lr-search] SGD  lr=3.000e-01  knob=-  score=93.1477
+[2026-09-13 17:16:16] [vision_svhn] [fairness] SGD/full/seed42/LR: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 17:20:57] [vision_svhn] [lr-search] SGD  lr=9.487e-01  knob=-  score=20.0928
+[2026-09-13 17:20:57] [vision_svhn] [lr-search] SGD: FROZEN lr=9.487e-02  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-09-13 17:20:57] [vision_svhn] [lr-search] frozen: EvieKF=1.000e-02/k=10, AdamW=3.162e-03, AdaBelief=3.162e-03, Muon=6.325e-03, Shampoo=3.162e-03/k=0.7, Sophia=3.162e-03, Lion=3.162e-03, SGD=9.487e-02
+[2026-09-13 17:20:57] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-13 17:20:57] [vision_svhn] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-13 17:53:10] [vision_svhn] [sweep] 1/40  EvieKF|full|42  primary=94.80255070682237  diverged=False
+[2026-09-13 18:25:22] [vision_svhn] [sweep] 2/40  EvieKF|full|43  primary=94.42609096496619  diverged=False
+[2026-09-13 18:57:36] [vision_svhn] [sweep] 3/40  EvieKF|full|44  primary=94.62968653964352  diverged=False
+[2026-09-13 19:29:21] [vision_svhn] [sweep] 4/40  EvieKF|full|45  primary=94.63352796558083  diverged=False
+[2026-09-13 20:00:34] [vision_svhn] [sweep] 5/40  EvieKF|full|46  primary=94.77950215119853  diverged=False
+[2026-09-13 20:00:34] [vision_svhn] [fairness] AdamW/full/seed42: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:19:58] [vision_svhn] [sweep] 6/40  AdamW|full|42  primary=94.9139520590043  diverged=False
+[2026-09-13 20:19:58] [vision_svhn] [fairness] AdamW/full/seed43: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:39:26] [vision_svhn] [sweep] 7/40  AdamW|full|43  primary=94.58743085433314  diverged=False
+[2026-09-13 20:39:26] [vision_svhn] [fairness] AdamW/full/seed44: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 20:58:53] [vision_svhn] [sweep] 8/40  AdamW|full|44  primary=94.57974800245852  diverged=False
+[2026-09-13 20:58:54] [vision_svhn] [fairness] AdamW/full/seed45: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:18:21] [vision_svhn] [sweep] 9/40  AdamW|full|45  primary=94.8640135218193  diverged=False
+[2026-09-13 21:18:21] [vision_svhn] [fairness] AdamW/full/seed46: BatchNorm model -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:37:49] [vision_svhn] [sweep] 10/40  AdamW|full|46  primary=94.66425937307929  diverged=False
+[2026-09-13 21:37:50] [vision_svhn] [fairness] AdaBelief/full/seed42: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 21:58:06] [vision_svhn] [sweep] 11/40  AdaBelief|full|42  primary=94.90242778119237  diverged=False
+[2026-09-13 21:58:06] [vision_svhn] [fairness] AdaBelief/full/seed43: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 22:18:23] [vision_svhn] [sweep] 12/40  AdaBelief|full|43  primary=94.75261216963737  diverged=False
+[2026-09-13 22:18:23] [vision_svhn] [fairness] AdaBelief/full/seed44: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 22:38:40] [vision_svhn] [sweep] 13/40  AdaBelief|full|44  primary=94.70267363245236  diverged=False
+[2026-09-13 22:38:41] [vision_svhn] [fairness] AdaBelief/full/seed45: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 22:58:58] [vision_svhn] [sweep] 14/40  AdaBelief|full|45  primary=94.82944068838353  diverged=False
+[2026-09-13 22:58:58] [vision_svhn] [fairness] AdaBelief/full/seed46: BatchNorm model -> AdaBelief uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 23:19:14] [vision_svhn] [sweep] 15/40  AdaBelief|full|46  primary=94.63352796558083  diverged=False
+[2026-09-13 23:19:14] [vision_svhn] [fairness] Muon/full/seed42: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-13 23:45:31] [vision_svhn] [sweep] 16/40  Muon|full|42  primary=95.75522433927473  diverged=False
+[2026-09-13 23:45:32] [vision_svhn] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 00:04:07] [vision_svhn] [signal] Muon/full/seed43: checkpointed at step 7103; exiting cleanly
+[2026-09-14 10:56:05] [vision_svhn] ====================================================================================================
+[2026-09-14 10:56:05] [vision_svhn]   vision_svhn  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-14 10:56:05] [vision_svhn]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-14 10:56:05] [vision_svhn] ====================================================================================================
+[2026-09-14 10:56:06] [vision_svhn] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-14 10:56:06] [vision_svhn] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-14 10:56:39] [vision_svhn] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-14 10:56:39] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] EvieKF: cached lr=1.000e-02  knob=10
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] AdamW: cached lr=3.162e-03
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] AdaBelief: cached lr=3.162e-03
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.7
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] Sophia: cached lr=3.162e-03
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] Lion: cached lr=3.162e-03
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-14 10:56:39] [vision_svhn] [lr-search] frozen: EvieKF=1.000e-02/k=10, AdamW=3.162e-03, AdaBelief=3.162e-03, Muon=6.325e-03, Shampoo=3.162e-03/k=0.7, Sophia=3.162e-03, Lion=3.162e-03, SGD=9.487e-02
+[2026-09-14 10:56:39] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-14 10:56:39] [vision_svhn] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-14 10:56:40] [vision_svhn] [resume] Muon/full/seed43 from step 7103/10000
+[2026-09-14 10:56:40] [vision_svhn] [fairness] Muon/full/seed43: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 11:04:28] [vision_svhn] [sweep] 17/40  Muon|full|43  primary=95.19821757836509  diverged=False
+[2026-09-14 11:04:29] [vision_svhn] [fairness] Muon/full/seed44: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 11:31:13] [vision_svhn] [sweep] 18/40  Muon|full|44  primary=95.52089735709896  diverged=False
+[2026-09-14 11:31:14] [vision_svhn] [fairness] Muon/full/seed45: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 11:57:58] [vision_svhn] [sweep] 19/40  Muon|full|45  primary=95.55931161647203  diverged=False
+[2026-09-14 11:57:58] [vision_svhn] [fairness] Muon/full/seed46: BatchNorm model -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 12:24:45] [vision_svhn] [sweep] 20/40  Muon|full|46  primary=95.32114320835895  diverged=False
+[2026-09-14 12:24:45] [vision_svhn] [fairness] Shampoo/full/seed42: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 12:45:35] [vision_svhn] [sweep] 21/40  Shampoo|full|42  primary=94.96773202212661  diverged=False
+[2026-09-14 12:45:35] [vision_svhn] [fairness] Shampoo/full/seed43: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 13:06:24] [vision_svhn] [sweep] 22/40  Shampoo|full|43  primary=94.77950215119853  diverged=False
+[2026-09-14 13:06:24] [vision_svhn] [fairness] Shampoo/full/seed44: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 13:27:13] [vision_svhn] [sweep] 23/40  Shampoo|full|44  primary=94.75645359557468  diverged=False
+[2026-09-14 13:27:13] [vision_svhn] [fairness] Shampoo/full/seed45: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 13:48:00] [vision_svhn] [sweep] 24/40  Shampoo|full|45  primary=94.89474492931777  diverged=False
+[2026-09-14 13:48:00] [vision_svhn] [fairness] Shampoo/full/seed46: BatchNorm model -> Shampoo uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 14:08:42] [vision_svhn] [sweep] 25/40  Shampoo|full|46  primary=94.83328211432084  diverged=False
+[2026-09-14 14:08:42] [vision_svhn] [fairness] Sophia/full/seed42: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 15:29:48] [vision_svhn] [sweep] 26/40  Sophia|full|42  primary=94.74877074370006  diverged=False
+[2026-09-14 15:29:48] [vision_svhn] [fairness] Sophia/full/seed43: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 16:50:28] [vision_svhn] [sweep] 27/40  Sophia|full|43  primary=94.82944068838353  diverged=False
+[2026-09-14 16:50:28] [vision_svhn] [fairness] Sophia/full/seed44: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 18:11:22] [vision_svhn] [sweep] 28/40  Sophia|full|44  primary=95.08297480024585  diverged=False
+[2026-09-14 18:11:22] [vision_svhn] [fairness] Sophia/full/seed45: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-14 18:56:03] [vision_svhn] [signal] Sophia/full/seed45: checkpointed at step 5500; exiting cleanly
+[2026-09-16 13:10:59] [vision_svhn] ====================================================================================================
+[2026-09-16 13:10:59] [vision_svhn]   vision_svhn  |  domain=vision  device=cuda  torch=2.10.0+cu128
+[2026-09-16 13:10:59] [vision_svhn]   primary=test_top1_acc  seeds=[42, 43, 44, 45, 46]  max_steps=10000  lr_search_steps=2500  batch=128
+[2026-09-16 13:10:59] [vision_svhn] ====================================================================================================
+[2026-09-16 13:10:59] [vision_svhn] [preflight] OK: Tesla T4  sm_75  torch=2.10.0+cu128  arch_list=['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-09-16 13:10:59] [vision_svhn] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-09-16 13:11:19] [vision_svhn] [data] svhn: train=65931 val=7326 test=26032 classes=10  mean=[0.4375, 0.44359999895095825, 0.4724999964237213] std=[0.19789999723434448, 0.20090000331401825, 0.19699999690055847]
+[2026-09-16 13:11:19] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] units=['full']  steps=2500  seed=42  optimizers=['EvieKF', 'AdamW', 'AdaBelief', 'Muon', 'Shampoo', 'Sophia', 'Lion', 'SGD']
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] EvieKF: cached lr=1.000e-02  knob=10
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] AdamW: cached lr=3.162e-03
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] AdaBelief: cached lr=3.162e-03
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] Muon: cached lr=6.325e-03
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] Shampoo: cached lr=3.162e-03  knob=0.7
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] Sophia: cached lr=3.162e-03
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] Lion: cached lr=3.162e-03
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] SGD: cached lr=9.487e-02
+[2026-09-16 13:11:19] [vision_svhn] [lr-search] frozen: EvieKF=1.000e-02/k=10, AdamW=3.162e-03, AdaBelief=3.162e-03, Muon=6.325e-03, Shampoo=3.162e-03/k=0.7, Sophia=3.162e-03, Lion=3.162e-03, SGD=9.487e-02
+[2026-09-16 13:11:19] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-16 13:11:19] [vision_svhn] [sweep] 8 optimizers x 1 units x 5 seeds = 40 cells
+[2026-09-16 13:11:19] [vision_svhn] [resume] Sophia/full/seed45 from step 5500/10000
+[2026-09-16 13:11:19] [vision_svhn] [fairness] Sophia/full/seed45: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 13:45:31] [vision_svhn] [sweep] 29/40  Sophia|full|45  primary=95.0061462814997  diverged=False
+[2026-09-16 13:45:31] [vision_svhn] [fairness] Sophia/full/seed46: BatchNorm model -> Sophia uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:01:23] [vision_svhn] [sweep] 30/40  Sophia|full|46  primary=94.89090350338046  diverged=False
+[2026-09-16 15:01:24] [vision_svhn] [fairness] Lion/full/seed42: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:19:27] [vision_svhn] [sweep] 31/40  Lion|full|42  primary=94.55285802089736  diverged=False
+[2026-09-16 15:19:27] [vision_svhn] [fairness] Lion/full/seed43: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:37:31] [vision_svhn] [sweep] 32/40  Lion|full|43  primary=94.69499078057775  diverged=False
+[2026-09-16 15:37:31] [vision_svhn] [fairness] Lion/full/seed44: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 15:55:35] [vision_svhn] [sweep] 33/40  Lion|full|44  primary=94.53749231714812  diverged=False
+[2026-09-16 15:55:35] [vision_svhn] [fairness] Lion/full/seed45: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:13:41] [vision_svhn] [sweep] 34/40  Lion|full|45  primary=94.82944068838353  diverged=False
+[2026-09-16 16:13:42] [vision_svhn] [fairness] Lion/full/seed46: BatchNorm model -> Lion uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:31:48] [vision_svhn] [sweep] 35/40  Lion|full|46  primary=94.2839582052858  diverged=False
+[2026-09-16 16:31:48] [vision_svhn] [fairness] SGD/full/seed42: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 16:50:01] [vision_svhn] [sweep] 36/40  SGD|full|42  primary=94.74877074370006  diverged=False
+[2026-09-16 16:50:01] [vision_svhn] [fairness] SGD/full/seed43: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:08:16] [vision_svhn] [sweep] 37/40  SGD|full|43  primary=94.68346650276582  diverged=False
+[2026-09-16 17:08:16] [vision_svhn] [fairness] SGD/full/seed44: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:26:28] [vision_svhn] [sweep] 38/40  SGD|full|44  primary=94.64121081745544  diverged=False
+[2026-09-16 17:26:28] [vision_svhn] [fairness] SGD/full/seed45: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 17:44:41] [vision_svhn] [sweep] 39/40  SGD|full|45  primary=94.78718500307313  diverged=False
+[2026-09-16 17:44:41] [vision_svhn] [fairness] SGD/full/seed46: BatchNorm model -> SGD uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-09-16 18:02:53] [vision_svhn] [sweep] 40/40  SGD|full|46  primary=94.73340503995082  diverged=False
+[2026-09-16 18:02:53] [vision_svhn] ====================================================================================================
+[2026-09-16 18:02:53] [vision_svhn]   RESULTS  --  vision_svhn   primary = test_top1_acc (higher is better)
+[2026-09-16 18:02:53] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-16 18:02:53] [vision_svhn]   EvieKF      lr=1.00e-02  knob=10  test_top1_acc(task median over 5 seeds)=94.6335   seed spread=[94.426, 94.803]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1903  mean_step_size=0.001563  clip_freq=0.0017  peak_mem_mb=851.1
+[2026-09-16 18:02:53] [vision_svhn]   AdamW       lr=3.16e-03  test_top1_acc(task median over 5 seeds)=94.6643   seed spread=[94.58, 94.914]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1155  mean_step_size=0.0004451  clip_freq=0.0223  peak_mem_mb=779.5
+[2026-09-16 18:02:53] [vision_svhn]   AdaBelief   lr=3.16e-03  test_top1_acc(task median over 5 seeds)=94.7526   seed spread=[94.634, 94.902]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1205  mean_step_size=0.0004781  clip_freq=0.01886  peak_mem_mb=779.5
+[2026-09-16 18:02:53] [vision_svhn]   Muon        lr=6.32e-03  test_top1_acc(task median over 5 seeds)=95.5209   seed spread=[95.198, 95.755]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1584  mean_step_size=0.0007043  clip_freq=0.03116  peak_mem_mb=736.9
+[2026-09-16 18:02:53] [vision_svhn]   Shampoo     lr=3.16e-03  knob=0.7  test_top1_acc(task median over 5 seeds)=94.8333   seed spread=[94.756, 94.968]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1235  mean_step_size=0.0004233  clip_freq=0.04626  peak_mem_mb=781.5
+[2026-09-16 18:02:53] [vision_svhn]   Sophia      lr=3.16e-03  test_top1_acc(task median over 5 seeds)=94.8909   seed spread=[94.749, 95.083]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=4753  mean_step_size=0.001167  clip_freq=0.0043  peak_mem_mb=2349
+[2026-09-16 18:02:53] [vision_svhn]   Lion        lr=3.16e-03  test_top1_acc(task median over 5 seeds)=94.5529   seed spread=[94.284, 94.829]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1075  mean_step_size=0.001947  clip_freq=0.00342  peak_mem_mb=736.9
+[2026-09-16 18:02:53] [vision_svhn]   SGD         lr=9.49e-02  test_top1_acc(task median over 5 seeds)=94.7334   seed spread=[94.641, 94.787]   diverged_cells=0/5
+[2026-09-16 18:02:53] [vision_svhn]              descriptive: wall_s=1083  mean_step_size=4.277e-05  clip_freq=0.1675  peak_mem_mb=736.9
+[2026-09-16 18:02:53] [vision_svhn] ----------------------------------------------------------------------------------------------------
+[2026-09-16 18:02:53] [vision_svhn]   best optimizer on this task: Muon  (test_top1_acc=95.5209)
+[2026-09-16 18:02:53] [vision_svhn]   wrote /kaggle/working/checkpoints/vision_svhn/results_raw.csv
+[2026-09-16 18:02:53] [vision_svhn] ====================================================================================================
+[2026-09-16 18:02:53] [vision_svhn]   wrote /kaggle/working/checkpoints/vision_svhn/summary.json (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-09-16 18:02:53] [vision_svhn] ====================================================================================================
+[2026-09-16 18:02:53] [vision_svhn]   DONE 2026-09-16T18:02:53.527610
