@@ -1,0 +1,39 @@
+{
+ "task_name": "language_openwebtext",
+ "primary_metric": "test_perplexity",
+ "primary_lower_better": true,
+ "opt_set": "scalegen",
+ "opt_names": [
+  "Muon"
+ ],
+ "task_number_by_optimizer": {
+  "Muon": 55.73293128962063
+ },
+ "per_seed_value_by_optimizer": {
+  "Muon": {
+   "42": 55.72543686429041,
+   "43": 55.74042571495085
+  }
+ },
+ "lr_used": {
+  "Muon": 0.002
+ },
+ "knob_used": {
+  "Muon": null
+ },
+ "units": [
+  "full"
+ ],
+ "seeds": [
+  42,
+  43
+ ],
+ "seeds_planned": [
+  42,
+  43,
+  44
+ ],
+ "incomplete": "seed 44 stopped at step 1279 of 6000 when the session ended",
+ "unit_reduction": "median",
+ "n_units_complete_case": 1
+}
