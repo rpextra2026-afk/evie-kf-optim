@@ -1,0 +1,53 @@
+[2026-11-10 00:21:22] [language_openwebtext_muonhybrid] ====================================================================================================
+[2026-11-10 00:21:22] [language_openwebtext_muonhybrid]   language_openwebtext_muonhybrid  |  domain=language  device=cuda  torch=2.15.0+cu132
+[2026-11-10 00:21:22] [language_openwebtext_muonhybrid]   primary=test_perplexity  seeds=[42, 43, 44]  max_steps=6000  lr_search_steps=1500  batch=32
+[2026-11-10 00:21:22] [language_openwebtext_muonhybrid] ====================================================================================================
+[2026-11-10 00:21:22] [language_openwebtext_muonhybrid] [preflight] OK: NVIDIA H100 80GB HBM3 MIG 2g.20gb  sm_90  torch=2.15.0+cu132  arch_list=['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [preflight] MuonEvie nesting/isolation/resume self-check OK
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [preflight] TF32=1 after self-checks; state fp32, eigh fp64
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [preflight] device=NVIDIA H100 80GB HBM3 MIG 2g.20gb free=19.32 GiB total=19.62 GiB
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [data] openwebtext: warm cache hit at <local-path>, no network
+[2026-11-10 00:21:23] [language_openwebtext_muonhybrid] [data] openwebtext: vocab=50257  train_tok=220000000  val_tok=5000000  test_tok=5000000  (GPT-2 BPE vocab -- no <unk>/OOV concept, train_oov line intentionally skipped for this dataset)
+[2026-11-10 00:21:25] [language_openwebtext_muonhybrid] ----------------------------------------------------------------------------------------------------
+[2026-11-10 00:21:25] [language_openwebtext_muonhybrid] [lr-search] units=['full']  steps=1500  seed=42  optimizers=['MuonSub', 'MuonEvie']
+[2026-11-10 00:21:25] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 00:30:56] [language_openwebtext_muonhybrid] [lr-search] MuonSub  lr=3.162e-04  knob=0.0001  score=150.926
+[2026-11-10 00:30:56] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 00:40:29] [language_openwebtext_muonhybrid] [lr-search] MuonSub  lr=1.000e-03  knob=0.0001  score=106.938
+[2026-11-10 00:40:29] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 00:50:03] [language_openwebtext_muonhybrid] [lr-search] MuonSub  lr=3.162e-03  knob=0.0001  score=94.2308
+[2026-11-10 00:50:04] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 00:59:43] [language_openwebtext_muonhybrid] [lr-search] MuonSub  lr=1.000e-02  knob=0.0001  score=90.1989
+[2026-11-10 00:59:43] [language_openwebtext_muonhybrid] [lr-search] MuonSub: FROZEN lr=1.000e-02  knob=0.0001  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-11-10 01:09:51] [language_openwebtext_muonhybrid] [lr-search] MuonEvie  lr=3.162e-04  knob=30  score=191.499
+[2026-11-10 01:19:55] [language_openwebtext_muonhybrid] [lr-search] MuonEvie  lr=1.000e-03  knob=30  score=118.989
+[2026-11-10 01:29:59] [language_openwebtext_muonhybrid] [lr-search] MuonEvie  lr=3.162e-03  knob=30  score=106.25
+[2026-11-10 01:40:11] [language_openwebtext_muonhybrid] [lr-search] MuonEvie  lr=1.000e-02  knob=30  score=96.9028
+[2026-11-10 01:40:11] [language_openwebtext_muonhybrid] [lr-search] MuonEvie: FROZEN lr=1.000e-02  knob=30  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-11-10 01:40:11] [language_openwebtext_muonhybrid] [lr-search] frozen: MuonSub=1.000e-02/k=0.0001, MuonEvie=1.000e-02/k=30
+[2026-11-10 01:40:11] [language_openwebtext_muonhybrid] ----------------------------------------------------------------------------------------------------
+[2026-11-10 01:40:11] [language_openwebtext_muonhybrid] [sweep] 2 optimizers x 1 units x 3 seeds = 6 cells
+[2026-11-10 01:40:19] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed42: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 02:18:57] [language_openwebtext_muonhybrid] [sweep] 1/6  MuonSub|full|42  primary=53.355040742011795  diverged=False
+[2026-11-10 02:19:05] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed43: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 02:57:37] [language_openwebtext_muonhybrid] [sweep] 2/6  MuonSub|full|43  primary=53.63090319740373  diverged=False
+[2026-11-10 02:57:45] [language_openwebtext_muonhybrid] [fairness] MuonSub/full/seed44: force_split_path (peak-memory measure; gradient unchanged) -> MuonSub uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 03:36:07] [language_openwebtext_muonhybrid] [sweep] 3/6  MuonSub|full|44  primary=53.19418001945135  diverged=False
+[2026-11-10 04:17:31] [language_openwebtext_muonhybrid] [sweep] 4/6  MuonEvie|full|42  primary=54.521399295398375  diverged=False
+[2026-11-10 04:58:48] [language_openwebtext_muonhybrid] [sweep] 5/6  MuonEvie|full|43  primary=54.629316244410205  diverged=False
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] [sweep] 6/6  MuonEvie|full|44  primary=54.75606370605779  diverged=False
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] ====================================================================================================
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   RESULTS  --  language_openwebtext_muonhybrid   primary = test_perplexity (lower is better)
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] ----------------------------------------------------------------------------------------------------
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   MuonSub     lr=1.00e-02  knob=0.0001  test_perplexity(task median over 3 seeds)=53.355   seed spread=[53.194, 53.631]   diverged_cells=0/3
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]              descriptive: wall_s=2191  mean_step_size=0.002138  clip_freq=0.009944  peak_mem_mb=8016
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   MuonEvie    lr=1.00e-02  knob=30  test_perplexity(task median over 3 seeds)=54.6293   seed spread=[54.521, 54.756]   diverged_cells=0/3
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]              descriptive: wall_s=2354  mean_step_size=0.00233  clip_freq=0.01322  peak_mem_mb=8149
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] ----------------------------------------------------------------------------------------------------
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   best optimizer on this task: MuonSub  (test_perplexity=53.355)
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   wrote <local-path>
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] ====================================================================================================
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   wrote <local-path> (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid] ====================================================================================================
+[2026-11-10 05:40:10] [language_openwebtext_muonhybrid]   DONE 2026-11-10T05:40:10.807002

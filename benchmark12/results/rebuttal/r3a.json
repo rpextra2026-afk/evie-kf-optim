@@ -1,0 +1,428 @@
+{
+  "header": "PRIMARY METRIC ONLY; sensitivity analysis, not a new preregistration",
+  "rows": [
+    {
+      "task": "finance_consumer_industrials",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 0.0002067050743828375,
+      "ref_median": 0.00019974689733572108,
+      "rel_gain": -0.03483496935334909,
+      "ci": [
+        -0.5297236938497584,
+        -0.128010788421431
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 199,
+      "n_seeds": 4,
+      "se": 0.027391251102299993,
+      "new_per_seed": {
+        "43": 0.0002288293270837693,
+        "44": 0.0002296114705069355,
+        "45": 0.00020897981745225414,
+        "46": 0.0002219438079803709
+      },
+      "ref_per_seed": {
+        "43": 0.00020589123642633832,
+        "44": 0.0002068704654457708,
+        "45": 0.00019904996746431582,
+        "46": 0.00022260444583716216
+      },
+      "n_new_failed": 1,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_finance",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 0.0002408673070252888,
+      "ref_median": 0.00021693620968748023,
+      "rel_gain": -0.1103139829550994,
+      "ci": [
+        -1.901176688809684,
+        -0.2890135163222881
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 196,
+      "n_seeds": 4,
+      "se": 0.014274680912912457,
+      "new_per_seed": {
+        "44": 0.00024995826697223403,
+        "46": 0.00025106548632263507,
+        "43": 0.00024978544503923445,
+        "45": 0.00025207466549343534
+      },
+      "ref_per_seed": {
+        "43": 0.00022043561730435284,
+        "44": 0.00021530100435176224,
+        "45": 0.00022498236367942163,
+        "46": 0.0002120218419898758
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_healthcare",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 0.0003620136018141327,
+      "ref_median": 0.000291614704543636,
+      "rel_gain": -0.24141065650536334,
+      "ci": [
+        -1.636354051404203,
+        -0.5598806610370827
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 191,
+      "n_seeds": 4,
+      "se": 0.05326540739467804,
+      "new_per_seed": {
+        "44": 0.00032707255471635746,
+        "46": 0.0003616899556043197,
+        "43": 0.0003621640839724494,
+        "45": 0.0003427168719036869
+      },
+      "ref_per_seed": {
+        "43": 0.00028836072752715417,
+        "44": 0.00030254130235849407,
+        "45": 0.00029160901312790216,
+        "46": 0.0002721958453693087
+      },
+      "n_new_failed": 5,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_tech",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 0.0004448159346504817,
+      "ref_median": 0.0004399177896512019,
+      "rel_gain": -0.011134228063755636,
+      "ci": [
+        -0.14005560681683174,
+        -0.027400191007764602
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 196,
+      "n_seeds": 4,
+      "se": 0.03656987825132205,
+      "new_per_seed": {
+        "43": 0.00041185894971171387,
+        "45": 0.00046521686017513274,
+        "44": 0.0004504236279341279,
+        "46": 0.0004645883726576964
+      },
+      "ref_per_seed": {
+        "43": 0.00043734466588055647,
+        "44": 0.0004519195138634025,
+        "45": 0.00042921367776456963,
+        "46": 0.00042422256105906003
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_enwik8",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 2.9699834648614427,
+      "ref_median": 3.1791676382796155,
+      "rel_gain": 0.0657984092752565,
+      "ci": [
+        0.053495845263686906,
+        0.07607291540153693
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.006163457590865401,
+      "new_per_seed": {
+        "44": 2.9705883299580846,
+        "46": 3.023709968318304,
+        "43": 2.9693785997648012,
+        "45": 2.9378219856320995
+      },
+      "ref_per_seed": {
+        "43": 3.1741748882095013,
+        "44": 3.176381702224063,
+        "45": 3.1930211419128445,
+        "46": 3.181953574335168
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_ptb",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 199.55359906143335,
+      "ref_median": 181.53547184609153,
+      "rel_gain": -0.09925403025706103,
+      "ci": [
+        -0.13653841584525417,
+        -0.05189103959378494
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.02526495569052337,
+      "new_per_seed": {
+        "44": 196.4290167681145,
+        "46": 202.9162062264291,
+        "43": 202.67818135475218,
+        "45": 190.62282109397148
+      },
+      "ref_per_seed": {
+        "43": 179.34609597244446,
+        "44": 184.2264207785854,
+        "45": 183.72484771973862,
+        "46": 177.53235884475336
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext103",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 34.85285953159351,
+      "ref_median": 39.90444926950343,
+      "rel_gain": 0.1265921427405978,
+      "ci": [
+        0.12449486064635729,
+        0.13592047587794717
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.003578260000605663,
+      "new_per_seed": {
+        "44": 34.82048596709022,
+        "46": 34.865860037322896,
+        "43": 34.9385794562854,
+        "45": 34.83985902586413
+      },
+      "ref_per_seed": {
+        "43": 40.61073976202778,
+        "44": 39.99304734044105,
+        "45": 39.80186149482162,
+        "46": 39.81585119856582
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext2",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 98.6860434024099,
+      "ref_median": 105.78167103583169,
+      "rel_gain": 0.06707804446592906,
+      "ci": [
+        0.05695324286649828,
+        0.06772257138861004
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0032276101861500573,
+      "new_per_seed": {
+        "44": 99.34875966789969,
+        "46": 98.474289048826,
+        "43": 98.89779775599379,
+        "45": 98.15024159722422
+      },
+      "ref_per_seed": {
+        "43": 105.86271187273277,
+        "44": 106.35276668896388,
+        "45": 103.75131158073818,
+        "46": 105.7006301989306
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar10",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 84.28999999999999,
+      "ref_median": 81.35499999999999,
+      "rel_gain": 0.03607645504271406,
+      "ci": [
+        0.03083597995764442,
+        0.04168930438993286
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0032366916120772343,
+      "new_per_seed": {
+        "44": 84.37,
+        "46": 84.21,
+        "43": 83.83,
+        "45": 84.75
+      },
+      "ref_per_seed": {
+        "43": 81.16,
+        "44": 81.55,
+        "45": 81.13,
+        "46": 81.79
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar100",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 55.18,
+      "ref_median": 49.58,
+      "rel_gain": 0.1129487696651876,
+      "ci": [
+        0.10837006685772313,
+        0.12237794301682262
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.004402610014227805,
+      "new_per_seed": {
+        "44": 55.0,
+        "46": 54.64,
+        "43": 55.66,
+        "45": 55.36
+      },
+      "ref_per_seed": {
+        "43": 50.19,
+        "44": 49.65,
+        "45": 49.51,
+        "46": 48.5
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_stl10",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 53.09375,
+      "ref_median": 50.9125,
+      "rel_gain": 0.04284311318438495,
+      "ci": [
+        0.016094988135488823,
+        0.0827218332433603
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.01835037298489691,
+      "new_per_seed": {
+        "44": 55.325,
+        "46": 51.6375,
+        "43": 52.5625,
+        "45": 53.625
+      },
+      "ref_per_seed": {
+        "43": 50.175,
+        "44": 50.5125,
+        "45": 51.3125,
+        "46": 51.35
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_svhn",
+      "new": "EvieKFm",
+      "ref": "AdamW",
+      "smoke": false,
+      "subset": "exclude42",
+      "new_median": 95.15019975414874,
+      "ref_median": 94.62584511370622,
+      "rel_gain": 0.005541346973571956,
+      "ci": [
+        0.003285310469709244,
+        0.0059091811227084505
+      ],
+      "ci_statistic": "mean paired relative gain (task point estimate uses nested medians)",
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0008295392859422713,
+      "new_per_seed": {
+        "44": 94.9139520590043,
+        "46": 95.14827904118009,
+        "43": 95.22126613398893,
+        "45": 95.1521204671174
+      },
+      "ref_per_seed": {
+        "43": 94.58743085433314,
+        "44": 94.57974800245852,
+        "45": 94.8640135218193,
+        "46": 94.66425937307929
+      },
+      "n_new_failed": 0,
+      "n_ref_failed": 0,
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    }
+  ],
+  "summary": {
+    "exclude42": {
+      "tasks": 12,
+      "wins": 7,
+      "ties": 0,
+      "losses": 5,
+      "wilcoxon_p": 0.7333984375,
+      "sign_p": 0.7744140625,
+      "random_effects": {
+        "effect": 0.009225477511792047,
+        "ci": [
+          -0.024909199925659313,
+          0.04336015494924341
+        ],
+        "tau2": 0.0032481624816564263,
+        "n": 12,
+        "note": "DL normal interval; seed-spread SE, exploratory heterogeneity summary"
+      }
+    },
+    "holm": {
+      "exclude42": {
+        "p_raw": 0.7333984375,
+        "p_adjusted": 0.7333984375,
+        "reject": false
+      }
+    }
+  }
+}

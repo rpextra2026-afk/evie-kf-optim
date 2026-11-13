@@ -1,0 +1,18 @@
+{
+  "AdamW": {
+    "lr": 0.001,
+    "knob": null,
+    "note": "main-run frozen AdamW LR",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  },
+  "EvieKFm": {
+    "lr": 0.001,
+    "knob": 30.0,
+    "note": "R3a frozen LR at fixed gamma 30",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  }
+}

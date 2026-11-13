@@ -1,0 +1,763 @@
+{
+  "header": "PRIMARY METRIC ONLY; sensitivity analysis, not a new preregistration",
+  "rows": [
+    {
+      "task": "finance_consumer_industrials",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00020510560423924178,
+      "ref_median": 0.0001979159713579864,
+      "rel_gain": -0.03632669375757915,
+      "ci": [
+        -0.0207285790913356,
+        0.03721108474920734
+      ],
+      "n_pairs": 250,
+      "n_seeds": 5,
+      "se": 0.035749550317199494,
+      "new_per_seed": {
+        "42": 0.00022018537240684347,
+        "43": 0.00021258255752621503,
+        "44": 0.0002061977745994689,
+        "45": 0.00021446577061421025,
+        "46": 0.00021522183700528724
+      },
+      "ref_per_seed": {
+        "42": 0.0001907371891238702,
+        "43": 0.00020589123642633832,
+        "44": 0.0002068704654457708,
+        "45": 0.00019904996746431582,
+        "46": 0.00022790842152461803
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 0.00020263115900061117,
+      "ref_median": 0.00019974689733572108,
+      "rel_gain": -0.014439581807583337,
+      "ci": [
+        -0.013876200742703489,
+        0.051452762125334596
+      ],
+      "n_pairs": 200,
+      "n_seeds": 4,
+      "se": 0.028154971769409013,
+      "new_per_seed": {
+        "43": 0.00021258255752621503,
+        "44": 0.0002061977745994689,
+        "45": 0.00021446577061421025,
+        "46": 0.00021522183700528724
+      },
+      "ref_per_seed": {
+        "43": 0.00020589123642633832,
+        "44": 0.0002068704654457708,
+        "45": 0.00019904996746431582,
+        "46": 0.00022790842152461803
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_finance",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00019803272668646757,
+      "ref_median": 0.00021530100435176224,
+      "rel_gain": 0.08020528151871267,
+      "ci": [
+        -0.05353755945489365,
+        0.04775765012900405
+      ],
+      "n_pairs": 245,
+      "n_seeds": 5,
+      "se": 0.023514512348557337,
+      "new_per_seed": {
+        "42": 0.00020126844682390727,
+        "43": 0.0002018346712387428,
+        "44": 0.00021834921821084602,
+        "45": 0.00020050736410277232,
+        "46": 0.00020760713667465896
+      },
+      "ref_per_seed": {
+        "42": 0.00022180212868584527,
+        "43": 0.00022043561730435284,
+        "44": 0.00021530100435176224,
+        "45": 0.00022498236367942163,
+        "46": 0.0002120218419898758
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_finance",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 0.00019450277760230675,
+      "ref_median": 0.00021693620968748023,
+      "rel_gain": 0.10341027031628897,
+      "ci": [
+        -0.05302263759460034,
+        0.053731453536721784
+      ],
+      "n_pairs": 196,
+      "n_seeds": 4,
+      "se": 0.02829250231666514,
+      "new_per_seed": {
+        "43": 0.0002018346712387428,
+        "44": 0.00021834921821084602,
+        "45": 0.00020050736410277232,
+        "46": 0.00020760713667465896
+      },
+      "ref_per_seed": {
+        "43": 0.00022043561730435284,
+        "44": 0.00021530100435176224,
+        "45": 0.00022498236367942163,
+        "46": 0.0002120218419898758
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_healthcare",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00025136803471764854,
+      "ref_median": 0.00030968827072274746,
+      "rel_gain": 0.18831916323143827,
+      "ci": [
+        0.036400048770982685,
+        0.09621086016994806
+      ],
+      "n_pairs": 245,
+      "n_seeds": 5,
+      "se": 0.04953500246164604,
+      "new_per_seed": {
+        "42": 0.0002508639695240414,
+        "43": 0.0003121150903916233,
+        "44": 0.0002498522994922245,
+        "45": 0.00025136803471764854,
+        "46": 0.0002612794356488706
+      },
+      "ref_per_seed": {
+        "42": 0.00032419585203998305,
+        "43": 0.0003019957630722611,
+        "44": 0.0003107509836948738,
+        "45": 0.00030968827072274746,
+        "46": 0.0002769581461078906
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_healthcare",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 0.00025296107281086054,
+      "ref_median": 0.0003082693687507085,
+      "rel_gain": 0.17941547732747556,
+      "ci": [
+        0.02441511582897492,
+        0.09124242206304138
+      ],
+      "n_pairs": 196,
+      "n_seeds": 4,
+      "se": 0.05530554620545472,
+      "new_per_seed": {
+        "43": 0.0003121150903916233,
+        "44": 0.0002498522994922245,
+        "45": 0.00025136803471764854,
+        "46": 0.0002612794356488706
+      },
+      "ref_per_seed": {
+        "43": 0.0003019957630722611,
+        "44": 0.0003107509836948738,
+        "45": 0.00030968827072274746,
+        "46": 0.0002769581461078906
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_tech",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00039096129319024465,
+      "ref_median": 0.0004333625849965331,
+      "rel_gain": 0.09784253019126621,
+      "ci": [
+        -0.27011660072148796,
+        0.06901053057418555
+      ],
+      "n_pairs": 243,
+      "n_seeds": 5,
+      "se": 0.020807988752741913,
+      "new_per_seed": {
+        "42": 0.0004028396473990546,
+        "43": 0.00039101664036039324,
+        "44": 0.0003909405577119696,
+        "45": 0.0003909390202905766,
+        "46": 0.0004040696651474566
+      },
+      "ref_per_seed": {
+        "42": 0.00041439922229924875,
+        "43": 0.00043734466588055647,
+        "44": 0.0004519195138634025,
+        "45": 0.00042921367776456963,
+        "46": 0.00041796569768455863
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_tech",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 0.0003909509254511071,
+      "ref_median": 0.0004399177896512019,
+      "rel_gain": 0.11130912491381446,
+      "ci": [
+        -0.34177526184689344,
+        0.07648138618030227
+      ],
+      "n_pairs": 195,
+      "n_seeds": 4,
+      "se": 0.021392513901545354,
+      "new_per_seed": {
+        "43": 0.00039101664036039324,
+        "44": 0.0003909405577119696,
+        "45": 0.0003909390202905766,
+        "46": 0.0004040696651474566
+      },
+      "ref_per_seed": {
+        "43": 0.00043734466588055647,
+        "44": 0.0004519195138634025,
+        "45": 0.00042921367776456963,
+        "46": 0.00041796569768455863
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_enwik8",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 3.0388592082320414,
+      "ref_median": 3.176381702224063,
+      "rel_gain": 0.043295329996306836,
+      "ci": [
+        0.0420572703759478,
+        0.04610243916109437
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.0011552077877086191,
+      "new_per_seed": {
+        "42": 3.0341188374662553,
+        "43": 3.040476888733386,
+        "44": 3.0388592082320414,
+        "45": 3.0441926114590787,
+        "46": 3.0324085515042807
+      },
+      "ref_per_seed": {
+        "42": 3.165073627827934,
+        "43": 3.1741748882095013,
+        "44": 3.176381702224063,
+        "45": 3.1930211419128445,
+        "46": 3.181953574335168
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_enwik8",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 3.0396680484827137,
+      "ref_median": 3.1791676382796155,
+      "rel_gain": 0.04387928089013608,
+      "ci": [
+        0.04270794116200591,
+        0.04680421645229125
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0012091498958393362,
+      "new_per_seed": {
+        "43": 3.040476888733386,
+        "44": 3.0388592082320414,
+        "45": 3.0441926114590787,
+        "46": 3.0324085515042807
+      },
+      "ref_per_seed": {
+        "43": 3.1741748882095013,
+        "44": 3.176381702224063,
+        "45": 3.1930211419128445,
+        "46": 3.181953574335168
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_ptb",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 192.17292435599907,
+      "ref_median": 179.34609597244446,
+      "rel_gain": -0.0715199754642297,
+      "ci": [
+        -0.08713203387360911,
+        -0.021584059351229708
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.01846437507169903,
+      "new_per_seed": {
+        "42": 197.31626207117466,
+        "43": 192.17292435599907,
+        "44": 190.80282868233166,
+        "45": 197.75285047396684,
+        "46": 177.28792952451454
+      },
+      "ref_per_seed": {
+        "42": 178.4509983292211,
+        "43": 179.34609597244446,
+        "44": 184.2264207785854,
+        "45": 183.72484771973862,
+        "46": 177.53235884475336
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_ptb",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 191.48787651916535,
+      "ref_median": 181.53547184609153,
+      "rel_gain": -0.05482347098263873,
+      "ci": [
+        -0.07393664954006778,
+        -0.016847382169958538
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.01807964720829395,
+      "new_per_seed": {
+        "43": 192.17292435599907,
+        "44": 190.80282868233166,
+        "45": 197.75285047396684,
+        "46": 177.28792952451454
+      },
+      "ref_per_seed": {
+        "43": 179.34609597244446,
+        "44": 184.2264207785854,
+        "45": 183.72484771973862,
+        "46": 177.53235884475336
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext103",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 35.40535422416017,
+      "ref_median": 39.99304734044105,
+      "rel_gain": 0.11471226679047777,
+      "ci": [
+        0.11114089215497029,
+        0.12716708805663154
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.004552145428679522,
+      "new_per_seed": {
+        "42": 35.70158095775134,
+        "43": 35.18734397764208,
+        "44": 35.568204198812886,
+        "45": 35.40535422416017,
+        "46": 35.29658643142957
+      },
+      "ref_per_seed": {
+        "42": 40.781186856386675,
+        "43": 40.61073976202778,
+        "44": 39.99304734044105,
+        "45": 39.80186149482162,
+        "46": 39.81585119856582
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext103",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 35.35097032779487,
+      "ref_median": 39.90444926950343,
+      "rel_gain": 0.11410955482571994,
+      "ci": [
+        0.11055007505458458,
+        0.12781946535109023
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.005546769150044515,
+      "new_per_seed": {
+        "43": 35.18734397764208,
+        "44": 35.568204198812886,
+        "45": 35.40535422416017,
+        "46": 35.29658643142957
+      },
+      "ref_per_seed": {
+        "43": 40.61073976202778,
+        "44": 39.99304734044105,
+        "45": 39.80186149482162,
+        "46": 39.81585119856582
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext2",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 100.45674286767259,
+      "ref_median": 105.7006301989306,
+      "rel_gain": 0.04961074802854924,
+      "ci": [
+        0.034738704144046714,
+        0.05892373773122815
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.00708134756788149,
+      "new_per_seed": {
+        "42": 99.66651587713046,
+        "43": 98.33014102081073,
+        "44": 102.5627687890703,
+        "45": 100.45674286767259,
+        "46": 101.58756880933568
+      },
+      "ref_per_seed": {
+        "42": 104.84609906927099,
+        "43": 105.86271187273277,
+        "44": 106.35276668896388,
+        "45": 103.75131158073818,
+        "46": 105.7006301989306
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "language_wikitext2",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 101.02215583850413,
+      "ref_median": 105.78167103583169,
+      "rel_gain": 0.04499376074060464,
+      "ci": [
+        0.03354394927932584,
+        0.06227463463386064
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.009048980304370317,
+      "new_per_seed": {
+        "43": 98.33014102081073,
+        "44": 102.5627687890703,
+        "45": 100.45674286767259,
+        "46": 101.58756880933568
+      },
+      "ref_per_seed": {
+        "43": 105.86271187273277,
+        "44": 106.35276668896388,
+        "45": 103.75131158073818,
+        "46": 105.7006301989306
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar10",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 81.94,
+      "ref_median": 81.55,
+      "rel_gain": 0.004782342121397922,
+      "ci": [
+        -0.002558162902437453,
+        0.00722755219457028
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.002795769890584526,
+      "new_per_seed": {
+        "42": 81.94,
+        "43": 80.98,
+        "44": 82.34,
+        "45": 81.26,
+        "46": 82.41
+      },
+      "ref_per_seed": {
+        "42": 82.35,
+        "43": 81.16,
+        "44": 81.55,
+        "45": 81.13,
+        "46": 81.79
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar10",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 81.80000000000001,
+      "ref_median": 81.35499999999999,
+      "rel_gain": 0.005469854342081269,
+      "ci": [
+        -0.0003077373644826139,
+        0.00863384860017079
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0027305144319887207,
+      "new_per_seed": {
+        "43": 80.98,
+        "44": 82.34,
+        "45": 81.26,
+        "46": 82.41
+      },
+      "ref_per_seed": {
+        "43": 81.16,
+        "44": 81.55,
+        "45": 81.13,
+        "46": 81.79
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar100",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 52.28,
+      "ref_median": 49.51,
+      "rel_gain": 0.05594829327408611,
+      "ci": [
+        0.04910492987949412,
+        0.05834818554609811
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.002668350708934133,
+      "new_per_seed": {
+        "42": 52.34,
+        "43": 52.65,
+        "44": 52.28,
+        "45": 51.85,
+        "46": 51.5
+      },
+      "ref_per_seed": {
+        "42": 49.51,
+        "43": 50.19,
+        "44": 49.65,
+        "45": 49.51,
+        "46": 48.5
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_cifar100",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 52.065,
+      "ref_median": 49.58,
+      "rel_gain": 0.05012101653892698,
+      "ci": [
+        0.048138463457121916,
+        0.058645189516949005
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0032535120766136873,
+      "new_per_seed": {
+        "43": 52.65,
+        "44": 52.28,
+        "45": 51.85,
+        "46": 51.5
+      },
+      "ref_per_seed": {
+        "43": 50.19,
+        "44": 49.65,
+        "45": 49.51,
+        "46": 48.5
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_stl10",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 48.5875,
+      "ref_median": 51.2875,
+      "rel_gain": -0.05264440653180605,
+      "ci": [
+        -0.060637369339905635,
+        -0.00455357810117558
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.01594654453774776,
+      "new_per_seed": {
+        "42": 52.075,
+        "43": 46.9375,
+        "44": 50.075,
+        "45": 48.225,
+        "46": 48.5875
+      },
+      "ref_per_seed": {
+        "42": 51.2875,
+        "43": 50.175,
+        "44": 50.5125,
+        "45": 51.3125,
+        "46": 51.35
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_stl10",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 48.40625,
+      "ref_median": 50.9125,
+      "rel_gain": -0.04922661428922173,
+      "ci": [
+        -0.06234734458627443,
+        -0.021538547790144916
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.012898473155067028,
+      "new_per_seed": {
+        "43": 46.9375,
+        "44": 50.075,
+        "45": 48.225,
+        "46": 48.5875
+      },
+      "ref_per_seed": {
+        "43": 50.175,
+        "44": 50.5125,
+        "45": 51.3125,
+        "46": 51.35
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_svhn",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 94.63352796558083,
+      "ref_median": 94.66425937307929,
+      "rel_gain": -0.00032463579921277044,
+      "ci": [
+        -0.0018888873520479046,
+        0.0004948869995879647
+      ],
+      "n_pairs": 5,
+      "n_seeds": 5,
+      "se": 0.0006859695336694214,
+      "new_per_seed": {
+        "42": 94.80255070682237,
+        "43": 94.42609096496619,
+        "44": 94.62968653964352,
+        "45": 94.63352796558083,
+        "46": 94.77950215119853
+      },
+      "ref_per_seed": {
+        "42": 94.9139520590043,
+        "43": 94.58743085433314,
+        "44": 94.57974800245852,
+        "45": 94.8640135218193,
+        "46": 94.66425937307929
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "vision_svhn",
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "exclude42",
+      "new_median": 94.63160725261217,
+      "ref_median": 94.62584511370622,
+      "rel_gain": 6.089392278638618e-05,
+      "ci": [
+        -0.0020676819600129355,
+        0.0008726943980050417
+      ],
+      "n_pairs": 4,
+      "n_seeds": 4,
+      "se": 0.0008729960344102922,
+      "new_per_seed": {
+        "43": 94.42609096496619,
+        "44": 94.62968653964352,
+        "45": 94.63352796558083,
+        "46": 94.77950215119853
+      },
+      "ref_per_seed": {
+        "43": 94.58743085433314,
+        "44": 94.57974800245852,
+        "45": 94.8640135218193,
+        "46": 94.66425937307929
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    }
+  ],
+  "summary": {
+    "all": {
+      "tasks": 12,
+      "wins": 8,
+      "ties": 0,
+      "losses": 4,
+      "wilcoxon_p": 0.10986328125,
+      "sign_p": 0.3876953125,
+      "random_effects": {
+        "effect": 0.03434563544832124,
+        "ci": [
+          0.012838261795903399,
+          0.05585300910073908
+        ],
+        "tau2": 0.0011722264642119145,
+        "n": 12,
+        "note": "DL normal interval; seed-spread SE, exploratory heterogeneity summary"
+      }
+    },
+    "exclude42": {
+      "tasks": 12,
+      "wins": 9,
+      "ties": 0,
+      "losses": 3,
+      "wilcoxon_p": 0.09228515625,
+      "sign_p": 0.14599609375,
+      "random_effects": {
+        "effect": 0.03554359076895435,
+        "ci": [
+          0.015042520808597658,
+          0.056044660729311045
+        ],
+        "tau2": 0.0010497247636286633,
+        "n": 12,
+        "note": "DL normal interval; seed-spread SE, exploratory heterogeneity summary"
+      }
+    }
+  }
+}

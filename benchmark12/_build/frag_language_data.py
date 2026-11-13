@@ -6,11 +6,11 @@
 #  GENERATED: identical across all 5 language files (the 4 main + 1 scalegen).
 #  Edit _build/frag_language_data.py
 #
-#  Model (CLAUDE.md sec 3): 6 layers, d_model=256, 8 heads, ctx=256, GELU MLP
+#  Model (benchmark protocol sec 3): 6 layers, d_model=256, 8 heads, ctx=256, GELU MLP
 #  (4x), pre-LN, causal self-attention, weight-tied token embedding / output
 #  projection. ~10M parameters (body ~4.7M + tied embedding).
 #
-#  Vocab (CLAUDE.md sec 7 -- keep the RULE consistent across the 4 tasks, not
+#  Vocab (benchmark protocol sec 7 -- keep the RULE consistent across the 4 tasks, not
 #  the size, which necessarily differs by corpus): word-level tasks use the
 #  top-(VOCAB_CAP-1) train tokens by frequency + <unk> at id 0; enwik8 is
 #  byte-level (fixed 256-symbol vocab). Perplexity is a WITHIN-TASK optimizer
@@ -18,7 +18,7 @@
 #  whitespace tokenization).
 #
 #  WikiText-103 is capped by a training-token budget, not by taking a subsample
-#  of the corpus (CLAUDE.md sec 3): the 10,000-step budget at ctx=256 x batch
+#  of the corpus (benchmark protocol sec 3): the 10,000-step budget at ctx=256 x batch
 #  consumes a fixed, documented number of tokens; the eval/test splits are the
 #  full untouched canonical splits.
 # ==============================================================================
@@ -27,6 +27,97 @@ import numpy as np
 # primary metric = test_perplexity (the ONLY significance-tested quantity for
 # language). Everything below is descriptive-only telemetry.
 AUX_METRIC_KEYS = ["bpc", "test_loss", "token_acc"]
+_HYBRID_TOKEN_METRICS = ["test_tokens", "test_nll_sum", "bits_per_token",
+    "nll_std", "nll_p50", "nll_p90", "nll_p95", "nll_p99", "token_top5_acc",
+    "token_top10_acc", "mean_reciprocal_rank", "mean_target_rank",
+    "brier_score", "predictive_entropy_nats", "mean_confidence", "ece_15",
+    "mce_15", "unk_target_fraction", "bits_per_byte", "calibration_bins"]
+if TASK.get("opt_set") == "muonhybrid" or TASK.get("extra_metrics"):
+    AUX_METRIC_KEYS += _HYBRID_TOKEN_METRICS
+
+
+_FREQ_Q = None
+
+
+class _HybridTokenMetrics:
+    """Streaming proper scores, rank and calibration on teacher-forced tokens.
+    Chunking caps extra probability storage at 256 x vocabulary, not B*T*V.
+    Equal-width ECE bins; Brier is the multiclass sum, range [0,2].
+    Ranks use optimistic ties. Scores are descriptive, not selection axes.
+    """
+    def __init__(self):
+        self.n = self.top5 = self.top10 = self.unk = 0
+        self.nll = []
+        self.rr = self.rank = self.brier = self.entropy = self.confidence = 0.
+        self.bins = np.zeros((15, 3), dtype=np.float64)
+        self.strata = {k:[0.,0] for k in ["nll_pos_0_32","nll_pos_32_128","nll_pos_128_end"]+[f"nll_freq_q{i}" for i in range(4)]}
+
+    def add(self, flat, targets, ctx=None):
+        offset=0
+        for z, y in zip(flat.split(256), targets.split(256)):
+            z = z.float()
+            lp = F.log_softmax(z, dim=-1)
+            prob = lp.exp()
+            gold_lp = lp.gather(1, y[:, None]).squeeze(1)
+            self.nll.extend((-gold_lp).cpu().tolist())
+            if TASK.get("extra_metrics") and ctx is not None:
+                positions=torch.arange(offset,offset+y.numel(),device=y.device)%ctx
+                masks={"nll_pos_0_32":positions<32,"nll_pos_32_128":(positions>=32)&(positions<128),"nll_pos_128_end":positions>=128}
+                if _FREQ_Q is not None:
+                    freq=_FREQ_Q.to(y.device)[y]
+                    masks.update({f"nll_freq_q{i}":freq==i for i in range(4)})
+                for key,mask in masks.items():
+                    self.strata[key][0]+=float((-gold_lp)[mask].sum())
+                    self.strata[key][1]+=int(mask.sum())
+            offset+=y.numel()
+            k = min(10, z.size(1))
+            top = z.topk(k, dim=1).indices
+            self.top5 += int((top[:, :min(5,k)] == y[:, None]).any(1).sum())
+            self.top10 += int((top == y[:, None]).any(1).sum())
+            rank = (z > z.gather(1, y[:, None])).sum(1).double() + 1
+            self.rank += float(rank.sum())
+            self.rr += float(rank.reciprocal().sum())
+            self.brier += float((prob.square().sum(1) - 2*gold_lp.exp() + 1).sum())
+            self.entropy += float((-(prob * lp).sum(1)).sum())
+            conf, pred = prob.max(1)
+            correct = pred.eq(y)
+            self.confidence += float(conf.sum())
+            bin_id = (conf * 15).long().clamp(max=14)
+            count = torch.bincount(bin_id, minlength=15)
+            conf_sum = torch.bincount(bin_id, weights=conf, minlength=15)
+            acc_sum = torch.bincount(bin_id, weights=correct.float(), minlength=15)
+            self.bins += torch.stack([count, conf_sum, acc_sum], 1).cpu().numpy()
+            self.n += y.numel()
+            self.unk += int((y == 0).sum())
+
+    def finish(self):
+        n = self.n
+        if not n:
+            raise ValueError("Language evaluation has no target tokens")
+        a = np.asarray(self.nll, dtype=np.float64)
+        b = self.bins[self.bins[:,0] > 0]
+        gaps = np.abs(b[:,1]-b[:,2])/b[:,0]
+        result = dict(test_tokens=n, test_nll_sum=float(a.sum()),
+                    bits_per_token=float(a.mean()/math.log(2)),
+                    nll_std=float(a.std()),
+                    **{f"nll_p{q}": float(np.percentile(a,q)) for q in [50,90,95,99]},
+                    token_top5_acc=self.top5/n, token_top10_acc=self.top10/n,
+                    mean_reciprocal_rank=self.rr/n, mean_target_rank=self.rank/n,
+                    brier_score=self.brier/n, predictive_entropy_nats=self.entropy/n,
+                    mean_confidence=self.confidence/n,
+                    ece_15=float((gaps*b[:,0]).sum()/n), mce_15=float(gaps.max()),
+                    calibration_bins=[dict(lower=i/15, upper=(i+1)/15,
+                        count=int(row[0]), confidence_sum=float(row[1]), correct_sum=float(row[2]))
+                        for i, row in enumerate(self.bins)],
+                    unk_target_fraction=(self.unk/n if TASK["dataset"] in
+                                         ("wikitext2", "wikitext103", "ptb") else float("nan")),
+                    bits_per_byte=(float(a.mean()/math.log(2))
+                                   if TASK["dataset"] == "enwik8" else float("nan")))
+        if TASK.get("extra_metrics"):
+            result.update({key:total/count if count else None for key,(total,count) in self.strata.items()})
+            result["x_errors"]={key:"no evaluated tokens in stratum" for key,(total,count) in self.strata.items() if not count}
+        return result
+
 
 
 def estimate_fwd_flops(model, batch_size):
@@ -149,7 +240,19 @@ def _encode_words(tokens, stoi):
 def _hf_text(name, config):
     _require("datasets")
     import datasets as hfds
-    ds = hfds.load_dataset(name, config)
+    if TASK.get("opt_set") == "muonhybrid":
+        for attempt in range(3):
+            try:
+                ds = hfds.load_dataset(name, config)
+                break
+            except (ConnectionError, TimeoutError, OSError) as exc:
+                if attempt == 2:
+                    raise RuntimeError(f"Dataset {name}/{config} unavailable after 3 attempts; "
+                                       "check network or HF cache, then resume") from exc
+                log(f"[data] transient load failure ({exc!r}); retry {attempt+1}/2")
+                time.sleep(2 ** attempt)
+    else:
+        ds = hfds.load_dataset(name, config)
     return ("".join(ds["train"]["text"]),
             "".join(ds["validation"]["text"]),
             "".join(ds["test"]["text"]))
@@ -393,10 +496,14 @@ def prepare_data():
     elif ds == "openwebtext":
         tr, va, te, V = _load_openwebtext()
     else:
+        # "Salesforce/wikitext" is the dataset's current Hub id; huggingface_hub
+        # >= ~1.3 rejects the old bare id "wikitext" (HfUriError). Same files:
+        # verified 2026-11-09 that WikiText-2 gives the main run's exact token
+        # counts (train 2,051,910 / val 213,886 / test 241,211).
         if ds == "wikitext2":
-            train_txt, val_txt, test_txt = _hf_text("wikitext", "wikitext-2-raw-v1")
+            train_txt, val_txt, test_txt = _hf_text("Salesforce/wikitext", "wikitext-2-raw-v1")
         elif ds == "wikitext103":
-            train_txt, val_txt, test_txt = _hf_text("wikitext", "wikitext-103-raw-v1")
+            train_txt, val_txt, test_txt = _hf_text("Salesforce/wikitext", "wikitext-103-raw-v1")
         elif ds == "ptb":
             train_txt, val_txt, test_txt = _load_ptb()
         else:
@@ -426,6 +533,15 @@ def prepare_data():
         oov = float(np.mean(tr == 0)) if len(tr) else float("nan")
         log(f"[data] {ds}: vocab={V}  train_tok={len(tr)}  val_tok={len(va)}  "
             f"test_tok={len(te)}  train_oov(<unk>)={oov:.3f}")
+    if TASK.get("extra_metrics"):
+        global _FREQ_Q
+        if _FREQ_Q is None:
+            counts=np.bincount(np.asarray(tr,dtype=np.int64),minlength=int(V))
+            order=np.argsort(-counts,kind="stable")
+            before=np.cumsum(counts[order])-counts[order]
+            quart=np.minimum(3,(4*before)//max(1,int(counts.sum())))
+            q=np.full(int(V),3,dtype=np.int64);q[order]=quart;q[counts==0]=3
+            _FREQ_Q=torch.from_numpy(q)
     return {"name": ds, "vocab": int(V), "train": tr, "val": va, "test": te}
 
 
@@ -456,6 +572,8 @@ def main_units(data):
 
 
 def build_model(data, unit):
+    if SMOKE and TASK.get("extra_metrics"):
+        return SmallGPT(data["vocab"],n_layer=1,d_model=16,n_head=2,ctx=TASK.get("ctx",GPT_CTX))
     ms = data.get("model_size")          # set only by the model-size sweep driver
     ctx = TASK.get("ctx", GPT_CTX)        # scalegen (language_openwebtext): 512
     if ms:
@@ -480,6 +598,17 @@ def make_loaders(data, unit, batch_size, seed):
     va = _LMWindows(data["val"], ctx, stride=ctx)
     te = _LMWindows(data["test"], ctx, stride=ctx)
     eval_bs = max(batch_size, 64)
+    if TASK.get("opt_set") == "muonhybrid" or TASK.get("extra_metrics"):
+        # Keep the protocol's model/data/batch and exact token weighting; only
+        # evaluation microbatching changes. In particular OWT must never build
+        # a 64 x 512 x 50257 logit tensor on a 20 GB MIG slice.
+        eval_bs = max(1, min(16, batch_size // 2))
+        if TASK.get("extra_metrics"):
+            # Final Hessian probes retain higher-order graphs from the first
+            # four validation batches. Bound those graphs on the 20GB slice.
+            eval_bs = min(eval_bs, 1 if TASK.get("d_model",GPT_D_MODEL)>=768 else 4)
+    if TASK.get("opt_set") == "muonhybrid" and (len(tr) < batch_size or not len(va) or not len(te)):
+        raise ValueError("Dataset has insufficient train/validation/test windows; refusing an empty evaluation")
     train_loader = torch.utils.data.DataLoader(
         tr, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=nw,
         pin_memory=torch.cuda.is_available(), generator=g,
@@ -505,9 +634,11 @@ def forward_loss(model, batch, criterion):
 
 
 @torch.no_grad()
-def evaluate(model, loader, criterion):
+def evaluate(model, loader, criterion, extended_metrics=False, extra_deadline=None):
     model.eval()
     tot_tok, ce_sum, correct = 0, 0.0, 0
+    extra = _HybridTokenMetrics() if extended_metrics else None
+    extra_errors={}
     for batch in loader:
         x, y = batch_to_device(batch)
         logits = model(x)
@@ -516,9 +647,26 @@ def evaluate(model, loader, criterion):
         ce_sum += float(F.cross_entropy(flat, yt, reduction="sum").item())
         tot_tok += yt.numel()
         correct += int((flat.argmax(-1) == yt).sum().item())
+        if extra is not None:
+            try:
+                if extra_deadline is not None and time.monotonic()>extra_deadline:
+                    raise TimeoutError("end-of-run diagnostic budget exhausted")
+                extra.add(flat, yt, ctx=y.size(1))
+            except Exception as exc:
+                if not isinstance(exc,TimeoutError) and classify_exception(exc)=="env":raise
+                extra_errors["token_diagnostics"]=repr(exc);extra=None
     mean_ce = ce_sum / max(tot_tok, 1)
-    return math.exp(min(mean_ce, 50.0)), {
+    aux = {
         "bpc": mean_ce / math.log(2.0),          # bits per symbol (== bpc for enwik8)
         "test_loss": mean_ce,
         "token_acc": correct / max(tot_tok, 1),  # next-token top-1, descriptive
     }
+    if extra is not None:
+        values=_safe_extra("token_diagnostics",extra.finish,extra_errors)
+        if values is not None:aux.update(values)
+    if extra_errors:
+        for key in _HYBRID_TOKEN_METRICS+EXTRA_DOMAIN_KEYS.get("language",[]):
+            aux.setdefault(key,None)
+            extra_errors.setdefault(key,extra_errors["token_diagnostics"])
+        aux["x_errors"]=extra_errors
+    return math.exp(min(mean_ce, 50.0)), aux

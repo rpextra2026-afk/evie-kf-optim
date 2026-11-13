@@ -5,7 +5,7 @@
 #  GENERATED: identical across all 5 vision files (the 4 main + 1 scalegen).
 #  Edit _build/frag_vision_data.py
 #
-#  Architecture parity (CLAUDE.md sec 3): the SAME CIFAR-stem ResNet-18 (3x3
+#  Architecture parity (benchmark protocol sec 3): the SAME CIFAR-stem ResNet-18 (3x3
 #  stem conv, stride 1, NO initial max-pool -- the standard "ResNet for 32x32"
 #  variant) is used for all four tasks. STL-10 (natively 96x96) is resized to
 #  32x32 so the architecture and compute profile are identical to the other
@@ -15,7 +15,7 @@
 #  Init: standard ResNet init (Kaiming-normal / fan_out for the ReLU convs,
 #  BN weight=1 bias=0, zero-init the last BN in each residual branch, Linear
 #  ~ N(0, 0.01)). This intentionally departs from the old 2-conv CNN's
-#  Xavier-uniform default (CLAUDE.md sec 4): Xavier-uniform on a deep 3x3-conv
+#  Xavier-uniform default (benchmark protocol sec 4): Xavier-uniform on a deep 3x3-conv
 #  ReLU stack systematically under-scales early-layer signal and would handicap
 #  SGD relative to the adaptive optimizers, contaminating the comparison. See
 #  benchmark12/README.md "Deviations".
@@ -133,6 +133,63 @@ class CifarStemResNet18(nn.Module):
 #  Data: load once into uint8 CPU tensors, carve a deterministic val split from
 #  train, compute normalization stats on the train split only.
 # ---------------------------------------------------------------------------
+# tanganke/stl10 at a pinned revision: lossless PNGs whose file names are the
+# official image indices. Restored to index order, the decoded arrays are
+# byte-identical to what torchvision reads from the official binaries (checked
+# 2026-11-10: the main run's logged train-split mean/std are reproduced
+# exactly in float32, images upright, labels in the official class order).
+# Any other content fails the sha256 check below rather than running.
+_STL10_MIRROR_REV = "49ae7f94508f7feae62baf836db284306eab0b0f"
+_STL10_MIRROR = {   # split: (parquet file, n, sha256 of X (N,3,96,96) uint8, sha256 of y int64)
+    "train": ("train-00000-of-00001.parquet", 5000,
+              "c6384d93d709350b8eb7708ede30dfebe5412c7ee4c9e018c7fa42169e2cf7a5",
+              "65b21ccb6be49370328673bf9a9de41b3572bed3c05f4597810c24ce863a2908"),
+    "test": ("test-00000-of-00001.parquet", 8000,
+             "7de7b41bd05fba37ee9a70b5fc7bb7a8c4e0488761c7e9e54c587b21892365c8",
+             "b0cab632c30757f21e4b157f0a6a25c0177cd504d446aa368b95578b5bfe24b8"),
+}
+
+
+def _stl10_hf_mirror(root):
+    _require("pyarrow")
+    _require("PIL", "Pillow")
+    import io
+    import pyarrow.parquet as pq
+    from PIL import Image
+    cache = os.path.join(root, "stl10_hf_mirror")
+    os.makedirs(cache, exist_ok=True)
+    out = []
+    for split in ("train", "test"):
+        fn, n, want_x, want_y = _STL10_MIRROR[split]
+        path = os.path.join(cache, fn)
+        if not os.path.exists(path):
+            raw = _download_with_retry("https://huggingface.co/datasets/tanganke/stl10/resolve/"
+                                       f"{_STL10_MIRROR_REV}/data/{fn}", timeout=300)
+            with open(path + ".part", "wb") as fh:
+                fh.write(raw)
+            os.replace(path + ".part", path)
+        t = pq.read_table(path)
+        imgs = t.column("image").to_pylist()
+        y = np.asarray(t.column("label").to_pylist(), dtype=np.int64)
+        idx = np.asarray([int(os.path.splitext(im["path"])[0]) for im in imgs])
+        if len(imgs) != n or sorted(idx.tolist()) != list(range(n)):
+            fail(f"stl10 mirror {split}: expected image indices 0..{n - 1}, got {len(imgs)} images")
+        order = np.argsort(idx)
+        X = np.ascontiguousarray(np.stack(
+            [np.asarray(Image.open(io.BytesIO(imgs[i]["bytes"])).convert("RGB"), dtype=np.uint8)
+             for i in order]).transpose(0, 3, 1, 2))
+        y = np.ascontiguousarray(y[order])
+        got_x = hashlib.sha256(X.tobytes()).hexdigest()
+        got_y = hashlib.sha256(y.tobytes()).hexdigest()
+        if got_x != want_x or got_y != want_y:
+            fail(f"stl10 mirror {split}: decoded data does not match the verified copy "
+                 f"(sha256 X {got_x[:12]} vs {want_x[:12]}, y {got_y[:12]} vs {want_y[:12]}); "
+                 f"delete {path} and retry, or attach the official stl10_binary/")
+        log(f"[data] stl10 mirror {split}: {n} images, sha256 verified")
+        out += [X, y]
+    return out[0], out[1], out[2], out[3]
+
+
 def _load_raw(name):
     _require("torchvision")
     import torchvision
@@ -163,15 +220,22 @@ def _load_raw(name):
         yte = np.asarray(te.labels, dtype=np.int64)
         ncls = 10
     elif name == "stl10":
-        tr = torchvision.datasets.STL10(root, split="train", download=True)
-        te = torchvision.datasets.STL10(root, split="test", download=True)
+        # Official files if already on disk; otherwise the pinned HF mirror
+        # (the official server ai.stanford.edu has been down since 2026-11-09).
+        try:
+            tr = torchvision.datasets.STL10(root, split="train", download=False)
+            te = torchvision.datasets.STL10(root, split="test", download=False)
+            tr_x, tr_y, te_x, te_y = tr.data, tr.labels, te.data, te.labels
+        except RuntimeError:
+            log(f"[data] stl10: official files not under {root}; using the pinned HF mirror")
+            tr_x, tr_y, te_x, te_y = _stl10_hf_mirror(root)
         # (N,3,96,96) uint8 -> resize to 32x32 once, store as (N,32,32,3)
         def _resize(arr):
             t = torch.from_numpy(np.asarray(arr, dtype=np.uint8)).float()
             t = F.interpolate(t, size=(32, 32), mode="bilinear", align_corners=False)
             return t.round().clamp(0, 255).to(torch.uint8).permute(0, 2, 3, 1).numpy()
-        Xtr = _resize(tr.data); ytr = np.asarray(tr.labels, dtype=np.int64)
-        Xte = _resize(te.data); yte = np.asarray(te.labels, dtype=np.int64)
+        Xtr = _resize(tr_x); ytr = np.asarray(tr_y, dtype=np.int64)
+        Xte = _resize(te_x); yte = np.asarray(te_y, dtype=np.int64)
         ncls = 10
     elif name == "tinyimagenet":
         Xtr, ytr, Xte, yte, ncls = _load_tinyimagenet(root)
@@ -426,6 +490,8 @@ def main_units(data):
 
 
 def build_model(data, unit):
+    if SMOKE and TASK.get("extra_metrics"):
+        return CifarStemResNet18(data["ncls"],widths=(4,8,16,32),stem_pool=TASK.get("image_size",32)==64)
     ms = data.get("model_size")          # set only by the model-size sweep driver
     stem_pool = (TASK.get("image_size", 32) == 64)   # sec 3.1: 64x64 needs one pool
     if ms:
@@ -468,7 +534,7 @@ def forward_loss(model, batch, criterion):
 
 
 @torch.no_grad()
-def evaluate(model, loader, criterion):
+def evaluate(model, loader, criterion, extended_metrics=False, extra_deadline=None):
     model.eval()
     tot, loss_sum, top1, top5 = 0, 0.0, 0, 0
     n_bins = 15
@@ -490,8 +556,72 @@ def evaluate(model, loader, criterion):
             if m.any():
                 bin_conf[b] += c[m].sum(); bin_acc[b] += ok[m].sum(); bin_n[b] += m.sum()
     ece = float(np.sum(np.abs(bin_acc - bin_conf)[bin_n > 0]) / max(tot, 1))
-    return 100.0 * top1 / max(tot, 1), {
+    primary = 100.0 * top1 / max(tot, 1)
+    aux = {
         "top5": 100.0 * top5 / max(tot, 1),
         "test_loss": loss_sum / max(tot, 1),
         "ece": ece,   # expected calibration error (15 bins), descriptive
     }
+    if extended_metrics:
+        _extra_rng=rng_state()
+        try:
+            aux.update(_vision_test_extras(model,loader,criterion,primary,deadline=extra_deadline))
+        finally:
+            load_rng_state(_extra_rng)
+    return primary, aux
+
+
+def _vision_test_extras(model, loader, criterion, clean, deadline=None):
+    """Deterministic normalised-space shifts. FGSM epsilon .03 is roughly
+    1/255 raw-pixel scale for common normalisations, not an exact threat model.
+    Full test sets are used when the budget allows; timeout is explicit.
+    """
+    errors={};out={};start=time.monotonic()
+    gen=torch.Generator(device=DEVICE).manual_seed(0)
+    def check():
+        if time.monotonic()-start>90 or (deadline is not None and time.monotonic()>deadline):raise TimeoutError("90s test-diagnostic budget exhausted")
+    def clean_stats():
+        counts=None;hits=None;bs=entropy=confidence=0.;total=0
+        for batch in loader:
+            check();x,y=batch_to_device(batch);logits=model(x);prob=logits.softmax(1)
+            conf,pred=prob.max(1);ncls=logits.size(1)
+            if counts is None:counts=torch.zeros(ncls,device=DEVICE);hits=counts.clone()
+            counts+=torch.bincount(y,minlength=ncls)
+            hits+=torch.bincount(y[pred==y],minlength=ncls)
+            bs+=float((prob.square().sum(1)-2*prob.gather(1,y[:,None]).squeeze(1)+1).sum())
+            entropy+=float((-(prob*prob.clamp_min(1e-30).log()).sum(1)).sum())
+            confidence+=float(conf.sum());total+=len(y)
+        if not total:raise ValueError("empty test split")
+        accuracies=(100*hits[counts>0]/counts[counts>0]).cpu().numpy()
+        return dict(cls_acc_min=float(accuracies.min()),cls_acc_std=float(accuracies.std()),
+            cls_acc_worst5_mean=float(np.sort(accuracies)[:5].mean()),brier_score=bs/total,
+            predictive_entropy_nats=entropy/total,mean_confidence=confidence/total)
+    stats=_safe_extra("vision_clean_metrics",clean_stats,errors)
+    if stats:out.update(stats)
+    else:
+        for k in ["cls_acc_min","cls_acc_std","cls_acc_worst5_mean","brier_score","predictive_entropy_nats","mean_confidence"]:
+            out[k]=None;errors[k]=errors.get("vision_clean_metrics","unavailable")
+    def accuracy(kind):
+        hit=total=0
+        for batch in loader:
+            check();x,y=batch_to_device(batch)
+            if kind in ("noise_a","noise_b"):
+                x=x+torch.randn(x.shape,device=x.device,dtype=x.dtype,generator=gen)*(.25 if kind=="noise_a" else .5)
+            elif kind=="shift":x=torch.roll(x,(4,4),(-2,-1))
+            elif kind=="lowres":x=F.interpolate(F.avg_pool2d(x,2),size=x.shape[-2:],mode="nearest")
+            elif kind=="bright":x=x+.5
+            elif kind=="fgsm_small":
+                with torch.enable_grad():
+                    x=x.detach().requires_grad_(True)
+                    grad=torch.autograd.grad(criterion(model(x),y),x)[0]
+                    x=(x+.03*grad.sign()).detach()
+            pred=model(x).argmax(1);hit+=int((pred==y).sum());total+=len(y)
+        if not total:raise ValueError("empty shifted evaluation")
+        return 100*hit/total
+    for kind in ["noise_a","noise_b","shift","lowres","bright","fgsm_small"]:
+        out["acc_"+kind]=_safe_extra("acc_"+kind,lambda k=kind:accuracy(k),errors)
+    shifts=[out["acc_"+k] for k in ["noise_a","noise_b","shift","lowres","bright"]]
+    out["corruption_mean_drop"]=clean-float(np.mean(shifts)) if all(v is not None for v in shifts) else None
+    if out["corruption_mean_drop"] is None:errors["corruption_mean_drop"]="one or more full-test corruption evaluations unavailable"
+    out["x_errors"]=errors
+    return out

@@ -1,5 +1,5 @@
 """
-The 12 frozen ICLR-benchmark tasks (CLAUDE.md sec 3). build.py consumes this.
+The 12 frozen ICLR-benchmark tasks (benchmark protocol sec 3). build.py consumes this.
 
 Frozen protocol knobs shared by every task:
   * MAX_STEPS = 10000 (step-based, not epoch-based)
@@ -17,7 +17,7 @@ COMMON = dict(
     seeds=[42, 43, 44, 45, 46],
 )
 
-# CLAUDE.md sec 9.5: WikiText-2 and PTB use a 16k whitespace-tokenized vocab and
+# benchmark protocol sec 9.5: WikiText-2 and PTB use a 16k whitespace-tokenized vocab and
 # a ~10M-param model at a fixed 10k-step budget -- their perplexity is valid ONLY
 # as a within-task, cross-optimizer ranking and is NOT comparable to published
 # WikiText/PTB leaderboard numbers (~33k vocab / BPE). Logged everywhere results
@@ -86,7 +86,7 @@ assert len({t["task_name"] for t in TASKS}) == 12, "task_name collision"
 
 
 # ==========================================================================
-#  PHASE 2 (CLAUDE.md sec 9) -- batch-size + model-size sweeps.
+#  PHASE 2 (benchmark protocol sec 9) -- batch-size + model-size sweeps.
 #  6 host tasks x 2 sweep types = 12 generated files under benchmark12/sweeps/.
 #  Reuse the same fragments; each file gets its own checkpoints/<task>_<type>/.
 # ==========================================================================
@@ -98,7 +98,7 @@ _BASE = {t["task_name"]: t for t in TASKS}
 
 
 # ==========================================================================
-#  EVIE-KF ABLATION (claude_optim.md sec 2) -- the C1 (centred vs uncentred)
+#  EVIE-KF ABLATION (optimizer specification sec 2) -- the C1 (centred vs uncentred)
 #  and C2 (Kronecker vs diagonal) ladder, "the paper" per the v3 doc.
 #
 #  Arms: EvieDiag, EvieKFu, EvieKF (3, from ABLATION_OPT_NAMES). EvieKF is also
@@ -109,7 +109,7 @@ _BASE = {t["task_name"]: t for t in TASKS}
 #  centered=F change how the loss responds to gamma), same LR-search-then-freeze
 #  protocol as the main run.
 #
-#  Structure decision (documented for the user): claude_optim.md sec 2 says
+#  Structure decision (documented for the user): optimizer specification sec 2 says
 #  "a 13th ... file". The 3 chosen tasks span 3 domains with different primary
 #  metrics, directions and batch sizes, which the single-TASK engine cannot
 #  carry in one file without invasive, harness-wide changes. Three
@@ -151,7 +151,7 @@ _BATCH_GRID = {           # new batch sizes (dyadic, below the baseline) + basel
     "language": {"new": [2, 4, 8, 16], "baseline": 32},
     "finance":  {"new": [2, 4, 8, 16], "baseline": 32},
 }
-_MODEL_GRID = {           # small / (baseline reused) / large -- CLAUDE.md sec 9.3
+_MODEL_GRID = {           # small / (baseline reused) / large -- benchmark protocol sec 9.3
     "vision":   {"points": {"small": [32, 64, 128, 256],
                             "large": [128, 256, 512, 1024]},
                  "baseline_spec": [64, 128, 256, 512]},
@@ -559,4 +559,221 @@ assert not ({t["task_name"] for t in DIAG_TASKS}
             & {t["task_name"] for t in TASKS}), "diagnostic task_name collision"
 
 
-ALL_TASKS = TASKS + ABLATION_TASKS + SWEEP_TASKS + SCALEGEN_TASKS + DIAG_TASKS
+
+# Muon hybrid R1: explicit, budget-matched searches; never part of main 12.
+MUONHYBRID_ARMS = ["MuonSub", "MuonEvie", "MuonEvieFix"]
+_MUONHYBRID_ANCHORS = {'language_wikitext2': (0.006325, 0.001, [0.00031622776601683794, 0.001, 0.0031622776601683794, 0.01]), 'language_wikitext103': (0.002, 0.001, [0.00031622776601683794, 0.001, 0.0031622776601683794, 0.01]), 'language_enwik8': (0.006325, 0.0003162, [9.999121961452416e-05, 0.0003162, 0.0009999121961452415, 0.003162]), 'language_openwebtext': (0.002, 0.001, [0.00031622776601683794, 0.001, 0.0031622776601683794, 0.01])}
+MUONHYBRID_TASKS = []
+for _name, (_matrix_lr, _anchor, _lrs) in _MUONHYBRID_ANCHORS.items():
+    _owt = _name == "language_openwebtext"
+    _base = (next(t for t in SCALEGEN_TASKS if t["task_name"] == _name)
+             if _owt else _BASE[_name])
+    _cfg = dict(_base)
+    _cfg.update(task_name=_name + "_muonhybrid", base_task_name=_name,
+                opt_set="muonhybrid", opt_list=MUONHYBRID_ARMS[:2] if _owt else list(MUONHYBRID_ARMS),
+                force_split_path=True, allow_tf32=True, ref_opt="MuonSub",
+                muon_matrix_lr=_matrix_lr, max_steps=6000 if _owt else 10000,
+                lr_search_steps=1500 if _owt else 2500,
+                seeds=[42,43,44] if _owt else [42,43,44,45,46],
+                search_grid={"MuonSub": {"lr": list(_lrs), "knob": [1e-4] if _owt else [1e-4,1e-3,1e-2]},
+                             "MuonEvie": {"lr": list(_lrs), "knob": [30.] if _owt else [3.,30.,300.]}},
+                title=_base["title"] + " -- Muon hybrid R1" +
+                      ("; DEVIATION: 1500-step search, 6000-step full run" if _owt else ""))
+    MUONHYBRID_TASKS.append(_cfg)
+
+# Validate frozen anchors against authoritative artifacts when available.
+import json as _json
+from pathlib import Path as _Path
+for _name, (_matrix_lr, _anchor, _lrs) in _MUONHYBRID_ANCHORS.items():
+    _r = _Path(__file__).resolve().parents[1] / "results" / (
+        "scalegen/" + _name if _name == "language_openwebtext" else _name)
+    if (_r / "lr_search.json").exists():
+        _d = _json.loads((_r / "lr_search.json").read_text())
+        if "AdamW" in _d:
+            assert _d["AdamW"]["lr"] == _anchor, "frozen AdamW anchor changed"
+        elif (_r / "final_cells/AdamW/results.json").exists():
+            assert _json.loads((_r / "final_cells/AdamW/results.json").read_text())["meta"]["lr_used"]["AdamW"] == _anchor
+        if "Muon" in _d:
+            assert _d["Muon"]["lr"] == _matrix_lr, "frozen Muon anchor changed"
+        elif (_r / "final_cells/Muon/results.json").exists():
+            _cells = _json.loads((_r / "final_cells/Muon/results.json").read_text())["cells"]
+            assert {_c["lr_used"] for _c in _cells.values() if _c["opt"] == "Muon"} == {_matrix_lr}
+
+ALL_TASKS = TASKS + ABLATION_TASKS + SWEEP_TASKS + SCALEGEN_TASKS + DIAG_TASKS + MUONHYBRID_TASKS
+assert len({t["task_name"] for t in ALL_TASKS}) == len(ALL_TASKS)
+
+# Master rebuttal tasks, isolated from the frozen main run.
+import ast as _ast
+
+def _shared_literal(name):
+    tree = _ast.parse((_Path(__file__).parent / "frag_shared_optim.py").read_text())
+    for node in tree.body:
+        if isinstance(node, _ast.Assign) and any(isinstance(t, _ast.Name) and t.id == name for t in node.targets):
+            return _ast.literal_eval(node.value)
+    raise KeyError(name)
+
+# The optimizer fragment is not an importable module (it expects torch/nn and
+# header globals). Read the authoritative literal instead of importing it.
+EVIEKF_FIXED_GAMMA_M = _shared_literal("EVIEKF_FIXED_GAMMA_M")
+_CENTRES = _shared_literal("LR_GRID_CENTRE")
+
+def _frozen(task_dir, arm, results_root=None):
+    root = _Path(results_root) if results_root is not None else _Path(__file__).resolve().parents[1]/"results"
+    path = root/task_dir/"lr_search.json"
+    if path.exists():
+        d = _json.loads(path.read_text())
+        if arm in d and "lr" in d[arm]:
+            return float(d[arm]["lr"]), d[arm].get("knob")
+    final = root/task_dir/"final_cells"/arm/"results.json"
+    if final.exists():
+        d = _json.loads(final.read_text())
+        meta = d.get("meta", {})
+        if arm in meta.get("lr_used", {}):
+            return float(meta["lr_used"][arm]), meta.get("knob_used", {}).get(arm)
+        # Actual OWT Muon metadata omits Muon. Recorded cells and its search
+        # log agree on one LR; require unique cell values, never invent a default.
+        vals = {(float(c["lr_used"]), c.get("knob_used")) for c in d.get("cells", {}).values()
+                if c.get("opt") == arm and "lr_used" in c}
+        if len(vals) == 1:
+            return vals.pop()
+    raise FileNotFoundError(f"Frozen {arm} unavailable in {path} or {final}")
+
+
+def _diag_from(base_name, new_name, arms, pinned=None, fixed_knob=None, **overrides):
+    bases = {t["task_name"]: t for t in TASKS + ABLATION_TASKS + SCALEGEN_TASKS}
+    cfg = dict(bases[base_name])
+    cfg.update(task_name=new_name, base_task_name=base_name, opt_set="diag",
+               opt_list=list(arms), pinned_lr=pinned or {}, fixed_knob=fixed_knob or {},
+               extra_metrics=True, rebuttal_run=True)
+    cfg.update(overrides)
+    return cfg
+
+REBUTTAL_TASKS = []
+assert len(_BASE) == 12
+for _name, _base in _BASE.items():
+    REBUTTAL_TASKS.append(_diag_from(_name, _name+"_evie_m30", ["EvieKFm"],
+        fixed_knob={"EvieKFm": EVIEKF_FIXED_GAMMA_M}, budget_no_extend=True,
+        title=_base["title"]+" -- R3a: fixed dimensionless gamma=30, exactly 7 LR trials; no boundary extension"))
+    _lr, _kn = _frozen(_name, "AdamW")
+    REBUTTAL_TASKS.append(_diag_from(_name, _name+"_ref_adamw", ["AdamW"],
+        pinned={"AdamW":dict(lr=_lr,knob=None,note="main-run frozen AdamW LR; optional metrics reference")},
+        title=_base["title"]+" -- R3a-ref: optional reference rerun with exploratory metrics"))
+# R2 weight-decay values, per optimizer family (amended 2026-11-09; see
+# R2_WEIGHT_DECAY_NOTE.md at the repo root). Decay here is decoupled,
+# p <- p * (1 - lr * wd), so its strength per step is lr * wd: the same wd
+# number is ~30x stronger for SGD (lr ~3e-2) than for AdamW (lr ~1e-3).
+# Each arm keeps 2 values (10 trials, unchanged): the paper's 1e-4 as the
+# anchor, plus its family's standard CIFAR strength --
+#   AdamW, EvieKF : 5e-2  (common AdamW value; PyTorch's default is 1e-2)
+#   SGD           : 5e-3  (= textbook coupled 5e-4 through momentum 0.9,
+#                          which multiplies its effect by 1/(1-0.9) = 10)
+#   Muon          : 5e-3  (matrix lr ~2e-2, close to SGD's, so the same value
+#                          gives a similar per-step shrink)
+_R2_WD = {"AdamWwd": [1e-4, 5e-2], "EvieKFmwd": [1e-4, 5e-2],
+          "SGDwd": [1e-4, 5e-3], "Muonwd": [1e-4, 5e-3]}
+for _name in ["vision_cifar100", "vision_cifar10"]:
+    _arms=["AdamWwd","SGDwd","Muonwd","EvieKFmwd"]
+    REBUTTAL_TASKS.append(_diag_from(_name,_name+"_long",_arms,
+        max_steps=30000,lr_search_steps=3000,seeds=[42,43,44],allow_tf32=True,eval_every=1000,
+        title=_BASE[_name]["title"]+" -- R2: long schedule (30k steps, about 77 epochs); search 10% of budget, 10 trials per arm; weight decay per optimizer family",
+        search_grid={a:dict(lr=[_CENTRES[a]*10**(k/2) for k in [-2,-1,0,1,2]],knob=list(_R2_WD[a])) for a in _arms}))
+for _name, _arms in [("language_wikitext2",["AdamWwd","AdaBeliefwd","Lionwd","Muonwd"]),
+                       ("finance_tech",["AdamWwd","AdaBeliefwd","Lionwd"])]:
+    REBUTTAL_TASKS.append(_diag_from(_name,_name+"_basebudget",_arms,
+        seeds=[42,43,44],budget_no_extend=True,
+        title=_BASE[_name]["title"]+" -- R3b: exactly 7x7 LR/weight-decay trials; no boundary extension"))
+for _host in ["finance_tech","language_wikitext2"]:
+    _base=next(t for t in ABLATION_TASKS if t["task_name"] == "ablation_"+_host)
+    _lr,_kn=_frozen("ablation/"+_base["task_name"],"EvieKF")
+    REBUTTAL_TASKS.append(_diag_from(_base["task_name"],_base["task_name"]+"_controls",
+        ["EvieKFlag","EvieKFrb"],
+        pinned={a:dict(lr=_lr,knob=_kn,note="same lr and gamma as EvieKF; one change only") for a in ["EvieKFlag","EvieKFrb"]},
+        title=_base["title"]+" -- R4: controls reuse EvieKF's tuned values, slightly favouring EvieKF"))
+_owt=next(t for t in SCALEGEN_TASKS if t["task_name"]=="language_openwebtext")
+_grids={}
+for _arm in ["AdamW","Muon","EvieKF"]:
+    _lr,_kn=_frozen("scalegen/language_openwebtext",_arm)
+    _grids[_arm]=dict(lr=[f*_lr for f in [.25,.5,1.]],knob=[_kn])
+REBUTTAL_TASKS.append(_diag_from("language_openwebtext","language_openwebtext_124m",
+    ["AdamW","Muon","EvieKF"],n_layer=12,d_model=768,n_head=12,
+    seeds=[42,43,44],allow_tf32=True,force_split_path=True,assert_param_range=[110000000,140000000],
+    search_grid=_grids,title=_owt["title"]+" -- R5: 12L/d768/12 heads, approximately 124M; within-protocol scale check"))
+# R2b (2026-11-11): R2 again with ONE change, fresh_epochs=True. The engine's
+# default itertools.cycle(train_loader) replays the first epoch's batches, so
+# R2 (and every earlier vision run) trained on one fixed set of augmented
+# images; R2 memorised it (train loss ~1e-6) and stopped at 51-56% on
+# CIFAR-100. Here the loader is re-iterated every epoch: new shuffle, new
+# crops/flips. Arms, grids, steps, seeds and weight-decay values are R2's.
+# Boundary extensions (2026-11-11). R2's fixed 5-point grid never extends, so an
+# arm whose pick lands on the top edge gets ONE more half-decade point above it,
+# at both wd values. The trials already scored are reused (each extension job's
+# lr file carries them); only the two new (lr, wd) trials run. Applied to every
+# arm that hit the edge, baseline or Evie-KF alike:
+#   CIFAR-10 AdamWwd 1e-2 (+3.162e-2; done, pick unchanged),
+#   CIFAR-100 SGDwd 0.3 (+0.9487), CIFAR-100 EvieKFmwd 1e-2 (+3.162e-2),
+#   CIFAR-10 EvieKFmwd 1e-2 (+3.162e-2).
+_R2B_EXTEND = {("vision_cifar10","AdamWwd"), ("vision_cifar100","SGDwd"),
+               ("vision_cifar100","EvieKFmwd"), ("vision_cifar10","EvieKFmwd")}
+def _r2b_lr_steps(name, arm):
+    return [-2,-1,0,1,2,3] if (name, arm) in _R2B_EXTEND else [-2,-1,0,1,2]
+for _name in ["vision_cifar100", "vision_cifar10"]:
+    _arms=["AdamWwd","SGDwd","Muonwd","EvieKFmwd"]
+    REBUTTAL_TASKS.append(_diag_from(_name,_name+"_long_fresh",_arms,
+        max_steps=30000,lr_search_steps=3000,seeds=[42,43,44],allow_tf32=True,eval_every=1000,
+        fresh_epochs=True,
+        title=_BASE[_name]["title"]+" -- R2b: R2's long schedule (30k steps, about 77 epochs; search 10% of budget, 10 trials per arm; weight decay per optimizer family) with fresh shuffling and augmentation every epoch",
+        search_grid={a:dict(lr=[_CENTRES[a]*10**(k/2) for k in _r2b_lr_steps(_name,a)],knob=list(_R2_WD[a])) for a in _arms}))
+# R5b (2026-11-11): R5's Evie-KF arm again with ONE change: the R3a variant
+# (mean-normalised noise spectrum, gamma fixed at 30) instead of the absolute
+# gamma=27000 carried over from the 33.7M run. Same model, steps, seeds and
+# the same three learning rates R5 searched for EvieKF. AdamW and Muon are not
+# rerun: their R5 cells are the comparison.
+REBUTTAL_TASKS.append(_diag_from("language_openwebtext","language_openwebtext_124m_evie_m30",
+    ["EvieKFm"],n_layer=12,d_model=768,n_head=12,
+    seeds=[42,43,44],allow_tf32=True,force_split_path=True,assert_param_range=[110000000,140000000],
+    search_grid={"EvieKFm":dict(lr=list(_grids["EvieKF"]["lr"]),knob=[EVIEKF_FIXED_GAMMA_M])},
+    title=_owt["title"]+" -- R5b: 12L/d768/12 heads, approximately 124M; Evie-KF with mean-normalised gamma fixed at 30, R5's three learning rates"))
+# R5c (2026-11-12): R5b again with ONE change, the Kronecker factor cap raised
+# from the frozen EVIEKF_MAXF=1024 to 3072. At 1024 only the 768x768 attention
+# projections were gated (6.0% of weights; R5 telemetry); 3072 is the smallest
+# cap that gates every transformer-block matrix (2304x768 qkv, 768x768 proj,
+# 3072x768 and 768x3072 MLP): 68.8% of weights. Only the 50257x768 embedding
+# and 1-D parameters stay on the diagonal fallback. Diagnostic only (EVIEKF_MAXF
+# stays frozen for protocol tasks). Same lr grid, gamma, steps, seeds as R5b.
+REBUTTAL_TASKS.append(_diag_from("language_openwebtext","language_openwebtext_124m_evie_m30_cap3072",
+    ["EvieKFm"],n_layer=12,d_model=768,n_head=12,
+    seeds=[42,43,44],allow_tf32=True,force_split_path=True,assert_param_range=[110000000,140000000],
+    eviekf_maxf=3072,
+    search_grid={"EvieKFm":dict(lr=list(_grids["EvieKF"]["lr"]),knob=[EVIEKF_FIXED_GAMMA_M])},
+    title=_owt["title"]+" -- R5c: as R5b (124M, Evie-KF gamma 30) with the Kronecker factor cap raised to 3072 (68.8% of weights gated, vs 6.0%)"))
+# Loader check outside vision (2026-11-11): WikiText-2 has no augmentation, so
+# the replayed first epoch only fixes the batch composition and order. This
+# reruns AdamW (main-run lr) and Evie-KF gamma 30 (R3a lr) with fresh_epochs
+# as the ONE change, 5 seeds, nothing searched, to show whether the language
+# comparison moves. References: main AdamW and language_wikitext2_evie_m30.
+_lr_a,_kn_a=_frozen("language_wikitext2","AdamW")
+_m30=_json.loads((_Path(__file__).resolve().parents[1]/"results/rebuttal/merged/language_wikitext2_evie_m30/lr_search.json").read_text())["EvieKFm"]
+assert _m30.get("complete") and float(_m30["knob"])==EVIEKF_FIXED_GAMMA_M
+REBUTTAL_TASKS.append(_diag_from("language_wikitext2","language_wikitext2_fresh",["AdamW","EvieKFm"],
+    pinned={"AdamW":dict(lr=_lr_a,knob=None,note="main-run frozen AdamW LR"),
+            "EvieKFm":dict(lr=float(_m30["lr"]),knob=float(_m30["knob"]),note="R3a frozen LR at fixed gamma 30")},
+    fresh_epochs=True,
+    title=_BASE["language_wikitext2"]["title"]+" -- loader check: fresh shuffling every epoch; AdamW and Evie-KF gamma 30 at their frozen learning rates"))
+# R4b (2026-11-11): random-basis control under the R3a variant, on the host
+# where gamma 30 gains most (CIFAR-100: 55.36 vs AdamW 49.51). R4's
+# random-basis arm matched EvieKF on WikiText-2 and Finance-Tech, so those
+# hosts do not show that the gate needs the estimated noise eigenvectors.
+# EvieKFmrb = EvieKFm with every Kronecker eigenbasis replaced by a fixed
+# random orthogonal one (same eigenvalues). Pinned to EvieKFm's R3a lr and
+# gamma 30; same seeds, steps and (default, replayed) loader as
+# vision_cifar100_evie_m30, whose cells are the reference.
+_m30c=_json.loads((_Path(__file__).resolve().parents[1]/"results/rebuttal/merged/vision_cifar100_evie_m30/lr_search.json").read_text())["EvieKFm"]
+assert _m30c.get("complete") and float(_m30c["knob"])==EVIEKF_FIXED_GAMMA_M
+REBUTTAL_TASKS.append(_diag_from("vision_cifar100","vision_cifar100_evie_m30_rb",["EvieKFmrb"],
+    pinned={"EvieKFmrb":dict(lr=float(_m30c["lr"]),knob=float(_m30c["knob"]),note="same lr and gamma as EvieKFm in R3a; one change only (random eigenbasis)")},
+    title=_BASE["vision_cifar100"]["title"]+" -- R4b: random-basis control for Evie-KF gamma 30 (same eigenvalues, random eigenvectors); pinned to R3a's values"))
+for _task in MUONHYBRID_TASKS:
+    _task["extra_metrics"]=True
+ALL_TASKS = TASKS+ABLATION_TASKS+SWEEP_TASKS+SCALEGEN_TASKS+DIAG_TASKS+MUONHYBRID_TASKS+REBUTTAL_TASKS
+assert len(REBUTTAL_TASKS)==37   # +R5c (124M, factor cap 3072), 2026-11-12
+assert len({t["task_name"] for t in ALL_TASKS})==len(ALL_TASKS)

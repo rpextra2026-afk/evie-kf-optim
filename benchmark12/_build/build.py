@@ -17,7 +17,7 @@ Main benchmark (12 files, benchmark12/{vision,language,finance}/):
 Evie-KF ablation (3 files, benchmark12/ablation/): same 4 pieces; TASK carries
     opt_set="ablation" so the engine runs ABLATION_OPT_NAMES (EvieDiag/EvieKFu/
     EvieKF) instead of OPT_NAMES. One file per chosen host task
-    (language_wikitext2, vision_cifar10, finance_tech) -- claude_optim.md sec 2.
+    (language_wikitext2, vision_cifar10, finance_tech) -- optimizer specification sec 2.
 
 Phase-2 sweeps (12 files, benchmark12/sweeps/{batchsize,modelsize}/):
     ... same 4 pieces ...
@@ -26,7 +26,7 @@ Phase-2 sweeps (12 files, benchmark12/sweeps/{batchsize,modelsize}/):
 
 No imports of anything in this repo; every emitted file is paste-runnable.
 To add Evie (or fix Muon): edit frag_shared_optim.py and re-run -- the change
-lands in all files at once (CLAUDE.md sec 2).
+lands in all files at once (benchmark protocol sec 2).
 """
 import os
 import sys
@@ -39,7 +39,7 @@ ROOT = os.path.dirname(BENCH)
 
 sys.path.insert(0, HERE)
 from tasks import (TASKS, ABLATION_TASKS, SWEEP_TASKS, SCALEGEN_TASKS,  # noqa: E402
-                   DIAG_TASKS)
+                   DIAG_TASKS, MUONHYBRID_TASKS, REBUTTAL_TASKS)
 
 SHARED_BEGIN = "# === SHARED OPTIMIZER BLOCK -- keep identical across all 12 files ==="
 SHARED_END = "# === END SHARED OPTIMIZER BLOCK ==="
@@ -59,6 +59,8 @@ def _read(name):
 
 
 def _rel_path(task):
+    if task.get("opt_set") == "muonhybrid":
+        return f"benchmark12/muonhybrid/{task['task_name']}.py"
     if task.get("is_sweep"):
         return f"benchmark12/sweeps/{task['sweep_type']}/{task['task_name']}.py"
     if task.get("opt_set") == "ablation":
@@ -73,6 +75,7 @@ def _rel_path(task):
     return f"benchmark12/{task['domain']}/{task['task_name']}.py"
 
 
+_MUONHYBRID_OPT_SUMMARY = "MuonSub, MuonEvie, MuonEvieFix (budget-matched R1; OpenWebText omits duplicate fixed arm)"
 _MAIN_OPT_SUMMARY = ("AdamW, AdaBelief, SGD(+momentum, Nesterov, cosine), "
                      "Sophia, Muon, Lion, Shampoo, EvieKF")
 _ABLATION_OPT_SUMMARY = ("EvieDiag, EvieKFu, EvieKF  (Evie-KF ablation ladder, "
@@ -89,6 +92,7 @@ def build_one(task):
     header = _read("frag_header.py")
     engine = _read("frag_engine.py")
     shared = _read("frag_shared_optim.py")
+    engine = engine.replace(ENGINE_END, _read("frag_extra_metrics.py") + "\n" + _read("frag_muonhybrid_report.py") + "\n" + ENGINE_END)
     data = _read(f"frag_{task['domain']}_data.py")
     is_sweep = bool(task.get("is_sweep"))
     rel_path = _rel_path(task)
@@ -100,7 +104,8 @@ def build_one(task):
         "PRIMARY_METRIC": task["primary_metric"],
         "PRIMARY_DIR": "lower is better" if task["primary_lower_better"]
                        else "higher is better",
-        "OPT_SUMMARY": (_ABLATION_OPT_SUMMARY if task.get("opt_set") == "ablation"
+        "OPT_SUMMARY": (_MUONHYBRID_OPT_SUMMARY if task.get("opt_set") == "muonhybrid"
+                        else _ABLATION_OPT_SUMMARY if task.get("opt_set") == "ablation"
                         else _SCALEGEN_OPT_SUMMARY if task.get("opt_set") == "scalegen"
                         else _DIAG_OPT_SUMMARY if task.get("opt_set") == "diag"
                         else _MAIN_OPT_SUMMARY),
@@ -145,7 +150,7 @@ def main(argv):
     check = "--check" in argv
     diff = "--diff" in argv
     written, shared_h, engine_h = [], {}, {}
-    for task in TASKS + ABLATION_TASKS + SWEEP_TASKS + SCALEGEN_TASKS + DIAG_TASKS:
+    for task in TASKS + ABLATION_TASKS + SWEEP_TASKS + SCALEGEN_TASKS + DIAG_TASKS + MUONHYBRID_TASKS + REBUTTAL_TASKS:
         content, rel_path = build_one(task)
         out_path = os.path.join(ROOT, rel_path)
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -159,6 +164,11 @@ def main(argv):
         engine_h[rel_path] = hashlib.sha256(engine_block_of(content).encode()).hexdigest()
         written.append(rel_path)
 
+    if not diff:
+        readout = os.path.join(BENCH, "muonhybrid", "readout.py")
+        with open(readout, "w") as fh:
+            fh.write(GEN_BANNER + _read("frag_muonhybrid_report.py") +
+                     '\nif __name__ == "__main__":\n    readout_main()\n')
     n_main = len(TASKS)
     n_ablation = len(ABLATION_TASKS)
     n_sweep = len(SWEEP_TASKS)
@@ -168,7 +178,7 @@ def main(argv):
     ok_engine = len(set(engine_h.values())) == 1
     print(f"\n{'[diff]' if diff else '[build]'} {len(written)} files "
           f"({n_main} main + {n_ablation} ablation + {n_sweep} sweep + "
-          f"{n_scalegen} scalegen + {n_diag} diagnostic)")
+          f"{n_scalegen} scalegen + {n_diag} diagnostic + {len(MUONHYBRID_TASKS)} muonhybrid + {len(REBUTTAL_TASKS)} rebuttal)")
     print(f"[shared-optim-block] {'IDENTICAL' if ok_shared else 'MISMATCH!!'} "
           f"across all {len(shared_h)} files"
           + (f"  sha256={list(shared_h.values())[0][:16]}..." if ok_shared else ""))

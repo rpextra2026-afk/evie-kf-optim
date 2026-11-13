@@ -22,6 +22,10 @@ This repository is the anonymised release accompanying the submission. It holds
 the optimizer as an installable package, the full 12-task benchmark harness, and
 the raw per-cell records behind every number in the paper.
 
+[Rebuttal experiments and analysis](benchmark12/results/rebuttal/README.md)
+indexes the additional runs, per-seed results, tuning records, and reproduction
+commands.
+
 ## Install
 
 ```bash
@@ -116,10 +120,10 @@ benchmark12/
   RUNBOOK.md          how to run a task end to end
 ```
 
-Every task is a single self-contained script, generated from the shared
-fragments so that the optimizer block, the training engine and the data loaders
-are byte-identical across all 43 files. `benchmark12/_build/check_shared_block.py`
-refuses to build if a generated file has drifted. `src/evie_kf/optimizer.py` is
+Every task is a single self-contained script generated from the shared
+fragments. All 84 tasks share the same optimizer and training engine.
+Run `python benchmark12/_build/build.py --diff` to check for generated-file
+drift. `src/evie_kf/optimizer.py` is
 sliced out of `benchmark12/_build/frag_shared_optim.py` rather than retyped, so
 the package and the harness cannot diverge.
 

@@ -1,0 +1,37 @@
+nohup: ignoring input
+[2026-11-10 08:55:59] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 08:55:59] [language_openwebtext_124m]   language_openwebtext_124m  |  domain=language  device=cuda  torch=2.15.0+cu132
+[2026-11-10 08:55:59] [language_openwebtext_124m]   primary=test_perplexity  seeds=[42, 43, 44]  max_steps=6000  lr_search_steps=3000  batch=32
+[2026-11-10 08:55:59] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 08:55:59] [language_openwebtext_124m] [preflight] OK: NVIDIA H100 80GB HBM3 MIG 2g.20gb  sm_90  torch=2.15.0+cu132  arch_list=['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-11-10 08:55:59] [language_openwebtext_124m] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-11-10 08:55:59] [language_openwebtext_124m] [preflight] TF32=1 after self-checks; state fp32, eigh fp64
+[2026-11-10 08:55:59] [language_openwebtext_124m] [preflight] device=NVIDIA H100 80GB HBM3 MIG 2g.20gb free=19.32 GiB total=19.62 GiB
+[2026-11-10 08:55:59] [language_openwebtext_124m] [data] openwebtext: warm cache hit at <local-path>, no network
+[2026-11-10 08:55:59] [language_openwebtext_124m] [data] openwebtext: vocab=50257  train_tok=220000000  val_tok=5000000  test_tok=5000000  (GPT-2 BPE vocab -- no <unk>/OOV concept, train_oov line intentionally skipped for this dataset)
+[2026-11-10 08:56:00] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-10 08:56:00] [language_openwebtext_124m] [sweep] 3 optimizers x 1 units x 3 seeds = 9 cells
+[2026-11-10 08:56:20] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-10 08:56:20] [language_openwebtext_124m] [fairness] AdamW/full/seed44: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 10:17:17] [language_openwebtext_124m] [sweep] 3/9  AdamW|full|44  primary=70.46131960755777  diverged=False
+[2026-11-10 10:17:30] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-10 10:17:30] [language_openwebtext_124m] [fairness] Muon/full/seed44: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-10 11:43:20] [language_openwebtext_124m] [sweep] 6/9  Muon|full|44  primary=47.10147177733839  diverged=False
+[2026-11-10 11:43:32] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-10 13:16:51] [language_openwebtext_124m] [sweep] 9/9  EvieKF|full|44  primary=63.07280755595709  diverged=False
+[2026-11-10 13:16:51] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 13:16:51] [language_openwebtext_124m]   RESULTS  --  language_openwebtext_124m   primary = test_perplexity (lower is better)
+[2026-11-10 13:16:51] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-10 13:16:51] [language_openwebtext_124m]   AdamW       lr=5.00e-04  test_perplexity(task median over 3 seeds)=70.904   seed spread=[70.461, 72.672]   diverged_cells=0/3
+[2026-11-10 13:16:51] [language_openwebtext_124m]              descriptive: wall_s=4663  mean_step_size=0.0001433  clip_freq=0.002222  peak_mem_mb=1.452e+04
+[2026-11-10 13:16:51] [language_openwebtext_124m]   Muon        lr=2.00e-03  test_perplexity(task median over 3 seeds)=47.175   seed spread=[47.101, 47.246]   diverged_cells=0/3
+[2026-11-10 13:16:51] [language_openwebtext_124m]              descriptive: wall_s=4983  mean_step_size=0.0002063  clip_freq=0.006222  peak_mem_mb=1.419e+04
+[2026-11-10 13:16:51] [language_openwebtext_124m]   EvieKF      lr=5.00e-04  knob=27000  test_perplexity(task median over 3 seeds)=63.0728   seed spread=[61.614, 71.796]   diverged_cells=0/3
+[2026-11-10 13:16:51] [language_openwebtext_124m]              descriptive: wall_s=5418  mean_step_size=0.000155  clip_freq=0.002444  peak_mem_mb=1.527e+04
+[2026-11-10 13:16:51] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-10 13:16:51] [language_openwebtext_124m]   best optimizer on this task: Muon  (test_perplexity=47.175)
+[2026-11-10 13:16:51] [language_openwebtext_124m]   wrote <local-path>
+[2026-11-10 13:16:51] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 13:16:51] [language_openwebtext_124m]   wrote <local-path> (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-11-10 13:16:51] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 13:16:51] [language_openwebtext_124m]   DONE 2026-11-10T13:16:51.722338

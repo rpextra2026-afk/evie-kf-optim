@@ -55,7 +55,8 @@ class EvieKF(torch.optim.Optimizer):
                  warmup=EVIEKF_WARMUP, refresh=EVIEKF_REFRESH, maxf=EVIEKF_MAXF,
                  diag_only=False, centered=True, per_layer_norm=False,
                  gain_clip=EVIEKF_GAIN_CLIP,
-                 diag_relative=True, kron_mean_norm=False, norm_preserve=True):
+                 diag_relative=True, kron_mean_norm=False, norm_preserve=True,
+                 lagged=False, random_basis=False, telemetry_extra=False):
         if lr <= 0.0 or gamma < 0.0 or not 0.0 < beta_sig < 1.0:
             raise ValueError("EvieKF: invalid hyperparameters")
         defaults = dict(lr=lr, beta1=betas[0], beta2=betas[1], eps=eps,
@@ -77,12 +78,26 @@ class EvieKF(torch.optim.Optimizer):
         #   norm_preserve   False -> skip the global ||y||/||z|| rescale, so the
         #                   operator shrinks instead of rotating. Tests whether
         #                   norm preservation is load-bearing (FW-10).
+        self.lagged, self.random_basis = bool(lagged), bool(random_basis)
+        self.telemetry_extra = bool(telemetry_extra)
+        self._param_indices = {id(p): i for i, p in enumerate(
+            p for group in self.param_groups for p in group["params"])}
+        self._extra = dict(c_sum=0., c_n=0, c_min=float("inf"), eig_s=0.)
+        if self.telemetry_extra:
+            _counts=[0,0,0]
+            for _group in self.param_groups:
+                if _group.get("use_muon",False):continue
+                for _p in _group["params"]:
+                    _branch=2 if _p.ndim<2 or diag_only else (0 if _p.size(0)<=self.maxf and _p.numel()//_p.size(0)<=self.maxf else 1)
+                    _counts[_branch]+=_p.numel()
+            for _key,_value in zip(("frac_params_kron","frac_params_diag_fallback","frac_params_vector"),_counts):
+                setattr(self,_key,_value/max(1,sum(_counts)))
         self.diag_relative = bool(diag_relative)
         self.kron_mean_norm = bool(kron_mean_norm)
         self.norm_preserve = bool(norm_preserve)
         self._roles = {}                # {param: role_str}; set by set_param_roles()
         # descriptive diagnostics, refreshed every step(), read by the engine
-        # (claude_optim.md sec 4.3.4/4.3.5). NEVER significance-tested.
+        # (optimizer specification sec 4.3.4/4.3.5). NEVER significance-tested.
         self.last_cos = 1.0
         self.b_simple = 0.0
         self.tr_sigma = 0.0
@@ -91,6 +106,19 @@ class EvieKF(torch.optim.Optimizer):
         self.n_active_steps = 0        # wiring canary: 0 at end of run => set_noise()
                                       # was never called and this WAS silently AdamW
         self.role_gain = {}           # role -> [gain_lo, gain_hi, eff_rank_sum, n]
+
+    def state_dict(self):
+        value = super().state_dict()
+        if self.telemetry_extra:
+            value["extra_telemetry"] = dict(self._extra)
+        return value
+
+    def load_state_dict(self, value):
+        value = dict(value)
+        extra = value.pop("extra_telemetry", None)
+        super().load_state_dict(value)
+        if extra is not None:
+            self._extra = dict(extra)
 
     def set_param_roles(self, param_roles):
         """{param: role} with role in {embedding, attention, ffn, head, other};
@@ -140,8 +168,12 @@ class EvieKF(torch.optim.Optimizer):
         any_noise = False
         self.role_gain = {}
 
+        if self.telemetry_extra:
+            _tele = {}
         # ---- pass 1: per-parameter y (whitened Adam dir) and z (preconditioned) --
         for group in self.param_groups:
+            if group.get("use_muon", False):
+                continue
             b1, b2, eps = group["beta1"], group["beta2"], group["eps"]
             for p in group["params"]:
                 if p.grad is None:
@@ -173,10 +205,14 @@ class EvieKF(torch.optim.Optimizer):
                     if p.dim() < 2 or self.diag_only:
                         if "s" not in st:
                             st["s"] = torch.zeros_like(dz)
+                        if self.lagged:
+                            _old_s = st["s"].clone()
                         st["s"].mul_(self.beta_sig).addcmul_(
                             dz, dz, value=1.0 - self.beta_sig)
                         if active_gate:
                             s = st["s"] / (1.0 - self.beta_sig ** pt)
+                            if self.lagged:
+                                s = _old_s / (1.0 - self.beta_sig ** (pt-1))
                             gsc = (1.0 + self.gamma
                                    * (s / (s.mean() + 1e-30)
                                       if self.diag_relative else s)).rsqrt()
@@ -195,6 +231,8 @@ class EvieKF(torch.optim.Optimizer):
                             st["B"] = (torch.zeros(d0, d0, device=p.device)
                                        if d0 <= self.maxf
                                        else torch.zeros(d0, device=p.device))
+                        if self.lagged:
+                            _old_A, _old_B = st["A"].clone(), st["B"].clone()
                         st["A"].mul_(self.beta_sig).add_(
                             (D.T @ D) if rest <= self.maxf else (D * D).sum(0),
                             alpha=1.0 - self.beta_sig)
@@ -205,12 +243,42 @@ class EvieKF(torch.optim.Optimizer):
                             if (pt % self.refresh == 0) or ("lam" not in st):
                                 A = st["A"] / (1.0 - self.beta_sig ** pt)
                                 B = st["B"] / (1.0 - self.beta_sig ** pt)
+                                if self.lagged:
+                                    A = _old_A / (1.0 - self.beta_sig ** (pt-1))
+                                    B = _old_B / (1.0 - self.beta_sig ** (pt-1))
+                                if self.telemetry_extra:
+                                    if p.is_cuda:
+                                        torch.cuda.synchronize()
+                                    import time as _time
+                                    _eig_start = _time.perf_counter()
                                 st["lam"], st["UA"] = (
                                     self._eigh(A) if A.dim() == 2
                                     else (A.clamp_min(0), None))
                                 st["mu"], st["UB"] = (
                                     self._eigh(B) if B.dim() == 2
                                     else (B.clamp_min(0), None))
+                                if self.telemetry_extra:
+                                    if p.is_cuda:
+                                        torch.cuda.synchronize()
+                                    self._extra["eig_s"] += _time.perf_counter() - _eig_start
+                                    for _side, _F, _ev in [("A", A, st["lam"]), ("B", B, st["mu"])]:
+                                        _den = float(_F.square().sum())
+                                        _off = (max(0., _den-float(_F.diagonal().square().sum()))/_den
+                                                if _F.ndim == 2 and _den > 0 else 0.)
+                                        _tele.setdefault("offdiag_frac_"+_side,[]).append(_off)
+                                        _tele.setdefault("anisotropy_"+_side,[]).append(float(_ev.max()/(_ev.mean()+1e-30)))
+                                if self.random_basis:
+                                    # Kronecker-only control: vector gates and diagonal
+                                    # fallback sides retain their original directions.
+                                    for _side, _cache, _number in [("UA", "RA", 0), ("UB", "RB", 1)]:
+                                        if st[_side] is not None:
+                                            if _cache not in st:
+                                                _gen = torch.Generator(device="cpu").manual_seed(
+                                                    1000003*self._param_indices[id(p)]+_number)
+                                                _n = st[_side].size(0)
+                                                _Q, _R = torch.linalg.qr(torch.randn(_n, _n, generator=_gen, dtype=torch.float32))
+                                                st[_cache] = (_Q*torch.sign(torch.diagonal(_R))).to(p)
+                                            st[_side] = st[_cache]
                                 _tr_a = float(st["lam"].sum())
                                 # /tau matches tr(B kron A) to tr(Sigma_z); it is
                                 # NOT scale-free. /mean(mu*lam) is (FW-9).
@@ -243,6 +311,13 @@ class EvieKF(torch.optim.Optimizer):
                             acc_r[1] = max(acc_r[1], g_hi)
                             acc_r[2] += er
                             acc_r[3] += 1
+                            if self.telemetry_extra and ((pt % self.refresh == 0) or pt == self.warmup+1):
+                                _spectrum = (mu[:,None]*lam[None,:]).reshape(-1)
+                                _idx = _spectrum.topk(max(1, math.ceil(.1*_spectrum.numel()))).indices
+                                _before = C.reshape(-1).square()
+                                _after = (C*gain).reshape(-1).square()
+                                _tele.setdefault("energy_top_before",[]).append(float(_before[_idx].sum()/(_before.sum()+1e-30)))
+                                _tele.setdefault("energy_top_after",[]).append(float(_after[_idx].sum()/(_after.sum()+1e-30)))
                             C = C * gain
                             if UB is not None:
                                 C = UB @ C
@@ -266,6 +341,17 @@ class EvieKF(torch.optim.Optimizer):
         op_active = active_gate and any_noise and nz > 1e-30
         do_rescale = op_active and self.norm_preserve
         scale = (ny / nz) if do_rescale else 1.0
+        if self.telemetry_extra:
+            if op_active:
+                self._extra["c_sum"] += scale
+                self._extra["c_n"] += 1
+                self._extra["c_min"] = min(self._extra["c_min"], scale)
+            self.last_c_mean = self._extra["c_sum"]/max(1,self._extra["c_n"])
+            self.last_c_min = self._extra["c_min"] if self._extra["c_n"] else float("nan")
+            self.eig_refresh_time_s = self._extra["eig_s"]
+            for _key, _values in _tele.items():
+                if _values:
+                    setattr(self, _key, sum(_values)/len(_values))
         den = ny * nz
         self.last_cos = (dot_total / den) if (op_active and den > 1e-30) else 1.0
         self.tr_sigma = tr_sigma_total
@@ -288,7 +374,7 @@ class EvieKF(torch.optim.Optimizer):
 
 def eviekf_self_check():
     """Dense-vs-factored (B kron A)^-1/2 parity + the gamma=0 identity
-    (claude_optim.md sec 4.3.3 / sec 5). Ported from kaggle_evie_v3.py's
+    (optimizer specification sec 4.3.3 / sec 5). Ported from kaggle_evie_v3.py's
     self_check(). Raises RuntimeError on failure -- the engine turns that into a
     one-sentence abort, exactly like the CUDA preflight. A vec-ordering / eigh
     bug here produces a plausible-looking but meaningless results table."""

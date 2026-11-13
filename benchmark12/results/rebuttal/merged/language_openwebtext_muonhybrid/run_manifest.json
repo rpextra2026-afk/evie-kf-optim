@@ -1,0 +1,98 @@
+{
+  "task": {
+    "domain": "language",
+    "primary_metric": "test_perplexity",
+    "primary_lower_better": true,
+    "peer_divergence_factor": 5.0,
+    "batch_size": 32,
+    "eval_every": 400,
+    "ckpt_every": 300,
+    "task_name": "language_openwebtext_muonhybrid",
+    "dataset": "openwebtext",
+    "n_layer": 8,
+    "d_model": 384,
+    "n_head": 8,
+    "ctx": 512,
+    "vocab_mode": "gpt2_bpe",
+    "token_budget": 220000000,
+    "max_steps": 6000,
+    "lr_search_steps": 1500,
+    "opt_set": "muonhybrid",
+    "force_split_path": true,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "primary_abs_range": [
+      1.0,
+      5000000.0
+    ],
+    "title": "Language / OpenWebText (~220M-token slice, GPT-2 BPE, 8L/d384/ctx512 GPT) -- scale-generalization secondary check, NOT part of the 12-task primary significance table -- Muon hybrid R1; DEVIATION: 1500-step search, 6000-step full run",
+    "base_task_name": "language_openwebtext",
+    "opt_list": [
+      "MuonSub",
+      "MuonEvie"
+    ],
+    "allow_tf32": true,
+    "ref_opt": "MuonSub",
+    "muon_matrix_lr": 0.002,
+    "search_grid": {
+      "MuonSub": {
+        "lr": [
+          0.00031622776601683794,
+          0.001,
+          0.0031622776601683794,
+          0.01
+        ],
+        "knob": [
+          0.0001
+        ]
+      },
+      "MuonEvie": {
+        "lr": [
+          0.00031622776601683794,
+          0.001,
+          0.0031622776601683794,
+          0.01
+        ],
+        "knob": [
+          30.0
+        ]
+      }
+    },
+    "extra_metrics": true
+  },
+  "smoke": false,
+  "batch_size": 32,
+  "max_steps": 6000,
+  "search_steps": 1500,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "data": {
+    "train/0": {
+      "shape": [
+        220000000
+      ],
+      "dtype": "uint16",
+      "sha256": "f688a245f41db93cfac6f059b5140e657bdde4d4dfe800b5c507e50e99cb0347"
+    },
+    "val/0": {
+      "shape": [
+        5000000
+      ],
+      "dtype": "uint16",
+      "sha256": "a74dc43a37405abd7f7b84a3ac316f293565647100c3aee803cad07d5c63f319"
+    },
+    "test/0": {
+      "shape": [
+        5000000
+      ],
+      "dtype": "uint16",
+      "sha256": "ea799cf5813de5e5240ab05b64f1bc866a483fa909b616306639f687d75b9c01"
+    }
+  }
+}

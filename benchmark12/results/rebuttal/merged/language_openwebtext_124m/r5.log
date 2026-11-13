@@ -1,0 +1,185 @@
+[setup] pip install numpy
+[setup] pip install scipy
+[setup] pip install torch
+[2026-11-09 09:07:51] [language_openwebtext_124m] ====================================================================================================
+[2026-11-09 09:07:51] [language_openwebtext_124m]   language_openwebtext_124m  |  domain=language  device=cuda  torch=2.15.0+cu132
+[2026-11-09 09:07:51] [language_openwebtext_124m]   primary=test_perplexity  seeds=[42, 43]  max_steps=6000  lr_search_steps=3000  batch=32
+[2026-11-09 09:07:51] [language_openwebtext_124m] ====================================================================================================
+[2026-11-09 09:07:51] [language_openwebtext_124m] [preflight] OK: NVIDIA H100 80GB HBM3 MIG 2g.20gb  sm_90  torch=2.15.0+cu132  arch_list=['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-11-09 09:07:51] [language_openwebtext_124m] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-11-09 09:07:51] [language_openwebtext_124m] [preflight] TF32=1 after self-checks; state fp32, eigh fp64
+[2026-11-09 09:07:51] [language_openwebtext_124m] [preflight] device=NVIDIA H100 80GB HBM3 MIG 2g.20gb free=19.32 GiB total=19.62 GiB
+[setup] pip install tiktoken
+[setup] pip install datasets
+[2026-11-09 09:08:13] [language_openwebtext_124m] [data] openwebtext: no warm/valid cache -- streaming Skylion007/openwebtext (HF streaming mode, never downloads the full ~40GB corpus) until 230000000 tokens accumulated (train=220000000 val=5000000 test=5000000)
+`trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'Skylion007/openwebtext' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-09 09:08:21] [language_openwebtext_124m] [data] openwebtext: streamed 2287886/230000000 tokens (2000 docs)
+[2026-11-09 09:08:21] [language_openwebtext_124m] [data] openwebtext: streamed 4575332/230000000 tokens (4000 docs)
+[2026-11-09 09:08:22] [language_openwebtext_124m] [data] openwebtext: streamed 6690866/230000000 tokens (6000 docs)
+[2026-11-09 09:08:22] [language_openwebtext_124m] [data] openwebtext: streamed 8876420/230000000 tokens (8000 docs)
+[2026-11-09 09:08:23] [language_openwebtext_124m] [data] openwebtext: streamed 11143993/230000000 tokens (10000 docs)
+[2026-11-09 09:08:23] [language_openwebtext_124m] [data] openwebtext: streamed 13332406/230000000 tokens (12000 docs)
+[2026-11-09 09:08:24] [language_openwebtext_124m] [data] openwebtext: streamed 15667341/230000000 tokens (14000 docs)
+[2026-11-09 09:08:24] [language_openwebtext_124m] [data] openwebtext: streamed 18018659/230000000 tokens (16000 docs)
+[2026-11-09 09:08:25] [language_openwebtext_124m] [data] openwebtext: streamed 20371777/230000000 tokens (18000 docs)
+[2026-11-09 09:08:26] [language_openwebtext_124m] [data] openwebtext: streamed 22562086/230000000 tokens (20000 docs)
+[2026-11-09 09:08:26] [language_openwebtext_124m] [data] openwebtext: streamed 24944022/230000000 tokens (22000 docs)
+[2026-11-09 09:08:27] [language_openwebtext_124m] [data] openwebtext: streamed 27208511/230000000 tokens (24000 docs)
+[2026-11-09 09:08:27] [language_openwebtext_124m] [data] openwebtext: streamed 29480093/230000000 tokens (26000 docs)
+[2026-11-09 09:08:28] [language_openwebtext_124m] [data] openwebtext: streamed 31815011/230000000 tokens (28000 docs)
+[2026-11-09 09:08:28] [language_openwebtext_124m] [data] openwebtext: streamed 34082396/230000000 tokens (30000 docs)
+[2026-11-09 09:08:29] [language_openwebtext_124m] [data] openwebtext: streamed 36280686/230000000 tokens (32000 docs)
+[2026-11-09 09:08:29] [language_openwebtext_124m] [data] openwebtext: streamed 38536701/230000000 tokens (34000 docs)
+[2026-11-09 09:08:30] [language_openwebtext_124m] [data] openwebtext: streamed 40929682/230000000 tokens (36000 docs)
+[2026-11-09 09:08:30] [language_openwebtext_124m] [data] openwebtext: streamed 43133320/230000000 tokens (38000 docs)
+[2026-11-09 09:08:31] [language_openwebtext_124m] [data] openwebtext: streamed 45364882/230000000 tokens (40000 docs)
+[2026-11-09 09:08:31] [language_openwebtext_124m] [data] openwebtext: streamed 47710790/230000000 tokens (42000 docs)
+[2026-11-09 09:08:32] [language_openwebtext_124m] [data] openwebtext: streamed 50004407/230000000 tokens (44000 docs)
+[2026-11-09 09:08:32] [language_openwebtext_124m] [data] openwebtext: streamed 52230982/230000000 tokens (46000 docs)
+[2026-11-09 09:08:33] [language_openwebtext_124m] [data] openwebtext: streamed 54521074/230000000 tokens (48000 docs)
+[2026-11-09 09:08:34] [language_openwebtext_124m] [data] openwebtext: streamed 56737332/230000000 tokens (50000 docs)
+[2026-11-09 09:08:34] [language_openwebtext_124m] [data] openwebtext: streamed 59045511/230000000 tokens (52000 docs)
+[2026-11-09 09:08:35] [language_openwebtext_124m] [data] openwebtext: streamed 61178719/230000000 tokens (54000 docs)
+[2026-11-09 09:08:35] [language_openwebtext_124m] [data] openwebtext: streamed 63368920/230000000 tokens (56000 docs)
+[2026-11-09 09:08:36] [language_openwebtext_124m] [data] openwebtext: streamed 65575394/230000000 tokens (58000 docs)
+[2026-11-09 09:08:36] [language_openwebtext_124m] [data] openwebtext: streamed 67740712/230000000 tokens (60000 docs)
+[2026-11-09 09:08:36] [language_openwebtext_124m] [data] openwebtext: streamed 69985241/230000000 tokens (62000 docs)
+[2026-11-09 09:08:37] [language_openwebtext_124m] [data] openwebtext: streamed 72184086/230000000 tokens (64000 docs)
+[2026-11-09 09:08:37] [language_openwebtext_124m] [data] openwebtext: streamed 74519137/230000000 tokens (66000 docs)
+[2026-11-09 09:08:38] [language_openwebtext_124m] [data] openwebtext: streamed 76790041/230000000 tokens (68000 docs)
+[2026-11-09 09:08:39] [language_openwebtext_124m] [data] openwebtext: streamed 79056172/230000000 tokens (70000 docs)
+[2026-11-09 09:08:39] [language_openwebtext_124m] [data] openwebtext: streamed 81246731/230000000 tokens (72000 docs)
+[2026-11-09 09:08:40] [language_openwebtext_124m] [data] openwebtext: streamed 83591753/230000000 tokens (74000 docs)
+[2026-11-09 09:08:40] [language_openwebtext_124m] [data] openwebtext: streamed 85941646/230000000 tokens (76000 docs)
+[2026-11-09 09:08:41] [language_openwebtext_124m] [data] openwebtext: streamed 88125965/230000000 tokens (78000 docs)
+[2026-11-09 09:08:41] [language_openwebtext_124m] [data] openwebtext: streamed 90433130/230000000 tokens (80000 docs)
+[2026-11-09 09:08:42] [language_openwebtext_124m] [data] openwebtext: streamed 92689923/230000000 tokens (82000 docs)
+[2026-11-09 09:08:42] [language_openwebtext_124m] [data] openwebtext: streamed 94899522/230000000 tokens (84000 docs)
+[2026-11-09 09:08:43] [language_openwebtext_124m] [data] openwebtext: streamed 97222219/230000000 tokens (86000 docs)
+[2026-11-09 09:08:43] [language_openwebtext_124m] [data] openwebtext: streamed 99397272/230000000 tokens (88000 docs)
+[2026-11-09 09:08:44] [language_openwebtext_124m] [data] openwebtext: streamed 101699473/230000000 tokens (90000 docs)
+[2026-11-09 09:08:44] [language_openwebtext_124m] [data] openwebtext: streamed 103881555/230000000 tokens (92000 docs)
+[2026-11-09 09:08:45] [language_openwebtext_124m] [data] openwebtext: streamed 106071092/230000000 tokens (94000 docs)
+[2026-11-09 09:08:45] [language_openwebtext_124m] [data] openwebtext: streamed 108259833/230000000 tokens (96000 docs)
+[2026-11-09 09:08:46] [language_openwebtext_124m] [data] openwebtext: streamed 110550597/230000000 tokens (98000 docs)
+[2026-11-09 09:08:46] [language_openwebtext_124m] [data] openwebtext: streamed 112963538/230000000 tokens (100000 docs)
+[2026-11-09 09:08:51] [language_openwebtext_124m] [data] openwebtext: streamed 115335347/230000000 tokens (102000 docs)
+[2026-11-09 09:08:51] [language_openwebtext_124m] [data] openwebtext: streamed 117606647/230000000 tokens (104000 docs)
+[2026-11-09 09:08:52] [language_openwebtext_124m] [data] openwebtext: streamed 119997673/230000000 tokens (106000 docs)
+[2026-11-09 09:08:53] [language_openwebtext_124m] [data] openwebtext: streamed 122310527/230000000 tokens (108000 docs)
+[2026-11-09 09:08:54] [language_openwebtext_124m] [data] openwebtext: streamed 124583603/230000000 tokens (110000 docs)
+[2026-11-09 09:08:54] [language_openwebtext_124m] [data] openwebtext: streamed 126965722/230000000 tokens (112000 docs)
+[2026-11-09 09:08:55] [language_openwebtext_124m] [data] openwebtext: streamed 129183796/230000000 tokens (114000 docs)
+[2026-11-09 09:08:55] [language_openwebtext_124m] [data] openwebtext: streamed 131566659/230000000 tokens (116000 docs)
+[2026-11-09 09:08:56] [language_openwebtext_124m] [data] openwebtext: streamed 133888609/230000000 tokens (118000 docs)
+[2026-11-09 09:08:56] [language_openwebtext_124m] [data] openwebtext: streamed 136161225/230000000 tokens (120000 docs)
+[2026-11-09 09:08:57] [language_openwebtext_124m] [data] openwebtext: streamed 138387444/230000000 tokens (122000 docs)
+[2026-11-09 09:08:57] [language_openwebtext_124m] [data] openwebtext: streamed 140719907/230000000 tokens (124000 docs)
+[2026-11-09 09:08:58] [language_openwebtext_124m] [data] openwebtext: streamed 142983129/230000000 tokens (126000 docs)
+[2026-11-09 09:08:58] [language_openwebtext_124m] [data] openwebtext: streamed 145218620/230000000 tokens (128000 docs)
+[2026-11-09 09:08:59] [language_openwebtext_124m] [data] openwebtext: streamed 147566963/230000000 tokens (130000 docs)
+[2026-11-09 09:08:59] [language_openwebtext_124m] [data] openwebtext: streamed 149721824/230000000 tokens (132000 docs)
+[2026-11-09 09:09:00] [language_openwebtext_124m] [data] openwebtext: streamed 151933125/230000000 tokens (134000 docs)
+[2026-11-09 09:09:01] [language_openwebtext_124m] [data] openwebtext: streamed 154228808/230000000 tokens (136000 docs)
+[2026-11-09 09:09:01] [language_openwebtext_124m] [data] openwebtext: streamed 156590608/230000000 tokens (138000 docs)
+[2026-11-09 09:09:02] [language_openwebtext_124m] [data] openwebtext: streamed 158840302/230000000 tokens (140000 docs)
+[2026-11-09 09:09:02] [language_openwebtext_124m] [data] openwebtext: streamed 161114995/230000000 tokens (142000 docs)
+[2026-11-09 09:09:03] [language_openwebtext_124m] [data] openwebtext: streamed 163327274/230000000 tokens (144000 docs)
+[2026-11-09 09:09:03] [language_openwebtext_124m] [data] openwebtext: streamed 165559700/230000000 tokens (146000 docs)
+[2026-11-09 09:09:04] [language_openwebtext_124m] [data] openwebtext: streamed 167819215/230000000 tokens (148000 docs)
+[2026-11-09 09:09:04] [language_openwebtext_124m] [data] openwebtext: streamed 170126390/230000000 tokens (150000 docs)
+[2026-11-09 09:09:05] [language_openwebtext_124m] [data] openwebtext: streamed 172348646/230000000 tokens (152000 docs)
+[2026-11-09 09:09:05] [language_openwebtext_124m] [data] openwebtext: streamed 174718672/230000000 tokens (154000 docs)
+[2026-11-09 09:09:06] [language_openwebtext_124m] [data] openwebtext: streamed 176978083/230000000 tokens (156000 docs)
+[2026-11-09 09:09:06] [language_openwebtext_124m] [data] openwebtext: streamed 179182089/230000000 tokens (158000 docs)
+[2026-11-09 09:09:07] [language_openwebtext_124m] [data] openwebtext: streamed 181499755/230000000 tokens (160000 docs)
+[2026-11-09 09:09:07] [language_openwebtext_124m] [data] openwebtext: streamed 183763525/230000000 tokens (162000 docs)
+[2026-11-09 09:09:08] [language_openwebtext_124m] [data] openwebtext: streamed 185961399/230000000 tokens (164000 docs)
+[2026-11-09 09:09:08] [language_openwebtext_124m] [data] openwebtext: streamed 188108702/230000000 tokens (166000 docs)
+[2026-11-09 09:09:09] [language_openwebtext_124m] [data] openwebtext: streamed 190324633/230000000 tokens (168000 docs)
+[2026-11-09 09:09:09] [language_openwebtext_124m] [data] openwebtext: streamed 192505788/230000000 tokens (170000 docs)
+[2026-11-09 09:09:10] [language_openwebtext_124m] [data] openwebtext: streamed 194850161/230000000 tokens (172000 docs)
+[2026-11-09 09:09:10] [language_openwebtext_124m] [data] openwebtext: streamed 197324298/230000000 tokens (174000 docs)
+[2026-11-09 09:09:11] [language_openwebtext_124m] [data] openwebtext: streamed 199711447/230000000 tokens (176000 docs)
+[2026-11-09 09:09:11] [language_openwebtext_124m] [data] openwebtext: streamed 201922501/230000000 tokens (178000 docs)
+[2026-11-09 09:09:12] [language_openwebtext_124m] [data] openwebtext: streamed 204228082/230000000 tokens (180000 docs)
+[2026-11-09 09:09:12] [language_openwebtext_124m] [data] openwebtext: streamed 206500014/230000000 tokens (182000 docs)
+[2026-11-09 09:09:13] [language_openwebtext_124m] [data] openwebtext: streamed 208723522/230000000 tokens (184000 docs)
+[2026-11-09 09:09:13] [language_openwebtext_124m] [data] openwebtext: streamed 211067179/230000000 tokens (186000 docs)
+[2026-11-09 09:09:14] [language_openwebtext_124m] [data] openwebtext: streamed 213390133/230000000 tokens (188000 docs)
+[2026-11-09 09:09:14] [language_openwebtext_124m] [data] openwebtext: streamed 215818195/230000000 tokens (190000 docs)
+[2026-11-09 09:09:15] [language_openwebtext_124m] [data] openwebtext: streamed 218028286/230000000 tokens (192000 docs)
+[2026-11-09 09:09:15] [language_openwebtext_124m] [data] openwebtext: streamed 220359875/230000000 tokens (194000 docs)
+[2026-11-09 09:09:16] [language_openwebtext_124m] [data] openwebtext: streamed 222537602/230000000 tokens (196000 docs)
+[2026-11-09 09:09:16] [language_openwebtext_124m] [data] openwebtext: streamed 224754423/230000000 tokens (198000 docs)
+[2026-11-09 09:09:17] [language_openwebtext_124m] [data] openwebtext: streamed 226867891/230000000 tokens (200000 docs)
+[2026-11-09 09:09:21] [language_openwebtext_124m] [data] openwebtext: streamed 229123981/230000000 tokens (202000 docs)
+[2026-11-09 09:09:23] [language_openwebtext_124m] [data] openwebtext: wrote cache at <local-path> (train=220000000 val=5000000 test=5000000 tokens)
+[2026-11-09 09:09:24] [language_openwebtext_124m] [data] openwebtext: vocab=50257  train_tok=220000000  val_tok=5000000  test_tok=5000000  (GPT-2 BPE vocab -- no <unk>/OOV concept, train_oov line intentionally skipped for this dataset)
+[2026-11-09 09:09:25] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-09 09:09:25] [language_openwebtext_124m] [lr-search] units=['full']  steps=3000  seed=42  optimizers=['AdamW', 'Muon', 'EvieKF']
+[2026-11-09 09:09:27] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 09:09:27] [language_openwebtext_124m] [fairness] AdamW/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 09:49:23] [language_openwebtext_124m] [lr-search] AdamW  lr=2.500e-04  knob=-  score=134.49
+[2026-11-09 09:49:25] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 09:49:25] [language_openwebtext_124m] [fairness] AdamW/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 10:29:32] [language_openwebtext_124m] [lr-search] AdamW  lr=5.000e-04  knob=-  score=114.657
+[2026-11-09 10:29:34] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 10:29:34] [language_openwebtext_124m] [fairness] AdamW/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 11:09:53] [language_openwebtext_124m] [lr-search] AdamW  lr=1.000e-03  knob=-  score=232.111
+[2026-11-09 11:09:53] [language_openwebtext_124m] [lr-search] AdamW: FROZEN lr=5.000e-04  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-11-09 11:09:55] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 11:09:55] [language_openwebtext_124m] [fairness] Muon/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 11:52:13] [language_openwebtext_124m] [lr-search] Muon  lr=5.000e-04  knob=-  score=67.3987
+[2026-11-09 11:52:15] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 11:52:15] [language_openwebtext_124m] [fairness] Muon/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 12:34:42] [language_openwebtext_124m] [lr-search] Muon  lr=1.000e-03  knob=-  score=62.2592
+[2026-11-09 12:34:44] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 12:34:44] [language_openwebtext_124m] [fairness] Muon/full/seed42/LR: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 13:17:09] [language_openwebtext_124m] [lr-search] Muon  lr=2.000e-03  knob=-  score=60.0253
+[2026-11-09 13:17:09] [language_openwebtext_124m] [lr-search] Muon: FROZEN lr=2.000e-03  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-11-09 13:17:11] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 14:03:03] [language_openwebtext_124m] [lr-search] EvieKF  lr=2.500e-04  knob=27000  score=121.901
+[2026-11-09 14:03:05] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 14:49:14] [language_openwebtext_124m] [lr-search] EvieKF  lr=5.000e-04  knob=27000  score=112.271
+[2026-11-09 14:49:15] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 15:35:49] [language_openwebtext_124m] [lr-search] EvieKF  lr=1.000e-03  knob=27000  score=207.302
+[2026-11-09 15:35:49] [language_openwebtext_124m] [lr-search] EvieKF: FROZEN lr=5.000e-04  knob=27000  (LR boundary checks: 0, knob boundary checks: 0)
+[2026-11-09 15:35:49] [language_openwebtext_124m] [lr-search] frozen: AdamW=5.000e-04, Muon=2.000e-03, EvieKF=5.000e-04/k=27000
+[2026-11-09 15:35:49] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-09 15:35:49] [language_openwebtext_124m] [sweep] 3 optimizers x 1 units x 2 seeds = 6 cells
+[2026-11-09 15:36:02] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 15:36:02] [language_openwebtext_124m] [fairness] AdamW/full/seed42: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 16:57:07] [language_openwebtext_124m] [sweep] 1/6  AdamW|full|42  primary=70.90396649460473  diverged=False
+[2026-11-09 16:57:21] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 16:57:21] [language_openwebtext_124m] [fairness] AdamW/full/seed43: force_split_path (peak-memory measure; gradient unchanged) -> AdamW uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 18:18:50] [language_openwebtext_124m] [sweep] 2/6  AdamW|full|43  primary=72.67229336553653  diverged=False
+[2026-11-09 18:19:03] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 18:19:03] [language_openwebtext_124m] [fairness] Muon/full/seed42: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 19:45:49] [language_openwebtext_124m] [sweep] 3/6  Muon|full|42  primary=47.246348423629186  diverged=False
+[2026-11-09 19:46:03] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 19:46:03] [language_openwebtext_124m] [fairness] Muon/full/seed43: force_split_path (peak-memory measure; gradient unchanged) -> Muon uses the same split-batch forward/backward as the Evie arms (identical training signal; preconditioner is the only difference)
+[2026-11-09 21:12:19] [language_openwebtext_124m] [sweep] 4/6  Muon|full|43  primary=47.17502606375441  diverged=False
+[2026-11-09 21:12:33] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-09 22:46:58] [language_openwebtext_124m] [sweep] 5/6  EvieKF|full|42  primary=71.7962654316756  diverged=False
+[2026-11-09 22:47:11] [language_openwebtext_124m] [model] 124,046,592 trainable parameters
+[2026-11-10 00:21:17] [language_openwebtext_124m] [sweep] 6/6  EvieKF|full|43  primary=61.613748980431936  diverged=False
+[2026-11-10 00:21:17] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 00:21:17] [language_openwebtext_124m]   RESULTS  --  language_openwebtext_124m   primary = test_perplexity (lower is better)
+[2026-11-10 00:21:17] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-10 00:21:17] [language_openwebtext_124m]   AdamW       lr=5.00e-04  test_perplexity(task median over 2 seeds)=71.7881   seed spread=[70.904, 72.672]   diverged_cells=0/2
+[2026-11-10 00:21:17] [language_openwebtext_124m]              descriptive: wall_s=4669  mean_step_size=0.0001432  clip_freq=0.002167  peak_mem_mb=1.452e+04
+[2026-11-10 00:21:17] [language_openwebtext_124m]   Muon        lr=2.00e-03  test_perplexity(task median over 2 seeds)=47.2107   seed spread=[47.175, 47.246]   diverged_cells=0/2
+[2026-11-10 00:21:17] [language_openwebtext_124m]              descriptive: wall_s=4996  mean_step_size=0.0002066  clip_freq=0.00625  peak_mem_mb=1.419e+04
+[2026-11-10 00:21:17] [language_openwebtext_124m]   EvieKF      lr=5.00e-04  knob=27000  test_perplexity(task median over 2 seeds)=66.705   seed spread=[61.614, 71.796]   diverged_cells=0/2
+[2026-11-10 00:21:17] [language_openwebtext_124m]              descriptive: wall_s=5435  mean_step_size=0.0001558  clip_freq=0.002333  peak_mem_mb=1.527e+04
+[2026-11-10 00:21:17] [language_openwebtext_124m] ----------------------------------------------------------------------------------------------------
+[2026-11-10 00:21:17] [language_openwebtext_124m]   best optimizer on this task: Muon  (test_perplexity=47.2107)
+[2026-11-10 00:21:17] [language_openwebtext_124m]   wrote <local-path>
+[2026-11-10 00:21:17] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 00:21:17] [language_openwebtext_124m]   wrote <local-path> (consumed by benchmark12/aggregate.py for the 12-task test)
+[2026-11-10 00:21:17] [language_openwebtext_124m] ====================================================================================================
+[2026-11-10 00:21:17] [language_openwebtext_124m]   DONE 2026-11-10T00:21:17.926597

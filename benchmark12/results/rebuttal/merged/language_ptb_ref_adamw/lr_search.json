@@ -1,0 +1,10 @@
+{
+  "AdamW": {
+    "lr": 0.0003162,
+    "knob": null,
+    "note": "main-run frozen AdamW LR; optional metrics reference",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  }
+}

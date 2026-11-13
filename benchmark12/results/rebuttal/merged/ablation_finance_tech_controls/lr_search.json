@@ -1,0 +1,18 @@
+{
+  "EvieKFlag": {
+    "lr": 0.09999,
+    "knob": 10.0,
+    "note": "same lr and gamma as EvieKF; one change only",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  },
+  "EvieKFrb": {
+    "lr": 0.09999,
+    "knob": 10.0,
+    "note": "same lr and gamma as EvieKF; one change only",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  }
+}

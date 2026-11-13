@@ -1,0 +1,10 @@
+{
+  "EvieKFmrb": {
+    "lr": 0.003162,
+    "knob": 30.0,
+    "note": "same lr and gamma as EvieKFm in R3a; one change only (random eigenbasis)",
+    "complete": true,
+    "grid": {},
+    "pinned": true
+  }
+}

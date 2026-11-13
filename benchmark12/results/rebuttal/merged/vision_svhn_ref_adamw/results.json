@@ -1,0 +1,2094 @@
+{
+  "cells": {
+    "AdamW|full|42": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 94.82175783650891,
+      "best_val_primary": 93.84384384384384,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1258.9822359085083,
+      "sec_per_step": 0.12589822359085082,
+      "mean_step_size": 0.000453131097523238,
+      "clip_freq": 0.0196,
+      "peak_mem_mb": 1476.029296875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11173962,
+      "val_curve": [
+        [
+          500,
+          87.08708708708708
+        ],
+        [
+          1000,
+          90.9090909090909
+        ],
+        [
+          1500,
+          90.85449085449085
+        ],
+        [
+          2000,
+          91.80999180999181
+        ],
+        [
+          2500,
+          92.12394212394213
+        ],
+        [
+          3000,
+          92.17854217854217
+        ],
+        [
+          3500,
+          91.37319137319137
+        ],
+        [
+          4000,
+          92.66994266994267
+        ],
+        [
+          4500,
+          92.92929292929293
+        ],
+        [
+          5000,
+          93.12039312039312
+        ],
+        [
+          5500,
+          92.75184275184276
+        ],
+        [
+          6000,
+          93.33879333879334
+        ],
+        [
+          6500,
+          93.5981435981436
+        ],
+        [
+          7000,
+          93.70734370734371
+        ],
+        [
+          7500,
+          93.77559377559378
+        ],
+        [
+          8000,
+          93.77559377559378
+        ],
+        [
+          8500,
+          93.72099372099372
+        ],
+        [
+          9000,
+          93.69369369369369
+        ],
+        [
+          9500,
+          93.73464373464374
+        ],
+        [
+          10000,
+          93.84384384384384
+        ]
+      ],
+      "steps_to_best_val": 10000,
+      "steps_to_90pct_best": 6000,
+      "frac_budget_to_90pct_best": 0.6,
+      "wallclock_to_90pct_best_s": 754.3797588348389,
+      "train_loss_at_25pct": 0.11082307552986144,
+      "train_loss_at_50pct": 0.013026622979981639,
+      "train_loss_at_75pct": 0.00019776086427223256,
+      "final_train_loss": 5.407679418567568e-05,
+      "gen_gap_loss": 0.39631342152040744,
+      "auc_val_curve": 92.6595255542624,
+      "update_weight_ratio": 0.0027763266454628108,
+      "update_cos_sim_sampled": 0.040478879867311655,
+      "grad_norm_mean": 0.2120309630406591,
+      "grad_norm_p95": 0.6888907611370078,
+      "weight_norm_start": 102.82429901468879,
+      "weight_norm_end": 713.1989007708127,
+      "weight_norm_growth": 6.9360930014113675,
+      "throughput_samples_per_s": 1016.6942499203135,
+      "flops_per_step_est": 422940770304.0,
+      "total_flops_est": 4229407703040000.0,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 99.44683466502765,
+      "test_loss": 0.3963674983145931,
+      "ece": 0.039690431165059575,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          500,
+          62.34009504318237
+        ],
+        [
+          1000,
+          128.50307154655457
+        ],
+        [
+          1500,
+          192.31534886360168
+        ],
+        [
+          2000,
+          254.7136149406433
+        ],
+        [
+          2500,
+          317.5448625087738
+        ],
+        [
+          3000,
+          380.1231265068054
+        ],
+        [
+          3500,
+          442.5343689918518
+        ],
+        [
+          4000,
+          504.83973479270935
+        ],
+        [
+          4500,
+          567.3623242378235
+        ],
+        [
+          5000,
+          629.9352805614471
+        ],
+        [
+          5500,
+          691.9851250648499
+        ],
+        [
+          6000,
+          754.3797588348389
+        ],
+        [
+          6500,
+          817.2109866142273
+        ],
+        [
+          7000,
+          879.8499958515167
+        ],
+        [
+          7500,
+          942.4104418754578
+        ],
+        [
+          8000,
+          1005.2953662872314
+        ],
+        [
+          8500,
+          1068.074948310852
+        ],
+        [
+          9000,
+          1130.762328863144
+        ],
+        [
+          9500,
+          1193.241783618927
+        ],
+        [
+          10000,
+          1255.7327585220337
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          500,
+          0.4829242269628687
+        ],
+        [
+          1000,
+          0.3066161303064063
+        ],
+        [
+          1500,
+          0.2193640270090303
+        ],
+        [
+          2000,
+          0.15392625552870434
+        ],
+        [
+          2500,
+          0.11082307552986144
+        ],
+        [
+          3000,
+          0.08111901456864186
+        ],
+        [
+          3500,
+          0.052176510753296705
+        ],
+        [
+          4000,
+          0.03990525549954679
+        ],
+        [
+          4500,
+          0.02453505907840849
+        ],
+        [
+          5000,
+          0.013026622979981639
+        ],
+        [
+          5500,
+          0.012278896067992899
+        ],
+        [
+          6000,
+          0.005337026300733859
+        ],
+        [
+          6500,
+          0.002004700015636026
+        ],
+        [
+          7000,
+          0.0020412569302054994
+        ],
+        [
+          7500,
+          0.00019776086427223256
+        ],
+        [
+          8000,
+          5.753120019827443e-05
+        ],
+        [
+          8500,
+          4.229461452363078e-05
+        ],
+        [
+          9000,
+          3.682808124884939e-05
+        ],
+        [
+          9500,
+          3.1176902994412616e-05
+        ],
+        [
+          10000,
+          2.965800758588557e-05
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 194,
+      "x_loss_spike_max_ratio": 25.173102372417038,
+      "x_grad_norm_max": 2.370845079421997,
+      "x_grad_norm_p50": 0.14084933698177338,
+      "x_grad_norm_cv": 1.225849247485207,
+      "x_opt_time_s": 0.004872766530007624,
+      "x_fwdbwd_time_s": 0.13882023248499464,
+      "x_opt_state_mb": 85.25080108642578,
+      "x_param_mb": 42.625282287597656,
+      "x_errors": {
+        "acc_fgsm_small": "TimeoutError('90s test-diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "train_acc_subsample": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.033910952958110946,
+      "cls_acc_min": 91.5662612915039,
+      "cls_acc_std": 1.642508864402771,
+      "cls_acc_worst5_mean": 93.19278717041016,
+      "brier_score": 0.09078633766930456,
+      "predictive_entropy_nats": 0.031143337625554535,
+      "mean_confidence": 0.9877739820146239,
+      "acc_noise_a": 92.54763368162261,
+      "acc_noise_b": 82.34480639213275,
+      "acc_shift": 89.92778119237862,
+      "acc_lowres": 94.51444376152428,
+      "acc_bright": 94.59895513214505,
+      "acc_fgsm_small": null,
+      "corruption_mean_drop": 4.035033804548235,
+      "test_eval_wall_s": 90.28987893800013,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "train_acc_subsample": null,
+      "train_acc_augmented": false,
+      "gen_gap_acc": null,
+      "x_end_eval_and_extra_wall_s": 90.35979982699996,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "AdamW|full|44": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 94.69114935464044,
+      "best_val_primary": 93.88479388479388,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1265.007286787033,
+      "sec_per_step": 0.1265007286787033,
+      "mean_step_size": 0.0004445061737044886,
+      "clip_freq": 0.0185,
+      "peak_mem_mb": 1476.029296875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11173962,
+      "val_curve": [
+        [
+          500,
+          87.20993720993721
+        ],
+        [
+          1000,
+          90.17199017199017
+        ],
+        [
+          1500,
+          90.3084903084903
+        ],
+        [
+          2000,
+          91.86459186459186
+        ],
+        [
+          2500,
+          91.4960414960415
+        ],
+        [
+          3000,
+          91.004641004641
+        ],
+        [
+          3500,
+          92.16489216489217
+        ],
+        [
+          4000,
+          92.66994266994267
+        ],
+        [
+          4500,
+          92.49249249249249
+        ],
+        [
+          5000,
+          92.75184275184276
+        ],
+        [
+          5500,
+          93.06579306579306
+        ],
+        [
+          6000,
+          93.4070434070434
+        ],
+        [
+          6500,
+          93.76194376194377
+        ],
+        [
+          7000,
+          93.63909363909364
+        ],
+        [
+          7500,
+          93.77559377559378
+        ],
+        [
+          8000,
+          93.85749385749386
+        ],
+        [
+          8500,
+          93.84384384384384
+        ],
+        [
+          9000,
+          93.83019383019383
+        ],
+        [
+          9500,
+          93.81654381654381
+        ],
+        [
+          10000,
+          93.88479388479388
+        ]
+      ],
+      "steps_to_best_val": 10000,
+      "steps_to_90pct_best": 6000,
+      "frac_budget_to_90pct_best": 0.6,
+      "wallclock_to_90pct_best_s": 755.7609436511993,
+      "train_loss_at_25pct": 0.10443167530110738,
+      "train_loss_at_50pct": 0.01564703288466574,
+      "train_loss_at_75pct": 6.852711491758962e-05,
+      "final_train_loss": 3.9146429116954096e-05,
+      "gen_gap_loss": 0.4010211627106142,
+      "auc_val_curve": 92.55104386683334,
+      "update_weight_ratio": 0.0026261229003064837,
+      "update_cos_sim_sampled": 0.061346648999160994,
+      "grad_norm_mean": 0.20605616813802735,
+      "grad_norm_p95": 0.695464852452277,
+      "weight_norm_start": 102.7936942151574,
+      "weight_norm_end": 718.4865050217982,
+      "weight_norm_growth": 6.989597080905903,
+      "throughput_samples_per_s": 1011.8518789334776,
+      "flops_per_step_est": 422940770304.0,
+      "total_flops_est": 4229407703040000.0,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 99.39689612784265,
+      "test_loss": 0.4010603091397312,
+      "ece": 0.04068299464666191,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          500,
+          59.63275694847107
+        ],
+        [
+          1000,
+          123.20021080970764
+        ],
+        [
+          1500,
+          186.41907620429993
+        ],
+        [
+          2000,
+          249.8959503173828
+        ],
+        [
+          2500,
+          313.64144253730774
+        ],
+        [
+          3000,
+          376.70914030075073
+        ],
+        [
+          3500,
+          440.37877011299133
+        ],
+        [
+          4000,
+          503.39475989341736
+        ],
+        [
+          4500,
+          566.3477065563202
+        ],
+        [
+          5000,
+          629.1933629512787
+        ],
+        [
+          5500,
+          692.1854083538055
+        ],
+        [
+          6000,
+          755.7609436511993
+        ],
+        [
+          6500,
+          819.340247631073
+        ],
+        [
+          7000,
+          882.3521251678467
+        ],
+        [
+          7500,
+          945.8534655570984
+        ],
+        [
+          8000,
+          1009.4809100627899
+        ],
+        [
+          8500,
+          1072.7787637710571
+        ],
+        [
+          9000,
+          1136.0455853939056
+        ],
+        [
+          9500,
+          1198.7291750907898
+        ],
+        [
+          10000,
+          1261.4455814361572
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          500,
+          0.47457885153026325
+        ],
+        [
+          1000,
+          0.2963739997099069
+        ],
+        [
+          1500,
+          0.2092730954219108
+        ],
+        [
+          2000,
+          0.14439062349920662
+        ],
+        [
+          2500,
+          0.10443167530110738
+        ],
+        [
+          3000,
+          0.07942649150153325
+        ],
+        [
+          3500,
+          0.053289461465876514
+        ],
+        [
+          4000,
+          0.03878988848723929
+        ],
+        [
+          4500,
+          0.022446769723184778
+        ],
+        [
+          5000,
+          0.01564703288466574
+        ],
+        [
+          5500,
+          0.006103504640863832
+        ],
+        [
+          6000,
+          0.002453292412483142
+        ],
+        [
+          6500,
+          0.0007099478135914125
+        ],
+        [
+          7000,
+          0.0005265763272048282
+        ],
+        [
+          7500,
+          6.852711491758962e-05
+        ],
+        [
+          8000,
+          4.127046061067061e-05
+        ],
+        [
+          8500,
+          3.503294366600688e-05
+        ],
+        [
+          9000,
+          3.0388203188401357e-05
+        ],
+        [
+          9500,
+          2.6507172270324256e-05
+        ],
+        [
+          10000,
+          2.257211498624324e-05
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 180,
+      "x_loss_spike_max_ratio": 34.99569996968546,
+      "x_grad_norm_max": 2.472057342529297,
+      "x_grad_norm_p50": 0.11477085575461388,
+      "x_grad_norm_cv": 1.270945035346305,
+      "x_opt_time_s": 0.004279580019999685,
+      "x_fwdbwd_time_s": 0.11401851318498529,
+      "x_opt_state_mb": 85.25080108642578,
+      "x_param_mb": 42.625282287597656,
+      "x_errors": {
+        "acc_fgsm_small": "TimeoutError('90s test-diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "train_acc_subsample": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.03617623838267705,
+      "cls_acc_min": 90.30120849609375,
+      "cls_acc_std": 1.8432344198226929,
+      "cls_acc_worst5_mean": 92.81178283691406,
+      "brier_score": 0.09207569332890665,
+      "predictive_entropy_nats": 0.03205280436389492,
+      "mean_confidence": 0.9875898642560493,
+      "acc_noise_a": 92.50537799631223,
+      "acc_noise_b": 81.88767670559312,
+      "acc_shift": 89.66272280270437,
+      "acc_lowres": 94.41456668715428,
+      "acc_bright": 94.43761524277812,
+      "acc_fgsm_small": null,
+      "corruption_mean_drop": 4.109557467732017,
+      "test_eval_wall_s": 90.20189749499968,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "train_acc_subsample": null,
+      "train_acc_augmented": false,
+      "gen_gap_acc": null,
+      "x_end_eval_and_extra_wall_s": 90.2598215449998,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "AdamW|full|46": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 46,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 94.55285802089736,
+      "best_val_primary": 93.66639366639366,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1286.6323916912079,
+      "sec_per_step": 0.12866323916912079,
+      "mean_step_size": 0.00044544931634103805,
+      "clip_freq": 0.0222,
+      "peak_mem_mb": 1476.029296875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11173962,
+      "val_curve": [
+        [
+          500,
+          87.85148785148785
+        ],
+        [
+          1000,
+          90.25389025389025
+        ],
+        [
+          1500,
+          91.19574119574119
+        ],
+        [
+          2000,
+          91.72809172809173
+        ],
+        [
+          2500,
+          92.34234234234235
+        ],
+        [
+          3000,
+          90.81354081354081
+        ],
+        [
+          3500,
+          91.42779142779143
+        ],
+        [
+          4000,
+          91.65984165984166
+        ],
+        [
+          4500,
+          92.34234234234235
+        ],
+        [
+          5000,
+          92.82009282009282
+        ],
+        [
+          5500,
+          92.35599235599236
+        ],
+        [
+          6000,
+          93.01119301119301
+        ],
+        [
+          6500,
+          93.14769314769315
+        ],
+        [
+          7000,
+          93.52989352989353
+        ],
+        [
+          7500,
+          93.47529347529347
+        ],
+        [
+          8000,
+          93.66639366639366
+        ],
+        [
+          8500,
+          93.5981435981436
+        ],
+        [
+          9000,
+          93.52989352989353
+        ],
+        [
+          9500,
+          93.65274365274365
+        ],
+        [
+          10000,
+          93.5981435981436
+        ]
+      ],
+      "steps_to_best_val": 8000,
+      "steps_to_90pct_best": 6500,
+      "frac_budget_to_90pct_best": 0.65,
+      "wallclock_to_90pct_best_s": 833.0539546012878,
+      "train_loss_at_25pct": 0.11038261339358489,
+      "train_loss_at_50pct": 0.01587845204116189,
+      "train_loss_at_75pct": 0.00017883186119885852,
+      "final_train_loss": 1.2359138509054901e-05,
+      "gen_gap_loss": 0.40073729366996697,
+      "auc_val_curve": 92.38293317240687,
+      "update_weight_ratio": 0.002735192779103261,
+      "update_cos_sim_sampled": 0.06459181488663353,
+      "grad_norm_mean": 0.2216206206261435,
+      "grad_norm_p95": 0.7288205087184905,
+      "weight_norm_start": 102.82703401398058,
+      "weight_norm_end": 713.1792159139021,
+      "weight_norm_growth": 6.935717078224164,
+      "throughput_samples_per_s": 994.8451541139191,
+      "flops_per_step_est": 422940770304.0,
+      "total_flops_est": 4229407703040000.0,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 99.33543331284572,
+      "test_loss": 0.400749652808476,
+      "ece": 0.04119888434705188,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          500,
+          61.045888900756836
+        ],
+        [
+          1000,
+          125.53657078742981
+        ],
+        [
+          1500,
+          189.89862442016602
+        ],
+        [
+          2000,
+          254.22650599479675
+        ],
+        [
+          2500,
+          318.57960271835327
+        ],
+        [
+          3000,
+          382.8867881298065
+        ],
+        [
+          3500,
+          447.2182433605194
+        ],
+        [
+          4000,
+          511.4954535961151
+        ],
+        [
+          4500,
+          575.8034043312073
+        ],
+        [
+          5000,
+          640.0724742412567
+        ],
+        [
+          5500,
+          704.3856792449951
+        ],
+        [
+          6000,
+          768.6615831851959
+        ],
+        [
+          6500,
+          833.0539546012878
+        ],
+        [
+          7000,
+          897.345018863678
+        ],
+        [
+          7500,
+          961.6889750957489
+        ],
+        [
+          8000,
+          1025.9815566539764
+        ],
+        [
+          8500,
+          1090.3140046596527
+        ],
+        [
+          9000,
+          1154.5999639034271
+        ],
+        [
+          9500,
+          1218.931074142456
+        ],
+        [
+          10000,
+          1283.234141588211
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          500,
+          0.4608136158110371
+        ],
+        [
+          1000,
+          0.3049934158185609
+        ],
+        [
+          1500,
+          0.21943965802275017
+        ],
+        [
+          2000,
+          0.1540677073719492
+        ],
+        [
+          2500,
+          0.11038261339358489
+        ],
+        [
+          3000,
+          0.07503243371205245
+        ],
+        [
+          3500,
+          0.05693347030435114
+        ],
+        [
+          4000,
+          0.034159954507463244
+        ],
+        [
+          4500,
+          0.02999129268219331
+        ],
+        [
+          5000,
+          0.01587845204116189
+        ],
+        [
+          5500,
+          0.011202838030094751
+        ],
+        [
+          6000,
+          0.007200391827534327
+        ],
+        [
+          6500,
+          0.002936383015388788
+        ],
+        [
+          7000,
+          0.0004913908641209569
+        ],
+        [
+          7500,
+          0.00017883186119885852
+        ],
+        [
+          8000,
+          5.975478233306786e-05
+        ],
+        [
+          8500,
+          4.837341299751546e-05
+        ],
+        [
+          9000,
+          3.900785275407329e-05
+        ],
+        [
+          9500,
+          3.429836856441553e-05
+        ],
+        [
+          10000,
+          2.991898721350696e-05
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 191,
+      "x_loss_spike_max_ratio": 36.546947401802235,
+      "x_grad_norm_max": 2.8547613620758057,
+      "x_grad_norm_p50": 0.14108216762542725,
+      "x_grad_norm_cv": 1.234659639061781,
+      "x_opt_time_s": 0.004226189375012837,
+      "x_fwdbwd_time_s": 0.11637120966002384,
+      "x_opt_state_mb": 85.25080108642578,
+      "x_param_mb": 42.625282287597656,
+      "x_errors": {
+        "acc_fgsm_small": "TimeoutError('90s test-diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "train_acc_subsample": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.03504378542844874,
+      "cls_acc_min": 90.30120849609375,
+      "cls_acc_std": 1.8850237131118774,
+      "cls_acc_worst5_mean": 92.71329498291016,
+      "brier_score": 0.09389561905623509,
+      "predictive_entropy_nats": 0.03392871760963002,
+      "mean_confidence": 0.9867274572164938,
+      "acc_noise_a": 92.22495390288876,
+      "acc_noise_b": 80.62768899815612,
+      "acc_shift": 88.31054087277197,
+      "acc_lowres": 94.21865396435157,
+      "acc_bright": 94.34157959434542,
+      "acc_fgsm_small": null,
+      "corruption_mean_drop": 4.608174554394594,
+      "test_eval_wall_s": 90.26645191600073,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "train_acc_subsample": null,
+      "train_acc_augmented": false,
+      "gen_gap_acc": null,
+      "x_end_eval_and_extra_wall_s": 90.3316960709999,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "AdamW|full|43": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 94.79102642901044,
+      "best_val_primary": 93.88479388479388,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1198.7529742717743,
+      "sec_per_step": 0.11987529742717742,
+      "mean_step_size": 0.00045861186108411676,
+      "clip_freq": 0.0197,
+      "peak_mem_mb": 1476.029296875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11173962,
+      "val_curve": [
+        [
+          500,
+          87.68768768768768
+        ],
+        [
+          1000,
+          91.004641004641
+        ],
+        [
+          1500,
+          91.03194103194103
+        ],
+        [
+          2000,
+          91.89189189189189
+        ],
+        [
+          2500,
+          91.65984165984166
+        ],
+        [
+          3000,
+          92.12394212394213
+        ],
+        [
+          3500,
+          92.58804258804258
+        ],
+        [
+          4000,
+          92.1921921921922
+        ],
+        [
+          4500,
+          92.6972426972427
+        ],
+        [
+          5000,
+          92.49249249249249
+        ],
+        [
+          5500,
+          93.01119301119301
+        ],
+        [
+          6000,
+          93.25689325689326
+        ],
+        [
+          6500,
+          93.18864318864318
+        ],
+        [
+          7000,
+          93.44799344799345
+        ],
+        [
+          7500,
+          93.72099372099372
+        ],
+        [
+          8000,
+          93.73464373464374
+        ],
+        [
+          8500,
+          93.84384384384384
+        ],
+        [
+          9000,
+          93.69369369369369
+        ],
+        [
+          9500,
+          93.88479388479388
+        ],
+        [
+          10000,
+          93.83019383019383
+        ]
+      ],
+      "steps_to_best_val": 9500,
+      "steps_to_90pct_best": 7000,
+      "frac_budget_to_90pct_best": 0.7,
+      "wallclock_to_90pct_best_s": 837.313937664032,
+      "train_loss_at_25pct": 0.1207609169532453,
+      "train_loss_at_50pct": 0.02013523171595329,
+      "train_loss_at_75pct": 0.00013487786636191604,
+      "final_train_loss": 2.395253568465705e-05,
+      "gen_gap_loss": 0.40863132840885,
+      "auc_val_curve": 92.6433610644137,
+      "update_weight_ratio": 0.002756336205044775,
+      "update_cos_sim_sampled": 0.04685740143678338,
+      "grad_norm_mean": 0.2240722658681041,
+      "grad_norm_p95": 0.7383786618709561,
+      "weight_norm_start": 102.8339872880257,
+      "weight_norm_end": 718.5050383597073,
+      "weight_norm_growth": 6.987038597922501,
+      "throughput_samples_per_s": 1067.776287084987,
+      "flops_per_step_est": 422940770304.0,
+      "total_flops_est": 4229407703040000.0,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 99.35079901659496,
+      "test_loss": 0.4086552809445347,
+      "ece": 0.04046456544753336,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          500,
+          60.198270320892334
+        ],
+        [
+          1000,
+          120.54595279693604
+        ],
+        [
+          1500,
+          180.34755301475525
+        ],
+        [
+          2000,
+          239.93831157684326
+        ],
+        [
+          2500,
+          299.71177792549133
+        ],
+        [
+          3000,
+          359.4796824455261
+        ],
+        [
+          3500,
+          419.2080011367798
+        ],
+        [
+          4000,
+          478.9054193496704
+        ],
+        [
+          4500,
+          538.5919554233551
+        ],
+        [
+          5000,
+          598.4710204601288
+        ],
+        [
+          5500,
+          658.1591317653656
+        ],
+        [
+          6000,
+          717.7598695755005
+        ],
+        [
+          6500,
+          777.464033126831
+        ],
+        [
+          7000,
+          837.313937664032
+        ],
+        [
+          7500,
+          897.0729315280914
+        ],
+        [
+          8000,
+          956.772412776947
+        ],
+        [
+          8500,
+          1016.5620696544647
+        ],
+        [
+          9000,
+          1076.3842160701752
+        ],
+        [
+          9500,
+          1136.1107478141785
+        ],
+        [
+          10000,
+          1195.8464279174805
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          500,
+          0.49041010912938454
+        ],
+        [
+          1000,
+          0.313307949984272
+        ],
+        [
+          1500,
+          0.22708685765503722
+        ],
+        [
+          2000,
+          0.1598278581919196
+        ],
+        [
+          2500,
+          0.1207609169532453
+        ],
+        [
+          3000,
+          0.06973122590433527
+        ],
+        [
+          3500,
+          0.05161150496733391
+        ],
+        [
+          4000,
+          0.037990784165492994
+        ],
+        [
+          4500,
+          0.02666920880932506
+        ],
+        [
+          5000,
+          0.02013523171595329
+        ],
+        [
+          5500,
+          0.009110414181288677
+        ],
+        [
+          6000,
+          0.006109760571779967
+        ],
+        [
+          6500,
+          0.004108323139690217
+        ],
+        [
+          7000,
+          0.0009018508875643686
+        ],
+        [
+          7500,
+          0.00013487786636191604
+        ],
+        [
+          8000,
+          5.038623136578895e-05
+        ],
+        [
+          8500,
+          3.611958907469217e-05
+        ],
+        [
+          9000,
+          3.198682769886251e-05
+        ],
+        [
+          9500,
+          2.7005840065767115e-05
+        ],
+        [
+          10000,
+          2.5635959415920612e-05
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 200,
+      "x_loss_spike_max_ratio": 24.997723152784307,
+      "x_grad_norm_max": 2.6698405742645264,
+      "x_grad_norm_p50": 0.14671895653009415,
+      "x_grad_norm_cv": 1.2233543620300538,
+      "x_opt_time_s": 0.004867641729998269,
+      "x_fwdbwd_time_s": 0.1337730560050035,
+      "x_opt_state_mb": 85.25080108642578,
+      "x_param_mb": 42.625282287597656,
+      "x_errors": {
+        "acc_fgsm_small": "TimeoutError('90s test-diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "train_acc_subsample": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.03510976076665666,
+      "cls_acc_min": 90.54216766357422,
+      "cls_acc_std": 1.7291890382766724,
+      "cls_acc_worst5_mean": 93.01411437988281,
+      "brier_score": 0.09064070557111893,
+      "predictive_entropy_nats": 0.030037424565460612,
+      "mean_confidence": 0.9883748179355427,
+      "acc_noise_a": 92.52458512599877,
+      "acc_noise_b": 82.27181929932391,
+      "acc_shift": 89.92778119237862,
+      "acc_lowres": 94.44145666871543,
+      "acc_bright": 94.6757836508912,
+      "acc_fgsm_small": null,
+      "corruption_mean_drop": 4.022741241548843,
+      "test_eval_wall_s": 90.2355780370001,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "train_acc_subsample": null,
+      "train_acc_augmented": false,
+      "gen_gap_acc": null,
+      "x_end_eval_and_extra_wall_s": 90.300838311,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "AdamW|full|45": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 45,
+      "lr_used": 0.003162,
+      "knob_used": null,
+      "primary": 94.37231100184388,
+      "best_val_primary": 93.77559377559378,
+      "steps_run": 10000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 1196.322504043579,
+      "sec_per_step": 0.1196322504043579,
+      "mean_step_size": 0.0004230880002124528,
+      "clip_freq": 0.0307,
+      "peak_mem_mb": 1476.029296875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 11173962,
+      "val_curve": [
+        [
+          500,
+          88.38383838383838
+        ],
+        [
+          1000,
+          91.25034125034125
+        ],
+        [
+          1500,
+          91.6052416052416
+        ],
+        [
+          2000,
+          92.16489216489217
+        ],
+        [
+          2500,
+          91.56429156429157
+        ],
+        [
+          3000,
+          91.53699153699154
+        ],
+        [
+          3500,
+          92.04204204204204
+        ],
+        [
+          4000,
+          92.62899262899263
+        ],
+        [
+          4500,
+          92.68359268359268
+        ],
+        [
+          5000,
+          92.997542997543
+        ],
+        [
+          5500,
+          93.18864318864318
+        ],
+        [
+          6000,
+          93.07944307944308
+        ],
+        [
+          6500,
+          93.10674310674311
+        ],
+        [
+          7000,
+          93.69369369369369
+        ],
+        [
+          7500,
+          93.77559377559378
+        ],
+        [
+          8000,
+          93.73464373464374
+        ],
+        [
+          8500,
+          93.65274365274365
+        ],
+        [
+          9000,
+          93.55719355719356
+        ],
+        [
+          9500,
+          93.77559377559378
+        ],
+        [
+          10000,
+          93.70734370734371
+        ]
+      ],
+      "steps_to_best_val": 7500,
+      "steps_to_90pct_best": 7000,
+      "frac_budget_to_90pct_best": 0.7,
+      "wallclock_to_90pct_best_s": 834.6728608608246,
+      "train_loss_at_25pct": 0.1226802257212406,
+      "train_loss_at_50pct": 0.012026630781103729,
+      "train_loss_at_75pct": 0.00010117929210661484,
+      "final_train_loss": 1.0249626029690262e-05,
+      "gen_gap_loss": 0.40812569258659853,
+      "auc_val_curve": 92.68862163599006,
+      "update_weight_ratio": 0.0025938926654014817,
+      "update_cos_sim_sampled": 0.050774289583357106,
+      "grad_norm_mean": 0.24009743221510216,
+      "grad_norm_p95": 0.8072631031274784,
+      "weight_norm_start": 102.78535169429838,
+      "weight_norm_end": 713.647521213122,
+      "weight_norm_growth": 6.943085852696545,
+      "throughput_samples_per_s": 1069.9456005162406,
+      "flops_per_step_est": 422940770304.0,
+      "total_flops_est": 4229407703040000.0,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "top5": 99.41226183159189,
+      "test_loss": 0.4081359422126282,
+      "ece": 0.043198546068428045,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          500,
+          56.9787232875824
+        ],
+        [
+          1000,
+          117.07327008247375
+        ],
+        [
+          1500,
+          177.08770155906677
+        ],
+        [
+          2000,
+          236.89354944229126
+        ],
+        [
+          2500,
+          296.7325510978699
+        ],
+        [
+          3000,
+          356.6274039745331
+        ],
+        [
+          3500,
+          416.4034104347229
+        ],
+        [
+          4000,
+          476.2994222640991
+        ],
+        [
+          4500,
+          535.9973602294922
+        ],
+        [
+          5000,
+          595.6514291763306
+        ],
+        [
+          5500,
+          655.3490309715271
+        ],
+        [
+          6000,
+          715.1017034053802
+        ],
+        [
+          6500,
+          774.7535755634308
+        ],
+        [
+          7000,
+          834.6728608608246
+        ],
+        [
+          7500,
+          894.502660036087
+        ],
+        [
+          8000,
+          954.1888506412506
+        ],
+        [
+          8500,
+          1013.9827809333801
+        ],
+        [
+          9000,
+          1073.7734622955322
+        ],
+        [
+          9500,
+          1133.5238268375397
+        ],
+        [
+          10000,
+          1193.4205310344696
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          500,
+          0.4713565502198572
+        ],
+        [
+          1000,
+          0.3076514048499016
+        ],
+        [
+          1500,
+          0.2194770057094157
+        ],
+        [
+          2000,
+          0.1567127398026315
+        ],
+        [
+          2500,
+          0.1226802257212406
+        ],
+        [
+          3000,
+          0.08397918105546955
+        ],
+        [
+          3500,
+          0.05243118121341509
+        ],
+        [
+          4000,
+          0.03155697444346108
+        ],
+        [
+          4500,
+          0.019928304504749337
+        ],
+        [
+          5000,
+          0.012026630781103729
+        ],
+        [
+          5500,
+          0.010095925631462829
+        ],
+        [
+          6000,
+          0.007520247247435544
+        ],
+        [
+          6500,
+          0.0027925036836419282
+        ],
+        [
+          7000,
+          0.0008029543056571726
+        ],
+        [
+          7500,
+          0.00010117929210661484
+        ],
+        [
+          8000,
+          5.766970467767526e-05
+        ],
+        [
+          8500,
+          4.687264816082141e-05
+        ],
+        [
+          9000,
+          3.8999143600996786e-05
+        ],
+        [
+          9500,
+          3.423240296530025e-05
+        ],
+        [
+          10000,
+          3.0899602420224385e-05
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 192,
+      "x_loss_spike_max_ratio": 59.02480229052258,
+      "x_grad_norm_max": 5.635529041290283,
+      "x_grad_norm_p50": 0.14030899107456207,
+      "x_grad_norm_cv": 1.39106410969275,
+      "x_opt_time_s": 0.004288941935012645,
+      "x_fwdbwd_time_s": 0.10817183787998828,
+      "x_opt_state_mb": 85.25080108642578,
+      "x_param_mb": 42.625282287597656,
+      "x_errors": {
+        "acc_fgsm_small": "TimeoutError('90s test-diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "train_acc_subsample": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.038137223857668386,
+      "cls_acc_min": 90.0,
+      "cls_acc_std": 1.7066729068756104,
+      "cls_acc_worst5_mean": 92.5692367553711,
+      "brier_score": 0.09647830066024414,
+      "predictive_entropy_nats": 0.0338541594618438,
+      "mean_confidence": 0.9869216544978371,
+      "acc_noise_a": 92.30178242163491,
+      "acc_noise_b": 82.67901044867855,
+      "acc_shift": 89.45528580208973,
+      "acc_lowres": 94.13030116779349,
+      "acc_bright": 94.37231100184388,
+      "acc_fgsm_small": null,
+      "corruption_mean_drop": 3.7845728334357602,
+      "test_eval_wall_s": 90.10703123199983,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "train_acc_subsample": null,
+      "train_acc_augmented": false,
+      "gen_gap_acc": null,
+      "x_end_eval_and_extra_wall_s": 90.1800323829998,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    }
+  },
+  "meta": {
+    "task_name": "vision_svhn_ref_adamw",
+    "domain": "vision",
+    "primary_metric": "test_top1_acc",
+    "primary_lower_better": false,
+    "lr_used": {
+      "AdamW": 0.003162
+    },
+    "knob_used": {
+      "AdamW": null
+    },
+    "opt_names": [
+      "AdamW"
+    ],
+    "opt_set": "diag",
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "max_steps": 10000,
+    "units": [
+      "full"
+    ],
+    "all_units": [
+      "full"
+    ],
+    "unit_slice": null,
+    "cell_slice": null,
+    "shard_tag": "",
+    "expected_cell_keys": [
+      "AdamW|full|42",
+      "AdamW|full|43",
+      "AdamW|full|44",
+      "AdamW|full|45",
+      "AdamW|full|46"
+    ],
+    "peer_median_primary": 94.69114935464044,
+    "nonstandard_ppl_caveat": null,
+    "torch": "2.11.0+cu130",
+    "device": "cuda",
+    "timestamp": "2026-11-10T11:35:10.223171",
+    "task_config": {
+      "domain": "vision",
+      "primary_metric": "test_top1_acc",
+      "primary_lower_better": false,
+      "primary_abs_range": [
+        0.0,
+        100.0
+      ],
+      "peer_divergence_factor": 3.0,
+      "batch_size": 128,
+      "eval_every": 500,
+      "ckpt_every": 2000,
+      "task_name": "vision_svhn_ref_adamw",
+      "dataset": "svhn",
+      "title": "Vision / SVHN / CIFAR-stem ResNet-18 -- R3a-ref: optional reference rerun with exploratory metrics",
+      "max_steps": 10000,
+      "lr_search_steps": 2500,
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "base_task_name": "vision_svhn",
+      "opt_set": "diag",
+      "opt_list": [
+        "AdamW"
+      ],
+      "pinned_lr": {
+        "AdamW": {
+          "lr": 0.003162,
+          "knob": null,
+          "note": "main-run frozen AdamW LR; optional metrics reference"
+        }
+      },
+      "fixed_knob": {},
+      "extra_metrics": true,
+      "rebuttal_run": true
+    },
+    "smoke": false,
+    "extra_metrics": true,
+    "data_provenance": {
+      "train/0": {
+        "shape": [
+          65931,
+          32,
+          32,
+          3
+        ],
+        "dtype": "uint8",
+        "sha256": "548fe5ccdca79420f31d2a8abd3ba010f0dc365fa7c5119143b03529e87abb66"
+      },
+      "train/1": {
+        "shape": [
+          65931
+        ],
+        "dtype": "int64",
+        "sha256": "04a5432f7814f3f870f26f0a7abd5162f4c1a117e845033f836ea0ff20ef3673"
+      },
+      "val/0": {
+        "shape": [
+          7326,
+          32,
+          32,
+          3
+        ],
+        "dtype": "uint8",
+        "sha256": "0938d4cd6850095b935f7dc3d819e0122f3d7af3e36528cc96492e39cc6d2385"
+      },
+      "val/1": {
+        "shape": [
+          7326
+        ],
+        "dtype": "int64",
+        "sha256": "2ae55071925bb488d9a92a2e05f871e1da1c077ca0d306c974c03685ad24f354"
+      },
+      "test/0": {
+        "shape": [
+          26032,
+          32,
+          32,
+          3
+        ],
+        "dtype": "uint8",
+        "sha256": "d9450824511009532ca0f47ac5621a3ceb71bfc7169dca110eeeed7e52f772bd"
+      },
+      "test/1": {
+        "shape": [
+          26032
+        ],
+        "dtype": "int64",
+        "sha256": "e48928b73c8aeda0597997f294279171368a478e28633e2c312a6dd9601d4048"
+      }
+    },
+    "dropped_tickers": [],
+    "effective_tf32": false,
+    "extra_metrics_label": "EXPLORATORY: no secondary-metric p-values",
+    "merged_from": [
+      "shard-1",
+      "shard-2"
+    ],
+    "n_cells": 5,
+    "missing_cells": [],
+    "deferred_cells": []
+  }
+}

@@ -37,9 +37,9 @@ def _slice(path, start, end):
 
 
 CLASS = (r"^class EvieKF\(", r"^def eviekf_self_check\(")
-# In the fragment the self-check is followed by build_optimizer(); in the
+# In the fragment the self-check is followed by MuonEvie; in the
 # package it is followed by the split_step section banner, or by end of file.
-CHECK = (r"^def eviekf_self_check\(", r"^def build_optimizer\(|^# ----")
+CHECK = (r"^def eviekf_self_check\(", r"^class MuonEvie\(|^# ----")
 CONSTS = (r"^EVIEKF_BETAS\b", r"^EVIEKF_GAMMA_GRID\b")
 
 

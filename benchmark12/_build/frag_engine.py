@@ -18,7 +18,7 @@
 
 # Which optimizer set this file runs: the main 8 (default), the Evie-KF
 # ablation ladder for the generated benchmark12/ablation/ files
-# (TASK["opt_set"] == "ablation", claude_optim.md sec 2/3), or the trimmed
+# (TASK["opt_set"] == "ablation", optimizer specification sec 2/3), or the trimmed
 # scale-generalization arm set for benchmark12/scalegen/ files
 # (TASK["opt_set"] == "scalegen", evie-scalegen-spec.md sec 1). Every loop
 # below iterates ACTIVE_OPT_NAMES, never OPT_NAMES directly.
@@ -49,7 +49,7 @@ if _ARMS_ENV:
                          f"run (its arms are {ACTIVE_OPT_NAMES})")
     ACTIVE_OPT_NAMES = [a for a in ACTIVE_OPT_NAMES if a in _want]
 
-# ---- graceful stop: flush the in-progress cell before exiting (CLAUDE.md 6) --
+# ---- graceful stop: flush the in-progress cell before exiting (benchmark protocol 6) --
 _STOP = {"flag": False, "sig": None}
 
 
@@ -88,7 +88,7 @@ _ENV_ERROR_MARKERS = (
 def classify_exception(e):
     """'env'  -> environment/hardware/build problem: re-raise, abort the file.
     'numerical' -> this one cell blew up (NaN/inf/shape from a bad LR): record
-    it as a failed cell and keep going.  (CLAUDE.md sec 6: never swallow the
+    it as a failed cell and keep going.  (benchmark protocol sec 6: never swallow the
     first kind as if it were the second.)"""
     txt = f"{type(e).__name__}: {e}".lower()
     if isinstance(e, (torch.cuda.OutOfMemoryError,)):
@@ -101,7 +101,7 @@ def classify_exception(e):
 
 
 def _preflight_eviekf_self_check():
-    # Evie-KF Kronecker self-check (claude_optim.md sec 4.3.3): dense-vs-factored
+    # Evie-KF Kronecker self-check (optimizer specification sec 4.3.3): dense-vs-factored
     # (B kron A)^-1/2 parity + the gamma=0 identity. Cheap, CPU-only math -- runs
     # for every file regardless of CUDA/CPU/SMOKE, because a vec-ordering/eigh
     # bug here would silently produce a meaningless table, so abort in one
@@ -110,6 +110,12 @@ def _preflight_eviekf_self_check():
     # be a cheap correctness gate before spending GPU time -- never exercised it.)
     try:
         _sc = eviekf_self_check()
+        if any(a in ("EvieKFlag", "EvieKFrb", "EvieKFmrb") for a in ACTIVE_OPT_NAMES):
+            evie_controls_self_check()
+            log("[preflight] Evie control nesting/lag/basis/telemetry/resume checks OK")
+        if any(a in ("MuonEvie", "MuonEvieFix") for a in ACTIVE_OPT_NAMES):
+            muonevie_self_check()
+            log("[preflight] MuonEvie nesting/isolation/resume self-check OK")
         log(f"[preflight] EvieKF self-check OK  (factored-vs-dense "
             f"{_sc['factored_vs_dense']:.1e}, gamma=0 identity "
             f"{_sc['gamma0_identity']:.1e})")
@@ -120,12 +126,19 @@ def _preflight_eviekf_self_check():
 def preflight():
     """Verify CUDA is actually usable BEFORE any real training, so a broken
     torch/GPU stack fails in one sentence now instead of 10 optimizers deep with
-    a raw traceback (CLAUDE.md sec 6)."""
+    a raw traceback (benchmark protocol sec 6)."""
+    if os.environ.get("BENCH12_TORCH_THREADS"):
+        _threads = int(os.environ["BENCH12_TORCH_THREADS"])
+        if _threads < 1:
+            fail("BENCH12_TORCH_THREADS must be a positive integer")
+        torch.set_num_threads(_threads)
     if not torch.cuda.is_available():
         if os.environ.get("ALLOW_CPU") == "1" or SMOKE:
             log("[preflight] CUDA not available; ALLOW_CPU/SMOKE set -> running on CPU")
             _preflight_eviekf_self_check()
             return
+        if TASK.get("extra_metrics"):
+            fail("CUDA is not available. Use the supplied GPU server, or ALLOW_CPU=1 for a CPU correctness run.")
         fail("CUDA is not available. This harness targets a single RTX A6000. "
              "Set ALLOW_CPU=1 only for a CPU correctness smoke test.")
     try:
@@ -151,13 +164,26 @@ def preflight():
     log(f"[preflight] OK: {name}  {sm}  torch={torch.__version__}  "
         f"arch_list={arch_list}")
     _preflight_eviekf_self_check()
+    _tf = os.environ.get("BENCH12_TF32")
+    if _tf is not None and _tf not in ("0", "1"):
+        fail("BENCH12_TF32 must be 0 or 1")
+    if _tf is not None or TASK.get("allow_tf32", False):
+        _enabled = (_tf == "1") if _tf is not None else True
+        if _enabled and cap[0] < 8:
+            log(f"[tf32] requested but GPU capability {cap[0]}.{cap[1]} does not support it; running float32")
+            _enabled = False
+        torch.backends.cuda.matmul.allow_tf32 = _enabled
+        torch.backends.cudnn.allow_tf32 = _enabled
+        log(f"[preflight] TF32={int(_enabled)} after self-checks; state fp32, eigh fp64")
+    _free, _total = torch.cuda.mem_get_info()
+    log(f"[preflight] device={torch.cuda.get_device_name(0)} free={_free/2**30:.2f} GiB total={_total/2**30:.2f} GiB")
 
 
 # ---------------------------------------------------------------------------
 #  Atomic checkpoint IO. tmp name carries PID + randomness so two processes
 #  sharing a directory (e.g. a network mount) still cannot collide; the real
 #  file is only ever replaced via os.replace after fsync; the previous good
-#  copy is rotated to .bak first (CLAUDE.md sec 6).
+#  copy is rotated to .bak first (benchmark protocol sec 6).
 # ---------------------------------------------------------------------------
 def atomic_torch_save(obj, path):
     d = os.path.dirname(path) or "."
@@ -192,6 +218,8 @@ def _read_json(path, default):
             with open(path) as fh:
                 return json.load(fh)
         except Exception as e:
+            if TASK.get("extra_metrics"):
+                raise RuntimeError(f"{path} is unreadable; preserving it instead of resetting recorded results. Restore a valid copy before resuming.") from e
             log(f"[warn] {path} unreadable ({e!r}); starting fresh")
     return default
 
@@ -220,6 +248,21 @@ def _json_default(o):
 #  LR schedule -- manual cosine so it works with Muon's two param groups
 #  (different base LRs) and needs no scheduler state in the checkpoint.
 # ---------------------------------------------------------------------------
+def _fresh_epochs(loader):
+    """Endless batches that re-iterate `loader` each epoch (TASK["fresh_epochs"]).
+
+    Unlike itertools.cycle(loader), nothing is stored: each epoch asks the
+    DataLoader for a new iterator, so its sampler reshuffles and the dataset's
+    random augmentation is drawn again."""
+    while True:
+        n = 0
+        for batch in loader:
+            n += 1
+            yield batch
+        if n == 0:
+            raise RuntimeError("train loader produced no batches")
+
+
 def cosine_factor(step, total):
     if total <= 1:
         return 1.0
@@ -266,7 +309,7 @@ def _better(a, b):
 
 
 def _absurd_primary(v, peer_median=None):
-    """Absolute + peer-relative sanity (CLAUDE.md sec 6: an absolute range, not
+    """Absolute + peer-relative sanity (benchmark protocol sec 6: an absolute range, not
     just 'worse than this run's own best')."""
     if not _is_finite(v):
         return True
@@ -284,7 +327,7 @@ def _absurd_primary(v, peer_median=None):
 
 def _infer_param_roles(model):
     """{param: role} for the Evie-KF per-module-category gain breakdown
-    (claude_optim.md sec 4.3.5). Substring match on the qualified parameter
+    (optimizer specification sec 4.3.5). Substring match on the qualified parameter
     name; checked against the actual module names in the language GPT
     (wte/wpe/qkv/proj/fc1/fc2/lm_head), the vision ResNet (conv/bn/fc) and the
     finance MLP (net.N) -- vision/finance mostly land in "other", which is fine.
@@ -363,14 +406,16 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         model = build_model(data, unit).to(DEVICE)
         optimizer = build_optimizer(opt_name, model, lr, adamw_lr=adamw_lr,
                                     knob=knob,
-                                    eviekf_maxf=TASK.get("eviekf_maxf"))
+                                    eviekf_maxf=TASK.get("eviekf_maxf"),
+                                    matrix_lr=TASK.get("muon_matrix_lr"),
+                                    telemetry_extra=bool(TASK.get("extra_metrics")))
         base_lrs = optimizer_lr_scale(optimizer)
         start_step = 0
         best_val = math.inf if PRIMARY_LOWER_BETTER else -math.inf
         best_state = None
         acc = dict(clip_events=0, step_sq_sum=0.0, step_sq_n=0, n_params=0,
                    wall=0.0, hess_norms=[], val_curve=[],
-                   # --- descriptive-only diagnostics (CLAUDE.md sec 9.5 dir.):
+                   # --- descriptive-only diagnostics (benchmark protocol sec 9.5 dir.):
                    # recorded per cell, NEVER significance-tested. Primary stays
                    # the one pre-registered metric per domain. ---
                    grad_norms=[], theta_sq_sum=0.0, uwr_sum=0.0, uwr_n=0,
@@ -389,7 +434,9 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         model.load_state_dict(ck["model"])
         optimizer = build_optimizer(opt_name, model, lr, adamw_lr=adamw_lr,
                                     knob=knob,
-                                    eviekf_maxf=TASK.get("eviekf_maxf"))
+                                    eviekf_maxf=TASK.get("eviekf_maxf"),
+                                    matrix_lr=TASK.get("muon_matrix_lr"),
+                                    telemetry_extra=bool(TASK.get("extra_metrics")))
         optimizer.load_state_dict(ck["optimizer"])
         base_lrs = ck["base_lrs"]
         start_step = ck["step"]
@@ -402,6 +449,22 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         log(f"[resume] {tag} from step {start_step}/{total_steps}")
 
     params = [p for p in model.parameters() if p.requires_grad]
+    extra = bool(TASK.get("extra_metrics")) and not is_lr_search
+    speed = os.environ.get("BENCH12_SPEEDTEST") == "1"
+    _init = [p.detach().cpu().clone() for p in params] if extra and ck is None else None
+    if extra:
+        acc.setdefault("x_train_loss_curve", [])
+        acc.setdefault("x_spikes", 0); acc.setdefault("x_spike_max", 0.)
+        acc.setdefault("x_spike_ema", None)
+        acc.setdefault("x_opt_times", []); acc.setdefault("x_fb_times", [])
+    _speed_times = []
+    _full_units = None
+    if TASK.get("assert_param_range") and not SMOKE:
+        _count = sum(p.numel() for p in params)
+        log(f"[model] {_count:,} trainable parameters")
+        _lo, _hi = TASK["assert_param_range"]
+        if not _lo <= _count <= _hi:
+            raise ValueError(f"Model has {_count} parameters outside [{_lo},{_hi}]")
     hessian_consumer = opt_name in HESSIAN_CONSUMERS
     noise_consumer = opt_name in NOISE_CONSUMERS      # split-batch noise hook
     # Every optimizer takes the split path on a BatchNorm model, so the Evie
@@ -430,7 +493,20 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         fwd_flops = float(estimate_fwd_flops(model, BATCH_SIZE))
     except Exception:
         fwd_flops = float("nan")
-    loader_iter = itertools.cycle(train_loader)
+    # itertools.cycle() stores the batches of its first pass and replays them,
+    # so every epoch after the first reuses epoch 1's shuffle order AND its
+    # augmented images (the random crops/flips are never redrawn). That is the
+    # behaviour of every run up to 2026-11-11 and stays the default, so those
+    # runs remain reproducible. TASK["fresh_epochs"] (opt-in, new tasks only)
+    # re-iterates the DataLoader each epoch instead: a new shuffle and new
+    # augmentation draws per epoch, nothing else changed.
+    if TASK.get("fresh_epochs"):
+        loader_iter = _fresh_epochs(train_loader)
+        log(f"[data] {tag}: fresh_epochs=True -> the DataLoader is re-iterated "
+            f"every epoch (new shuffle + new augmentation draws); the default "
+            f"replays the first epoch's batches")
+    else:
+        loader_iter = itertools.cycle(train_loader)
     if start_step > 0:
         # the DataLoader shuffle order is fixed by its seeded generator, so
         # skipping (start_step mod len) batches restores the exact (x, y)
@@ -480,6 +556,11 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
             _log_fh.flush()
             sys.exit(0)
 
+        _timed = extra and step % 50 == 0
+        if _timed or speed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            _step_start = time.perf_counter()
+            _fb_start = _step_start
         batch = next(loader_iter)
         inputs, targets = batch_to_device(batch)
 
@@ -487,9 +568,12 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         p_before = ([p.detach().clone() for p in params] if measure_step else None)
 
         optimizer.zero_grad(set_to_none=True)
+        if _timed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            _fb_start=time.perf_counter()
         _ga = _gb = None
         if split_batch:
-            # Split-batch (claude_optim.md sec 4.3.1): two DISJOINT half batches,
+            # Split-batch (optimizer specification sec 4.3.1): two DISJOINT half batches,
             # one fwd+bwd each -- same examples, same total FLOPs as one
             # full-batch backward, no extra data. p.grad <- (gA+gB)/2. For a
             # noise consumer the noise sample delta = (gA-gB)/2 is additionally
@@ -539,6 +623,9 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
             loss.backward()
             loss_v = float(loss.detach().item())
 
+        if _timed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            acc["x_fb_times"].append(time.perf_counter()-_fb_start)
         if not math.isfinite(loss_v):
             diverged, fail_reason = True, f"non-finite loss at step {step}"
             log(f"[diverge] {tag}: {fail_reason}")
@@ -566,6 +653,13 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
             _ga = _gb = None
 
         # descriptive: EMA of the train loss + snapshots at 25/50/75% of budget
+        if extra:
+            _ema = acc["x_spike_ema"]
+            _ratio = loss_v / max(abs(_ema), 1e-30) if _ema is not None else 1.
+            if step >= 100:
+                acc["x_spikes"] += int(_ratio > 3.)
+                acc["x_spike_max"] = max(acc["x_spike_max"], _ratio)
+            acc["x_spike_ema"] = loss_v if _ema is None else .99*_ema+.01*loss_v
         b = 0.98
         acc["train_loss_ema"] = (loss_v if acc["train_loss_ema"] is None
                                  else b * acc["train_loss_ema"] + (1 - b) * loss_v)
@@ -590,7 +684,17 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
                 log(f"[warn] {tag}: Hutchinson probe failed at step {step} ({e!r})")
 
         _apply_lr(optimizer, base_lrs, cosine_factor(step, total_steps))
+        if _timed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            _opt_start = time.perf_counter()
         optimizer.step()
+        if _timed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            acc["x_opt_times"].append(time.perf_counter()-_opt_start)
+        if speed:
+            if torch.cuda.is_available(): torch.cuda.synchronize()
+            if step >= 20:
+                _speed_times.append(time.perf_counter()-_step_start)
         step += 1
         if math.isfinite(fwd_flops):
             acc["flops"] += 3.0 * fwd_flops + (
@@ -619,6 +723,8 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
 
         if (step % EVAL_EVERY == 0) or (step == total_steps):
             acc["eval_wall"].append([step, acc["wall"] + (time.time() - t_wall)])
+            if extra:
+                acc["x_train_loss_curve"].append([step, acc["train_loss_ema"]])
             val_primary, _ = evaluate(model, val_loader, criterion)
             acc["val_curve"].append([step, val_primary])
             if _better(val_primary, best_val):
@@ -626,7 +732,7 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
                 best_state = {k: v.detach().cpu().clone()
                               for k, v in model.state_dict().items()}
             if noise_consumer:
-                # Evie-KF mechanism telemetry (claude_optim.md sec 4.3.4/4.3.5):
+                # Evie-KF mechanism telemetry (optimizer specification sec 4.3.4/4.3.5):
                 # descriptive ONLY -- never enters the Wilcoxon/Holm pipeline.
                 acc.setdefault("eviekf_diag", []).append({
                     "step": step,
@@ -638,6 +744,9 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
                     "gain_hi": float(getattr(optimizer, "gain_hi", float("nan"))),
                     "n_active_steps": int(getattr(optimizer, "n_active_steps", 0)),
                 })
+                if extra:
+                    for _name in EVIE_EXTRA_KEYS:
+                        acc["eviekf_diag"][-1][_name] = float(getattr(optimizer, _name, float("nan")))
                 _rg = getattr(optimizer, "role_gain", {}) or {}
                 if _rg:
                     acc["eviekf_role_gain"] = {
@@ -654,11 +763,19 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
 
     if best_state is not None:
         model.load_state_dict(best_state)
+    _extra_start=time.monotonic() if extra else None
+    _extra_deadline=(_extra_start+(5. if DOMAIN=="finance" else 90.)) if extra else None
     if is_lr_search:
         test_primary, test_aux = float("nan"), {}     # LR pick uses best_val only
     else:
         try:
-            test_primary, test_aux = evaluate(model, test_loader, criterion)
+            if TASK.get("extra_metrics") or TASK.get("opt_set") == "muonhybrid":
+                _test_start = time.monotonic()
+                test_primary, test_aux = evaluate(model, test_loader, criterion,
+                                                  extended_metrics=True, extra_deadline=_extra_deadline)
+                test_aux["test_eval_wall_s"] = time.monotonic() - _test_start
+            else:
+                test_primary, test_aux = evaluate(model, test_loader, criterion)
         except Exception as e:
             if classify_exception(e) == "env":
                 raise
@@ -727,7 +844,7 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
                     else float("nan")),
         "n_params": n_params,
         "val_curve": acc["val_curve"],
-        # ---- descriptive-only diagnostics (see CLAUDE.md sec 5: primary metric
+        # ---- descriptive-only diagnostics (see benchmark protocol sec 5: primary metric
         # per domain is the ONLY thing significance-tested; these are appendix /
         # behaviour telemetry, no p-values) ----
         "steps_to_best_val": steps_to_best_val,
@@ -791,7 +908,7 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
     })
     # n_active_steps == 0 at the end of a real run means set_noise() never fired
     # and Evie-KF silently ran as AdamW -- same severity class as a divergence
-    # flag (claude_optim.md sec 4.3.4), not a silent zero.
+    # flag (optimizer specification sec 4.3.4), not a silent zero.
     if (noise_consumer and not is_lr_search
             and step > int(getattr(optimizer, "warmup", EVIEKF_WARMUP)) + 1
             and _n_active == 0):
@@ -803,9 +920,69 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
         result["fail_reason"] = fail_reason
         log(f"[diverge] {tag}: {fail_reason}")
 
+    if TASK.get("opt_set") == "muonhybrid":
+        result.update(matrix_lr=TASK["muon_matrix_lr"],
+                      tokens_processed=step * BATCH_SIZE * int(TASK.get("ctx", GPT_CTX)),
+                      tuning_seed=(seed == LR_SEARCH_SEED),
+                      allow_tf32=bool(TASK.get("allow_tf32")),
+                      cuda_device=(torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU"),
+                      peak_reserved_mem_mb=(torch.cuda.max_memory_reserved() / 1024**2
+                                            if torch.cuda.is_available() else float("nan")))
+        result["tokens_per_s"] = result["tokens_processed"] / max(result["wall_s"], 1e-9)
+        result["eval_wall_curve"] = acc["eval_wall"]
+        result["test_eval_wall_s"] = test_aux.get("test_eval_wall_s", float("nan"))
+        result["test_perplexity"] = test_primary
+        result["optimizer_state_bytes"] = sum(v.numel()*v.element_size()
+            for state in optimizer.state.values() for v in state.values() if torch.is_tensor(v))
+        result["model_parameter_bytes"] = sum(p.numel()*p.element_size() for p in params)
+        mp, ep = split_params_for_muon(model)
+        result["muon_parameter_count"] = sum(p.numel() for p in mp)
+        result["aux_parameter_count"] = sum(p.numel() for p in ep)
+        result["aux_parameter_fraction"] = result["aux_parameter_count"] / n_params
+        result["metric_notes"] = {"bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+                                  "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+                                  "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"}
+    if speed:
+        result["speed_sec_per_step"] = (sum(_speed_times)/len(_speed_times) if _speed_times else None)
+    if extra:
+        result.update(eval_wall_curve=acc["eval_wall"], x_train_loss_curve=acc["x_train_loss_curve"],
+                      x_resumed=ck is not None, x_loss_spike_count=acc["x_spikes"],
+                      x_loss_spike_max_ratio=acc["x_spike_max"],
+                      x_grad_norm_max=max(gn) if gn else None,
+                      x_grad_norm_p50=float(np.median(gn)) if gn else None,
+                      x_grad_norm_cv=float(np.std(gn)/np.mean(gn)) if gn and np.mean(gn)>0 else None,
+                      x_opt_time_s=float(np.mean(acc["x_opt_times"])) if acc["x_opt_times"] else None,
+                      x_fwdbwd_time_s=float(np.mean(acc["x_fb_times"])) if acc["x_fb_times"] else None,
+                      x_opt_state_mb=_tensor_bytes(optimizer.state)/2**20,
+                      x_param_mb=4*n_params/2**20, x_errors={})
+        _a, _b = result["x_opt_time_s"], result["x_fwdbwd_time_s"]
+        result["x_opt_time_frac"] = _a/(_a+_b) if _a is not None and _b is not None and _a+_b>0 else None
+        for _k, _v in test_aux.items():
+            result[_k] = _v
+        result["x_errors"].update(test_aux.get("x_errors", {}))
+        result.update(landscape_extras(model, val_loader, criterion, params, _init,
+                                      _infer_param_roles(model), result["x_errors"], deadline=_extra_deadline))
+        if DOMAIN == "vision":
+            _extra_train_accuracy(model, data, criterion, result, deadline=_extra_deadline)
+        result["x_end_eval_and_extra_wall_s"]=time.monotonic()-_extra_start
+        if DOMAIN == "language":
+            result["tokens_per_s"] = step*BATCH_SIZE*int(TASK.get("ctx",GPT_CTX))/max(acc["wall"],1e-9)
+        for _name in EVIE_EXTRA_KEYS:
+            result["eviekf_"+_name+"_mean"] = _dstat(_name,
+                (lambda v:v[-1]) if _name=="eig_refresh_time_s" else np.min if _name=="last_c_min" else np.mean)
+        result["eviekf_c_mean"] = result["eviekf_last_c_mean_mean"]
+        if ck is not None:
+            for _name in ["x_train_loss_curve","x_loss_spike_count","x_loss_spike_max_ratio","x_grad_norm_max", "x_grad_norm_p50", "x_grad_norm_cv", "x_opt_time_s", "x_fwdbwd_time_s", "x_opt_time_frac"]:
+                result[_name] = None
+                result["x_errors"][_name] = "resumed cell: full-run measurement unavailable"
+        for _key, _value in list(result.items()):
+            if (_key.startswith("x_") or _key in EXTRA_DOMAIN_KEYS.get(DOMAIN, [])
+                    or _key in {"eviekf_"+n+"_mean" for n in EVIE_EXTRA_KEYS} or _key=="eviekf_c_mean") and isinstance(_value, float) and not math.isfinite(_value):
+                result[_key] = None
+                result["x_errors"].setdefault(_key,"undefined for this sample")
     if is_lr_search:
         # LR selection uses the BEST-checkpoint val metric, never the last step
-        # (CLAUDE.md sec 6).
+        # (benchmark protocol sec 6).
         result["lr_search_score"] = best_val
     save_cell(complete=True, result=result)
     return result
@@ -814,9 +991,9 @@ def train_run(opt_name, data, unit, lr, adamw_lr, total_steps, seed,
 # ---------------------------------------------------------------------------
 #  LR search: 7-point half-decade grid per optimizer family, tuned at
 #  LR_SEARCH_STEPS (~25% of budget), 1 seed; boundary rule -> extend & re-search
-#  if the pick lands on a grid edge; then freeze (CLAUDE.md sec 5). Optimizers
+#  if the pick lands on a grid edge; then freeze (benchmark protocol sec 5). Optimizers
 #  in KNOB_GRID (the Evie-KF family: gamma; Shampoo: beta) get a SECOND axis
-#  searched jointly with LR, same discipline (claude_optim.md sec 4.3.2).
+#  searched jointly with LR, same discipline (optimizer specification sec 4.3.2).
 # ---------------------------------------------------------------------------
 def _score_lr(opt_name, data, units, lr, adamw_lr, knob=None):
     # LR-search runs are short (25% budget) and write NO checkpoint -- a full
@@ -825,9 +1002,23 @@ def _score_lr(opt_name, data, units, lr, adamw_lr, knob=None):
     # LR_JSON (see lr_search()).
     scores = []
     for unit in units:
-        r = train_run(opt_name, data, unit, lr, adamw_lr, LR_SEARCH_STEPS,
-                      LR_SEARCH_SEED, ckpt_path=None, is_lr_search=True, knob=knob)
-        s = r["lr_search_score"]
+        if TASK.get("extra_metrics") or TASK.get("opt_set") == "muonhybrid":
+            try:
+                r = train_run(opt_name, data, unit, lr, adamw_lr, LR_SEARCH_STEPS,
+                              LR_SEARCH_SEED, ckpt_path=None, is_lr_search=True, knob=knob)
+            except Exception as e:
+                if classify_exception(e) == "env":
+                    raise
+                log(f"[lr-search] failed trial {opt_name}/{unit}: {e!r}; continuing grid")
+                r = dict(lr_search_score=float("nan"), diverged=True, fail_reason=repr(e))
+            audit_path = os.path.join(TASK_DIR, "search_audit.json")
+            audit = _read_json(audit_path, {})
+            audit[f"{opt_name}|{unit}|{lr:.6e}|{knob}"] = r
+            _write_json(audit_path, audit)
+        else:
+            r = train_run(opt_name, data, unit, lr, adamw_lr, LR_SEARCH_STEPS,
+                          LR_SEARCH_SEED, ckpt_path=None, is_lr_search=True, knob=knob)
+        s = (float("nan") if TASK.get("extra_metrics") and r.get("diverged") else r["lr_search_score"])
         if _is_finite(s) and not _absurd_primary(s):
             scores.append(s)
     if not scores:
@@ -841,7 +1032,7 @@ def _safe(s):
 
 def search_lr_for(opt_name, data, units, adamw_lr, log_prefix="", knob=None):
     """One optimizer's 7-point half-decade LR grid + boundary-extend rule
-    (CLAUDE.md sec 5). Returns (best_lr, tried_scores, boundary_checks). Used by
+    (benchmark protocol sec 5). Returns (best_lr, tried_scores, boundary_checks). Used by
     lr_search() below and by the batch/model-size sweep drivers. `knob` (if
     given) is the fixed second-axis value the cells will run at -- the sweeps
     pass it so the LR is tuned at the SAME knob the sweep cell uses, not at
@@ -879,11 +1070,14 @@ def search_lr_for(opt_name, data, units, adamw_lr, log_prefix="", knob=None):
 
 def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
     """LR grid x optional knob grid (KNOB_GRID). Scored at LR_SEARCH_STEPS / 1
-    seed on the best-checkpoint val metric (CLAUDE.md sec 6). Boundary-extend on
+    seed on the best-checkpoint val metric (benchmark protocol sec 6). Boundary-extend on
     BOTH axes: if the LR pick lands on a grid edge, extend the LR grid at the
     chosen knob and re-search; likewise extend the knob grid at the chosen LR
-    (claude_optim.md sec 4.3.2 -- gamma=100 was edge-pinned once already at PoC
+    (optimizer specification sec 4.3.2 -- gamma=100 was edge-pinned once already at PoC
     scale). Returns (best_lr, best_knob, b_lr, b_knob)."""
+    explicit = (TASK.get("search_grid") or {}).get(opt_name)
+    if opt_name in ("MuonSub", "MuonEvie") and not explicit:
+        raise ValueError(f"{opt_name} requires an explicit fixed search grid")
     knobs = KNOB_GRID.get(opt_name)
     # FIXED knob (TASK["fixed_knob"]): search the LR grid ONLY, at a stated
     # second-axis value. This is the "same tuning budget as the baselines" arm
@@ -903,6 +1097,12 @@ def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
     lr_fixed = (TASK.get("fixed_lr") or {}).get(opt_name)
     lr_vals = ([float(lr_fixed)] if lr_fixed is not None
                else sorted(half_decade_grid(LR_GRID_CENTRE[opt_name])))
+    if explicit:
+        lr_vals = [float(v) for v in explicit["lr"]]
+        knob_vals = [None if v is None else float(v) for v in explicit["knob"]]
+        if not lr_vals or not knob_vals or any(not math.isfinite(v) or v <= 0
+                                               for v in lr_vals + [k for k in knob_vals if k is not None]):
+            raise ValueError("Hybrid search grid must contain finite positive values")
     scored = dict(prior.get("scored", {}))              # "lr|knob" -> median score
     b_lr = int(prior.get("boundary_checks_lr", 0))
     b_knob = int(prior.get("boundary_checks_knob", 0))
@@ -914,7 +1114,7 @@ def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
         for lr in lr_vals:
             for kn in knob_vals:
                 k = _key(lr, kn)
-                if k in scored and _is_finite(scored[k]):
+                if k in scored and (explicit or TASK.get("budget_no_extend") or _is_finite(scored[k])):
                     continue
                 scored[k] = _score_lr(opt_name, data, units, float(lr), adamw_lr,
                                       knob=kn)
@@ -936,7 +1136,9 @@ def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
 
     _ensure()
     bl, bk = _best()
-    while lr_fixed is None and bl in (lr_vals[0], lr_vals[-1]) and b_lr < 3:
+    if (explicit or TASK.get("budget_no_extend")) and not any(_is_finite(v) for v in scored.values()):
+        raise RuntimeError(f"{opt_name}: all fixed-grid trials failed; no frozen choice is valid")
+    while not explicit and not TASK.get("budget_no_extend") and lr_fixed is None and bl in (lr_vals[0], lr_vals[-1]) and b_lr < 3:
         b_lr += 1
         r = 10.0 ** 0.5
         at_low = (bl == lr_vals[0])
@@ -947,7 +1149,7 @@ def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
         lr_vals = sorted(set(lr_vals) | set(ext))
         _ensure()
         bl, bk = _best()
-    if knobs is not None and knob_fixed is None:
+    if not explicit and not TASK.get("budget_no_extend") and knobs is not None and knob_fixed is None:
         while bk in (knob_vals[0], knob_vals[-1]) and b_knob < 3:
             b_knob += 1
             ext = knob_grid_extend(knob_vals, at_low=(bk == knob_vals[0]))
@@ -961,6 +1163,10 @@ def _joint_lr_knob_search(opt_name, data, units, adamw_lr, prior, persist):
     persist(scored, b_lr, b_knob, lr_vals, knob_vals, complete=True,
             lr=bl, knob=bk)
     return float(bl), (None if bk is None else float(bk)), b_lr, b_knob
+
+
+def _adamw_lr(lr_used):
+    return lr_used.get("AdamW") if "AdamW" in lr_used else lr_used.get("AdamWwd")
 
 
 def lr_search(data):
@@ -1004,7 +1210,9 @@ def lr_search(data):
     # search is already complete, and this is where that is checked. Failing here
     # with a sentence beats silently training Muon's AdamW group at Muon's own lr,
     # which is a ~20x wrong learning rate and would look like a divergence.
-    if "Muon" in ACTIVE_OPT_NAMES and lr_used.get("AdamW") is None:
+    if ((not TASK.get("extra_metrics") and "Muon" in ACTIVE_OPT_NAMES and lr_used.get("AdamW") is None)
+            or (TASK.get("extra_metrics") and any(a in ACTIVE_OPT_NAMES for a in ("Muon", "Muonwd"))
+                and _adamw_lr(lr_used) is None and not any(a in ACTIVE_OPT_NAMES for a in ("AdamW", "AdamWwd")))):
         raise SystemExit(
             "Muon needs AdamW's frozen lr and this run does not have it. Either "
             "run AdamW in the same job (BENCH12_ARMS=AdamW,Muon), or attach a "
@@ -1012,12 +1220,26 @@ def lr_search(data):
             "AdamW machine's PAUSED/DONE archive does exactly that.")
 
     for opt_name in ACTIVE_OPT_NAMES:
+        if opt_name == "MuonEvieFix" and opt_name not in lr_used:
+            source = cached.get("MuonEvie", {})
+            if not source.get("complete"):
+                raise ValueError("MuonEvieFix requires completed MuonEvie search; run MuonEvie first")
+            trials = [(float(v), float(k.split("|")[0]))
+                      for k, v in source.get("grid", {}).items()
+                      if float(k.split("|")[1]) == 30.0 and _is_finite(v)]
+            if not trials:
+                raise ValueError("MuonEvieFix: no valid gamma=30 search trials")
+            selected = (min if PRIMARY_LOWER_BETTER else max)(trials, key=lambda x: x[0])
+            lr_used[opt_name], knob_used[opt_name] = selected[1], 30.0
+            cached[opt_name] = dict(lr=selected[1], knob=30.0, complete=True,
+                                    derived_from="MuonEvie", grid={})
+            _write_json(LR_JSON, cached)
         if opt_name in lr_used:
             log(f"[lr-search] {opt_name}: cached lr={lr_used[opt_name]:.3e}"
                 + ("" if knob_used.get(opt_name) is None
                    else f"  knob={knob_used[opt_name]:g}"))
             continue
-        adamw_lr = lr_used.get("AdamW")            # Muon reuses frozen AdamW lr
+        adamw_lr = _adamw_lr(lr_used)            # Muon reuses frozen AdamW lr
         entry = (cached.get(opt_name) if isinstance(cached.get(opt_name), dict)
                  else {})
         prior = {
@@ -1062,68 +1284,122 @@ def run_sweep(data, lr_used, knob_used=None):
     results = _read_json(RESULTS_JSON, {"cells": {}, "meta": {}})
     cells = results["cells"]
     units = main_units(data)
+    _all_units = list(units)
+    _slice = os.environ.get("BENCH12_UNIT_SLICE")
+    if _slice:
+        try:
+            _k,_n = map(int,_slice.split("/"))
+            if not (0 <= _k < _n): raise ValueError()
+        except ValueError:
+            fail("BENCH12_UNIT_SLICE must be k/n with 0 <= k < n")
+        units = units[_k::_n]
+    if TASK.get("opt_set") == "muonhybrid":
+        results["meta"].update(task_name=TASK_NAME, units=units, seeds=SEEDS,
+                               opt_names=list(ACTIVE_OPT_NAMES), opt_set="muonhybrid",
+                               primary_metric=PRIMARY_METRIC, lr_used=lr_used,
+                               knob_used=knob_used, ref_opt="MuonSub",
+                               expected_tasks=4, task_config=TASK, smoke=SMOKE,
+                               data_provenance=data.get("provenance"))
+        _write_json(RESULTS_JSON, results)
     total = len(ACTIVE_OPT_NAMES) * len(units) * len(SEEDS)
     log_sep("-")
     log(f"[sweep] {len(ACTIVE_OPT_NAMES)} optimizers x {len(units)} units x "
         f"{len(SEEDS)} seeds = {total} cells")
 
     done = 0
-    for opt_name in ACTIVE_OPT_NAMES:
-        for unit in units:
-            for seed in SEEDS:
-                ckey = f"{opt_name}|{unit}|{seed}"
-                if ckey in cells and cells[ckey].get("recorded"):
-                    done += 1
-                    continue
-                if torch.cuda.is_available():
-                    torch.cuda.reset_peak_memory_stats()
-                ckpt = os.path.join(CELL_DIR,
-                                    f"{_safe(opt_name)}__{_safe(unit)}__seed{seed}.pt")
-                try:
-                    r = train_run(opt_name, data, unit, lr_used[opt_name],
-                                  lr_used.get("AdamW"), MAX_STEPS, seed, ckpt,
-                                  is_lr_search=False, knob=knob_used.get(opt_name))
-                    r["recorded"] = True
-                    if _absurd_primary(r["primary"]):
-                        r["diverged"] = True
-                        r["fail_reason"] = (r.get("fail_reason")
-                                            or "primary outside absolute sane range")
-                    cells[ckey] = r
-                except SystemExit:
-                    raise
-                except Exception as e:
-                    kind = classify_exception(e)
-                    if kind == "env":
-                        log(f"[sweep] ENVIRONMENT error in {ckey}: {e!r}")
-                        log(traceback.format_exc())
-                        fail(f"environment/CUDA error while running {ckey}: {e!r}. "
-                             f"This is NOT a diverged run -- fix the environment. "
-                             f"Completed cells are safe; re-run to resume.")
-                    log(f"[sweep] numerical failure in {ckey}: {e!r} -> marking "
-                        f"cell failed, continuing")
-                    log(traceback.format_exc())
-                    cells[ckey] = {
-                        "opt": opt_name, "unit": unit, "seed": seed,
-                        "lr_used": lr_used[opt_name],
-                        "knob_used": knob_used.get(opt_name),
-                        "primary": float("nan"),
-                        "diverged": True, "fail_reason": f"exception: {e!r}",
-                        "recorded": True,
-                    }
-                done += 1
-                _write_json(RESULTS_JSON, results)
-                log(f"[sweep] {done}/{total}  {ckey}  "
-                    f"primary={cells[ckey].get('primary')}  "
-                    f"diverged={cells[ckey].get('diverged')}")
+    alias_logged = False
+    planned = [(a,u,s) for a in ACTIVE_OPT_NAMES for u in units for s in SEEDS]
+    cell_slice = os.environ.get("BENCH12_CELL_SLICE")
+    if cell_slice:
+        _ck,_cn = _parse_slice(cell_slice,"BENCH12_CELL_SLICE")
+        planned.sort(key=lambda c:(c[2],ACTIVE_OPT_NAMES.index(c[0]),str(c[1])))
+        planned = [c for i,c in enumerate(planned) if i % _cn == _ck]
+        total=len(planned)
+        log(f"[cell-shard] {cell_slice}: {total} assigned cells")
+    results["meta"].update(task_name=TASK_NAME, domain=DOMAIN, units=units, all_units=_all_units,
+        seeds=SEEDS,opt_names=list(ACTIVE_OPT_NAMES),cell_slice=cell_slice,
+        shard_tag=os.environ.get("BENCH12_SHARD_TAG",""),lr_used=lr_used,knob_used=knob_used,
+        expected_cell_keys=[f"{a}|{u}|{s}" for a in ACTIVE_OPT_NAMES for u in _all_units for s in SEEDS],
+        task_config=TASK,smoke=SMOKE,opt_set=TASK.get("opt_set","main"))
+    if cell_slice or os.environ.get("BENCH12_SHARD_TAG"):
+        _write_json(RESULTS_JSON,results)
+    for opt_name, unit, seed in planned:
+        ckey = f"{opt_name}|{unit}|{seed}"
+        if ckey in cells and cells[ckey].get("recorded"):
+            done += 1
+            continue
+        source_key = f"MuonEvie|{unit}|{seed}"
+        if (opt_name == "MuonEvieFix"
+                and lr_used.get(opt_name) == lr_used.get("MuonEvie")
+                and knob_used.get(opt_name) == knob_used.get("MuonEvie")
+                and cells.get(source_key, {}).get("recorded")):
+            cells[ckey] = copy.deepcopy(cells[source_key])
+            cells[ckey].update(opt=opt_name, aliased_from=source_key, recorded=True)
+            if not alias_logged:
+                log("[alias] MuonEvieFix reuses identical MuonEvie cells; paired difference is zero by construction")
+                alias_logged = True
+            done += 1
+            _write_json(RESULTS_JSON, results)
+            continue
+        if (cell_slice and opt_name == "MuonEvieFix"
+                and lr_used.get(opt_name)==lr_used.get("MuonEvie")
+                and knob_used.get(opt_name)==knob_used.get("MuonEvie")):
+            cells[ckey]=dict(opt=opt_name,unit=unit,seed=seed,deferred=True,
+                aliased_from=source_key,recorded=False)
+            log(f"[deferred] {ckey}: source {source_key} belongs to another shard")
+            _write_json(RESULTS_JSON,results)
+            continue
+        if torch.cuda.is_available():
+            torch.cuda.reset_peak_memory_stats()
+        ckpt = os.path.join(CELL_DIR,
+                            f"{_safe(opt_name)}__{_safe(unit)}__seed{seed}.pt")
+        try:
+            r = train_run(opt_name, data, unit, lr_used[opt_name],
+                          _adamw_lr(lr_used), MAX_STEPS, seed, ckpt,
+                          is_lr_search=False, knob=knob_used.get(opt_name))
+            r["recorded"] = True
+            if _absurd_primary(r["primary"]):
+                r["diverged"] = True
+                r["fail_reason"] = (r.get("fail_reason")
+                                    or "primary outside absolute sane range")
+            cells[ckey] = r
+        except SystemExit:
+            raise
+        except Exception as e:
+            kind = classify_exception(e)
+            if kind == "env":
+                log(f"[sweep] ENVIRONMENT error in {ckey}: {e!r}")
+                log(traceback.format_exc())
+                fail(f"environment/CUDA error while running {ckey}: {e!r}. "
+                     f"This is NOT a diverged run -- fix the environment. "
+                     f"Completed cells are safe; re-run to resume.")
+            log(f"[sweep] numerical failure in {ckey}: {e!r} -> marking "
+                f"cell failed, continuing")
+            log(traceback.format_exc())
+            cells[ckey] = {
+                "opt": opt_name, "unit": unit, "seed": seed,
+                "lr_used": lr_used[opt_name],
+                "knob_used": knob_used.get(opt_name),
+                "primary": float("nan"),
+                "diverged": True, "fail_reason": f"exception: {e!r}",
+                "recorded": True,
+            }
+        done += 1
+        _write_json(RESULTS_JSON, results)
+        if TASK.get("opt_set") == "muonhybrid":
+            write_metrics([RESULTS_JSON], os.path.join(TASK_DIR, "metrics.csv"))
+        log(f"[sweep] {done}/{total}  {ckey}  "
+            f"primary={cells[ckey].get('primary')}  "
+            f"diverged={cells[ckey].get('diverged')}")
 
-    # ---- peer-relative divergence pass (CLAUDE.md sec 6): a cell broken from
+    # ---- peer-relative divergence pass (benchmark protocol sec 6): a cell broken from
     # early on has no 'own best' to compare against, so compare to peers. ----
     healthy = [c["primary"] for c in cells.values()
-               if not c.get("diverged") and _is_finite(c.get("primary"))]
+               if not c.get("deferred") and not c.get("diverged") and _is_finite(c.get("primary"))]
     peer_median = float(np.median(healthy)) if healthy else None
     if peer_median is not None:
         for ckey, c in cells.items():
-            if not c.get("diverged") and _absurd_primary(c.get("primary"), peer_median):
+            if not c.get("deferred") and not c.get("diverged") and _absurd_primary(c.get("primary"), peer_median):
                 c["diverged"] = True
                 c["fail_reason"] = (c.get("fail_reason")
                                     or f"primary {c.get('primary'):.4g} is "
@@ -1136,12 +1412,29 @@ def run_sweep(data, lr_used, knob_used=None):
         "knob_used": knob_used, "opt_names": list(ACTIVE_OPT_NAMES),
         "opt_set": TASK.get("opt_set", "main"),
         "seeds": SEEDS, "max_steps": MAX_STEPS, "units": units,
+        "all_units": _all_units, "unit_slice": _slice,
+        "cell_slice": cell_slice, "shard_tag": os.environ.get("BENCH12_SHARD_TAG",""),
+        "expected_cell_keys": [f"{a}|{u}|{s}" for a in ACTIVE_OPT_NAMES for u in _all_units for s in SEEDS],
         "peer_median_primary": peer_median,
         "nonstandard_ppl_caveat": TASK.get("nonstandard_ppl_caveat"),
         "torch": torch.__version__, "device": str(DEVICE),
         "timestamp": datetime.now().isoformat(),
     }
+    if TASK.get("extra_metrics"):
+        results["meta"].update(task_config=TASK,smoke=SMOKE,extra_metrics=True,
+                               data_provenance=data.get("provenance"), dropped_tickers=data.get("dropped_tickers",[]),
+                               effective_tf32=bool(torch.backends.cuda.matmul.allow_tf32),
+                               extra_metrics_label="EXPLORATORY: no secondary-metric p-values")
+    if TASK.get("opt_set") == "muonhybrid":
+        results["meta"].update(ref_opt="MuonSub", task_config=TASK, smoke=SMOKE,
+                               data_provenance=data.get("provenance"),
+                               expected_tasks=4,
+                               cuda_device=(torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU"),
+                               cuda_total_memory_mb=(torch.cuda.get_device_properties(0).total_memory / 1024**2
+                                                     if torch.cuda.is_available() else None))
     _write_json(RESULTS_JSON, results)
+    if TASK.get("opt_set") == "muonhybrid":
+        write_metrics([RESULTS_JSON], os.path.join(TASK_DIR, "metrics.csv"))
     return results
 
 
@@ -1164,7 +1457,7 @@ def _complete_units(cells, units):
     REWARDS instability -- an optimizer that blows up on the 15 hardest tickers
     of a 49-ticker panel gets its panel number computed over the 34 easy ones it
     survived, and then looks better than an optimizer that finished all 49. It
-    is the same class of bug CLAUDE.md sec 6 flags twice. Dropping a unit for
+    is the same class of bug benchmark protocol sec 6 flags twice. Dropping a unit for
     EVERY optimizer whenever ANY optimizer failed there keeps the comparison
     paired, which is what the whole design rests on.
     """
@@ -1223,7 +1516,7 @@ def aggregate_and_report(results):
             f"{len(dropped)} where some optimizer diverged or failed: "
             f"{dropped[:12]}{' ...' if len(dropped) > 12 else ''}")
         log("  (dropped for ALL optimizers, not just the failing one -- keeps the "
-            "comparison paired; see CLAUDE.md sec 6)")
+            "comparison paired; see benchmark protocol sec 6)")
 
     task_number = {}
     task_number_mean = {}
@@ -1268,7 +1561,7 @@ def aggregate_and_report(results):
             f"({PRIMARY_METRIC}={finite_task[best_opt]:.6g})")
 
     # optional within-task paired test across units (finance panels: ~30 tickers)
-    ref = "AdamW" if "AdamW" in ACTIVE_OPT_NAMES else ACTIVE_OPT_NAMES[0]
+    ref = TASK.get("ref_opt") or ("AdamW" if "AdamW" in ACTIVE_OPT_NAMES else ACTIVE_OPT_NAMES[0])
     if len(units_c) >= 6:
         log_sep("-")
         log(f"  within-task paired Wilcoxon across {len(units_c)} complete-case "
@@ -1305,7 +1598,7 @@ def aggregate_and_report(results):
         "per_seed_value_by_optimizer": per_seed,
         "lr_used": lr_used, "knob_used": knob_used, "units": units, "seeds": SEEDS,
         # complete-case bookkeeping -- report these in the paper, they are the
-        # audit trail for how divergences were handled (CLAUDE.md sec 6)
+        # audit trail for how divergences were handled (benchmark protocol sec 6)
         "unit_reduction": "median",
         "units_complete_case": units_c,
         "n_units_total": len(units),
@@ -1352,7 +1645,7 @@ def _write_csv(cells, units):
             "diverged", "fail_reason", "steps_run", "wall_s", "sec_per_step",
             "mean_step_size",
             "clip_freq", "peak_mem_mb", "hess_norm", "hess_cv", "n_params",
-            # descriptive-only diagnostics (no p-values -- CLAUDE.md sec 5)
+            # descriptive-only diagnostics (no p-values -- benchmark protocol sec 5)
             "steps_to_best_val", "steps_to_90pct_best",
             "frac_budget_to_90pct_best", "wallclock_to_90pct_best_s",
             "train_loss_at_25pct", "train_loss_at_50pct", "train_loss_at_75pct",
@@ -1362,7 +1655,7 @@ def _write_csv(cells, units):
             "weight_norm_start", "weight_norm_end", "weight_norm_growth",
             "throughput_samples_per_s", "flops_per_step_est", "total_flops_est",
             "hess_trace", "hess_top_eig",
-            # Evie-KF mechanism telemetry (descriptive -- claude_optim.md 4.3.4/5)
+            # Evie-KF mechanism telemetry (descriptive -- optimizer specification 4.3.4/5)
             "eviekf_cos_mean", "eviekf_cos_min", "eviekf_b_simple_mean",
             "eviekf_tr_sigma_mean", "eviekf_eff_rank_mean", "eviekf_gain_lo_min",
             "eviekf_gain_hi_max", "eviekf_n_active_steps"] \
@@ -1379,7 +1672,54 @@ def _write_csv(cells, units):
     log(f"  wrote {CSV_PATH}")
 
 
+def _hybrid_manifest(data):
+    """Pin data and protocol to prevent accidentally resuming different runs."""
+    provenance = {}
+    arrays = []
+    if DOMAIN == "finance":
+        arrays = [(str(unit)+"/"+str(i), arr) for unit,values in sorted(data["cache"].items()) for i,arr in enumerate(values)]
+    else:
+        for split in ("train", "val", "test"):
+            values=data[split] if DOMAIN == "vision" else [data[split]]
+            arrays.extend((split+"/"+str(i),arr) for i,arr in enumerate(values))
+    for split, values in arrays:
+        arr = np.ascontiguousarray(values)
+        view = memoryview(arr).cast("B")
+        sha = hashlib.sha256()
+        for start in range(0, len(view), 8*1024*1024):
+            sha.update(view[start:start+8*1024*1024])
+        provenance[split] = dict(shape=list(arr.shape), dtype=str(arr.dtype), sha256=sha.hexdigest())
+    data["provenance"] = provenance
+    manifest = dict(task=TASK, smoke=SMOKE, batch_size=BATCH_SIZE,
+                    max_steps=MAX_STEPS, search_steps=LR_SEARCH_STEPS,
+                    seeds=SEEDS, data=provenance)
+    path = os.path.join(TASK_DIR, "run_manifest.json")
+    if os.path.exists(path) and _read_json(path, None) != manifest:
+        raise ValueError("Hybrid checkpoint data/protocol differs from this run; use a fresh BENCH12_CKPT_ROOT")
+    _write_json(path, manifest)
+
+
+def _parse_slice(value,name):
+    try:
+        k,n=map(int,value.split("/"))
+        if not 0<=k<n:raise ValueError()
+        return k,n
+    except (ValueError,AttributeError):
+        fail(f"{name} must be k/n with 0 <= k < n and n >= 1")
+
+
+def _stage_finished(stage):
+    if os.environ.get("BENCH12_STAGE") or os.environ.get("BENCH12_CELL_SLICE") or os.environ.get("BENCH12_SHARD_TAG"):
+        _write_json(os.path.join(TASK_DIR,"stage_complete.json"),dict(stage=stage,
+            shard_tag=os.environ.get("BENCH12_SHARD_TAG",""),cell_slice=os.environ.get("BENCH12_CELL_SLICE"),
+            arms=list(ACTIVE_OPT_NAMES)))
+
+
 def main():
+    if os.environ.get("BENCH12_CELL_SLICE"):
+        _parse_slice(os.environ["BENCH12_CELL_SLICE"],"BENCH12_CELL_SLICE")
+    if os.environ.get("BENCH12_SHARD_TAG"):
+        _write_json(os.path.join(TASK_DIR,"shard_info.json"),dict(shard_tag=os.environ["BENCH12_SHARD_TAG"]))
     log_sep("=")
     log(f"  {TASK_NAME}  |  domain={DOMAIN}  device={DEVICE}  torch={torch.__version__}")
     log(f"  primary={PRIMARY_METRIC}  seeds={SEEDS}  max_steps={MAX_STEPS}  "
@@ -1389,9 +1729,32 @@ def main():
     log_sep("=")
     preflight()
     data = prepare_data()
-    lr_used, knob_used = lr_search(data)
+    if TASK.get("opt_set") == "muonhybrid" or TASK.get("extra_metrics"):
+        _hybrid_manifest(data)
+    if os.environ.get("BENCH12_SPEEDTEST") == "1":
+        _speedtest(data)
+        return
+    stage = os.environ.get("BENCH12_STAGE", "all")
+    if stage not in ("all", "search", "sweep"):
+        fail("BENCH12_STAGE must be all, search, or sweep")
+    if stage == "sweep":
+        _cached = _read_json(LR_JSON, {})
+        if any(not isinstance(_cached.get(a),dict) or not _cached[a].get("complete") or not _is_finite(_cached[a].get("lr")) for a in ACTIVE_OPT_NAMES):
+            fail("sweep stage requires lr_search.json with every active arm complete")
+        lr_used={a:float(_cached[a]["lr"]) for a in _cached if isinstance(_cached[a],dict) and _cached[a].get("complete") and "lr" in _cached[a]}
+        knob_used={a:_cached[a].get("knob") for a in lr_used}
+    else:
+        lr_used, knob_used = lr_search(data)
+    if stage == "search":
+        log("[stage] search complete; no sweep cells trained")
+        _stage_finished("search")
+        return
     results = run_sweep(data, lr_used, knob_used)
-    aggregate_and_report(results)
+    if os.environ.get("BENCH12_UNIT_SLICE") or os.environ.get("BENCH12_CELL_SLICE"):
+        log("sharded run: aggregate with merge_shards.py")
+    else:
+        aggregate_and_report(results)
+    _stage_finished(stage)
     log(f"  DONE {datetime.now().isoformat()}")
     _log_fh.flush()
 

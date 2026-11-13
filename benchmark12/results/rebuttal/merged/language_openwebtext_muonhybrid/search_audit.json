@@ -1,0 +1,1242 @@
+{
+  "MuonSub|full|3.162278e-04|0.0001": {
+    "opt": "MuonSub",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.00031622776601683794,
+    "knob_used": 0.0001,
+    "primary": NaN,
+    "best_val_primary": 150.92617078987445,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 569.5936875343323,
+    "sec_per_step": 0.3797291250228882,
+    "mean_step_size": 0.0001953712801705331,
+    "clip_freq": 0.023333333333333334,
+    "peak_mem_mb": 8016.0556640625,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        330.54526060936684
+      ],
+      [
+        800,
+        203.39708818607983
+      ],
+      [
+        1200,
+        162.68027281538542
+      ],
+      [
+        1500,
+        150.92617078987445
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 405.35827708244324,
+    "train_loss_at_25pct": 5.972354370417448,
+    "train_loss_at_50pct": 5.410984646082226,
+    "train_loss_at_75pct": 5.1481998467222025,
+    "final_train_loss": 5.280335903167725,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 206.40446227288305,
+    "update_weight_ratio": 0.005559106442998751,
+    "update_cos_sim_sampled": 0.0059153220840301906,
+    "grad_norm_mean": 0.5945855946938197,
+    "grad_norm_p95": 0.7055483937263489,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 247.1409917897446,
+    "weight_norm_growth": 1.7481005864038002,
+    "throughput_samples_per_s": 84.27059683154722,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": NaN,
+    "eviekf_cos_min": NaN,
+    "eviekf_b_simple_mean": NaN,
+    "eviekf_tr_sigma_mean": NaN,
+    "eviekf_eff_rank_mean": NaN,
+    "eviekf_gain_lo_min": NaN,
+    "eviekf_gain_hi_max": NaN,
+    "eviekf_n_active_steps": 0,
+    "eviekf_role_gain": {},
+    "eviekf_diag_trace": [],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8156.0,
+    "tokens_per_s": 43146.54557775218,
+    "eval_wall_curve": [
+      [
+        400,
+        106.68378949165344
+      ],
+      [
+        800,
+        255.2370879650116
+      ],
+      [
+        1200,
+        405.35827708244324
+      ],
+      [
+        1500,
+        528.5395114421844
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 212911104,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 150.92617078987445
+  },
+  "MuonSub|full|1.000000e-03|0.0001": {
+    "opt": "MuonSub",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.001,
+    "knob_used": 0.0001,
+    "primary": NaN,
+    "best_val_primary": 106.93824772810949,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 571.3911080360413,
+    "sec_per_step": 0.38092740535736086,
+    "mean_step_size": 0.000417454219394447,
+    "clip_freq": 0.02,
+    "peak_mem_mb": 8016.0556640625,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        253.84107618504825
+      ],
+      [
+        800,
+        152.6385682682696
+      ],
+      [
+        1200,
+        117.48891348336656
+      ],
+      [
+        1500,
+        106.93824772810949
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 409.75749373435974,
+    "train_loss_at_25pct": 5.700984401486905,
+    "train_loss_at_50pct": 5.131422653813787,
+    "train_loss_at_75pct": 4.833960728439388,
+    "final_train_loss": 4.895966529846191,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 153.62318129337476,
+    "update_weight_ratio": 0.010659200324885484,
+    "update_cos_sim_sampled": 0.005911434585983537,
+    "grad_norm_mean": 0.6209279461701711,
+    "grad_norm_p95": 0.7423777580261229,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 276.8000997069298,
+    "weight_norm_growth": 1.9578881395198533,
+    "throughput_samples_per_s": 84.00550747977746,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": NaN,
+    "eviekf_cos_min": NaN,
+    "eviekf_b_simple_mean": NaN,
+    "eviekf_tr_sigma_mean": NaN,
+    "eviekf_eff_rank_mean": NaN,
+    "eviekf_gain_lo_min": NaN,
+    "eviekf_gain_hi_max": NaN,
+    "eviekf_n_active_steps": 0,
+    "eviekf_role_gain": {},
+    "eviekf_diag_trace": [],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8156.0,
+    "tokens_per_s": 43010.81982964606,
+    "eval_wall_curve": [
+      [
+        400,
+        103.70177268981934
+      ],
+      [
+        800,
+        259.990079164505
+      ],
+      [
+        1200,
+        409.75749373435974
+      ],
+      [
+        1500,
+        530.8064022064209
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 212911104,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 106.93824772810949
+  },
+  "MuonSub|full|3.162278e-03|0.0001": {
+    "opt": "MuonSub",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.0031622776601683794,
+    "knob_used": 0.0001,
+    "primary": NaN,
+    "best_val_primary": 94.2308022201265,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 572.9891836643219,
+    "sec_per_step": 0.3819927891095479,
+    "mean_step_size": 0.001234143285545713,
+    "clip_freq": 0.024666666666666667,
+    "peak_mem_mb": 8016.0556640625,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        229.79938752854204
+      ],
+      [
+        800,
+        140.03511211761412
+      ],
+      [
+        1200,
+        105.07574408260152
+      ],
+      [
+        1500,
+        94.2308022201265
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 414.4693109989166,
+    "train_loss_at_25pct": 5.609756931704734,
+    "train_loss_at_50pct": 5.044738571343535,
+    "train_loss_at_75pct": 4.729467433497146,
+    "final_train_loss": 4.748466968536377,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 138.98641192243957,
+    "update_weight_ratio": 0.028030846568393147,
+    "update_cos_sim_sampled": 0.005512988195223257,
+    "grad_norm_mean": 0.5222758088509242,
+    "grad_norm_p95": 0.6879121184349059,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 415.7201565193257,
+    "weight_norm_growth": 2.940510370734334,
+    "throughput_samples_per_s": 83.77121482998213,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": NaN,
+    "eviekf_cos_min": NaN,
+    "eviekf_b_simple_mean": NaN,
+    "eviekf_tr_sigma_mean": NaN,
+    "eviekf_eff_rank_mean": NaN,
+    "eviekf_gain_lo_min": NaN,
+    "eviekf_gain_hi_max": NaN,
+    "eviekf_n_active_steps": 0,
+    "eviekf_role_gain": {},
+    "eviekf_diag_trace": [],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8156.0,
+    "tokens_per_s": 42890.86199295085,
+    "eval_wall_curve": [
+      [
+        400,
+        106.35980224609375
+      ],
+      [
+        800,
+        264.19870495796204
+      ],
+      [
+        1200,
+        414.4693109989166
+      ],
+      [
+        1500,
+        532.7885689735413
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 212911104,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 94.2308022201265
+  },
+  "MuonSub|full|1.000000e-02|0.0001": {
+    "opt": "MuonSub",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.01,
+    "knob_used": 0.0001,
+    "primary": NaN,
+    "best_val_primary": 90.19892519072508,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 578.1870024204254,
+    "sec_per_step": 0.38545800161361693,
+    "mean_step_size": 0.003863552754455679,
+    "clip_freq": 0.03933333333333333,
+    "peak_mem_mb": 8016.0556640625,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        230.99735377074637
+      ],
+      [
+        800,
+        138.10440633636242
+      ],
+      [
+        1200,
+        99.106472050153
+      ],
+      [
+        1500,
+        90.19892519072508
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 414.7172386646271,
+    "train_loss_at_25pct": 5.613143684898598,
+    "train_loss_at_50pct": 5.048483569000664,
+    "train_loss_at_75pct": 4.672276089076061,
+    "final_train_loss": 4.6859962940216064,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 136.05303389532415,
+    "update_weight_ratio": 0.07893839883361889,
+    "update_cos_sim_sampled": 0.005864262565959017,
+    "grad_norm_mean": 0.47711723987261456,
+    "grad_norm_p95": 0.7408290028572079,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 909.6333703851094,
+    "weight_norm_growth": 6.434103127398145,
+    "throughput_samples_per_s": 83.01812354663944,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": NaN,
+    "eviekf_cos_min": NaN,
+    "eviekf_b_simple_mean": NaN,
+    "eviekf_tr_sigma_mean": NaN,
+    "eviekf_eff_rank_mean": NaN,
+    "eviekf_gain_lo_min": NaN,
+    "eviekf_gain_hi_max": NaN,
+    "eviekf_n_active_steps": 0,
+    "eviekf_role_gain": {},
+    "eviekf_diag_trace": [],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8156.0,
+    "tokens_per_s": 42505.279255879395,
+    "eval_wall_curve": [
+      [
+        400,
+        107.18784618377686
+      ],
+      [
+        800,
+        263.8518967628479
+      ],
+      [
+        1200,
+        414.7172386646271
+      ],
+      [
+        1500,
+        537.4107840061188
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 212911104,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 90.19892519072508
+  },
+  "MuonEvie|full|3.162278e-04|30.0": {
+    "opt": "MuonEvie",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.00031622776601683794,
+    "knob_used": 30.0,
+    "primary": NaN,
+    "best_val_primary": 191.49897644075978,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 606.3936026096344,
+    "sec_per_step": 0.40426240173975625,
+    "mean_step_size": 0.00019867722622920577,
+    "clip_freq": 0.07933333333333334,
+    "peak_mem_mb": 8149.375,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        429.8124125227327
+      ],
+      [
+        800,
+        258.16050092337207
+      ],
+      [
+        1200,
+        206.00007285948618
+      ],
+      [
+        1500,
+        191.49897644075978
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 439.77798438072205,
+    "train_loss_at_25pct": 6.237029153806233,
+    "train_loss_at_50pct": 5.650737003030988,
+    "train_loss_at_75pct": 5.380519933089465,
+    "final_train_loss": 5.563112258911133,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 263.6832316734813,
+    "update_weight_ratio": 0.005537138277633676,
+    "update_cos_sim_sampled": 0.009136603478733055,
+    "grad_norm_mean": 0.6754956639607748,
+    "grad_norm_p95": 1.1676275610923765,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 258.43658066683076,
+    "weight_norm_growth": 1.8279975933584756,
+    "throughput_samples_per_s": 79.15650790745558,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": 0.5894073699400464,
+    "eviekf_cos_min": 0.5477664312697526,
+    "eviekf_b_simple_mean": 15.809640392059745,
+    "eviekf_tr_sigma_mean": 914.8633696277393,
+    "eviekf_eff_rank_mean": 136586.20629882812,
+    "eviekf_gain_lo_min": 0.002174756722524762,
+    "eviekf_gain_hi_max": 1.0,
+    "eviekf_n_active_steps": 1480,
+    "eviekf_role_gain": {
+      "embedding": [
+        0.0037794748786836863,
+        0.9999998211860657,
+        346720.6455078125,
+        2
+      ]
+    },
+    "eviekf_diag_trace": [
+      {
+        "step": 400,
+        "cos": 0.5477664312697526,
+        "b_simple": 13.392714116750648,
+        "tr_sigma": 859.8106122720055,
+        "eff_rank": 78738.328125,
+        "gain_lo": 0.002174756722524762,
+        "gain_hi": 0.9999998807907104,
+        "n_active_steps": 380
+      },
+      {
+        "step": 800,
+        "cos": 0.5909015754258041,
+        "b_simple": 16.69814187151364,
+        "tr_sigma": 936.2122220480815,
+        "eff_rank": 127357.974609375,
+        "gain_lo": 0.0027846351731568575,
+        "gain_hi": 0.9999998807907104,
+        "n_active_steps": 780
+      },
+      {
+        "step": 1200,
+        "cos": 0.609110898179763,
+        "b_simple": 15.427311075340521,
+        "tr_sigma": 830.3868651650846,
+        "eff_rank": 166888.19970703125,
+        "gain_lo": 0.0027017511893063784,
+        "gain_hi": 1.0,
+        "n_active_steps": 1180
+      },
+      {
+        "step": 1500,
+        "cos": 0.6098505748848658,
+        "b_simple": 17.72039450463417,
+        "tr_sigma": 1033.0437790257856,
+        "eff_rank": 173360.32275390625,
+        "gain_lo": 0.0037794748786836863,
+        "gain_hi": 0.9999998211860657,
+        "n_active_steps": 1480
+      }
+    ],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8336.0,
+    "tokens_per_s": 40528.132048617255,
+    "eval_wall_curve": [
+      [
+        400,
+        118.9729392528534
+      ],
+      [
+        800,
+        281.6935739517212
+      ],
+      [
+        1200,
+        439.77798438072205
+      ],
+      [
+        1500,
+        566.0223033428192
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 217937544,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 191.49897644075978
+  },
+  "MuonEvie|full|1.000000e-03|30.0": {
+    "opt": "MuonEvie",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.001,
+    "knob_used": 30.0,
+    "primary": NaN,
+    "best_val_primary": 118.98879296118675,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 602.1943025588989,
+    "sec_per_step": 0.40146286837259926,
+    "mean_step_size": 0.0004295950417848499,
+    "clip_freq": 0.022,
+    "peak_mem_mb": 8149.375,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        289.3854622554437
+      ],
+      [
+        800,
+        167.91496454143456
+      ],
+      [
+        1200,
+        130.0535398749019
+      ],
+      [
+        1500,
+        118.98879296118675
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 434.8472716808319,
+    "train_loss_at_25pct": 5.851367746640392,
+    "train_loss_at_50pct": 5.230828349649939,
+    "train_loss_at_75pct": 4.929824331973352,
+    "final_train_loss": 5.041237115859985,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 171.28194197096022,
+    "update_weight_ratio": 0.01096045393906674,
+    "update_cos_sim_sampled": 0.010318468081496848,
+    "grad_norm_mean": 0.6321022952596347,
+    "grad_norm_p95": 0.7798899829387662,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 297.8678087853833,
+    "weight_norm_growth": 2.106906213484536,
+    "throughput_samples_per_s": 79.7084924185334,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": 0.6405251208284141,
+    "eviekf_cos_min": 0.6097118636212027,
+    "eviekf_b_simple_mean": 18.722081842715426,
+    "eviekf_tr_sigma_mean": 945.6789698661305,
+    "eviekf_eff_rank_mean": 207376.93817138672,
+    "eviekf_gain_lo_min": 0.0034145175013691187,
+    "eviekf_gain_hi_max": 1.0,
+    "eviekf_n_active_steps": 1480,
+    "eviekf_role_gain": {
+      "embedding": [
+        0.004621859639883041,
+        1.0,
+        506241.2353515625,
+        2
+      ]
+    },
+    "eviekf_diag_trace": [
+      {
+        "step": 400,
+        "cos": 0.6097118636212027,
+        "b_simple": 17.50888955556335,
+        "tr_sigma": 832.6038163546473,
+        "eff_rank": 136987.53295898438,
+        "gain_lo": 0.0034145175013691187,
+        "gain_hi": 1.0,
+        "n_active_steps": 380
+      },
+      {
+        "step": 800,
+        "cos": 0.64233941581504,
+        "b_simple": 19.53565532609549,
+        "tr_sigma": 954.6325217466801,
+        "eff_rank": 194688.8857421875,
+        "gain_lo": 0.003749177325516939,
+        "gain_hi": 1.0,
+        "n_active_steps": 780
+      },
+      {
+        "step": 1200,
+        "cos": 0.655005522592008,
+        "b_simple": 17.89819748754691,
+        "tr_sigma": 899.6587316915393,
+        "eff_rank": 244710.71630859375,
+        "gain_lo": 0.004128125961869955,
+        "gain_hi": 1.0,
+        "n_active_steps": 1180
+      },
+      {
+        "step": 1500,
+        "cos": 0.6550436812854057,
+        "b_simple": 19.945585001655953,
+        "tr_sigma": 1095.8208096716553,
+        "eff_rank": 253120.61767578125,
+        "gain_lo": 0.004621859639883041,
+        "gain_hi": 1.0,
+        "n_active_steps": 1480
+      }
+    ],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8336.0,
+    "tokens_per_s": 40810.7481182891,
+    "eval_wall_curve": [
+      [
+        400,
+        113.21889567375183
+      ],
+      [
+        800,
+        276.28318977355957
+      ],
+      [
+        1200,
+        434.8472716808319
+      ],
+      [
+        1500,
+        561.7210354804993
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 217937544,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 118.98879296118675
+  },
+  "MuonEvie|full|3.162278e-03|30.0": {
+    "opt": "MuonEvie",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.0031622776601683794,
+    "knob_used": 30.0,
+    "primary": NaN,
+    "best_val_primary": 106.25003853746925,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 602.0906028747559,
+    "sec_per_step": 0.40139373524983724,
+    "mean_step_size": 0.0012704823372979564,
+    "clip_freq": 0.028666666666666667,
+    "peak_mem_mb": 8149.375,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        246.08002661095506
+      ],
+      [
+        800,
+        153.4495336249711
+      ],
+      [
+        1200,
+        117.27171298303277
+      ],
+      [
+        1500,
+        106.25003853746925
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 433.04110074043274,
+    "train_loss_at_25pct": 5.67037977500111,
+    "train_loss_at_50pct": 5.133679788316755,
+    "train_loss_at_75pct": 4.8290057056276465,
+    "final_train_loss": 4.912830114364624,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 152.34402190623754,
+    "update_weight_ratio": 0.028892497380759576,
+    "update_cos_sim_sampled": 0.0044801174645127855,
+    "grad_norm_mean": 0.5819992387096087,
+    "grad_norm_p95": 0.7930675625801084,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 466.3686897344939,
+    "weight_norm_growth": 3.2987622737179243,
+    "throughput_samples_per_s": 79.72222082659665,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": 0.6650766777708864,
+    "eviekf_cos_min": 0.6393793244700907,
+    "eviekf_b_simple_mean": 19.004317724344244,
+    "eviekf_tr_sigma_mean": 656.9692664488684,
+    "eviekf_eff_rank_mean": 186240.01611328125,
+    "eviekf_gain_lo_min": 0.0027330147568136454,
+    "eviekf_gain_hi_max": 1.0,
+    "eviekf_n_active_steps": 1480,
+    "eviekf_role_gain": {
+      "embedding": [
+        0.003787419991567731,
+        1.0,
+        455163.8447265625,
+        2
+      ]
+    },
+    "eviekf_diag_trace": [
+      {
+        "step": 400,
+        "cos": 0.6393793244700907,
+        "b_simple": 18.098534953698156,
+        "tr_sigma": 616.1013351413421,
+        "eff_rank": 141661.1044921875,
+        "gain_lo": 0.0031189864967018366,
+        "gain_hi": 1.0,
+        "n_active_steps": 380
+      },
+      {
+        "step": 800,
+        "cos": 0.6621790105578447,
+        "b_simple": 19.559426199042296,
+        "tr_sigma": 637.7335849027149,
+        "eff_rank": 161690.9765625,
+        "gain_lo": 0.0027330147568136454,
+        "gain_hi": 1.0,
+        "n_active_steps": 780
+      },
+      {
+        "step": 1200,
+        "cos": 0.6777180900934395,
+        "b_simple": 18.4944595683334,
+        "tr_sigma": 639.2619257401675,
+        "eff_rank": 214026.06103515625,
+        "gain_lo": 0.0038951453752815723,
+        "gain_hi": 1.0,
+        "n_active_steps": 1180
+      },
+      {
+        "step": 1500,
+        "cos": 0.6810302859621706,
+        "b_simple": 19.86485017630312,
+        "tr_sigma": 734.7802200112492,
+        "eff_rank": 227581.92236328125,
+        "gain_lo": 0.003787419991567731,
+        "gain_hi": 1.0,
+        "n_active_steps": 1480
+      }
+    ],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8336.0,
+    "tokens_per_s": 40817.77706321749,
+    "eval_wall_curve": [
+      [
+        400,
+        113.28415751457214
+      ],
+      [
+        800,
+        277.5424003601074
+      ],
+      [
+        1200,
+        433.04110074043274
+      ],
+      [
+        1500,
+        561.16348695755
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 217937544,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 106.25003853746925
+  },
+  "MuonEvie|full|1.000000e-02|30.0": {
+    "opt": "MuonEvie",
+    "unit": "full",
+    "seed": 42,
+    "lr_used": 0.01,
+    "knob_used": 30.0,
+    "primary": NaN,
+    "best_val_primary": 96.90278220949646,
+    "steps_run": 1500,
+    "diverged": false,
+    "fail_reason": null,
+    "wall_s": 610.392005443573,
+    "sec_per_step": 0.4069280036290487,
+    "mean_step_size": 0.00395787450635229,
+    "clip_freq": 0.043333333333333335,
+    "peak_mem_mb": 8149.375,
+    "hess_norm": NaN,
+    "hess_cv": NaN,
+    "n_params": 33691776,
+    "val_curve": [
+      [
+        400,
+        243.1978970607704
+      ],
+      [
+        800,
+        151.17855773214865
+      ],
+      [
+        1200,
+        107.87406041665808
+      ],
+      [
+        1500,
+        96.90278220949646
+      ]
+    ],
+    "steps_to_best_val": 1500,
+    "steps_to_90pct_best": 1200,
+    "frac_budget_to_90pct_best": 0.8,
+    "wallclock_to_90pct_best_s": 442.30208230018616,
+    "train_loss_at_25pct": 5.64958133061158,
+    "train_loss_at_50pct": 5.127006032053729,
+    "train_loss_at_75pct": 4.766137873843058,
+    "final_train_loss": 4.788209438323975,
+    "gen_gap_loss": NaN,
+    "auc_val_curve": 146.7294008929712,
+    "update_weight_ratio": 0.07996444890614073,
+    "update_cos_sim_sampled": 0.0022762206822042022,
+    "grad_norm_mean": 0.5154897670547167,
+    "grad_norm_p95": 0.9389084905385966,
+    "weight_norm_start": 141.3768713951204,
+    "weight_norm_end": 1060.7177287257175,
+    "weight_norm_growth": 7.502767024467682,
+    "throughput_samples_per_s": 78.63798931166916,
+    "flops_per_step_est": 3597945274368.0,
+    "total_flops_est": 5396917911552000.0,
+    "hess_trace": NaN,
+    "hess_top_eig": NaN,
+    "bpc": NaN,
+    "test_loss": NaN,
+    "token_acc": NaN,
+    "test_tokens": NaN,
+    "test_nll_sum": NaN,
+    "bits_per_token": NaN,
+    "nll_std": NaN,
+    "nll_p50": NaN,
+    "nll_p90": NaN,
+    "nll_p95": NaN,
+    "nll_p99": NaN,
+    "token_top5_acc": NaN,
+    "token_top10_acc": NaN,
+    "mean_reciprocal_rank": NaN,
+    "mean_target_rank": NaN,
+    "brier_score": NaN,
+    "predictive_entropy_nats": NaN,
+    "mean_confidence": NaN,
+    "ece_15": NaN,
+    "mce_15": NaN,
+    "unk_target_fraction": NaN,
+    "bits_per_byte": NaN,
+    "calibration_bins": NaN,
+    "eviekf_cos_mean": 0.6706029821796937,
+    "eviekf_cos_min": 0.632032783518433,
+    "eviekf_b_simple_mean": 18.98800125873197,
+    "eviekf_tr_sigma_mean": 264.68977873327094,
+    "eviekf_eff_rank_mean": 166900.10778808594,
+    "eviekf_gain_lo_min": 0.002596514066681266,
+    "eviekf_gain_hi_max": 1.0,
+    "eviekf_n_active_steps": 1480,
+    "eviekf_role_gain": {
+      "embedding": [
+        0.003384541254490614,
+        1.0,
+        442114.4619140625,
+        2
+      ]
+    },
+    "eviekf_diag_trace": [
+      {
+        "step": 400,
+        "cos": 0.632032783518433,
+        "b_simple": 17.758221960160313,
+        "tr_sigma": 234.38161498180125,
+        "eff_rank": 115991.46630859375,
+        "gain_lo": 0.002596514066681266,
+        "gain_hi": 1.0,
+        "n_active_steps": 380
+      },
+      {
+        "step": 800,
+        "cos": 0.6648788728235684,
+        "b_simple": 19.75447335302927,
+        "tr_sigma": 252.22272423445247,
+        "eff_rank": 140167.27587890625,
+        "gain_lo": 0.0029366472736001015,
+        "gain_hi": 1.0,
+        "n_active_steps": 780
+      },
+      {
+        "step": 1200,
+        "cos": 0.6891844945252693,
+        "b_simple": 18.326347728572383,
+        "tr_sigma": 264.6178719694726,
+        "eff_rank": 190384.4580078125,
+        "gain_lo": 0.0032211197540163994,
+        "gain_hi": 1.0,
+        "n_active_steps": 1180
+      },
+      {
+        "step": 1500,
+        "cos": 0.6963157778515046,
+        "b_simple": 20.112961993165914,
+        "tr_sigma": 307.5369037473574,
+        "eff_rank": 221057.23095703125,
+        "gain_lo": 0.003384541254490614,
+        "gain_hi": 1.0,
+        "n_active_steps": 1480
+      }
+    ],
+    "matrix_lr": 0.002,
+    "tokens_processed": 24576000,
+    "tuning_seed": true,
+    "allow_tf32": true,
+    "cuda_device": "NVIDIA H100 80GB HBM3 MIG 2g.20gb",
+    "peak_reserved_mem_mb": 8336.0,
+    "tokens_per_s": 40262.65052757461,
+    "eval_wall_curve": [
+      [
+        400,
+        120.03293204307556
+      ],
+      [
+        800,
+        288.5755307674408
+      ],
+      [
+        1200,
+        442.30208230018616
+      ],
+      [
+        1500,
+        569.8790001869202
+      ]
+    ],
+    "test_eval_wall_s": NaN,
+    "test_perplexity": NaN,
+    "optimizer_state_bytes": 217937544,
+    "model_parameter_bytes": 134767104,
+    "muon_parameter_count": 14155776,
+    "aux_parameter_count": 19536000,
+    "aux_parameter_fraction": 0.579844766865362,
+    "metric_notes": {
+      "bits_per_byte": "available only for byte-level enwik8; no evaluated byte denominator for other tokenizers",
+      "hessian": "unavailable: hybrid arms do not run the Sophia Hessian probe",
+      "bpc": "legacy field: bits per token, only bits per byte/character for enwik8"
+    },
+    "lr_search_score": 96.90278220949646
+  }
+}

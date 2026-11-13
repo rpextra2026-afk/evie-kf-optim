@@ -1,0 +1,48 @@
+{
+  "task_name": "language_openwebtext_124m_evie_m30",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "EvieKFm"
+  ],
+  "task_number_by_optimizer": {
+    "EvieKFm": 56.41495407390105
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "EvieKFm": 56.41495407390105
+  },
+  "per_seed_value_by_optimizer": {
+    "EvieKFm": {
+      "42": 56.26392318411719,
+      "43": 57.407990966686455,
+      "44": 56.41495407390105
+    }
+  },
+  "lr_used": {
+    "EvieKFm": 0.0005
+  },
+  "knob_used": {
+    "EvieKFm": 30.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": {},
+  "fixed_knob": {},
+  "eviekf_maxf": null
+}

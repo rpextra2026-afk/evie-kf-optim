@@ -1,0 +1,1214 @@
+{
+  "header": "EXPLORATORY: no p-values; 5 metrics examined. EXPLORATORY: no p-values; old-cell wall time estimates are approximate",
+  "rows": [
+    {
+      "task": "ablation_finance_tech",
+      "arm": "EvieDiag",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.021933219628408544,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_finance_tech",
+      "arm": "EvieKF",
+      "fail_rate": 0.004081632653061225,
+      "clip_freq": 0.0007999999999999999,
+      "grad_norm_p95": 0.028992987191304553,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_finance_tech",
+      "arm": "EvieKFu",
+      "fail_rate": 0.006122448979591836,
+      "clip_freq": 0.0007999999999999999,
+      "grad_norm_p95": 0.028887769440189,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_finance_tech_diag_absolute",
+      "arm": "EvieDiagAbs",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.020597464125603433,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_language_wikitext2",
+      "arm": "EvieDiag",
+      "fail_rate": 0.0,
+      "clip_freq": 0.635,
+      "grad_norm_p95": 1.7599067866802214,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_language_wikitext2",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.59155,
+      "grad_norm_p95": 1.9270083218812943,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_language_wikitext2",
+      "arm": "EvieKFu",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5569500000000001,
+      "grad_norm_p95": 1.7774142265319823,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_language_wikitext2_diag_absolute",
+      "arm": "EvieDiagAbs",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5363,
+      "grad_norm_p95": 1.5765859723091125,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_vision_cifar10",
+      "arm": "EvieDiag",
+      "fail_rate": 0.0,
+      "clip_freq": 0.010849999999999999,
+      "grad_norm_p95": 0.7062690183520315,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_vision_cifar10",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0029,
+      "grad_norm_p95": 0.5618316039443014,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "ablation_vision_cifar10",
+      "arm": "EvieKFu",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2983,
+      "grad_norm_p95": 2.3736566305160514,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8_evie_gamma81k",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.9852,
+      "grad_norm_p95": 1.8847908675670622,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb_evie_at_adamw_lr",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.9115,
+      "grad_norm_p95": 3.5346119403839107,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb_evie_fixed_gamma",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5125,
+      "grad_norm_p95": 2.4836142778396604,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb_gamma_meannorm",
+      "arm": "EvieKFm",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4026,
+      "grad_norm_p95": 2.901178741455078,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2_evie_no_rescale",
+      "arm": "EvieKFr",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6575,
+      "grad_norm_p95": 2.19344584941864,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2_gamma_meannorm",
+      "arm": "EvieKFm",
+      "fail_rate": 0.0,
+      "clip_freq": 0.8991,
+      "grad_norm_p95": 3.1874144315719604,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2_large_evie_at_adamw_lr",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.8728,
+      "grad_norm_p95": 3.2836731076240535,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10_evie_fixed_gamma",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4239,
+      "grad_norm_p95": 3.819340121746063,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10_evie_maxf4608",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0006,
+      "grad_norm_p95": 0.5970163315534591,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10_gamma_meannorm",
+      "arm": "EvieKFm",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0005,
+      "grad_norm_p95": 0.3710771664977072,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10_evie_fixed_gamma",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0012,
+      "grad_norm_p95": 0.3248136147856696,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn_evie_fixed_gamma",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0025,
+      "grad_norm_p95": 0.5121834248304367,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0002,
+      "grad_norm_p95": 0.022921396838501088,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.02278292439877985,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.017987146181985728,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.014183943788520986,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.018582080304622644,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "SGD",
+      "fail_rate": 0.012,
+      "clip_freq": 0.3879,
+      "grad_norm_p95": 7.8916109800338745,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Shampoo",
+      "fail_rate": 0.012,
+      "clip_freq": 0.0004,
+      "grad_norm_p95": 0.02327313185669481,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.014754014951176939,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.02137753106653689,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.018573490809649228,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.01543048871681093,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Lion",
+      "fail_rate": 0.06938775510204082,
+      "clip_freq": 0.0009,
+      "grad_norm_p95": 0.017940944805741293,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Muon",
+      "fail_rate": 0.1306122448979592,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.034269458055496194,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "SGD",
+      "fail_rate": 0.0163265306122449,
+      "clip_freq": 0.3879,
+      "grad_norm_p95": 7.808668112754821,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Shampoo",
+      "fail_rate": 0.044897959183673466,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.028586087748408304,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Sophia",
+      "fail_rate": 0.00816326530612245,
+      "clip_freq": 0.0,
+      "grad_norm_p95": 0.0210506017319858,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.019998543336987494,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.020596254616975784,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0002,
+      "grad_norm_p95": 0.019005776010453692,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Lion",
+      "fail_rate": 0.02040816326530612,
+      "clip_freq": 0.0005,
+      "grad_norm_p95": 0.016466379817575198,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Muon",
+      "fail_rate": 0.00816326530612245,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.017584060318768024,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "SGD",
+      "fail_rate": 0.0163265306122449,
+      "clip_freq": 0.3879,
+      "grad_norm_p95": 7.848066520690918,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.02507120156660676,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Sophia",
+      "fail_rate": 0.05714285714285714,
+      "clip_freq": 0.0042,
+      "grad_norm_p95": 0.024823710042983286,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.02024648655205965,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0001,
+      "grad_norm_p95": 0.020452121831476686,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "EvieKF",
+      "fail_rate": 0.00816326530612245,
+      "clip_freq": 0.0007,
+      "grad_norm_p95": 0.030426186509430398,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Lion",
+      "fail_rate": 0.0326530612244898,
+      "clip_freq": null,
+      "grad_norm_p95": null,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": null,
+      "grad_norm_p95": null,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "SGD",
+      "fail_rate": 0.00816326530612245,
+      "clip_freq": 0.3879,
+      "grad_norm_p95": 7.84379351735115,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Shampoo",
+      "fail_rate": 0.02857142857142857,
+      "clip_freq": 0.0018,
+      "grad_norm_p95": 0.03920667944476007,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Sophia",
+      "fail_rate": 0.00816326530612245,
+      "clip_freq": null,
+      "grad_norm_p95": null,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2474,
+      "grad_norm_p95": 1.2593876600265503,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.275,
+      "grad_norm_p95": 1.2539156198501584,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.9822,
+      "grad_norm_p95": 1.8331378996372218,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2602,
+      "grad_norm_p95": 1.4757666766643518,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0075,
+      "grad_norm_p95": 0.5655225872993468,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.27,
+      "grad_norm_p95": 1.235887849330902,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0277,
+      "grad_norm_p95": 0.8721511512994764,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.9476,
+      "grad_norm_p95": 2.6542868018150325,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6274,
+      "grad_norm_p95": 3.9421883106231688,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.7594,
+      "grad_norm_p95": 3.8248613595962526,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5633,
+      "grad_norm_p95": 1.9652931928634643,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.841,
+      "grad_norm_p95": 3.58789929151535,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.7369,
+      "grad_norm_p95": 2.6309135317802426,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.7993,
+      "grad_norm_p95": 3.309368801116943,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4343,
+      "grad_norm_p95": 3.6708794713020323,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.9427,
+      "grad_norm_p95": 4.111980271339417,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0019,
+      "grad_norm_p95": 0.5076432377099991,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0019,
+      "grad_norm_p95": 0.5250819563865661,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.1656,
+      "grad_norm_p95": 1.0453310310840607,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0121,
+      "grad_norm_p95": 0.9010900139808653,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0032,
+      "grad_norm_p95": 0.6660403817892073,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5914,
+      "grad_norm_p95": 1.1440452635288239,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0016,
+      "grad_norm_p95": 0.5468654662370682,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0039,
+      "grad_norm_p95": 0.7061033099889755,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.8543,
+      "grad_norm_p95": 3.0527849078178404,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5092,
+      "grad_norm_p95": 1.501350313425064,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5885,
+      "grad_norm_p95": 1.9371166348457336,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6885,
+      "grad_norm_p95": 1.7991364657878874,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6087,
+      "grad_norm_p95": 1.8105504095554348,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.8058,
+      "grad_norm_p95": 2.6780190467834473,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.7392,
+      "grad_norm_p95": 2.3941592812538146,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6457,
+      "grad_norm_p95": 1.5141784846782684,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_tinyimagenet",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.5383,
+      "grad_norm_p95": 2.002791690826414,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_tinyimagenet",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.565,
+      "grad_norm_p95": 2.089566671848297,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_tinyimagenet",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.6405,
+      "grad_norm_p95": 4.0160817861557,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_tinyimagenet",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4063,
+      "grad_norm_p95": 1.9022525370120982,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.002,
+      "grad_norm_p95": 0.5200818240642546,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0019,
+      "grad_norm_p95": 0.5122502982616423,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0007,
+      "grad_norm_p95": 0.6181689709424971,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0085,
+      "grad_norm_p95": 0.4770077213644981,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0568,
+      "grad_norm_p95": 1.0657698452472684,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0522,
+      "grad_norm_p95": 1.0054318845272063,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0007,
+      "grad_norm_p95": 0.5015541106462479,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0088,
+      "grad_norm_p95": 0.597109368443489,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2245,
+      "grad_norm_p95": 1.4327868044376368,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2603,
+      "grad_norm_p95": 1.6088798761367797,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.3471,
+      "grad_norm_p95": 4.413487410545349,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4873,
+      "grad_norm_p95": 4.96472156047821,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0666,
+      "grad_norm_p95": 1.0415828227996824,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.2828,
+      "grad_norm_p95": 1.5656394422054287,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.3248,
+      "grad_norm_p95": 3.0628305554389943,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.4386,
+      "grad_norm_p95": 8.240534591674791,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0385,
+      "grad_norm_p95": 0.4502486079931254,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0034,
+      "grad_norm_p95": 0.34664693027734755,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0006,
+      "grad_norm_p95": 0.3074988380074499,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0075,
+      "grad_norm_p95": 0.45098015516996365,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0101,
+      "grad_norm_p95": 0.4600784569978713,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0355,
+      "grad_norm_p95": 0.7819158226251594,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0383,
+      "grad_norm_p95": 0.20832209810614533,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0116,
+      "grad_norm_p95": 0.5480117678642246,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "AdaBelief",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0184,
+      "grad_norm_p95": 0.6908210933208463,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "AdamW",
+      "fail_rate": 0.0,
+      "clip_freq": 0.021,
+      "grad_norm_p95": 0.7475650101900101,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "EvieKF",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0008,
+      "grad_norm_p95": 0.38109824657440183,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Lion",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0027,
+      "grad_norm_p95": 0.30476330965757326,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Muon",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0305,
+      "grad_norm_p95": 0.7548905819654463,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "SGD",
+      "fail_rate": 0.0,
+      "clip_freq": 0.1668,
+      "grad_norm_p95": 1.254119551181793,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Shampoo",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0447,
+      "grad_norm_p95": 0.9558948993682858,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Sophia",
+      "fail_rate": 0.0,
+      "clip_freq": 0.0043,
+      "grad_norm_p95": 0.40683948099613154,
+      "x_grad_norm_max": null,
+      "x_loss_spike_count": null
+    }
+  ],
+  "summary": {
+    "by_arm": {
+      "Shampoo": {
+        "clip_freq": 0.01475,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.5242097884416581,
+        "x_loss_spike_count": null
+      },
+      "Muon": {
+        "clip_freq": 0.0203,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.7104654818773268,
+        "x_loss_spike_count": null
+      },
+      "EvieDiag": {
+        "clip_freq": 0.010849999999999999,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.7062690183520315,
+        "x_loss_spike_count": null
+      },
+      "EvieKF": {
+        "clip_freq": 0.08424999999999999,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.8317500010132789,
+        "x_loss_spike_count": null
+      },
+      "SGD": {
+        "clip_freq": 0.3879,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 2.121829244494438,
+        "x_loss_spike_count": null
+      },
+      "EvieKFu": {
+        "clip_freq": 0.2983,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 1.7774142265319823,
+        "x_loss_spike_count": null
+      },
+      "Lion": {
+        "clip_freq": 0.0085,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.4770077213644981,
+        "x_loss_spike_count": null
+      },
+      "AdamW": {
+        "clip_freq": 0.0034,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.5250819563865661,
+        "x_loss_spike_count": null
+      },
+      "Sophia": {
+        "clip_freq": 0.0088,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.597109368443489,
+        "x_loss_spike_count": null
+      },
+      "AdaBelief": {
+        "clip_freq": 0.0184,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.5200818240642546,
+        "x_loss_spike_count": null
+      },
+      "EvieDiagAbs": {
+        "clip_freq": 0.2682,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 0.798591718217358,
+        "x_loss_spike_count": null
+      },
+      "EvieKFm": {
+        "clip_freq": 0.4026,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 2.901178741455078,
+        "x_loss_spike_count": null
+      },
+      "EvieKFr": {
+        "clip_freq": 0.6575,
+        "x_grad_norm_max": null,
+        "fail_rate": 0.0,
+        "grad_norm_p95": 2.19344584941864,
+        "x_loss_spike_count": null
+      }
+    }
+  },
+  "metrics": [
+    "clip_freq",
+    "fail_rate",
+    "grad_norm_p95",
+    "x_grad_norm_max",
+    "x_loss_spike_count"
+  ]
+}

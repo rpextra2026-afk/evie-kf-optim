@@ -1,0 +1,350 @@
+{
+  "header": "PRIMARY METRIC ONLY; sensitivity analysis, not a new preregistration",
+  "rows": [
+    {
+      "task": "finance_consumer_industrials",
+      "rule": "all_arms",
+      "n": 45,
+      "total": 50,
+      "wins": 26,
+      "losses": 19,
+      "ties": 0,
+      "sign_p": 0.3712980344710104,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.0001944584190530121,
+      "ref_median": 0.0001909403455635858,
+      "rel_gain": -0.018424987548033657,
+      "ci": [
+        -0.03276136707499639,
+        0.030529252463546017
+      ],
+      "n_pairs": 225,
+      "n_seeds": 5,
+      "se": 0.03915133846585323,
+      "new_per_seed": {
+        "42": 0.00020671127334473624,
+        "43": 0.00019108113788423084,
+        "44": 0.00019687238745588474,
+        "45": 0.0002017575242216625,
+        "46": 0.0001909316137984947
+      },
+      "ref_per_seed": {
+        "42": 0.00018501817864715738,
+        "43": 0.00020168808402207792,
+        "44": 0.0002018392637923912,
+        "45": 0.00018933647997164852,
+        "46": 0.00021125149553415006
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "rule": "pair_only",
+      "n": 50,
+      "total": 50,
+      "wins": 30,
+      "losses": 20,
+      "ties": 0,
+      "sign_p": 0.20263875106454066,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00020510560423924178,
+      "ref_median": 0.0001979159713579864,
+      "rel_gain": -0.03632669375757915,
+      "ci": [
+        -0.0207285790913356,
+        0.03721108474920734
+      ],
+      "n_pairs": 250,
+      "n_seeds": 5,
+      "se": 0.035749550317199494,
+      "new_per_seed": {
+        "42": 0.00022018537240684347,
+        "43": 0.00021258255752621503,
+        "44": 0.0002061977745994689,
+        "45": 0.00021446577061421025,
+        "46": 0.00021522183700528724
+      },
+      "ref_per_seed": {
+        "42": 0.0001907371891238702,
+        "43": 0.00020589123642633832,
+        "44": 0.0002068704654457708,
+        "45": 0.00019904996746431582,
+        "46": 0.00022790842152461803
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "rule": "all_with_failures",
+      "n": 50,
+      "total": 50,
+      "wins": 30,
+      "losses": 20,
+      "ties": 0,
+      "sign_p": 0.20263875106454066
+    },
+    {
+      "task": "finance_finance",
+      "rule": "all_arms",
+      "n": 23,
+      "total": 49,
+      "wins": 11,
+      "losses": 12,
+      "ties": 0,
+      "sign_p": 1.0,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00022668791589913544,
+      "ref_median": 0.00022657562500585324,
+      "rel_gain": -0.0004956000597120742,
+      "ci": [
+        -0.024617689194258097,
+        0.0100106961788459
+      ],
+      "n_pairs": 115,
+      "n_seeds": 5,
+      "se": 0.0036884878234741633,
+      "new_per_seed": {
+        "42": 0.00022674064156870361,
+        "43": 0.00022356994647197622,
+        "44": 0.00022668791589913544,
+        "45": 0.0002245828115120136,
+        "46": 0.0002284555365799596
+      },
+      "ref_per_seed": {
+        "42": 0.00022643303902691633,
+        "43": 0.00022657562500585324,
+        "44": 0.00022534060257452506,
+        "45": 0.00022498236367942163,
+        "46": 0.00022676788152210296
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_finance",
+      "rule": "pair_only",
+      "n": 49,
+      "total": 49,
+      "wins": 31,
+      "losses": 18,
+      "ties": 0,
+      "sign_p": 0.08543313315739454,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00019803272668646757,
+      "ref_median": 0.00021530100435176224,
+      "rel_gain": 0.08020528151871267,
+      "ci": [
+        -0.05353755945489365,
+        0.04775765012900405
+      ],
+      "n_pairs": 245,
+      "n_seeds": 5,
+      "se": 0.023514512348557337,
+      "new_per_seed": {
+        "42": 0.00020126844682390727,
+        "43": 0.0002018346712387428,
+        "44": 0.00021834921821084602,
+        "45": 0.00020050736410277232,
+        "46": 0.00020760713667465896
+      },
+      "ref_per_seed": {
+        "42": 0.00022180212868584527,
+        "43": 0.00022043561730435284,
+        "44": 0.00021530100435176224,
+        "45": 0.00022498236367942163,
+        "46": 0.0002120218419898758
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_finance",
+      "rule": "all_with_failures",
+      "n": 49,
+      "total": 49,
+      "wins": 31,
+      "losses": 18,
+      "ties": 0,
+      "sign_p": 0.08543313315739454
+    },
+    {
+      "task": "finance_healthcare",
+      "rule": "all_arms",
+      "n": 33,
+      "total": 49,
+      "wins": 23,
+      "losses": 10,
+      "ties": 0,
+      "sign_p": 0.03508203336969018,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.0002914950172737162,
+      "ref_median": 0.00030968827072274746,
+      "rel_gain": 0.058746989049898495,
+      "ci": [
+        -0.0007039976455297969,
+        0.019887611544631863
+      ],
+      "n_pairs": 165,
+      "n_seeds": 5,
+      "se": 0.020885526250118167,
+      "new_per_seed": {
+        "42": 0.0002887723819603996,
+        "43": 0.000317210006335425,
+        "44": 0.00029054627058997987,
+        "45": 0.0002914950172737162,
+        "46": 0.00029164994204485857
+      },
+      "ref_per_seed": {
+        "42": 0.00031432546872310537,
+        "43": 0.00030685046677866943,
+        "44": 0.00029433162102211427,
+        "45": 0.00030968827072274746,
+        "46": 0.0003114142824733068
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_healthcare",
+      "rule": "pair_only",
+      "n": 49,
+      "total": 49,
+      "wins": 37,
+      "losses": 12,
+      "ties": 0,
+      "sign_p": 0.0004697573180081349,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00025136803471764854,
+      "ref_median": 0.00030968827072274746,
+      "rel_gain": 0.18831916323143827,
+      "ci": [
+        0.036400048770982685,
+        0.09621086016994806
+      ],
+      "n_pairs": 245,
+      "n_seeds": 5,
+      "se": 0.04953500246164604,
+      "new_per_seed": {
+        "42": 0.0002508639695240414,
+        "43": 0.0003121150903916233,
+        "44": 0.0002498522994922245,
+        "45": 0.00025136803471764854,
+        "46": 0.0002612794356488706
+      },
+      "ref_per_seed": {
+        "42": 0.00032419585203998305,
+        "43": 0.0003019957630722611,
+        "44": 0.0003107509836948738,
+        "45": 0.00030968827072274746,
+        "46": 0.0002769581461078906
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_healthcare",
+      "rule": "all_with_failures",
+      "n": 49,
+      "total": 49,
+      "wins": 37,
+      "losses": 12,
+      "ties": 0,
+      "sign_p": 0.0004697573180081349
+    },
+    {
+      "task": "finance_tech",
+      "rule": "all_arms",
+      "n": 37,
+      "total": 49,
+      "wins": 31,
+      "losses": 6,
+      "ties": 0,
+      "sign_p": 4.12575900554657e-05,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.00041496608551446493,
+      "ref_median": 0.0004333625849965331,
+      "rel_gain": 0.04245059476515572,
+      "ci": [
+        0.03653482898406251,
+        0.0661861257302961
+      ],
+      "n_pairs": 185,
+      "n_seeds": 5,
+      "se": 0.010686938361133018,
+      "new_per_seed": {
+        "42": 0.0004142714398247855,
+        "43": 0.00041554408607544837,
+        "44": 0.00041496608551446493,
+        "45": 0.0004142441532828591,
+        "46": 0.00041717803710466855
+      },
+      "ref_per_seed": {
+        "42": 0.0004333625849965331,
+        "43": 0.00043734466588055647,
+        "44": 0.0004519195138634025,
+        "45": 0.00042921367776456963,
+        "46": 0.00042422256105906003
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_tech",
+      "rule": "pair_only",
+      "n": 48,
+      "total": 49,
+      "wins": 41,
+      "losses": 7,
+      "ties": 0,
+      "sign_p": 6.240408438884515e-07,
+      "new": "EvieKF",
+      "ref": "AdamW",
+      "subset": "all",
+      "new_median": 0.0004029636893523548,
+      "ref_median": 0.00044158682452909875,
+      "rel_gain": 0.08746441929722662,
+      "ci": [
+        -0.2786240930393783,
+        0.06456982189127658
+      ],
+      "n_pairs": 240,
+      "n_seeds": 5,
+      "se": 0.016728523696308915,
+      "new_per_seed": {
+        "42": 0.0004028396473990546,
+        "43": 0.0004032803632179208,
+        "44": 0.00040295332161321723,
+        "45": 0.00040259158678671784,
+        "46": 0.0004040696651474566
+      },
+      "ref_per_seed": {
+        "42": 0.00041439922229924875,
+        "43": 0.00044419620402906307,
+        "44": 0.0004535405795811575,
+        "45": 0.0004405170363723916,
+        "46": 0.00041796569768455863
+      },
+      "note": "paired observations; finance bootstrap resamples ticker x seed pairs, not independent market episodes"
+    },
+    {
+      "task": "finance_tech",
+      "rule": "all_with_failures",
+      "n": 49,
+      "total": 49,
+      "wins": 42,
+      "losses": 7,
+      "ties": 0,
+      "sign_p": 3.6245783263666453e-07
+    }
+  ],
+  "summary": {}
+}

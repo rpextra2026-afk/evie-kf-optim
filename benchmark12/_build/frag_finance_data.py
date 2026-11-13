@@ -4,7 +4,7 @@
 #  GENERATED: identical across all 4 finance files. Edit
 #  _build/frag_finance_data.py
 #
-#  Panels (CLAUDE.md sec 3, resolved + extended): the 4 sectors that had >= 30
+#  Panels (benchmark protocol sec 3, resolved + extended): the 4 sectors that had >= 30
 #  candidate tickers in the original 140-ticker pool (Energy, at 20, stays
 #  dropped). Each sector pool is expanded to 50 candidates (original 30 + next
 #  ~20 by market cap; see scripts/download_finance_panels.py). Each panel =
@@ -67,6 +67,8 @@ def _data_path():
     if os.environ.get("BENCH12_FINANCE_DATA"):
         return os.environ["BENCH12_FINANCE_DATA"]
     here = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else "."
+    if TASK.get("rebuttal_run"):
+        return os.path.normpath(os.path.join(here,"..","finance","data",f"{TASK['panel']}.csv"))
     return os.path.join(here, "data", f"{TASK['panel']}.csv")
 
 
@@ -130,13 +132,22 @@ def prepare_data():
     if not os.path.exists(path):
         fail(f"frozen panel CSV not found: {path}. Run "
              f"`python scripts/download_finance_panels.py` once and commit "
-             f"benchmark12/finance/data/*.csv (CLAUDE.md sec 3 -- no live "
+             f"benchmark12/finance/data/*.csv (benchmark protocol sec 3 -- no live "
              f"yfinance at runtime).")
     df = pd.read_csv(path, parse_dates=["date"])
     df.columns = [c.lower() for c in df.columns]
     cache, dropped = {}, []
     for tk, g in df.sort_values(["ticker", "date"]).groupby("ticker"):
-        arr = _build_ticker_arrays(g.reset_index(drop=True))
+        if TASK.get("rebuttal_run"):
+            try:
+                if not np.isfinite(g[["open","high","low","close","volume"]].to_numpy(float)).all():
+                    raise ValueError("nonfinite frozen OHLCV rows")
+                arr = _build_ticker_arrays(g.reset_index(drop=True))
+            except (ValueError,ArithmeticError) as exc:
+                log(f"[data] unusable ticker {tk}: {exc}; excluded for every arm")
+                dropped.append(str(tk));continue
+        else:
+            arr = _build_ticker_arrays(g.reset_index(drop=True))
         if arr is None:
             dropped.append(tk)
         else:
@@ -155,7 +166,7 @@ def prepare_data():
     log(f"[data] panel={mkey}: {len(main_tickers)} usable tickers "
         f"(dropped {len(dropped)}: {dropped}); LR-search tickers={lr_tickers}")
     return {"panel": mkey, "cache": cache, "main_tickers": main_tickers,
-            "lr_tickers": list(lr_tickers)}
+            "lr_tickers": list(lr_tickers), "dropped_tickers": dropped}
 
 
 def lr_search_units(data):
@@ -211,7 +222,7 @@ def forward_loss(model, batch, criterion):
 
 
 @torch.no_grad()
-def evaluate(model, loader, criterion):
+def evaluate(model, loader, criterion, extended_metrics=False, extra_deadline=None):
     model.eval()
     se_sum, ae_sum, n, hit, hit_n = 0.0, 0.0, 0, 0, 0
     preds, tgts, strat = [], [], []
@@ -234,7 +245,7 @@ def evaluate(model, loader, criterion):
     s = torch.cat(strat) if strat else torch.zeros(1)
     sharpe = (float(s.mean().item()) / (float(s.std().item()) + 1e-12)
               * math.sqrt(252.0)) if s.numel() > 1 else float("nan")
-    return mse, {
+    aux = {
         "rmse": math.sqrt(max(mse, 0.0)),
         "dir_acc": (hit / hit_n) if hit_n else float("nan"),
         "test_loss": mse,
@@ -242,3 +253,35 @@ def evaluate(model, loader, criterion):
         "r2": r2,                                # descriptive
         "sign_sharpe": sharpe,                   # ann. Sharpe of a sign(pred) strategy
     }
+    if extended_metrics:
+        aux.update(_finance_test_extras(torch.cat(preds).numpy(),yt.numpy(),mse))
+    return mse, aux
+
+
+def _finance_test_extras(pred, target, mse):
+    """Sign strategy metrics are illustrative, not a trading claim.
+    Cost is .0005 per sign flip; drawdown uses cumulative arithmetic returns.
+    """
+    errors={};out={}
+    p=np.asarray(pred,dtype=float);y=np.asarray(target,dtype=float);sign=np.sign(p)
+    flips=np.r_[False,sign[1:]!=sign[:-1]]
+    net=sign*y-.0005*flips
+    def correlation(a,b):
+        return float(np.corrcoef(a,b)[0,1]) if len(a)>1 and a.std()>0 and b.std()>0 else float("nan")
+    tail=np.argsort(np.abs(y),kind="stable")
+    computations={
+        "ic_spearman":lambda:correlation(np.argsort(np.argsort(p,kind="stable"),kind="stable"),np.argsort(np.argsort(y,kind="stable"),kind="stable")),
+        "pred_std_ratio":lambda:float(p.std()/y.std()) if y.std()>0 else float("nan"),
+        "mse_vs_zero":lambda:float(mse/np.mean(y*y)) if np.mean(y*y)>0 else float("nan"),
+        "bias":lambda:float((p-y).mean()),
+        "mse_tail":lambda:float(np.mean((p[tail[-max(1,int(np.ceil(.1*len(y)))):]]-y[tail[-max(1,int(np.ceil(.1*len(y)))):]])**2)),
+        "dir_acc_big":lambda:float(np.mean((p[tail[-max(1,int(np.ceil(.2*len(y)))):]]*y[tail[-max(1,int(np.ceil(.2*len(y)))):]])>0)),
+        "sign_turnover":lambda:float(flips[1:].mean()) if len(y)>1 else float("nan"),
+        "sign_sharpe_net":lambda:float(np.sqrt(252)*net.mean()/net.std(ddof=1)) if len(net)>1 and net.std(ddof=1)>0 else float("nan"),
+        "max_drawdown_sign":lambda:float(np.max(np.maximum.accumulate(np.r_[0,np.cumsum(sign*y)])-np.r_[0,np.cumsum(sign*y)])),
+        "pred_autocorr1":lambda:correlation(p[:-1],p[1:])}
+    for key,fn in computations.items():out[key]=_safe_extra(key,fn,errors)
+    out["beats_zero"]=float(out["mse_vs_zero"]<1) if out["mse_vs_zero"] is not None else None
+    if out["beats_zero"] is None:errors["beats_zero"]="zero baseline undefined"
+    out["x_errors"]=errors
+    return out

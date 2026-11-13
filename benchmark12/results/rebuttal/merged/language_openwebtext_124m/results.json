@@ -1,0 +1,4468 @@
+{
+  "cells": {
+    "AdamW|full|42": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.0005,
+      "knob_used": null,
+      "primary": 70.90396649460473,
+      "best_val_primary": 69.9368113374377,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 4656.778760910034,
+      "sec_per_step": 0.7761297934850057,
+      "mean_step_size": 0.00014324055694548847,
+      "clip_freq": 0.0023333333333333335,
+      "peak_mem_mb": 14515.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          517.4634458370086
+        ],
+        [
+          800,
+          328.94317251543293
+        ],
+        [
+          1200,
+          237.58912561844127
+        ],
+        [
+          1600,
+          186.5531133654618
+        ],
+        [
+          2000,
+          153.543502057231
+        ],
+        [
+          2400,
+          127.93204312392619
+        ],
+        [
+          2800,
+          108.81056312983547
+        ],
+        [
+          3200,
+          96.81390408856451
+        ],
+        [
+          3600,
+          88.44062929017738
+        ],
+        [
+          4000,
+          82.96929397444644
+        ],
+        [
+          4400,
+          78.55684017237955
+        ],
+        [
+          4800,
+          75.31576596088748
+        ],
+        [
+          5200,
+          72.87456920020557
+        ],
+        [
+          5600,
+          71.14094618075849
+        ],
+        [
+          6000,
+          69.9368113374377
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2093.934060573578,
+      "train_loss_at_25pct": 5.321452253453237,
+      "train_loss_at_50pct": 4.633940354471486,
+      "train_loss_at_75pct": 4.366477751369165,
+      "final_train_loss": 4.238770484924316,
+      "gen_gap_loss": 0.0225558919657578,
+      "auc_val_curve": 143.08454266178367,
+      "update_weight_ratio": 0.003247203822417133,
+      "update_cos_sim_sampled": 0.005335656021963507,
+      "grad_norm_mean": 0.4811901250531276,
+      "grad_norm_p95": 0.5485563546419144,
+      "weight_norm_start": 262.23593096091633,
+      "weight_norm_end": 370.5086780187032,
+      "weight_norm_growth": 1.4128829587198097,
+      "throughput_samples_per_s": 41.23021725053545,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.147794431548644,
+      "test_loss": 4.261326376890074,
+      "token_acc": 0.3040710605478751,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          222.10302186012268
+        ],
+        [
+          800,
+          537.5631046295166
+        ],
+        [
+          1200,
+          851.9257748126984
+        ],
+        [
+          1600,
+          1161.168487071991
+        ],
+        [
+          2000,
+          1471.4962389469147
+        ],
+        [
+          2400,
+          1783.8664302825928
+        ],
+        [
+          2800,
+          2093.934060573578
+        ],
+        [
+          3200,
+          2406.2405948638916
+        ],
+        [
+          3600,
+          2714.7465863227844
+        ],
+        [
+          4000,
+          3025.5984692573547
+        ],
+        [
+          4400,
+          3334.194700241089
+        ],
+        [
+          4800,
+          3642.753716468811
+        ],
+        [
+          5200,
+          3949.799021959305
+        ],
+        [
+          5600,
+          4260.506011962891
+        ],
+        [
+          6000,
+          4568.63916516304
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.31513374458938
+        ],
+        [
+          800,
+          5.858825645301932
+        ],
+        [
+          1200,
+          5.527553470953346
+        ],
+        [
+          1600,
+          5.258810586632263
+        ],
+        [
+          2000,
+          5.054822865829944
+        ],
+        [
+          2400,
+          4.8625591812059366
+        ],
+        [
+          2800,
+          4.707737140008327
+        ],
+        [
+          3200,
+          4.586601816579551
+        ],
+        [
+          3600,
+          4.49719140821671
+        ],
+        [
+          4000,
+          4.41830924300442
+        ],
+        [
+          4400,
+          4.391929335471755
+        ],
+        [
+          4800,
+          4.315990524424118
+        ],
+        [
+          5200,
+          4.29664942931794
+        ],
+        [
+          5600,
+          4.265397105409957
+        ],
+        [
+          6000,
+          4.257015380995146
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.057193707134937,
+      "x_grad_norm_max": 5.396374225616455,
+      "x_grad_norm_p50": 0.4750569313764572,
+      "x_grad_norm_cv": 0.2051818585596048,
+      "x_opt_time_s": 0.013828094148387511,
+      "x_fwdbwd_time_s": 0.539095917235439,
+      "x_opt_state_mb": 946.4009552001953,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.02500903173616814,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 115.27720260806382,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 115.29419677332044,
+      "tokens_per_s": 21109.871232274152,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "AdamW|full|43": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.0005,
+      "knob_used": null,
+      "primary": 72.67229336553653,
+      "best_val_primary": 71.57624889929215,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 4681.690789222717,
+      "sec_per_step": 0.7802817982037862,
+      "mean_step_size": 0.0001431075939755465,
+      "clip_freq": 0.002,
+      "peak_mem_mb": 14515.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          582.7243937598375
+        ],
+        [
+          800,
+          392.4407315676275
+        ],
+        [
+          1200,
+          277.17863710326833
+        ],
+        [
+          1600,
+          208.70140148391994
+        ],
+        [
+          2000,
+          169.07033539697554
+        ],
+        [
+          2400,
+          142.44909124959435
+        ],
+        [
+          2800,
+          121.35680765091276
+        ],
+        [
+          3200,
+          104.47152272924006
+        ],
+        [
+          3600,
+          94.37724482238538
+        ],
+        [
+          4000,
+          86.56088048393482
+        ],
+        [
+          4400,
+          81.31589365453206
+        ],
+        [
+          4800,
+          77.51704130821687
+        ],
+        [
+          5200,
+          74.90783251606634
+        ],
+        [
+          5600,
+          72.9134763460169
+        ],
+        [
+          6000,
+          71.57624889929215
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2117.1024639606476,
+      "train_loss_at_25pct": 5.454255937982486,
+      "train_loss_at_50pct": 4.757790259454713,
+      "train_loss_at_75pct": 4.402902469816561,
+      "final_train_loss": 4.137807369232178,
+      "gen_gap_loss": 0.14815283352695108,
+      "auc_val_curve": 159.31508697444684,
+      "update_weight_ratio": 0.003254072147981005,
+      "update_cos_sim_sampled": 0.006817256303877953,
+      "grad_norm_mean": 0.48407417902350425,
+      "grad_norm_p95": 0.5532138139009476,
+      "weight_norm_start": 262.2437771039777,
+      "weight_norm_end": 369.8552053625163,
+      "weight_norm_growth": 1.4103488343819555,
+      "throughput_samples_per_s": 41.010824645229725,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.183333529968052,
+      "test_loss": 4.285960202759129,
+      "token_acc": 0.30141749071940604,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          221.82041954994202
+        ],
+        [
+          800,
+          552.3191604614258
+        ],
+        [
+          1200,
+          873.6360232830048
+        ],
+        [
+          1600,
+          1184.9351601600647
+        ],
+        [
+          2000,
+          1496.72176861763
+        ],
+        [
+          2400,
+          1807.7221624851227
+        ],
+        [
+          2800,
+          2117.1024639606476
+        ],
+        [
+          3200,
+          2424.1597883701324
+        ],
+        [
+          3600,
+          2738.6872143745422
+        ],
+        [
+          4000,
+          3047.6708855628967
+        ],
+        [
+          4400,
+          3358.673466205597
+        ],
+        [
+          4800,
+          3666.6507573127747
+        ],
+        [
+          5200,
+          3976.1373856067657
+        ],
+        [
+          5600,
+          4283.142148971558
+        ],
+        [
+          6000,
+          4593.639367103577
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.444163499457015
+        ],
+        [
+          800,
+          6.0403897511480285
+        ],
+        [
+          1200,
+          5.667003740583839
+        ],
+        [
+          1600,
+          5.383683315390893
+        ],
+        [
+          2000,
+          5.149624129255425
+        ],
+        [
+          2400,
+          4.97392227905722
+        ],
+        [
+          2800,
+          4.826517456634257
+        ],
+        [
+          3200,
+          4.670919814490598
+        ],
+        [
+          3600,
+          4.548247296648365
+        ],
+        [
+          4000,
+          4.48484854058136
+        ],
+        [
+          4400,
+          4.414301136116194
+        ],
+        [
+          4800,
+          4.362974024354724
+        ],
+        [
+          5200,
+          4.3363447804461694
+        ],
+        [
+          5600,
+          4.300746925595172
+        ],
+        [
+          6000,
+          4.281661763563338
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0552634190298338,
+      "x_grad_norm_max": 14.001832008361816,
+      "x_grad_norm_p50": 0.47703368961811066,
+      "x_grad_norm_cv": 0.4176869006449122,
+      "x_opt_time_s": 0.013837808867295583,
+      "x_fwdbwd_time_s": 0.5393380210890124,
+      "x_opt_state_mb": 946.4009552001953,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.02501520875991373,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 114.70700284279883,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 114.72391604632139,
+      "tokens_per_s": 20997.54221835762,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "Muon|full|42": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.002,
+      "knob_used": null,
+      "primary": 47.246348423629186,
+      "best_val_primary": 46.46436795222584,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 5010.681880474091,
+      "sec_per_step": 0.8351136467456818,
+      "mean_step_size": 0.00020707899220202388,
+      "clip_freq": 0.006333333333333333,
+      "peak_mem_mb": 14191.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          228.97050516195446
+        ],
+        [
+          800,
+          131.50569377616048
+        ],
+        [
+          1200,
+          97.86496748690055
+        ],
+        [
+          1600,
+          83.77760096968184
+        ],
+        [
+          2000,
+          74.84972934605979
+        ],
+        [
+          2400,
+          68.26237062543233
+        ],
+        [
+          2800,
+          63.26452142191408
+        ],
+        [
+          3200,
+          59.1931340893678
+        ],
+        [
+          3600,
+          55.85076312778742
+        ],
+        [
+          4000,
+          53.18733280662375
+        ],
+        [
+          4400,
+          51.07032801233748
+        ],
+        [
+          4800,
+          49.36458678062643
+        ],
+        [
+          5200,
+          48.07802438449361
+        ],
+        [
+          5600,
+          47.139488902647905
+        ],
+        [
+          6000,
+          46.46436795222584
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2258.6227276325226,
+      "train_loss_at_25pct": 4.502361447694609,
+      "train_loss_at_50pct": 4.115380752382849,
+      "train_loss_at_75pct": 3.936836242947489,
+      "final_train_loss": 3.811840772628784,
+      "gen_gap_loss": 0.04353459628496292,
+      "auc_val_curve": 72.9375698776517,
+      "update_weight_ratio": 0.003472869608053344,
+      "update_cos_sim_sampled": 0.0004045155059983129,
+      "grad_norm_mean": 0.45869855288167793,
+      "grad_norm_p95": 0.5331975221633911,
+      "weight_norm_start": 262.23593096091633,
+      "weight_norm_end": 940.1003724810809,
+      "weight_norm_growth": 3.58494112166953,
+      "throughput_samples_per_s": 38.318138045880836,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 5.562130925497321,
+      "test_loss": 3.855375368913747,
+      "token_acc": 0.3424413162442396,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          242.6380684375763
+        ],
+        [
+          800,
+          592.3752498626709
+        ],
+        [
+          1200,
+          930.13023853302
+        ],
+        [
+          1600,
+          1264.3360617160797
+        ],
+        [
+          2000,
+          1594.6509611606598
+        ],
+        [
+          2400,
+          1928.7766563892365
+        ],
+        [
+          2800,
+          2258.6227276325226
+        ],
+        [
+          3200,
+          2592.42351102829
+        ],
+        [
+          3600,
+          2924.3476598262787
+        ],
+        [
+          4000,
+          3255.673945903778
+        ],
+        [
+          4400,
+          3588.394273996353
+        ],
+        [
+          4800,
+          3919.881674051285
+        ],
+        [
+          5200,
+          4255.896072626114
+        ],
+        [
+          5600,
+          4589.7737011909485
+        ],
+        [
+          6000,
+          4921.542476654053
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          5.547641304057975
+        ],
+        [
+          800,
+          4.946326181819735
+        ],
+        [
+          1200,
+          4.626980503195141
+        ],
+        [
+          1600,
+          4.460306871799848
+        ],
+        [
+          2000,
+          4.338448227757022
+        ],
+        [
+          2400,
+          4.233711476132529
+        ],
+        [
+          2800,
+          4.154513285925374
+        ],
+        [
+          3200,
+          4.090094236084772
+        ],
+        [
+          3600,
+          4.036130234577341
+        ],
+        [
+          4000,
+          3.975092502965881
+        ],
+        [
+          4400,
+          3.9626352954478063
+        ],
+        [
+          4800,
+          3.893032671310922
+        ],
+        [
+          5200,
+          3.8783706062953835
+        ],
+        [
+          5600,
+          3.852230750954736
+        ],
+        [
+          6000,
+          3.845764585019887
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.068708901227109,
+      "x_grad_norm_max": 6.761465549468994,
+      "x_grad_norm_p50": 0.4332965761423111,
+      "x_grad_norm_cv": 0.38814684045595405,
+      "x_opt_time_s": 0.0655851013182352,
+      "x_fwdbwd_time_s": 0.5391746492745976,
+      "x_opt_state_mb": 622.400390625,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.10844819162310909,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 115.39047980681062,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 115.40627472288907,
+      "tokens_per_s": 19618.886679490988,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "Muon|full|43": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.002,
+      "knob_used": null,
+      "primary": 47.17502606375441,
+      "best_val_primary": 46.37765192898554,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 4981.757410526276,
+      "sec_per_step": 0.8302929017543793,
+      "mean_step_size": 0.00020613237554437214,
+      "clip_freq": 0.006166666666666667,
+      "peak_mem_mb": 14191.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          227.5661623337979
+        ],
+        [
+          800,
+          133.6600077909614
+        ],
+        [
+          1200,
+          98.77988921918048
+        ],
+        [
+          1600,
+          84.21423309088595
+        ],
+        [
+          2000,
+          74.93591501575725
+        ],
+        [
+          2400,
+          68.50249796671577
+        ],
+        [
+          2800,
+          63.280936758781515
+        ],
+        [
+          3200,
+          59.14335185882028
+        ],
+        [
+          3600,
+          55.88028951440996
+        ],
+        [
+          4000,
+          53.13545730750276
+        ],
+        [
+          4400,
+          50.980669701621636
+        ],
+        [
+          4800,
+          49.242837341579175
+        ],
+        [
+          5200,
+          48.00012926437371
+        ],
+        [
+          5600,
+          47.04790407978875
+        ],
+        [
+          6000,
+          46.37765192898554
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2258.3693010807037,
+      "train_loss_at_25pct": 4.494759615336366,
+      "train_loss_at_50pct": 4.1407033118134455,
+      "train_loss_at_75pct": 3.93498521400375,
+      "final_train_loss": 3.709745168685913,
+      "gen_gap_loss": 0.14411947505936773,
+      "auc_val_curve": 73.1268590029836,
+      "update_weight_ratio": 0.0034529127041518556,
+      "update_cos_sim_sampled": 0.0003932050857785987,
+      "grad_norm_mean": 0.459956576893727,
+      "grad_norm_p95": 0.5377725332975387,
+      "weight_norm_start": 262.2437771039777,
+      "weight_norm_end": 939.4880553902282,
+      "weight_norm_growth": 3.5824989472208832,
+      "throughput_samples_per_s": 38.5406161276161,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 5.559951409788629,
+      "test_loss": 3.853864643745281,
+      "token_acc": 0.34216389848950335,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          242.49329662322998
+        ],
+        [
+          800,
+          591.4249565601349
+        ],
+        [
+          1200,
+          933.2921314239502
+        ],
+        [
+          1600,
+          1263.2507104873657
+        ],
+        [
+          2000,
+          1595.5051364898682
+        ],
+        [
+          2400,
+          1929.6536598205566
+        ],
+        [
+          2800,
+          2258.3693010807037
+        ],
+        [
+          3200,
+          2590.04390501976
+        ],
+        [
+          3600,
+          2919.4035289287567
+        ],
+        [
+          4000,
+          3249.2789783477783
+        ],
+        [
+          4400,
+          3577.95512843132
+        ],
+        [
+          4800,
+          3907.7486538887024
+        ],
+        [
+          5200,
+          4237.942125558853
+        ],
+        [
+          5600,
+          4565.85976433754
+        ],
+        [
+          6000,
+          4893.902884483337
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          5.552227859655357
+        ],
+        [
+          800,
+          4.976718341831178
+        ],
+        [
+          1200,
+          4.619314926245116
+        ],
+        [
+          1600,
+          4.4635709450647125
+        ],
+        [
+          2000,
+          4.326802602647285
+        ],
+        [
+          2400,
+          4.243418933913994
+        ],
+        [
+          2800,
+          4.161116797361481
+        ],
+        [
+          3200,
+          4.0950693647153145
+        ],
+        [
+          3600,
+          4.024512903695058
+        ],
+        [
+          4000,
+          3.9925998981050257
+        ],
+        [
+          4400,
+          3.9473629417184233
+        ],
+        [
+          4800,
+          3.9042991674059673
+        ],
+        [
+          5200,
+          3.891033498825254
+        ],
+        [
+          5600,
+          3.8612013351532495
+        ],
+        [
+          6000,
+          3.84729066285329
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0698680943421337,
+      "x_grad_norm_max": 5.971563816070557,
+      "x_grad_norm_p50": 0.4349321722984314,
+      "x_grad_norm_cv": 0.3446309628473042,
+      "x_opt_time_s": 0.06556811734723549,
+      "x_fwdbwd_time_s": 0.5385173513088375,
+      "x_opt_state_mb": 622.400390625,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.1085411266275066,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 114.8593119699508,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 114.87481300905347,
+      "tokens_per_s": 19732.79545733944,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "EvieKF|full|42": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 42,
+      "lr_used": 0.0005,
+      "knob_used": 27000.0,
+      "primary": 71.7962654316756,
+      "best_val_primary": 70.97604207468515,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 5444.34631061554,
+      "sec_per_step": 0.9073910517692566,
+      "mean_step_size": 0.00015723463882413106,
+      "clip_freq": 0.0023333333333333335,
+      "peak_mem_mb": 15271.6201171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          466.12730786081573
+        ],
+        [
+          800,
+          279.97053296673045
+        ],
+        [
+          1200,
+          205.61041666919928
+        ],
+        [
+          1600,
+          167.91295273294355
+        ],
+        [
+          2000,
+          142.90787401767892
+        ],
+        [
+          2400,
+          125.63415697368198
+        ],
+        [
+          2800,
+          112.542325277112
+        ],
+        [
+          3200,
+          102.13588141586888
+        ],
+        [
+          3600,
+          93.47693210267195
+        ],
+        [
+          4000,
+          86.41249892802155
+        ],
+        [
+          4400,
+          81.04764899027825
+        ],
+        [
+          4800,
+          77.09766040790889
+        ],
+        [
+          5200,
+          74.31975778164886
+        ],
+        [
+          5600,
+          72.40107200184717
+        ],
+        [
+          6000,
+          70.97604207468515
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 3200,
+      "frac_budget_to_90pct_best": 0.5333333333333333,
+      "wallclock_to_90pct_best_s": 2826.170683145523,
+      "train_loss_at_25pct": 5.208267659292291,
+      "train_loss_at_50pct": 4.667858234043344,
+      "train_loss_at_75pct": 4.393327102669886,
+      "final_train_loss": 4.262628793716431,
+      "gen_gap_loss": 0.011203667498587144,
+      "auc_val_curve": 135.00152751666727,
+      "update_weight_ratio": 0.003681018435420784,
+      "update_cos_sim_sampled": 0.004097897624311202,
+      "grad_norm_mean": 0.5638394793570042,
+      "grad_norm_p95": 0.6260697573423386,
+      "weight_norm_start": 262.23593096091633,
+      "weight_norm_end": 449.3420167340577,
+      "weight_norm_growth": 1.7135028563306518,
+      "throughput_samples_per_s": 35.26594177626669,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.165836897385179,
+      "test_loss": 4.273832461215018,
+      "token_acc": 0.29865191372247823,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": 0.7635321614711684,
+      "eviekf_cos_min": 0.6848675801472617,
+      "eviekf_b_simple_mean": 19.023992314382962,
+      "eviekf_tr_sigma_mean": 3125.3755968478276,
+      "eviekf_eff_rank_mean": 69949.89450968425,
+      "eviekf_gain_lo_min": 0.003725966438651085,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 5980,
+      "eviekf_role_gain": {
+        "embedding": [
+          0.017781324684619904,
+          1.0,
+          640225.50390625,
+          2
+        ],
+        "attention": [
+          0.005325795616954565,
+          0.9999993443489075,
+          177783.75039672852,
+          24
+        ],
+        "ffn": [
+          0.021491151303052902,
+          1.0,
+          3374931.3310546875,
+          24
+        ]
+      },
+      "eviekf_diag_trace": [
+        {
+          "step": 400,
+          "cos": 0.6848675801472617,
+          "b_simple": 18.685872664780817,
+          "tr_sigma": 1821.111778841936,
+          "eff_rank": 41215.610199890136,
+          "gain_lo": 0.006169735454022884,
+          "gain_hi": 1.0,
+          "n_active_steps": 380,
+          "last_c_mean": 2.3862857776967075,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7440141293666633,
+          "offdiag_frac_B": 0.4434181717993693,
+          "anisotropy_A": 129.03736577033996,
+          "anisotropy_B": 31.329540252685547,
+          "energy_top_before": 0.8726576781272888,
+          "energy_top_after": 0.7529960063099861,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 12.486358415335417
+        },
+        {
+          "step": 800,
+          "cos": 0.7350015269769209,
+          "b_simple": 19.23071939585111,
+          "tr_sigma": 2471.4306330489926,
+          "eff_rank": 56510.03804260254,
+          "gain_lo": 0.006222436670213938,
+          "gain_hi": 1.0,
+          "n_active_steps": 780,
+          "last_c_mean": 2.3062488553525595,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7426958796278655,
+          "offdiag_frac_B": 0.4318381757353255,
+          "anisotropy_A": 133.0519510984421,
+          "anisotropy_B": 25.800272564888,
+          "energy_top_before": 0.8670510864257812,
+          "energy_top_after": 0.6774662604928017,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 24.95065749436617
+        },
+        {
+          "step": 1200,
+          "cos": 0.7567605003453232,
+          "b_simple": 18.724071829087507,
+          "tr_sigma": 2560.829173193313,
+          "eff_rank": 62295.73102966309,
+          "gain_lo": 0.006012020632624626,
+          "gain_hi": 1.0,
+          "n_active_steps": 1180,
+          "last_c_mean": 2.2572220107232317,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7444224933394278,
+          "offdiag_frac_B": 0.43209286719257,
+          "anisotropy_A": 160.79930923461913,
+          "anisotropy_B": 27.21007046699524,
+          "energy_top_before": 0.8525494986772537,
+          "energy_top_after": 0.6146348971128464,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 37.39674022607505
+        },
+        {
+          "step": 1600,
+          "cos": 0.7627468511142349,
+          "b_simple": 21.42797145730449,
+          "tr_sigma": 3212.489217150025,
+          "eff_rank": 31933.34542755127,
+          "gain_lo": 0.003725966438651085,
+          "gain_hi": 1.0,
+          "n_active_steps": 1580,
+          "last_c_mean": 2.220653388957945,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.747221546365622,
+          "offdiag_frac_B": 0.4630819185777344,
+          "anisotropy_A": 186.8958279800415,
+          "anisotropy_B": 64.08215728282929,
+          "energy_top_before": 0.846865234375,
+          "energy_top_after": 0.5826351687312126,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 49.835853561758995
+        },
+        {
+          "step": 2000,
+          "cos": 0.7659220623857825,
+          "b_simple": 16.716884520156906,
+          "tr_sigma": 2558.2042354848236,
+          "eff_rank": 66079.47534057617,
+          "gain_lo": 0.006687629967927933,
+          "gain_hi": 1.0,
+          "n_active_steps": 1980,
+          "last_c_mean": 2.188647298939283,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7449633106867498,
+          "offdiag_frac_B": 0.4290992480481816,
+          "anisotropy_A": 180.7876346540451,
+          "anisotropy_B": 27.904583044052124,
+          "energy_top_before": 0.8370883071422577,
+          "energy_top_after": 0.5447640189528465,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 62.29183857142925
+        },
+        {
+          "step": 2400,
+          "cos": 0.7802927235432464,
+          "b_simple": 19.590715937715242,
+          "tr_sigma": 2899.9667962174863,
+          "eff_rank": 72827.89310607911,
+          "gain_lo": 0.0070739914663136005,
+          "gain_hi": 1.0,
+          "n_active_steps": 2380,
+          "last_c_mean": 2.1608977904271147,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7450311420999632,
+          "offdiag_frac_B": 0.4255024798826304,
+          "anisotropy_A": 185.99232124328614,
+          "anisotropy_B": 26.227885308265687,
+          "energy_top_before": 0.8221328806877136,
+          "energy_top_after": 0.5239085900783539,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 74.7646071780473
+        },
+        {
+          "step": 2800,
+          "cos": 0.7747232076507271,
+          "b_simple": 19.474280122049908,
+          "tr_sigma": 3123.248419040814,
+          "eff_rank": 76607.66673461914,
+          "gain_lo": 0.0065530454739928246,
+          "gain_hi": 1.0,
+          "n_active_steps": 2780,
+          "last_c_mean": 2.1375083277170592,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7448313343565859,
+          "offdiag_frac_B": 0.4231966446848986,
+          "anisotropy_A": 188.98918742656707,
+          "anisotropy_B": 25.8793803358078,
+          "energy_top_before": 0.8150260430574418,
+          "energy_top_after": 0.49711468935012815,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 87.24389353208244
+        },
+        {
+          "step": 3200,
+          "cos": 0.7813308552691131,
+          "b_simple": 19.64192869440742,
+          "tr_sigma": 3136.485972991213,
+          "eff_rank": 79809.25932006836,
+          "gain_lo": 0.006489609368145466,
+          "gain_hi": 1.0,
+          "n_active_steps": 3180,
+          "last_c_mean": 2.1194543747136865,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7451536353109208,
+          "offdiag_frac_B": 0.4218320967764275,
+          "anisotropy_A": 193.99676724910736,
+          "anisotropy_B": 25.35719566822052,
+          "energy_top_before": 0.805719410777092,
+          "energy_top_after": 0.47732115894556043,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 99.74339132383466
+        },
+        {
+          "step": 3600,
+          "cos": 0.779700201758539,
+          "b_simple": 18.254716827143408,
+          "tr_sigma": 3159.5531373303384,
+          "eff_rank": 81130.62246398926,
+          "gain_lo": 0.006241912022233009,
+          "gain_hi": 1.0,
+          "n_active_steps": 3580,
+          "last_c_mean": 2.1052978816063934,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7447772785442079,
+          "offdiag_frac_B": 0.4196372683845781,
+          "anisotropy_A": 192.18538736343385,
+          "anisotropy_B": 26.235863909721374,
+          "energy_top_before": 0.7977346235513687,
+          "energy_top_after": 0.4570626080036163,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 112.23761985823512
+        },
+        {
+          "step": 4000,
+          "cos": 0.7813017160084826,
+          "b_simple": 22.547406854169026,
+          "tr_sigma": 4123.644949125126,
+          "eff_rank": 83671.97434448243,
+          "gain_lo": 0.0062364437617361546,
+          "gain_hi": 1.0,
+          "n_active_steps": 3980,
+          "last_c_mean": 2.095062397439147,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7448820032932549,
+          "offdiag_frac_B": 0.4184636531252482,
+          "anisotropy_A": 193.206544175148,
+          "anisotropy_B": 25.496726455688478,
+          "energy_top_before": 0.7932208907604218,
+          "energy_top_after": 0.44696962237358095,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 124.75740556977689
+        },
+        {
+          "step": 4400,
+          "cos": 0.7687939549610755,
+          "b_simple": 20.490366558565,
+          "tr_sigma": 4030.9847175478935,
+          "eff_rank": 62810.34987243652,
+          "gain_lo": 0.004701872821897268,
+          "gain_hi": 1.0,
+          "n_active_steps": 4380,
+          "last_c_mean": 2.0887072127200583,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7451420685470211,
+          "offdiag_frac_B": 0.4329708968722869,
+          "anisotropy_A": 192.71117705345154,
+          "anisotropy_B": 33.96556415557861,
+          "energy_top_before": 0.8053666883707047,
+          "energy_top_after": 0.433760826587677,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 137.27027696743608
+        },
+        {
+          "step": 4800,
+          "cos": 0.7685368821377819,
+          "b_simple": 16.7501199870656,
+          "tr_sigma": 3311.94311209023,
+          "eff_rank": 83497.93880310058,
+          "gain_lo": 0.005259099416434765,
+          "gain_hi": 1.0,
+          "n_active_steps": 4780,
+          "last_c_mean": 2.084399697739301,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7452819434436475,
+          "offdiag_frac_B": 0.42059504934338315,
+          "anisotropy_A": 196.33322064876558,
+          "anisotropy_B": 26.145477480888367,
+          "energy_top_before": 0.7967373365163803,
+          "energy_top_after": 0.42881020188331603,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 149.78580461256206
+        },
+        {
+          "step": 5200,
+          "cos": 0.77551020528571,
+          "b_simple": 17.773298088860876,
+          "tr_sigma": 3362.587682345882,
+          "eff_rank": 83991.35918701172,
+          "gain_lo": 0.005621717777103186,
+          "gain_hi": 1.0,
+          "n_active_steps": 5180,
+          "last_c_mean": 2.0806973011865604,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7455354501128524,
+          "offdiag_frac_B": 0.42155853460822656,
+          "anisotropy_A": 198.3387626361847,
+          "anisotropy_B": 25.6704989528656,
+          "energy_top_before": 0.7869595259428024,
+          "energy_top_after": 0.41937049716711045,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 162.29051575809717
+        },
+        {
+          "step": 5600,
+          "cos": 0.7701859754300577,
+          "b_simple": 18.503381031841897,
+          "tr_sigma": 3561.7492464482784,
+          "eff_rank": 83008.34206604004,
+          "gain_lo": 0.0056761885061860085,
+          "gain_hi": 1.0,
+          "n_active_steps": 5580,
+          "last_c_mean": 2.077277097029394,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.745594831633535,
+          "offdiag_frac_B": 0.4220123067179938,
+          "anisotropy_A": 197.0613232755661,
+          "anisotropy_B": 26.292912120819093,
+          "energy_top_before": 0.7899790030717849,
+          "energy_top_after": 0.4182912167906761,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 174.80795805342495
+        },
+        {
+          "step": 6000,
+          "cos": 0.7673081790532675,
+          "b_simple": 17.548150746745268,
+          "tr_sigma": 3546.404881861061,
+          "eff_rank": 83858.81170715332,
+          "gain_lo": 0.005325795616954565,
+          "gain_hi": 1.0,
+          "n_active_steps": 5980,
+          "last_c_mean": 2.0747139895591653,
+          "last_c_min": 1.6043375055114069,
+          "offdiag_frac_A": 0.7457631026234808,
+          "offdiag_frac_B": 0.4224767061278052,
+          "anisotropy_A": 198.20998705387115,
+          "anisotropy_B": 26.902417216300964,
+          "energy_top_before": 0.7899879091978073,
+          "energy_top_after": 0.4137736275792122,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 187.31782996468246
+        }
+      ],
+      "eval_wall_curve": [
+        [
+          400,
+          271.6698086261749
+        ],
+        [
+          800,
+          655.5009524822235
+        ],
+        [
+          1200,
+          1021.0137302875519
+        ],
+        [
+          1600,
+          1382.0705316066742
+        ],
+        [
+          2000,
+          1743.4367446899414
+        ],
+        [
+          2400,
+          2104.2255911827087
+        ],
+        [
+          2800,
+          2463.796367406845
+        ],
+        [
+          3200,
+          2826.170683145523
+        ],
+        [
+          3600,
+          3189.0767815113068
+        ],
+        [
+          4000,
+          3547.385192155838
+        ],
+        [
+          4400,
+          3909.1879262924194
+        ],
+        [
+          4800,
+          4272.776500940323
+        ],
+        [
+          5200,
+          4633.868408918381
+        ],
+        [
+          5600,
+          4993.124405622482
+        ],
+        [
+          6000,
+          5355.31199836731
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.232845499543087
+        ],
+        [
+          800,
+          5.696548400332947
+        ],
+        [
+          1200,
+          5.372357406092813
+        ],
+        [
+          1600,
+          5.15059316466893
+        ],
+        [
+          2000,
+          4.986841506205807
+        ],
+        [
+          2400,
+          4.833538129268313
+        ],
+        [
+          2800,
+          4.728865000342422
+        ],
+        [
+          3200,
+          4.631410602938345
+        ],
+        [
+          3600,
+          4.5418148811907555
+        ],
+        [
+          4000,
+          4.451629706079543
+        ],
+        [
+          4400,
+          4.415544740536692
+        ],
+        [
+          4800,
+          4.33655307947838
+        ],
+        [
+          5200,
+          4.312823186467399
+        ],
+        [
+          5600,
+          4.276139637348164
+        ],
+        [
+          6000,
+          4.269525050944087
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.060153014145446,
+      "x_grad_norm_max": 5.396374225616455,
+      "x_grad_norm_p50": 0.5576559901237488,
+      "x_grad_norm_cv": 0.16515377508851514,
+      "x_opt_time_s": 0.09780992035133143,
+      "x_fwdbwd_time_s": 0.545421120384708,
+      "x_opt_state_mb": 1229.203742980957,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell"
+      },
+      "x_opt_time_frac": 0.15206032382922477,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 115.63190407678485,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 115.64948594383895,
+      "tokens_per_s": 18056.162189448547,
+      "eviekf_last_c_mean_mean": 2.1588715601205073,
+      "eviekf_last_c_min_mean": 1.6043375055114069,
+      "eviekf_offdiag_frac_A_mean": 0.7450206766234532,
+      "eviekf_offdiag_frac_B_mean": 0.4285184011917772,
+      "eviekf_anisotropy_A_mean": 181.83978445752462,
+      "eviekf_anisotropy_B_mean": 29.63336968104045,
+      "eviekf_energy_top_before_mean": 0.8186050744454065,
+      "eviekf_energy_top_after_mean": 0.5125919593572618,
+      "eviekf_frac_params_kron_mean": 0.060228208446065155,
+      "eviekf_frac_params_diag_fallback_mean": 0.9387935784644533,
+      "eviekf_frac_params_vector_mean": 0.000978213089481733,
+      "eviekf_eig_refresh_time_s_mean": 187.31782996468246,
+      "eviekf_c_mean": 2.1588715601205073,
+      "recorded": true
+    },
+    "EvieKF|full|43": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 43,
+      "lr_used": 0.0005,
+      "knob_used": 27000.0,
+      "primary": 61.613748980431936,
+      "best_val_primary": 60.739421524764914,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 5426.236759901047,
+      "sec_per_step": 0.9043727933168412,
+      "mean_step_size": 0.000154334947647112,
+      "clip_freq": 0.0023333333333333335,
+      "peak_mem_mb": 15271.6201171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          482.5440649584338
+        ],
+        [
+          800,
+          281.70285795616
+        ],
+        [
+          1200,
+          191.6546504325984
+        ],
+        [
+          1600,
+          151.13289378357663
+        ],
+        [
+          2000,
+          125.2486408048164
+        ],
+        [
+          2400,
+          105.77953919805418
+        ],
+        [
+          2800,
+          90.78495008174907
+        ],
+        [
+          3200,
+          81.37080167320563
+        ],
+        [
+          3600,
+          75.05545918516395
+        ],
+        [
+          4000,
+          70.5660463499186
+        ],
+        [
+          4400,
+          67.19229297522926
+        ],
+        [
+          4800,
+          64.70047895235088
+        ],
+        [
+          5200,
+          62.97192972600339
+        ],
+        [
+          5600,
+          61.67663216696029
+        ],
+        [
+          6000,
+          60.739421524764914
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2460.6863210201263,
+      "train_loss_at_25pct": 5.107661783894226,
+      "train_loss_at_50pct": 4.480749145257612,
+      "train_loss_at_75pct": 4.211094605462879,
+      "final_train_loss": 3.98221218585968,
+      "gen_gap_loss": 0.13867285750917002,
+      "auc_val_curve": 121.53420832338469,
+      "update_weight_ratio": 0.003598769647435217,
+      "update_cos_sim_sampled": 0.004817595332276395,
+      "grad_norm_mean": 0.5534263707647721,
+      "grad_norm_p95": 0.6118458896875382,
+      "weight_norm_start": 262.2437771039777,
+      "weight_norm_end": 439.90063849419835,
+      "weight_norm_growth": 1.6774492929903957,
+      "throughput_samples_per_s": 35.38363851331495,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 5.945180416141741,
+      "test_loss": 4.12088504336885,
+      "token_acc": 0.3177683371735791,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": 0.7671838307898462,
+      "eviekf_cos_min": 0.6791448485108932,
+      "eviekf_b_simple_mean": 18.70895659602568,
+      "eviekf_tr_sigma_mean": 2946.6100467018473,
+      "eviekf_eff_rank_mean": 82486.4385857544,
+      "eviekf_gain_lo_min": 0.004643554799258709,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 5980,
+      "eviekf_role_gain": {
+        "embedding": [
+          0.018788445740938187,
+          1.0,
+          692873.849609375,
+          2
+        ],
+        "attention": [
+          0.005153616424649954,
+          0.9999998807907104,
+          170701.60794067383,
+          24
+        ],
+        "ffn": [
+          0.019551124423742294,
+          1.0,
+          4251878.387207031,
+          24
+        ]
+      },
+      "eviekf_diag_trace": [
+        {
+          "step": 400,
+          "cos": 0.6791448485108932,
+          "b_simple": 20.225940129699346,
+          "tr_sigma": 1758.106968277134,
+          "eff_rank": 43611.876892700195,
+          "gain_lo": 0.005984480492770672,
+          "gain_hi": 1.0,
+          "n_active_steps": 380,
+          "last_c_mean": 2.44297932002205,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7455057764934649,
+          "offdiag_frac_B": 0.44113355863774845,
+          "anisotropy_A": 137.92139377593995,
+          "anisotropy_B": 31.182763805389403,
+          "energy_top_before": 0.8727896404266358,
+          "energy_top_after": 0.7626036742329597,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 12.4580739736557
+        },
+        {
+          "step": 800,
+          "cos": 0.7338192035650265,
+          "b_simple": 18.948708445007277,
+          "tr_sigma": 2210.8940389840864,
+          "eff_rank": 51904.62420288086,
+          "gain_lo": 0.006228094920516014,
+          "gain_hi": 1.0,
+          "n_active_steps": 780,
+          "last_c_mean": 2.3404958582450375,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7444223814070327,
+          "offdiag_frac_B": 0.43776296868300213,
+          "anisotropy_A": 143.18226770401,
+          "anisotropy_B": 31.72542163848877,
+          "energy_top_before": 0.8796895527839661,
+          "energy_top_after": 0.6868118783831596,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 24.907206509262323
+        },
+        {
+          "step": 1200,
+          "cos": 0.7585394306079454,
+          "b_simple": 17.679479646922573,
+          "tr_sigma": 2191.9204300954007,
+          "eff_rank": 59553.28883911133,
+          "gain_lo": 0.0064290729351341724,
+          "gain_hi": 1.0,
+          "n_active_steps": 1180,
+          "last_c_mean": 2.264505346717649,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7424190266947367,
+          "offdiag_frac_B": 0.432907570360171,
+          "anisotropy_A": 153.92055362701416,
+          "anisotropy_B": 33.4300633430481,
+          "energy_top_before": 0.8567882061004639,
+          "energy_top_after": 0.6157211863994598,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 37.348639745265245
+        },
+        {
+          "step": 1600,
+          "cos": 0.7718777253073477,
+          "b_simple": 18.03467022467738,
+          "tr_sigma": 2340.553270657081,
+          "eff_rank": 69632.47527770996,
+          "gain_lo": 0.006789475213736296,
+          "gain_hi": 1.0,
+          "n_active_steps": 1580,
+          "last_c_mean": 2.210423523204744,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7408799105779238,
+          "offdiag_frac_B": 0.42686525039774464,
+          "anisotropy_A": 158.6412312602997,
+          "anisotropy_B": 30.92168604850769,
+          "energy_top_before": 0.8351647108793259,
+          "energy_top_after": 0.5619102904200554,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 49.81010254845023
+        },
+        {
+          "step": 2000,
+          "cos": 0.7724327634699065,
+          "b_simple": 18.22733887434284,
+          "tr_sigma": 2763.316828935407,
+          "eff_rank": 75301.68194610596,
+          "gain_lo": 0.006701705511659384,
+          "gain_hi": 1.0,
+          "n_active_steps": 1980,
+          "last_c_mean": 2.1720360956672637,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7401872333532882,
+          "offdiag_frac_B": 0.42440773786531755,
+          "anisotropy_A": 163.0164775466919,
+          "anisotropy_B": 29.3188254737854,
+          "energy_top_before": 0.8231082016229629,
+          "energy_top_after": 0.519033941924572,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 62.26890249364078
+        },
+        {
+          "step": 2400,
+          "cos": 0.7664914318357284,
+          "b_simple": 16.937705633476494,
+          "tr_sigma": 2911.0305946469307,
+          "eff_rank": 62078.57155456543,
+          "gain_lo": 0.005969468969851732,
+          "gain_hi": 1.0,
+          "n_active_steps": 2380,
+          "last_c_mean": 2.1457732096184574,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7414370443763584,
+          "offdiag_frac_B": 0.43663079825824874,
+          "anisotropy_A": 168.33575735092163,
+          "anisotropy_B": 39.15043103694916,
+          "energy_top_before": 0.8202864789962768,
+          "energy_top_after": 0.4891827282309532,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 74.78056104667485
+        },
+        {
+          "step": 2800,
+          "cos": 0.7771974692065433,
+          "b_simple": 17.329957302798118,
+          "tr_sigma": 2779.26210591197,
+          "eff_rank": 88301.86540954589,
+          "gain_lo": 0.00612892908975482,
+          "gain_hi": 1.0,
+          "n_active_steps": 2780,
+          "last_c_mean": 2.1277232658218255,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7405884386829479,
+          "offdiag_frac_B": 0.41451539038116214,
+          "anisotropy_A": 173.30721831798553,
+          "anisotropy_B": 26.20253255367279,
+          "energy_top_before": 0.8022797465324402,
+          "energy_top_after": 0.47050842583179475,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 87.27983751706779
+        },
+        {
+          "step": 3200,
+          "cos": 0.7788703026074579,
+          "b_simple": 19.243668560497238,
+          "tr_sigma": 3166.263233665377,
+          "eff_rank": 89335.56222259521,
+          "gain_lo": 0.006008360534906387,
+          "gain_hi": 1.0,
+          "n_active_steps": 3180,
+          "last_c_mean": 2.1131327465555154,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7409628989530881,
+          "offdiag_frac_B": 0.414771414005529,
+          "anisotropy_A": 176.250518245697,
+          "anisotropy_B": 28.01944113254547,
+          "energy_top_before": 0.7971165680885315,
+          "energy_top_after": 0.4622298228740692,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 99.77557806111872
+        },
+        {
+          "step": 3600,
+          "cos": 0.7829025173525838,
+          "b_simple": 19.494809421171595,
+          "tr_sigma": 3330.4023880753666,
+          "eff_rank": 95998.41079956054,
+          "gain_lo": 0.006437754258513451,
+          "gain_hi": 1.0,
+          "n_active_steps": 3580,
+          "last_c_mean": 2.100560113316844,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7400777660466715,
+          "offdiag_frac_B": 0.41177501431623037,
+          "anisotropy_A": 174.96449897289276,
+          "anisotropy_B": 24.89234317779541,
+          "energy_top_before": 0.7916864109039307,
+          "energy_top_after": 0.45151943534612654,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 112.27280668914318
+        },
+        {
+          "step": 4000,
+          "cos": 0.7833012514009386,
+          "b_simple": 20.800397192523764,
+          "tr_sigma": 3653.880857186392,
+          "eff_rank": 97447.08509185791,
+          "gain_lo": 0.005680520087480545,
+          "gain_hi": 1.0,
+          "n_active_steps": 3980,
+          "last_c_mean": 2.0901170741133823,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7405723055168769,
+          "offdiag_frac_B": 0.4120737049947667,
+          "anisotropy_A": 178.30505097866057,
+          "anisotropy_B": 25.484665746688844,
+          "energy_top_before": 0.7835148864984512,
+          "energy_top_after": 0.43746518552303315,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 124.77860862575471
+        },
+        {
+          "step": 4400,
+          "cos": 0.780868067487854,
+          "b_simple": 19.457038340757666,
+          "tr_sigma": 3412.305571889505,
+          "eff_rank": 100802.2028640747,
+          "gain_lo": 0.005617373622953892,
+          "gain_hi": 1.0,
+          "n_active_steps": 4380,
+          "last_c_mean": 2.0819663501407124,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7408546398140368,
+          "offdiag_frac_B": 0.40935652971959235,
+          "anisotropy_A": 178.72037576675416,
+          "anisotropy_B": 24.974428005218506,
+          "energy_top_before": 0.7801687377691269,
+          "energy_top_after": 0.43138730198144914,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 137.2812849227339
+        },
+        {
+          "step": 4800,
+          "cos": 0.7737853098455509,
+          "b_simple": 17.12723582962791,
+          "tr_sigma": 3239.921240378171,
+          "eff_rank": 99580.49592407227,
+          "gain_lo": 0.005221220199018717,
+          "gain_hi": 1.0,
+          "n_active_steps": 4780,
+          "last_c_mean": 2.0762263561698338,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7412364005218025,
+          "offdiag_frac_B": 0.411598227642707,
+          "anisotropy_A": 180.07857217788697,
+          "anisotropy_B": 25.609304990768432,
+          "energy_top_before": 0.7815659993886948,
+          "energy_top_after": 0.4225487071275711,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 149.79824744910002
+        },
+        {
+          "step": 5200,
+          "cos": 0.7830811427911429,
+          "b_simple": 17.764406831000592,
+          "tr_sigma": 3265.9262707140297,
+          "eff_rank": 99619.91157226563,
+          "gain_lo": 0.004643554799258709,
+          "gain_hi": 1.0,
+          "n_active_steps": 5180,
+          "last_c_mean": 2.0710951994098115,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7419028570017681,
+          "offdiag_frac_B": 0.4124654929852432,
+          "anisotropy_A": 184.77659987449647,
+          "anisotropy_B": 26.20934648513794,
+          "energy_top_before": 0.7763155627250672,
+          "energy_top_after": 0.41801863521337507,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 162.304703110829
+        },
+        {
+          "step": 5600,
+          "cos": 0.7794775443364463,
+          "b_simple": 19.27969329135606,
+          "tr_sigma": 3563.5774002764374,
+          "eff_rank": 101819.44929412841,
+          "gain_lo": 0.004866700153797865,
+          "gain_hi": 1.0,
+          "n_active_steps": 5580,
+          "last_c_mean": 2.06702799650212,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7421561630735767,
+          "offdiag_frac_B": 0.4101236431945912,
+          "anisotropy_A": 185.54159690856935,
+          "anisotropy_B": 24.952436323165895,
+          "energy_top_before": 0.7719554543495178,
+          "energy_top_after": 0.4133188933134079,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 174.80631162412465
+        },
+        {
+          "step": 6000,
+          "cos": 0.7859684535223277,
+          "b_simple": 20.08329921652628,
+          "tr_sigma": 3611.7895008344203,
+          "eff_rank": 102309.0768951416,
+          "gain_lo": 0.005153616424649954,
+          "gain_hi": 1.0,
+          "n_active_steps": 5980,
+          "last_c_mean": 2.0638082123792216,
+          "last_c_min": 1.7045802684579707,
+          "offdiag_frac_A": 0.7419618705563066,
+          "offdiag_frac_B": 0.40995053969022344,
+          "anisotropy_A": 184.70342224121094,
+          "anisotropy_B": 25.209354438781737,
+          "energy_top_before": 0.7691630816459656,
+          "energy_top_after": 0.4114912927150726,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 187.31788398511708
+        }
+      ],
+      "eval_wall_curve": [
+        [
+          400,
+          270.99730014801025
+        ],
+        [
+          800,
+          647.9181189537048
+        ],
+        [
+          1200,
+          1014.5931603908539
+        ],
+        [
+          1600,
+          1374.9358456134796
+        ],
+        [
+          2000,
+          1735.9347529411316
+        ],
+        [
+          2400,
+          2098.615422964096
+        ],
+        [
+          2800,
+          2460.6863210201263
+        ],
+        [
+          3200,
+          2819.8450920581818
+        ],
+        [
+          3600,
+          3179.7894880771637
+        ],
+        [
+          4000,
+          3542.727741241455
+        ],
+        [
+          4400,
+          3901.9892706871033
+        ],
+        [
+          4800,
+          4260.453741788864
+        ],
+        [
+          5200,
+          4618.984871149063
+        ],
+        [
+          5600,
+          4978.385770320892
+        ],
+        [
+          6000,
+          5338.683185100555
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.259014961592999
+        ],
+        [
+          800,
+          5.718549676208595
+        ],
+        [
+          1200,
+          5.293096290548492
+        ],
+        [
+          1600,
+          5.051133757529028
+        ],
+        [
+          2000,
+          4.846823189891996
+        ],
+        [
+          2400,
+          4.68030803643322
+        ],
+        [
+          2800,
+          4.53244649714612
+        ],
+        [
+          3200,
+          4.415840172373254
+        ],
+        [
+          3600,
+          4.3199897018898294
+        ],
+        [
+          4000,
+          4.276116877561501
+        ],
+        [
+          4400,
+          4.220120871889932
+        ],
+        [
+          4800,
+          4.179329617851875
+        ],
+        [
+          5200,
+          4.16174881110405
+        ],
+        [
+          5600,
+          4.130833903506517
+        ],
+        [
+          6000,
+          4.116416853867645
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0604938012053575,
+      "x_grad_norm_max": 14.014780044555664,
+      "x_grad_norm_p50": 0.5462996065616608,
+      "x_grad_norm_cv": 0.3603180032211492,
+      "x_opt_time_s": 0.09831189646696051,
+      "x_fwdbwd_time_s": 0.543612758970509,
+      "x_opt_state_mb": 1229.203742980957,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell"
+      },
+      "x_opt_time_frac": 0.1531517688784851,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 115.39608043432236,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 115.41235917434096,
+      "tokens_per_s": 18116.422918817254,
+      "eviekf_last_c_mean_mean": 2.1578580445256312,
+      "eviekf_last_c_min_mean": 1.7045802684579707,
+      "eviekf_offdiag_frac_A_mean": 0.741677647537992,
+      "eviekf_offdiag_frac_B_mean": 0.42042252274215186,
+      "eviekf_anisotropy_A_mean": 169.4443689832687,
+      "eviekf_anisotropy_B_mean": 28.485536279996232,
+      "eviekf_energy_top_before_mean": 0.8094395492474239,
+      "eviekf_energy_top_after_mean": 0.5035834266344705,
+      "eviekf_frac_params_kron_mean": 0.060228208446065155,
+      "eviekf_frac_params_diag_fallback_mean": 0.9387935784644533,
+      "eviekf_frac_params_vector_mean": 0.000978213089481733,
+      "eviekf_eig_refresh_time_s_mean": 187.31788398511708,
+      "eviekf_c_mean": 2.1578580445256312,
+      "recorded": true
+    },
+    "AdamW|full|44": {
+      "opt": "AdamW",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.0005,
+      "knob_used": null,
+      "primary": 70.46131960755777,
+      "best_val_primary": 69.47220588107758,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 4650.822375297546,
+      "sec_per_step": 0.775137062549591,
+      "mean_step_size": 0.00014367609085294282,
+      "clip_freq": 0.0023333333333333335,
+      "peak_mem_mb": 14515.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          496.1802141041506
+        ],
+        [
+          800,
+          334.8420949897329
+        ],
+        [
+          1200,
+          249.97576047504316
+        ],
+        [
+          1600,
+          193.25113290180158
+        ],
+        [
+          2000,
+          159.14958587482536
+        ],
+        [
+          2400,
+          135.92181174395165
+        ],
+        [
+          2800,
+          114.33715219573708
+        ],
+        [
+          3200,
+          99.91035143790393
+        ],
+        [
+          3600,
+          90.19871325618058
+        ],
+        [
+          4000,
+          83.5227505755582
+        ],
+        [
+          4400,
+          78.83658650279699
+        ],
+        [
+          4800,
+          75.25546368789922
+        ],
+        [
+          5200,
+          72.6040319418572
+        ],
+        [
+          5600,
+          70.79145000588288
+        ],
+        [
+          6000,
+          69.47220588107758
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 3200,
+      "frac_budget_to_90pct_best": 0.5333333333333333,
+      "wallclock_to_90pct_best_s": 2403.0623636245728,
+      "train_loss_at_25pct": 5.363034326232965,
+      "train_loss_at_50pct": 4.67366795853689,
+      "train_loss_at_75pct": 4.371477807452077,
+      "final_train_loss": 4.155930519104004,
+      "gen_gap_loss": 0.09913338209748979,
+      "auc_val_curve": 145.81593539869894,
+      "update_weight_ratio": 0.0032781411003139404,
+      "update_cos_sim_sampled": 0.004422486658476199,
+      "grad_norm_mean": 0.4766311046977838,
+      "grad_norm_p95": 0.5444378703832626,
+      "weight_norm_start": 262.2570988918879,
+      "weight_norm_end": 373.92967023975075,
+      "weight_norm_growth": 1.4258133404956883,
+      "throughput_samples_per_s": 41.283021475898956,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 6.138759588929041,
+      "test_loss": 4.255063901201494,
+      "token_acc": 0.30415106566820277,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          222.40920209884644
+        ],
+        [
+          800,
+          540.2501471042633
+        ],
+        [
+          1200,
+          856.8270409107208
+        ],
+        [
+          1600,
+          1166.6066570281982
+        ],
+        [
+          2000,
+          1476.1002173423767
+        ],
+        [
+          2400,
+          1786.1733536720276
+        ],
+        [
+          2800,
+          2093.943322658539
+        ],
+        [
+          3200,
+          2403.0623636245728
+        ],
+        [
+          3600,
+          2710.9700195789337
+        ],
+        [
+          4000,
+          3020.0739114284515
+        ],
+        [
+          4400,
+          3327.671696662903
+        ],
+        [
+          4800,
+          3637.5687851905823
+        ],
+        [
+          5200,
+          3945.3524446487427
+        ],
+        [
+          5600,
+          4254.659985303879
+        ],
+        [
+          6000,
+          4563.808380365372
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.269620807563005
+        ],
+        [
+          800,
+          5.864445332976266
+        ],
+        [
+          1200,
+          5.550684401675278
+        ],
+        [
+          1600,
+          5.294905152939636
+        ],
+        [
+          2000,
+          5.109453288294685
+        ],
+        [
+          2400,
+          4.933816972385249
+        ],
+        [
+          2800,
+          4.753372857432301
+        ],
+        [
+          3200,
+          4.627895939732912
+        ],
+        [
+          3600,
+          4.510651711024064
+        ],
+        [
+          4000,
+          4.454409415656215
+        ],
+        [
+          4400,
+          4.369875294925626
+        ],
+        [
+          4800,
+          4.331356785085567
+        ],
+        [
+          5200,
+          4.303442426712027
+        ],
+        [
+          5600,
+          4.263814231440666
+        ],
+        [
+          6000,
+          4.259519515843674
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0666605575264003,
+      "x_grad_norm_max": 6.2136383056640625,
+      "x_grad_norm_p50": 0.4669904559850693,
+      "x_grad_norm_cv": 0.2440989902771015,
+      "x_opt_time_s": 0.014297971626122792,
+      "x_fwdbwd_time_s": 0.5428677392192185,
+      "x_opt_state_mb": 946.4009552001953,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.02566197335516155,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 114.6548346504569,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 114.67169757932425,
+      "tokens_per_s": 21136.906995660265,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "Muon|full|44": {
+      "opt": "Muon",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.002,
+      "knob_used": null,
+      "primary": 47.10147177733839,
+      "best_val_primary": 46.30329732074485,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 4957.387190103531,
+      "sec_per_step": 0.8262311983505884,
+      "mean_step_size": 0.00020580452869934705,
+      "clip_freq": 0.006166666666666667,
+      "peak_mem_mb": 14191.61328125,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          228.33122991136662
+        ],
+        [
+          800,
+          131.1610183751341
+        ],
+        [
+          1200,
+          98.04873629961996
+        ],
+        [
+          1600,
+          83.52881943953581
+        ],
+        [
+          2000,
+          74.62332781362113
+        ],
+        [
+          2400,
+          68.35152092585221
+        ],
+        [
+          2800,
+          63.004960940849145
+        ],
+        [
+          3200,
+          59.10302266897606
+        ],
+        [
+          3600,
+          55.78247230370031
+        ],
+        [
+          4000,
+          53.027524160236155
+        ],
+        [
+          4400,
+          50.917361938470044
+        ],
+        [
+          4800,
+          49.19523805472613
+        ],
+        [
+          5200,
+          47.913147888297935
+        ],
+        [
+          5600,
+          46.969659813960895
+        ],
+        [
+          6000,
+          46.30329732074485
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2241.306573152542,
+      "train_loss_at_25pct": 4.491089995817002,
+      "train_loss_at_50pct": 4.108846875155522,
+      "train_loss_at_75pct": 3.9404380160740193,
+      "final_train_loss": 3.7587177753448486,
+      "gen_gap_loss": 0.09358647311582224,
+      "auc_val_curve": 72.78171958850255,
+      "update_weight_ratio": 0.003445005510784856,
+      "update_cos_sim_sampled": 0.0005141347429900808,
+      "grad_norm_mean": 0.4639081214865049,
+      "grad_norm_p95": 0.5407139390707016,
+      "weight_norm_start": 262.2570988918879,
+      "weight_norm_end": 939.2902266170039,
+      "weight_norm_growth": 3.5815626367628437,
+      "throughput_samples_per_s": 38.73007950302753,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 5.557700235249695,
+      "test_loss": 3.852304248460671,
+      "token_acc": 0.3426117271505376,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": NaN,
+      "eviekf_cos_min": NaN,
+      "eviekf_b_simple_mean": NaN,
+      "eviekf_tr_sigma_mean": NaN,
+      "eviekf_eff_rank_mean": NaN,
+      "eviekf_gain_lo_min": NaN,
+      "eviekf_gain_hi_max": NaN,
+      "eviekf_n_active_steps": 0,
+      "eviekf_role_gain": {},
+      "eviekf_diag_trace": [],
+      "eval_wall_curve": [
+        [
+          400,
+          242.564026594162
+        ],
+        [
+          800,
+          585.104724407196
+        ],
+        [
+          1200,
+          923.8926358222961
+        ],
+        [
+          1600,
+          1251.242136001587
+        ],
+        [
+          2000,
+          1583.472962141037
+        ],
+        [
+          2400,
+          1913.7284371852875
+        ],
+        [
+          2800,
+          2241.306573152542
+        ],
+        [
+          3200,
+          2569.491122484207
+        ],
+        [
+          3600,
+          2898.8949780464172
+        ],
+        [
+          4000,
+          3228.4867639541626
+        ],
+        [
+          4400,
+          3559.221943616867
+        ],
+        [
+          4800,
+          3887.503917694092
+        ],
+        [
+          5200,
+          4216.497403621674
+        ],
+        [
+          5600,
+          4543.876065731049
+        ],
+        [
+          6000,
+          4872.303375959396
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          5.5444577634002234
+        ],
+        [
+          800,
+          4.937160926552595
+        ],
+        [
+          1200,
+          4.613678400860012
+        ],
+        [
+          1600,
+          4.4492529625868675
+        ],
+        [
+          2000,
+          4.345786554284988
+        ],
+        [
+          2400,
+          4.247131391620261
+        ],
+        [
+          2800,
+          4.144936492849048
+        ],
+        [
+          3200,
+          4.099841472551614
+        ],
+        [
+          3600,
+          4.027452198157215
+        ],
+        [
+          4000,
+          3.9988844046060206
+        ],
+        [
+          4400,
+          3.932696384015636
+        ],
+        [
+          4800,
+          3.906216735125317
+        ],
+        [
+          5200,
+          3.885471131080829
+        ],
+        [
+          5600,
+          3.853507918599883
+        ],
+        [
+          6000,
+          3.8544973692323605
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0670748754906592,
+      "x_grad_norm_max": 11.18554401397705,
+      "x_grad_norm_p50": 0.4347502738237381,
+      "x_grad_norm_cv": 0.5322142186014759,
+      "x_opt_time_s": 0.0659019700717181,
+      "x_fwdbwd_time_s": 0.5384750277580073,
+      "x_opt_state_mb": 622.400390625,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell",
+        "eviekf_last_c_mean_mean": "undefined for this sample",
+        "eviekf_last_c_min_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_A_mean": "undefined for this sample",
+        "eviekf_offdiag_frac_B_mean": "undefined for this sample",
+        "eviekf_anisotropy_A_mean": "undefined for this sample",
+        "eviekf_anisotropy_B_mean": "undefined for this sample",
+        "eviekf_energy_top_before_mean": "undefined for this sample",
+        "eviekf_energy_top_after_mean": "undefined for this sample",
+        "eviekf_frac_params_kron_mean": "undefined for this sample",
+        "eviekf_frac_params_diag_fallback_mean": "undefined for this sample",
+        "eviekf_frac_params_vector_mean": "undefined for this sample",
+        "eviekf_eig_refresh_time_s_mean": "undefined for this sample",
+        "eviekf_c_mean": "undefined for this sample"
+      },
+      "x_opt_time_frac": 0.10904116190451882,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 114.28948047198355,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 114.3059663027525,
+      "tokens_per_s": 19829.800705550097,
+      "eviekf_last_c_mean_mean": null,
+      "eviekf_last_c_min_mean": null,
+      "eviekf_offdiag_frac_A_mean": null,
+      "eviekf_offdiag_frac_B_mean": null,
+      "eviekf_anisotropy_A_mean": null,
+      "eviekf_anisotropy_B_mean": null,
+      "eviekf_energy_top_before_mean": null,
+      "eviekf_energy_top_after_mean": null,
+      "eviekf_frac_params_kron_mean": null,
+      "eviekf_frac_params_diag_fallback_mean": null,
+      "eviekf_frac_params_vector_mean": null,
+      "eviekf_eig_refresh_time_s_mean": null,
+      "eviekf_c_mean": null,
+      "recorded": true
+    },
+    "EvieKF|full|44": {
+      "opt": "EvieKF",
+      "unit": "full",
+      "seed": 44,
+      "lr_used": 0.0005,
+      "knob_used": 27000.0,
+      "primary": 63.07280755595709,
+      "best_val_primary": 62.1513320315135,
+      "steps_run": 6000,
+      "diverged": false,
+      "fail_reason": null,
+      "wall_s": 5382.9447286129,
+      "sec_per_step": 0.8971574547688166,
+      "mean_step_size": 0.00015334975263351974,
+      "clip_freq": 0.0026666666666666666,
+      "peak_mem_mb": 15271.6201171875,
+      "hess_norm": NaN,
+      "hess_cv": NaN,
+      "n_params": 124046592,
+      "val_curve": [
+        [
+          400,
+          484.861064270978
+        ],
+        [
+          800,
+          285.8037638012637
+        ],
+        [
+          1200,
+          196.57887233650885
+        ],
+        [
+          1600,
+          154.36719052102035
+        ],
+        [
+          2000,
+          127.3932211968111
+        ],
+        [
+          2400,
+          108.283861623133
+        ],
+        [
+          2800,
+          93.50924736358871
+        ],
+        [
+          3200,
+          83.82066351091545
+        ],
+        [
+          3600,
+          77.03774541039856
+        ],
+        [
+          4000,
+          72.26928640323
+        ],
+        [
+          4400,
+          68.86215992226242
+        ],
+        [
+          4800,
+          66.30656372575406
+        ],
+        [
+          5200,
+          64.45913843367977
+        ],
+        [
+          5600,
+          63.11577811088073
+        ],
+        [
+          6000,
+          62.1513320315135
+        ]
+      ],
+      "steps_to_best_val": 6000,
+      "steps_to_90pct_best": 2800,
+      "frac_budget_to_90pct_best": 0.4666666666666667,
+      "wallclock_to_90pct_best_s": 2440.042023420334,
+      "train_loss_at_25pct": 5.130289421490736,
+      "train_loss_at_50pct": 4.478231404576842,
+      "train_loss_at_75pct": 4.237930177796238,
+      "final_train_loss": 4.054670333862305,
+      "gen_gap_loss": 0.08961940074174546,
+      "auc_val_curve": 123.95097789362092,
+      "update_weight_ratio": 0.003574931675300239,
+      "update_cos_sim_sampled": 0.005582636792671848,
+      "grad_norm_mean": 0.5405293821891148,
+      "grad_norm_p95": 0.6021664589643478,
+      "weight_norm_start": 262.2570988918879,
+      "weight_norm_end": 434.17786368277433,
+      "weight_norm_growth": 1.6555428452358445,
+      "throughput_samples_per_s": 35.668209442952126,
+      "flops_per_step_est": 13071405809664.0,
+      "total_flops_est": 7.8428434857984e+16,
+      "hess_trace": NaN,
+      "hess_top_eig": NaN,
+      "bpc": 5.978946248120302,
+      "test_loss": 4.14428973460405,
+      "token_acc": 0.3150171610983103,
+      "test_tokens": null,
+      "test_nll_sum": null,
+      "bits_per_token": null,
+      "nll_std": null,
+      "nll_p50": null,
+      "nll_p90": null,
+      "nll_p95": null,
+      "nll_p99": null,
+      "token_top5_acc": null,
+      "token_top10_acc": null,
+      "mean_reciprocal_rank": null,
+      "mean_target_rank": null,
+      "brier_score": null,
+      "predictive_entropy_nats": null,
+      "mean_confidence": null,
+      "ece_15": null,
+      "mce_15": null,
+      "unk_target_fraction": null,
+      "bits_per_byte": null,
+      "calibration_bins": null,
+      "eviekf_cos_mean": 0.7576266647834333,
+      "eviekf_cos_min": 0.6762995310717861,
+      "eviekf_b_simple_mean": 18.80143074268274,
+      "eviekf_tr_sigma_mean": 2970.2251794560734,
+      "eviekf_eff_rank_mean": 68319.4129660136,
+      "eviekf_gain_lo_min": 0.004906398244202137,
+      "eviekf_gain_hi_max": 1.0,
+      "eviekf_n_active_steps": 5980,
+      "eviekf_role_gain": {
+        "embedding": [
+          0.01946258544921875,
+          1.0,
+          701714.9287109375,
+          2
+        ],
+        "attention": [
+          0.004996849223971367,
+          0.9999998807907104,
+          157692.26516723633,
+          24
+        ],
+        "ffn": [
+          0.01853928714990616,
+          1.0,
+          3272139.9418945312,
+          24
+        ]
+      },
+      "eviekf_diag_trace": [
+        {
+          "step": 400,
+          "cos": 0.6762995310717861,
+          "b_simple": 17.159719419629848,
+          "tr_sigma": 1505.0452337878523,
+          "eff_rank": 37319.37191360474,
+          "gain_lo": 0.006246929056942463,
+          "gain_hi": 1.0,
+          "n_active_steps": 380,
+          "last_c_mean": 2.4004945434384624,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.747064922979414,
+          "offdiag_frac_B": 0.44125046032074067,
+          "anisotropy_A": 157.70313856124878,
+          "anisotropy_B": 30.219059190750123,
+          "energy_top_before": 0.8903107678890229,
+          "energy_top_after": 0.7896469089388848,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 12.520439283922315
+        },
+        {
+          "step": 800,
+          "cos": 0.7279881227634608,
+          "b_simple": 21.203996800364738,
+          "tr_sigma": 2417.6855452558957,
+          "eff_rank": 49747.81817779541,
+          "gain_lo": 0.005929066799581051,
+          "gain_hi": 1.0,
+          "n_active_steps": 780,
+          "last_c_mean": 2.336385381807679,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.744687666147165,
+          "offdiag_frac_B": 0.4350761545096969,
+          "anisotropy_A": 147.1263304710388,
+          "anisotropy_B": 33.093685417175294,
+          "energy_top_before": 0.8737215435504914,
+          "energy_top_after": 0.7012835732102394,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 24.960043892264366
+        },
+        {
+          "step": 1200,
+          "cos": 0.7445602687712263,
+          "b_simple": 17.254467264718247,
+          "tr_sigma": 2280.775145310443,
+          "eff_rank": 40172.60749847412,
+          "gain_lo": 0.005247965455055237,
+          "gain_hi": 1.0,
+          "n_active_steps": 1180,
+          "last_c_mean": 2.2698768966911667,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7442863524542292,
+          "offdiag_frac_B": 0.4496577547990618,
+          "anisotropy_A": 164.57674573898316,
+          "anisotropy_B": 44.15116593360901,
+          "energy_top_before": 0.8744753336906433,
+          "energy_top_after": 0.6363779717683792,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 37.38728293031454
+        },
+        {
+          "step": 1600,
+          "cos": 0.7539608852821905,
+          "b_simple": 19.259707623143466,
+          "tr_sigma": 2654.6311103906482,
+          "eff_rank": 56997.98239074707,
+          "gain_lo": 0.006919981446117163,
+          "gain_hi": 1.0,
+          "n_active_steps": 1580,
+          "last_c_mean": 2.2216785542635105,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7424729033609975,
+          "offdiag_frac_B": 0.43449439675534357,
+          "anisotropy_A": 175.35296714305878,
+          "anisotropy_B": 32.20120603084564,
+          "energy_top_before": 0.8595983707904815,
+          "energy_top_after": 0.5947463253140449,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 49.826212445273995
+        },
+        {
+          "step": 2000,
+          "cos": 0.7695483083657082,
+          "b_simple": 16.91969931627332,
+          "tr_sigma": 2348.618362498004,
+          "eff_rank": 63054.53287872314,
+          "gain_lo": 0.006974031683057547,
+          "gain_hi": 1.0,
+          "n_active_steps": 1980,
+          "last_c_mean": 2.186270646760111,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.742002452611933,
+          "offdiag_frac_B": 0.42655923543308555,
+          "anisotropy_A": 182.37239198684694,
+          "anisotropy_B": 32.35663197994232,
+          "energy_top_before": 0.8381109714508057,
+          "energy_top_after": 0.5510336363315582,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 62.278358943760395
+        },
+        {
+          "step": 2400,
+          "cos": 0.7647268507389162,
+          "b_simple": 17.892286696720014,
+          "tr_sigma": 2876.519278467633,
+          "eff_rank": 66514.87595275878,
+          "gain_lo": 0.006662207189947367,
+          "gain_hi": 1.0,
+          "n_active_steps": 2380,
+          "last_c_mean": 2.161743210750385,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7426282153372733,
+          "offdiag_frac_B": 0.4242488458563335,
+          "anisotropy_A": 192.201124625206,
+          "anisotropy_B": 29.1103502702713,
+          "energy_top_before": 0.8310905545949936,
+          "energy_top_after": 0.5169309815764427,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 74.73868026770651
+        },
+        {
+          "step": 2800,
+          "cos": 0.7673295608283328,
+          "b_simple": 18.909150353939722,
+          "tr_sigma": 3238.9623303711414,
+          "eff_rank": 73337.96850189209,
+          "gain_lo": 0.006575803738087416,
+          "gain_hi": 1.0,
+          "n_active_steps": 2780,
+          "last_c_mean": 2.145357732093802,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7429591861497586,
+          "offdiag_frac_B": 0.4222834998241962,
+          "anisotropy_A": 198.27541497707367,
+          "anisotropy_B": 28.632772431373596,
+          "energy_top_before": 0.8262967222929001,
+          "energy_top_after": 0.5047931602597237,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 87.20947950147092
+        },
+        {
+          "step": 3200,
+          "cos": 0.7653113205773673,
+          "b_simple": 20.082588659299493,
+          "tr_sigma": 3552.9240541215986,
+          "eff_rank": 77142.20376708984,
+          "gain_lo": 0.006666594184935093,
+          "gain_hi": 1.0,
+          "n_active_steps": 3180,
+          "last_c_mean": 2.132815443098945,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7427477987445326,
+          "offdiag_frac_B": 0.41900876011856975,
+          "anisotropy_A": 199.40861507415772,
+          "anisotropy_B": 27.48980390548706,
+          "energy_top_before": 0.8219430762529373,
+          "energy_top_after": 0.49178987473249436,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 99.69288044422865
+        },
+        {
+          "step": 3600,
+          "cos": 0.7784644735003136,
+          "b_simple": 18.231088030997196,
+          "tr_sigma": 2970.457587875426,
+          "eff_rank": 77970.05109954833,
+          "gain_lo": 0.0059518818743526936,
+          "gain_hi": 1.0,
+          "n_active_steps": 3580,
+          "last_c_mean": 2.121102779889139,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7432237268588529,
+          "offdiag_frac_B": 0.4185285695764043,
+          "anisotropy_A": 204.15948880195617,
+          "anisotropy_B": 27.670337381362916,
+          "energy_top_before": 0.8093053519725799,
+          "energy_top_after": 0.4805541324615479,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 112.16534370742738
+        },
+        {
+          "step": 4000,
+          "cos": 0.774650020042183,
+          "b_simple": 22.96355368257305,
+          "tr_sigma": 4101.163614626974,
+          "eff_rank": 76503.50302185059,
+          "gain_lo": 0.0061987037770450115,
+          "gain_hi": 1.0,
+          "n_active_steps": 3980,
+          "last_c_mean": 2.1121993515917916,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7435808351301465,
+          "offdiag_frac_B": 0.4197479617670389,
+          "anisotropy_A": 204.83630277156828,
+          "anisotropy_B": 27.343934345245362,
+          "energy_top_before": 0.8109921377897262,
+          "energy_top_after": 0.4729291236400604,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 124.65066247805953
+        },
+        {
+          "step": 4400,
+          "cos": 0.7688533350229799,
+          "b_simple": 20.421624268115583,
+          "tr_sigma": 3611.5901907663792,
+          "eff_rank": 80649.31003234863,
+          "gain_lo": 0.005743863061070442,
+          "gain_hi": 1.0,
+          "n_active_steps": 4380,
+          "last_c_mean": 2.104464572205558,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7436625739334023,
+          "offdiag_frac_B": 0.41783034637531813,
+          "anisotropy_A": 206.6574174594879,
+          "anisotropy_B": 27.020389494895934,
+          "energy_top_before": 0.806584729552269,
+          "energy_top_after": 0.46448729425668717,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 137.13840006291866
+        },
+        {
+          "step": 4800,
+          "cos": 0.7601351253340998,
+          "b_simple": 17.28440784600475,
+          "tr_sigma": 3252.0695267617702,
+          "eff_rank": 81594.21222900391,
+          "gain_lo": 0.0056516206823289394,
+          "gain_hi": 1.0,
+          "n_active_steps": 4780,
+          "last_c_mean": 2.0985891509283117,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7440420459179039,
+          "offdiag_frac_B": 0.41653637908276414,
+          "anisotropy_A": 207.965502076149,
+          "anisotropy_B": 26.65035743713379,
+          "energy_top_before": 0.8066975665092468,
+          "energy_top_after": 0.4582635074853897,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 149.63289717398584
+        },
+        {
+          "step": 5200,
+          "cos": 0.7765699657967663,
+          "b_simple": 18.20144993751589,
+          "tr_sigma": 3229.7960838843137,
+          "eff_rank": 79298.15546722412,
+          "gain_lo": 0.005753187462687492,
+          "gain_hi": 1.0,
+          "n_active_steps": 5180,
+          "last_c_mean": 2.093531710161789,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7440479442219554,
+          "offdiag_frac_B": 0.4179927715286403,
+          "anisotropy_A": 207.14182129383087,
+          "anisotropy_B": 27.33377874851227,
+          "energy_top_before": 0.7941854071617126,
+          "energy_top_after": 0.4440318459272385,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 162.14347419328988
+        },
+        {
+          "step": 5600,
+          "cos": 0.7638536632342455,
+          "b_simple": 17.924973094537965,
+          "tr_sigma": 3243.4513332098722,
+          "eff_rank": 81857.65884368896,
+          "gain_lo": 0.004906398244202137,
+          "gain_hi": 1.0,
+          "n_active_steps": 5580,
+          "last_c_mean": 2.0903585348549942,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7446759858798478,
+          "offdiag_frac_B": 0.41607586189044854,
+          "anisotropy_A": 211.65729586601256,
+          "anisotropy_B": 26.97071678161621,
+          "energy_top_before": 0.7996497756242752,
+          "energy_top_after": 0.44805687248706816,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 174.64383682981133
+        },
+        {
+          "step": 6000,
+          "cos": 0.7721485404219235,
+          "b_simple": 18.312748146407856,
+          "tr_sigma": 3269.688294513151,
+          "eff_rank": 82630.9427154541,
+          "gain_lo": 0.004996849223971367,
+          "gain_hi": 1.0,
+          "n_active_steps": 5980,
+          "last_c_mean": 2.0878289010162745,
+          "last_c_min": 1.5246679901194848,
+          "offdiag_frac_A": 0.7449284321371185,
+          "offdiag_frac_B": 0.41716321710031434,
+          "anisotropy_A": 212.96123943805694,
+          "anisotropy_B": 26.818765230178833,
+          "energy_top_before": 0.7934189903736114,
+          "energy_top_after": 0.43995116114616395,
+          "frac_params_kron": 0.06022820844606517,
+          "frac_params_diag_fallback": 0.9387935784644531,
+          "frac_params_vector": 0.0009782130894817327,
+          "eig_refresh_time_s": 187.1441210936755
+        }
+      ],
+      "eval_wall_curve": [
+        [
+          400,
+          270.19555735588074
+        ],
+        [
+          800,
+          639.9741010665894
+        ],
+        [
+          1200,
+          1003.9996721744537
+        ],
+        [
+          1600,
+          1365.0114715099335
+        ],
+        [
+          2000,
+          1722.2586317062378
+        ],
+        [
+          2400,
+          2082.7085967063904
+        ],
+        [
+          2800,
+          2440.042023420334
+        ],
+        [
+          3200,
+          2798.6739206314087
+        ],
+        [
+          3600,
+          3155.171923160553
+        ],
+        [
+          4000,
+          3512.4857516288757
+        ],
+        [
+          4400,
+          3869.148698091507
+        ],
+        [
+          4800,
+          4225.3747136592865
+        ],
+        [
+          5200,
+          4580.423830509186
+        ],
+        [
+          5600,
+          4938.305272817612
+        ],
+        [
+          6000,
+          5296.123941898346
+        ]
+      ],
+      "x_train_loss_curve": [
+        [
+          400,
+          6.256949787402379
+        ],
+        [
+          800,
+          5.722789580320235
+        ],
+        [
+          1200,
+          5.310841430997883
+        ],
+        [
+          1600,
+          5.063571927141096
+        ],
+        [
+          2000,
+          4.885441722809224
+        ],
+        [
+          2400,
+          4.709973519009138
+        ],
+        [
+          2800,
+          4.543172679453121
+        ],
+        [
+          3200,
+          4.449512995905809
+        ],
+        [
+          3600,
+          4.350268992041942
+        ],
+        [
+          4000,
+          4.30761089736426
+        ],
+        [
+          4400,
+          4.232165163344873
+        ],
+        [
+          4800,
+          4.202505467723251
+        ],
+        [
+          5200,
+          4.182369445536281
+        ],
+        [
+          5600,
+          4.14740590268959
+        ],
+        [
+          6000,
+          4.147645085581496
+        ]
+      ],
+      "x_resumed": false,
+      "x_loss_spike_count": 0,
+      "x_loss_spike_max_ratio": 1.0676177083759197,
+      "x_grad_norm_max": 6.2136383056640625,
+      "x_grad_norm_p50": 0.5336831510066986,
+      "x_grad_norm_cv": 0.18921611839215147,
+      "x_opt_time_s": 0.09554993039928376,
+      "x_fwdbwd_time_s": 0.5435909165845563,
+      "x_opt_state_mb": 1229.203742980957,
+      "x_param_mb": 473.2001953125,
+      "x_errors": {
+        "token_diagnostics": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_tokens": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "test_nll_sum": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_token": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_std": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p50": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p90": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p95": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_p99": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top5_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "token_top10_acc": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_reciprocal_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_target_rank": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "brier_score": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "predictive_entropy_nats": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mean_confidence": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "ece_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "mce_15": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "unk_target_fraction": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "bits_per_byte": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "calibration_bins": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_0_32": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_32_128": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_pos_128_end": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q0": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q1": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q2": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "nll_freq_q3": "TimeoutError('end-of-run diagnostic budget exhausted')",
+        "x_role_dist_from_init": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_stable_rank_mean": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_weight_kurtosis": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "landscape_batches": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_sharp_top_eig": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_hess_trace_hutch": "TimeoutError('diagnostic budget 90s exhausted; used deterministic first validation batches')",
+        "x_flat_rho001": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho003": "end-of-run diagnostic budget exhausted",
+        "x_flat_rho010": "end-of-run diagnostic budget exhausted",
+        "x_role_weight_norm": "unavailable for this cell",
+        "x_dist_from_init": "unavailable for this cell",
+        "x_stable_rank_min": "unavailable for this cell",
+        "x_stable_rank_by_role": "unavailable for this cell"
+      },
+      "x_opt_time_frac": 0.14949745560809016,
+      "nll_pos_0_32": null,
+      "nll_pos_32_128": null,
+      "nll_pos_128_end": null,
+      "nll_freq_q0": null,
+      "nll_freq_q1": null,
+      "nll_freq_q2": null,
+      "nll_freq_q3": null,
+      "test_eval_wall_s": 114.90281289070845,
+      "x_role_dist_from_init": null,
+      "x_role_weight_norm": null,
+      "x_dist_from_init": null,
+      "x_stable_rank_mean": null,
+      "x_stable_rank_min": null,
+      "x_stable_rank_by_role": null,
+      "x_weight_kurtosis": null,
+      "x_landscape_batches": 0,
+      "x_landscape_examples": 0,
+      "x_sharp_top_eig": null,
+      "x_hess_trace_hutch": null,
+      "x_flat_rho001": null,
+      "x_flat_rho003": null,
+      "x_flat_rho010": null,
+      "x_end_eval_and_extra_wall_s": 114.91872901283205,
+      "tokens_per_s": 18262.12323479149,
+      "eviekf_last_c_mean_mean": 2.1708464939701275,
+      "eviekf_last_c_min_mean": 1.5246679901194848,
+      "eviekf_offdiag_frac_A_mean": 0.7438007361243021,
+      "eviekf_offdiag_frac_B_mean": 0.42509694766253037,
+      "eviekf_anisotropy_A_mean": 191.49305308564504,
+      "eviekf_anisotropy_B_mean": 29.804196971893308,
+      "eviekf_energy_top_before_mean": 0.8290920866330465,
+      "eviekf_energy_top_after_mean": 0.5329917579690615,
+      "eviekf_frac_params_kron_mean": 0.060228208446065155,
+      "eviekf_frac_params_diag_fallback_mean": 0.9387935784644533,
+      "eviekf_frac_params_vector_mean": 0.000978213089481733,
+      "eviekf_eig_refresh_time_s_mean": 187.1441210936755,
+      "eviekf_c_mean": 2.1708464939701275,
+      "recorded": true
+    }
+  },
+  "meta": {
+    "task_name": "language_openwebtext_124m",
+    "domain": "language",
+    "primary_metric": "test_perplexity",
+    "primary_lower_better": true,
+    "lr_used": {
+      "AdamW": 0.0005,
+      "Muon": 0.002,
+      "EvieKF": 0.0005
+    },
+    "knob_used": {
+      "AdamW": null,
+      "Muon": null,
+      "EvieKF": 27000.0
+    },
+    "opt_names": [
+      "AdamW",
+      "Muon",
+      "EvieKF"
+    ],
+    "opt_set": "diag",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_steps": 6000,
+    "units": [
+      "full"
+    ],
+    "all_units": [
+      "full"
+    ],
+    "unit_slice": null,
+    "cell_slice": null,
+    "shard_tag": "",
+    "expected_cell_keys": [
+      "AdamW|full|42",
+      "AdamW|full|43",
+      "AdamW|full|44",
+      "Muon|full|42",
+      "Muon|full|43",
+      "Muon|full|44",
+      "EvieKF|full|42",
+      "EvieKF|full|43",
+      "EvieKF|full|44"
+    ],
+    "peer_median_primary": 63.07280755595709,
+    "nonstandard_ppl_caveat": null,
+    "torch": "2.15.0+cu132",
+    "device": "cuda",
+    "timestamp": "2026-11-10T13:16:51.706519",
+    "task_config": {
+      "domain": "language",
+      "primary_metric": "test_perplexity",
+      "primary_lower_better": true,
+      "peer_divergence_factor": 5.0,
+      "batch_size": 32,
+      "eval_every": 400,
+      "ckpt_every": 300,
+      "task_name": "language_openwebtext_124m",
+      "dataset": "openwebtext",
+      "n_layer": 12,
+      "d_model": 768,
+      "n_head": 12,
+      "ctx": 512,
+      "vocab_mode": "gpt2_bpe",
+      "token_budget": 220000000,
+      "max_steps": 6000,
+      "lr_search_steps": 3000,
+      "opt_set": "diag",
+      "force_split_path": true,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "primary_abs_range": [
+        1.0,
+        5000000.0
+      ],
+      "title": "Language / OpenWebText (~220M-token slice, GPT-2 BPE, 8L/d384/ctx512 GPT) -- scale-generalization secondary check, NOT part of the 12-task primary significance table -- R5: 12L/d768/12 heads, approximately 124M; within-protocol scale check",
+      "base_task_name": "language_openwebtext",
+      "opt_list": [
+        "AdamW",
+        "Muon",
+        "EvieKF"
+      ],
+      "pinned_lr": {},
+      "fixed_knob": {},
+      "extra_metrics": true,
+      "rebuttal_run": true,
+      "allow_tf32": true,
+      "assert_param_range": [
+        110000000,
+        140000000
+      ],
+      "search_grid": {
+        "AdamW": {
+          "lr": [
+            0.00025,
+            0.0005,
+            0.001
+          ],
+          "knob": [
+            null
+          ]
+        },
+        "Muon": {
+          "lr": [
+            0.0005,
+            0.001,
+            0.002
+          ],
+          "knob": [
+            null
+          ]
+        },
+        "EvieKF": {
+          "lr": [
+            0.00025,
+            0.0005,
+            0.001
+          ],
+          "knob": [
+            27000.0
+          ]
+        }
+      }
+    },
+    "smoke": false,
+    "extra_metrics": true,
+    "data_provenance": {
+      "train/0": {
+        "shape": [
+          220000000
+        ],
+        "dtype": "uint16",
+        "sha256": "f688a245f41db93cfac6f059b5140e657bdde4d4dfe800b5c507e50e99cb0347"
+      },
+      "val/0": {
+        "shape": [
+          5000000
+        ],
+        "dtype": "uint16",
+        "sha256": "a74dc43a37405abd7f7b84a3ac316f293565647100c3aee803cad07d5c63f319"
+      },
+      "test/0": {
+        "shape": [
+          5000000
+        ],
+        "dtype": "uint16",
+        "sha256": "ea799cf5813de5e5240ab05b64f1bc866a483fa909b616306639f687d75b9c01"
+      }
+    },
+    "dropped_tickers": [],
+    "effective_tf32": true,
+    "extra_metrics_label": "EXPLORATORY: no secondary-metric p-values"
+  }
+}

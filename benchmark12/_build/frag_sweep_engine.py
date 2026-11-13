@@ -1,10 +1,10 @@
 # ==============================================================================
 #  SWEEP DRIVER  --  batch-size OR model-size sweep over one host task
-#  (CLAUDE.md sec 9). GENERATED only into benchmark12/sweeps/<type>/<task>.py.
+#  (benchmark protocol sec 9). GENERATED only into benchmark12/sweeps/<type>/<task>.py.
 #  Reuses the shared optimizer block + the engine helpers above UNCHANGED and
 #  adds only this outer grid loop. Entry point: sweep_main().
 #
-#  Key rules (CLAUDE.md sec 9.2 / 9.3):
+#  Key rules (benchmark protocol sec 9.2 / 9.3):
 #   - fixed step budget per grid point (MAX_STEPS, not samples-seen-matched);
 #     absolute metric values are therefore NOT comparable across grid points --
 #     only the WITHIN-grid-point delta between arms is fair. Logged below.
@@ -149,7 +149,7 @@ def sweep_main():
         f"device={DEVICE}  torch={torch.__version__}")
     log(f"  NOTE: fixed {MAX_STEPS}-step budget at every grid point -- absolute "
         f"{PRIMARY_METRIC} is NOT comparable across grid points; only the "
-        f"within-grid-point arm delta is (CLAUDE.md sec 9.2).")
+        f"within-grid-point arm delta is (benchmark protocol sec 9.2).")
     if TASK.get("nonstandard_ppl_caveat"):
         log(f"  [CAVEAT] {TASK['nonstandard_ppl_caveat']}")
     log_sep("=")
@@ -236,7 +236,7 @@ def sweep_main():
                         f"diverged={cells[key].get('diverged')}")
 
         # peer-relative divergence WITHIN this grid point only (scale differs
-        # across grid points by design -- CLAUDE.md sec 9.2)
+        # across grid points by design -- benchmark protocol sec 9.2)
         healthy = [c["primary"] for k, c in cells.items()
                    if k.startswith(label + "|") and not c.get("diverged")
                    and _is_finite(c.get("primary"))]
@@ -314,7 +314,7 @@ def _sweep_aggregate(results, points, arms, data):
     xvals = {p[0]: _grid_x(*p) for p in points}
     # batch-size sweep: reference is EvieKF, so `delta vs ref` for the EvieKFu
     # arm IS the pre-registered C1 quantity -- does the centred-vs-uncentred gap
-    # widen with batch size (CLAUDE.md sec 9.2). model-size sweep: reference
+    # widen with batch size (benchmark protocol sec 9.2). model-size sweep: reference
     # stays AdamW (a fixed external baseline is the right question there, not a
     # KF-vs-KF contrast).
     if SWEEP_TYPE == "batchsize" and "EvieKF" in arms:
@@ -365,7 +365,7 @@ def _sweep_aggregate(results, points, arms, data):
     spearman = {}
     if SWEEP_TYPE == "batchsize":
         log_sep("-")
-        log(f"  pre-registered quantity (CLAUDE.md sec 9.2): "
+        log(f"  pre-registered quantity (benchmark protocol sec 9.2): "
             f"Spearman(batch size, delta vs {ref}) per arm.")
         if ref == "EvieKF":
             log(f"  -> the EvieKFu row is the C1 test: rho < 0 (with d = "
@@ -401,7 +401,7 @@ def _sweep_aggregate(results, points, arms, data):
         "nonstandard_ppl_caveat": TASK.get("nonstandard_ppl_caveat"),
         "note": ("fixed step budget per grid point; absolute values not "
                  "comparable across grid points, only within-grid-point arm "
-                 "deltas (CLAUDE.md sec 9.2/9.3)"),
+                 "deltas (benchmark protocol sec 9.2/9.3)"),
     }
     _write_json(SWEEP_SUMMARY, summary)
     log_sep("=")

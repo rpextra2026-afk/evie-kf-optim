@@ -1,0 +1,68 @@
+{
+  "task_name": "language_openwebtext_124m",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "diag",
+  "opt_names": [
+    "AdamW",
+    "Muon",
+    "EvieKF"
+  ],
+  "task_number_by_optimizer": {
+    "AdamW": 70.90396649460473,
+    "Muon": 47.17502606375441,
+    "EvieKF": 63.07280755595709
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "AdamW": 70.90396649460473,
+    "Muon": 47.17502606375441,
+    "EvieKF": 63.07280755595709
+  },
+  "per_seed_value_by_optimizer": {
+    "AdamW": {
+      "42": 70.90396649460473,
+      "43": 72.67229336553653,
+      "44": 70.46131960755777
+    },
+    "Muon": {
+      "42": 47.246348423629186,
+      "43": 47.17502606375441,
+      "44": 47.10147177733839
+    },
+    "EvieKF": {
+      "42": 71.7962654316756,
+      "43": 61.613748980431936,
+      "44": 63.07280755595709
+    }
+  },
+  "lr_used": {
+    "AdamW": 0.0005,
+    "Muon": 0.002,
+    "EvieKF": 0.0005
+  },
+  "knob_used": {
+    "AdamW": null,
+    "Muon": null,
+    "EvieKF": 27000.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": {},
+  "fixed_knob": {},
+  "eviekf_maxf": null
+}

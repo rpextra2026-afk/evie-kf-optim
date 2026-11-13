@@ -4,7 +4,7 @@
 # in the ICLR benchmark harness. It is pasted BYTE-FOR-BYTE IDENTICAL into all
 # 12 task files by benchmark12/_build/build.py. Do NOT hand-edit it inside a
 # generated file -- edit benchmark12/_build/frag_shared_optim.py and re-run
-# build.py so the change lands in all 12 at once (see CLAUDE.md sec 2).
+# build.py so the change lands in all 12 at once (see benchmark protocol sec 2).
 #
 # Contract with the rest of the file (defined above this block, in the header):
 #   - torch, torch.nn as nn, math, numpy as np  are imported
@@ -17,13 +17,13 @@
 # Muon (hybrid: Newton-Schulz on >=2D params, AdamW on the rest), Lion.
 # AdamW itself is torch.optim.AdamW (stdlib) and is built in build_optimizer().
 #
-# Weight decay convention (CLAUDE.md sec 4): decoupled, applied as
+# Weight decay convention (benchmark protocol sec 4): decoupled, applied as
 #   p <- p * (1 - lr * lambda)
 # BEFORE the gradient-based update, never as L2-in-loss. Every custom optimizer
 # below implements it that way; torch.optim.AdamW already does.
 # ---------------------------------------------------------------------------
 
-# Optimizer-family hyperparameters (frozen 2026-09-08, CLAUDE.md sec 4).
+# Optimizer-family hyperparameters (frozen 2026-09-08, benchmark protocol sec 4).
 SOPHIA_BETAS      = (0.965, 0.99)   # (grad EMA, Hessian EMA)
 SOPHIA_RHO        = 0.04
 SOPHIA_EPS        = 1e-8
@@ -42,7 +42,7 @@ MUON_ADAMW_BETAS  = (0.9, 0.999)  # AdamW sub-group inside the Muon hybrid
 MUON_ADAMW_EPS    = 1e-8
 
 # --- Shampoo (per-layer, AdamW-norm-grafted) -- the "matrix vs diagonal"
-#     baseline the Evie-KF ablation needs (claude_optim.md sec 3). Ungrafted
+#     baseline the Evie-KF ablation needs (optimizer specification sec 3). Ungrafted
 #     Shampoo is unstable at this scale; we graft the AdamW update norm.
 SHAMPOO_BETA        = 0.95         # preconditioner EMA (tuned jointly with LR)
 SHAMPOO_EPS         = 1e-6
@@ -52,9 +52,9 @@ SHAMPOO_MAXF        = 1024         # 2-D params with a dim > this fall to the gr
 SHAMPOO_KNOB_GRID   = [0.9, 0.95, 0.99, 0.999]   # `beta`, the second tuned axis
 
 # --- Evie-KF: Kronecker-factored risk-sensitive preconditioner
-#     (claude_optim.md sec 4.1; full derivation in evie-kf-full-specification.md).
+#     (optimizer specification sec 4.1; full derivation in evie-kf-full-specification.md).
 #     Numerics are ground-truthed against the validated flat-vector reference in
-#     "Claude outputs/kaggle_evie_v3.py" -- see
+#     "the reference optimizer" -- see
 #     benchmark12/tests/test_eviekf.py::test_parity_vs_kaggle_reference.
 #
 #     One class, four flags, four rungs of the claim ladder:
@@ -65,6 +65,8 @@ SHAMPOO_KNOB_GRID   = [0.9, 0.95, 0.99, 0.999]   # `beta`, the second tuned axis
 #                                     Shampoo, SOAP)  -- the C1 novelty ablation
 #       per_layer_norm -> Evie-KFn   (gains rescaled to unit RMS per layer;
 #                                     the WikiText-2 PoC winner, the main-table entrant)
+EVIEKF_FIXED_GAMMA_M = 30.0
+WD_KNOB_GRID = [1e-5, 3.162e-5, 1e-4, 3.162e-4, 1e-3, 3.162e-3, 1e-2]
 EVIEKF_BETAS       = (0.9, 0.999)
 EVIEKF_EPS         = 1e-8
 EVIEKF_BETA_SIG    = 0.95     # frozen -- noise-covariance EMA
@@ -147,14 +149,16 @@ SCALEGEN_OPT_NAMES = ["EvieKF", "AdamW", "AdaBelief", "Muon"]
 assert SCALEGEN_OPT_NAMES.index("AdamW") < SCALEGEN_OPT_NAMES.index("Muon"), \
     "AdamW must be searched before Muon (Muon's AdamW sub-group reuses its LR)"
 HESSIAN_CONSUMERS = {"Sophia"}     # optimizers that need the Hutchinson probe
-NOISE_CONSUMERS   = {"EvieDiag", "EvieKFu", "EvieKF", "EvieKFn",
+NOISE_CONSUMERS   = {"EvieKFmwd", "EvieKFmrb", "EvieKFlag", "EvieKFrb", "MuonEvie", "MuonEvieFix", "EvieDiag", "EvieKFu", "EvieKF", "EvieKFn",
                      "EvieDiagAbs", "EvieKFm", "EvieKFr"}       # need the
                                   # split-batch noise hook (engine calls set_noise())
 
 # Optimizers with a SECOND tuned axis, searched JOINTLY with the LR grid (same
-# 7-point discipline, same boundary-extend rule -- claude_optim.md sec 4.3.2).
+# 7-point discipline, same boundary-extend rule -- optimizer specification sec 4.3.2).
 # Anything not listed here is LR-search only, exactly as before.
 KNOB_GRID = {
+    **{n: list(WD_KNOB_GRID) for n in ("AdamWwd", "AdaBeliefwd", "SGDwd", "Lionwd", "Muonwd")},
+    "EvieKFlag": list(EVIEKF_GAMMA_GRID), "EvieKFrb": list(EVIEKF_GAMMA_GRID),
     "EvieKFn": list(EVIEKF_GAMMA_GRID), "EvieKF": list(EVIEKF_GAMMA_GRID),
     "EvieKFu": list(EVIEKF_GAMMA_GRID), "EvieDiag": list(EVIEKF_GAMMA_GRID),
     "Shampoo": list(SHAMPOO_KNOB_GRID),
@@ -162,12 +166,17 @@ KNOB_GRID = {
     "EvieDiagAbs": list(EVIEKF_GAMMA_GRID),      # same grid as EvieDiag, absolute gate
     "EvieKFr": list(EVIEKF_GAMMA_GRID),          # same as EvieKF, rescale disabled
     "EvieKFm": list(EVIEKF_MEANNORM_GAMMA_GRID), # re-centred: gamma is dimensionless here
+    "EvieKFmrb": list(EVIEKF_MEANNORM_GAMMA_GRID), # EvieKFm with the random-basis control (pinned runs only)
 }
 
 # Per-optimizer-family LR grid centre. Every optimizer gets the SAME NUMBER of
 # grid points (7, half-decade spacing); only the centre differs by family
-# because effective LR scale is not comparable across families (CLAUDE.md sec 5).
+# because effective LR scale is not comparable across families (benchmark protocol sec 5).
 LR_GRID_CENTRE = {
+    "AdamWwd": 1e-3, "AdaBeliefwd": 1e-3, "SGDwd": 3e-2,
+    "Lionwd": 1e-4, "Muonwd": 2e-2, "EvieKFmwd": 1e-3,
+    "EvieKFlag": 1e-3, "EvieKFrb": 1e-3, "EvieKFmrb": 1e-3,
+    "MuonSub": 1e-3, "MuonEvie": 1e-3, "MuonEvieFix": 1e-3,
     "AdamW":     1e-3,
     "AdaBelief": 1e-3,
     "SGD":       3e-2,
@@ -194,7 +203,7 @@ def half_decade_grid(centre, n_below=3, n_above=3):
 
 
 def knob_grid_extend(grid, at_low):
-    """Boundary-extend rule (CLAUDE.md sec 5) applied to a second-axis knob grid.
+    """Boundary-extend rule (benchmark protocol sec 5) applied to a second-axis knob grid.
     Returns up to 2 new points past the edge the search pinned to. gamma-style
     grids (all values >= 1) extend multiplicatively by 3x; a beta-style grid
     bounded in (0, 1) densifies toward the bound instead."""
@@ -302,7 +311,7 @@ class SGDM(torch.optim.Optimizer):
 
 # ---------------------------------------------------------------------------
 #  Sophia (SophiaH) -- clipped Newton-style update with a Hutchinson diagonal
-#  Hessian EMA. Hyperparameters frozen per CLAUDE.md sec 4:
+#  Hessian EMA. Hyperparameters frozen per benchmark protocol sec 4:
 #  beta1=0.965, beta2(Hessian EMA)=0.99, rho=0.04, eps=1e-8, HESS_FREQ=5,
 #  N_HUTCH=4. The engine calls set_hessian() every HESS_FREQ steps with the
 #  Hutchinson estimate from hutchinson_diag_hessian().
@@ -454,7 +463,7 @@ class Lion(torch.optim.Optimizer):
 #  standard decoupled-WD AdamW update. Both sub-groups are carried in ONE
 #  Optimizer so checkpoint/resume and the cosine LR scheduler work unchanged.
 #
-#  Per the frozen decision (CLAUDE.md sec 8.2 + user): the 7-point LR search
+#  Per the frozen decision (benchmark protocol sec 8.2 + user): the 7-point LR search
 #  tunes ONLY the Muon (2D) sub-group's LR; the AdamW sub-group's LR is fixed
 #  to this file's separately-frozen AdamW LR (passed as adamw_lr to
 #  build_optimizer). Conv weights (4D) are reshaped (O, I*kH*kW) and DO go to
@@ -483,6 +492,32 @@ def _zeropower_via_newtonschulz5(G, steps=MUON_NS_STEPS, coeffs=MUON_NS_COEFFS,
     return X.to(G.dtype)
 
 
+@torch.no_grad()
+def _muon_matrix_step(opt, group):
+    """Exact shared matrix update used by Muon and MuonEvie."""
+    lr, wd = group["lr"], group["weight_decay"]
+    mom, nesterov, ns_steps = (group["momentum"], group["nesterov"],
+                               group["ns_steps"])
+    for p in group["params"]:
+        if p.grad is None:
+            continue
+        g = p.grad
+        if g.ndim > 2:
+            g = g.reshape(g.size(0), -1)
+        st = opt.state[p]
+        if len(st) == 0:
+            st["buf"] = torch.zeros_like(g)
+        buf = st["buf"]
+        buf.mul_(mom).add_(g)
+        d = g.add(buf, alpha=mom) if nesterov else buf
+        o = _zeropower_via_newtonschulz5(d, steps=ns_steps)
+        fan_out, fan_in = o.size(0), o.size(1)
+        scale = MUON_UPDATE_SCALE * math.sqrt(max(fan_out, fan_in))
+        if wd != 0.0:
+            p.mul_(1.0 - lr * wd)                   # decoupled WD
+        p.add_(o.reshape(p.shape), alpha=-lr * scale)
+
+
 class Muon(torch.optim.Optimizer):
     def __init__(self, param_groups):
         # Each incoming group must set: params, lr, use_muon (bool).
@@ -502,26 +537,7 @@ class Muon(torch.optim.Optimizer):
         for group in self.param_groups:
             lr, wd = group["lr"], group["weight_decay"]
             if group["use_muon"]:
-                mom, nesterov, ns_steps = (group["momentum"], group["nesterov"],
-                                           group["ns_steps"])
-                for p in group["params"]:
-                    if p.grad is None:
-                        continue
-                    g = p.grad
-                    if g.ndim > 2:
-                        g = g.reshape(g.size(0), -1)
-                    st = self.state[p]
-                    if len(st) == 0:
-                        st["buf"] = torch.zeros_like(g)
-                    buf = st["buf"]
-                    buf.mul_(mom).add_(g)
-                    d = g.add(buf, alpha=mom) if nesterov else buf
-                    o = _zeropower_via_newtonschulz5(d, steps=ns_steps)
-                    fan_out, fan_in = o.size(0), o.size(1)
-                    scale = MUON_UPDATE_SCALE * math.sqrt(max(fan_out, fan_in))
-                    if wd != 0.0:
-                        p.mul_(1.0 - lr * wd)                   # decoupled WD
-                    p.add_(o.reshape(p.shape), alpha=-lr * scale)
+                _muon_matrix_step(self, group)
             else:
                 b1, b2 = group["betas"]
                 eps = group["eps"]
@@ -655,9 +671,9 @@ class Shampoo(torch.optim.Optimizer):
 #      Z = U_B [ (U_B^T Y U_A) * gain ] U_A^T     (exact; self-checked against the dense form)
 #
 #  This is a per-parameter (self.state[p]) port of the validated flat-vector
-#  reference in "Claude outputs/kaggle_evie_v3.py". The port is required so the
+#  reference in "the reference optimizer". The port is required so the
 #  optimizer state survives state_dict()/resume like every other optimizer in
-#  this harness. Two structural points the port gets right (claude_optim.md 4.1):
+#  this harness. Two structural points the port gets right (optimizer specification 4.1):
 #    1. step() cannot compute the split-batch noise itself -- the engine runs the
 #       two half-batch backward passes and hands the result in via set_noise(),
 #       exactly mirroring Sophia's set_hessian() pattern. p.grad is (gA+gB)/2.
@@ -676,7 +692,8 @@ class EvieKF(torch.optim.Optimizer):
                  warmup=EVIEKF_WARMUP, refresh=EVIEKF_REFRESH, maxf=EVIEKF_MAXF,
                  diag_only=False, centered=True, per_layer_norm=False,
                  gain_clip=EVIEKF_GAIN_CLIP,
-                 diag_relative=True, kron_mean_norm=False, norm_preserve=True):
+                 diag_relative=True, kron_mean_norm=False, norm_preserve=True,
+                 lagged=False, random_basis=False, telemetry_extra=False):
         if lr <= 0.0 or gamma < 0.0 or not 0.0 < beta_sig < 1.0:
             raise ValueError("EvieKF: invalid hyperparameters")
         defaults = dict(lr=lr, beta1=betas[0], beta2=betas[1], eps=eps,
@@ -698,12 +715,26 @@ class EvieKF(torch.optim.Optimizer):
         #   norm_preserve   False -> skip the global ||y||/||z|| rescale, so the
         #                   operator shrinks instead of rotating. Tests whether
         #                   norm preservation is load-bearing (FW-10).
+        self.lagged, self.random_basis = bool(lagged), bool(random_basis)
+        self.telemetry_extra = bool(telemetry_extra)
+        self._param_indices = {id(p): i for i, p in enumerate(
+            p for group in self.param_groups for p in group["params"])}
+        self._extra = dict(c_sum=0., c_n=0, c_min=float("inf"), eig_s=0.)
+        if self.telemetry_extra:
+            _counts=[0,0,0]
+            for _group in self.param_groups:
+                if _group.get("use_muon",False):continue
+                for _p in _group["params"]:
+                    _branch=2 if _p.ndim<2 or diag_only else (0 if _p.size(0)<=self.maxf and _p.numel()//_p.size(0)<=self.maxf else 1)
+                    _counts[_branch]+=_p.numel()
+            for _key,_value in zip(("frac_params_kron","frac_params_diag_fallback","frac_params_vector"),_counts):
+                setattr(self,_key,_value/max(1,sum(_counts)))
         self.diag_relative = bool(diag_relative)
         self.kron_mean_norm = bool(kron_mean_norm)
         self.norm_preserve = bool(norm_preserve)
         self._roles = {}                # {param: role_str}; set by set_param_roles()
         # descriptive diagnostics, refreshed every step(), read by the engine
-        # (claude_optim.md sec 4.3.4/4.3.5). NEVER significance-tested.
+        # (optimizer specification sec 4.3.4/4.3.5). NEVER significance-tested.
         self.last_cos = 1.0
         self.b_simple = 0.0
         self.tr_sigma = 0.0
@@ -712,6 +743,19 @@ class EvieKF(torch.optim.Optimizer):
         self.n_active_steps = 0        # wiring canary: 0 at end of run => set_noise()
                                       # was never called and this WAS silently AdamW
         self.role_gain = {}           # role -> [gain_lo, gain_hi, eff_rank_sum, n]
+
+    def state_dict(self):
+        value = super().state_dict()
+        if self.telemetry_extra:
+            value["extra_telemetry"] = dict(self._extra)
+        return value
+
+    def load_state_dict(self, value):
+        value = dict(value)
+        extra = value.pop("extra_telemetry", None)
+        super().load_state_dict(value)
+        if extra is not None:
+            self._extra = dict(extra)
 
     def set_param_roles(self, param_roles):
         """{param: role} with role in {embedding, attention, ffn, head, other};
@@ -761,8 +805,12 @@ class EvieKF(torch.optim.Optimizer):
         any_noise = False
         self.role_gain = {}
 
+        if self.telemetry_extra:
+            _tele = {}
         # ---- pass 1: per-parameter y (whitened Adam dir) and z (preconditioned) --
         for group in self.param_groups:
+            if group.get("use_muon", False):
+                continue
             b1, b2, eps = group["beta1"], group["beta2"], group["eps"]
             for p in group["params"]:
                 if p.grad is None:
@@ -794,10 +842,14 @@ class EvieKF(torch.optim.Optimizer):
                     if p.dim() < 2 or self.diag_only:
                         if "s" not in st:
                             st["s"] = torch.zeros_like(dz)
+                        if self.lagged:
+                            _old_s = st["s"].clone()
                         st["s"].mul_(self.beta_sig).addcmul_(
                             dz, dz, value=1.0 - self.beta_sig)
                         if active_gate:
                             s = st["s"] / (1.0 - self.beta_sig ** pt)
+                            if self.lagged:
+                                s = _old_s / (1.0 - self.beta_sig ** (pt-1))
                             gsc = (1.0 + self.gamma
                                    * (s / (s.mean() + 1e-30)
                                       if self.diag_relative else s)).rsqrt()
@@ -816,6 +868,8 @@ class EvieKF(torch.optim.Optimizer):
                             st["B"] = (torch.zeros(d0, d0, device=p.device)
                                        if d0 <= self.maxf
                                        else torch.zeros(d0, device=p.device))
+                        if self.lagged:
+                            _old_A, _old_B = st["A"].clone(), st["B"].clone()
                         st["A"].mul_(self.beta_sig).add_(
                             (D.T @ D) if rest <= self.maxf else (D * D).sum(0),
                             alpha=1.0 - self.beta_sig)
@@ -826,12 +880,42 @@ class EvieKF(torch.optim.Optimizer):
                             if (pt % self.refresh == 0) or ("lam" not in st):
                                 A = st["A"] / (1.0 - self.beta_sig ** pt)
                                 B = st["B"] / (1.0 - self.beta_sig ** pt)
+                                if self.lagged:
+                                    A = _old_A / (1.0 - self.beta_sig ** (pt-1))
+                                    B = _old_B / (1.0 - self.beta_sig ** (pt-1))
+                                if self.telemetry_extra:
+                                    if p.is_cuda:
+                                        torch.cuda.synchronize()
+                                    import time as _time
+                                    _eig_start = _time.perf_counter()
                                 st["lam"], st["UA"] = (
                                     self._eigh(A) if A.dim() == 2
                                     else (A.clamp_min(0), None))
                                 st["mu"], st["UB"] = (
                                     self._eigh(B) if B.dim() == 2
                                     else (B.clamp_min(0), None))
+                                if self.telemetry_extra:
+                                    if p.is_cuda:
+                                        torch.cuda.synchronize()
+                                    self._extra["eig_s"] += _time.perf_counter() - _eig_start
+                                    for _side, _F, _ev in [("A", A, st["lam"]), ("B", B, st["mu"])]:
+                                        _den = float(_F.square().sum())
+                                        _off = (max(0., _den-float(_F.diagonal().square().sum()))/_den
+                                                if _F.ndim == 2 and _den > 0 else 0.)
+                                        _tele.setdefault("offdiag_frac_"+_side,[]).append(_off)
+                                        _tele.setdefault("anisotropy_"+_side,[]).append(float(_ev.max()/(_ev.mean()+1e-30)))
+                                if self.random_basis:
+                                    # Kronecker-only control: vector gates and diagonal
+                                    # fallback sides retain their original directions.
+                                    for _side, _cache, _number in [("UA", "RA", 0), ("UB", "RB", 1)]:
+                                        if st[_side] is not None:
+                                            if _cache not in st:
+                                                _gen = torch.Generator(device="cpu").manual_seed(
+                                                    1000003*self._param_indices[id(p)]+_number)
+                                                _n = st[_side].size(0)
+                                                _Q, _R = torch.linalg.qr(torch.randn(_n, _n, generator=_gen, dtype=torch.float32))
+                                                st[_cache] = (_Q*torch.sign(torch.diagonal(_R))).to(p)
+                                            st[_side] = st[_cache]
                                 _tr_a = float(st["lam"].sum())
                                 # /tau matches tr(B kron A) to tr(Sigma_z); it is
                                 # NOT scale-free. /mean(mu*lam) is (FW-9).
@@ -864,6 +948,13 @@ class EvieKF(torch.optim.Optimizer):
                             acc_r[1] = max(acc_r[1], g_hi)
                             acc_r[2] += er
                             acc_r[3] += 1
+                            if self.telemetry_extra and ((pt % self.refresh == 0) or pt == self.warmup+1):
+                                _spectrum = (mu[:,None]*lam[None,:]).reshape(-1)
+                                _idx = _spectrum.topk(max(1, math.ceil(.1*_spectrum.numel()))).indices
+                                _before = C.reshape(-1).square()
+                                _after = (C*gain).reshape(-1).square()
+                                _tele.setdefault("energy_top_before",[]).append(float(_before[_idx].sum()/(_before.sum()+1e-30)))
+                                _tele.setdefault("energy_top_after",[]).append(float(_after[_idx].sum()/(_after.sum()+1e-30)))
                             C = C * gain
                             if UB is not None:
                                 C = UB @ C
@@ -887,6 +978,17 @@ class EvieKF(torch.optim.Optimizer):
         op_active = active_gate and any_noise and nz > 1e-30
         do_rescale = op_active and self.norm_preserve
         scale = (ny / nz) if do_rescale else 1.0
+        if self.telemetry_extra:
+            if op_active:
+                self._extra["c_sum"] += scale
+                self._extra["c_n"] += 1
+                self._extra["c_min"] = min(self._extra["c_min"], scale)
+            self.last_c_mean = self._extra["c_sum"]/max(1,self._extra["c_n"])
+            self.last_c_min = self._extra["c_min"] if self._extra["c_n"] else float("nan")
+            self.eig_refresh_time_s = self._extra["eig_s"]
+            for _key, _values in _tele.items():
+                if _values:
+                    setattr(self, _key, sum(_values)/len(_values))
         den = ny * nz
         self.last_cos = (dot_total / den) if (op_active and den > 1e-30) else 1.0
         self.tr_sigma = tr_sigma_total
@@ -909,7 +1011,7 @@ class EvieKF(torch.optim.Optimizer):
 
 def eviekf_self_check():
     """Dense-vs-factored (B kron A)^-1/2 parity + the gamma=0 identity
-    (claude_optim.md sec 4.3.3 / sec 5). Ported from kaggle_evie_v3.py's
+    (optimizer specification sec 4.3.3 / sec 5). Ported from kaggle_evie_v3.py's
     self_check(). Raises RuntimeError on failure -- the engine turns that into a
     one-sentence abort, exactly like the CUDA preflight. A vec-ordering / eigh
     bug here produces a plausible-looking but meaningless results table."""
@@ -939,9 +1041,165 @@ def eviekf_self_check():
     return {"factored_vs_dense": e1, "gamma0_identity": e2, "gains_le_1": ok3}
 
 
+class MuonEvie(EvieKF):
+    """Muon matrices plus EvieKFm auxiliaries; norm preservation and all
+    inherited mechanism diagnostics cover ONLY the Evie parameter group."""
+    def __init__(self, muon_params, evie_params, matrix_lr, sub_lr, gamma,
+                 **evie_kwargs):
+        evie_params = list(evie_params)
+        self._evie_ids = {id(p) for p in evie_params}
+        groups = [dict(params=list(muon_params), lr=matrix_lr, use_muon=True,
+                       momentum=MUON_MOMENTUM, nesterov=MUON_NESTEROV,
+                       ns_steps=MUON_NS_STEPS, weight_decay=WEIGHT_DECAY),
+                  dict(params=evie_params, lr=sub_lr, use_muon=False)]
+        super().__init__(groups, lr=sub_lr, gamma=gamma, **evie_kwargs)
+
+    @torch.no_grad()
+    def set_noise(self, pairs):
+        super().set_noise((p, d) for p, d in pairs if id(p) in self._evie_ids)
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+        for group in self.param_groups:
+            if group.get("use_muon", False):
+                _muon_matrix_step(self, group)
+        super().step()
+        return loss
+
+    def state_dict(self):
+        state = super().state_dict()
+        # EvieKF derives arithmetic counters from per-parameter state. Its
+        # diagnostic activity counter must also survive a mid-run resume.
+        state["muonevie_active_steps"] = self.n_active_steps
+        return state
+
+    def load_state_dict(self, state_dict):
+        state_dict = dict(state_dict)
+        active = state_dict.pop("muonevie_active_steps", 0)
+        super().load_state_dict(state_dict)
+        self.n_active_steps = int(active)
+        self._evie_ids = {id(p) for g in self.param_groups
+                          if not g.get("use_muon", False) for p in g["params"]}
+
+
+def muonevie_self_check():
+    """CPU float32 nesting, gate isolation, tied split, and resume canaries."""
+    import copy
+    class Tiny(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.embedding = nn.Parameter(torch.zeros(7, 4))
+            self.bias = nn.Parameter(torch.zeros(4))
+            self.hidden1 = nn.Parameter(torch.zeros(4, 4))
+            self.hidden2 = nn.Parameter(torch.zeros(4, 5))
+            self._muon_exclude_names = {"embedding"}
+    gen = torch.Generator().manual_seed(1907)
+    def feed(models, opts):
+        for ps in zip(*(m.parameters() for m in models)):
+            grad = torch.randn(ps[0].shape, generator=gen)
+            delta = torch.randn(ps[0].shape, generator=gen)
+            for p, opt in zip(ps, opts):
+                p.grad = grad.clone()
+                if hasattr(opt, "set_noise"):
+                    opt.set_noise([(p, delta.clone())])
+        for opt in opts:
+            opt.step()
+    def gap(a, b, evie=None):
+        return max(float((p-q).detach().abs().max()) for (name,p),q in
+                   zip(a.named_parameters(), b.parameters())
+                   if evie is None or ((name in {"embedding", "bias"}) == evie))
+    for gamma, steps in [(0, 8), (300, 40)]:
+        a, b = Tiny(), Tiny()
+        oa = build_optimizer("MuonSub", a, .001, matrix_lr=.002,
+                             knob=WEIGHT_DECAY)
+        ob = build_optimizer("MuonEvie", b, .001, matrix_lr=.002, knob=gamma)
+        for _ in range(steps):
+            feed([a,b], [oa,ob])
+        if gamma == 0 and gap(a,b) > 1e-6:
+            raise RuntimeError("MuonEvie gamma=0 does not nest MuonSub.")
+        if gamma and (gap(a,b,True) <= 1e-5 or gap(a,b,False) > 1e-6
+                      or ob.n_active_steps <= 0):
+            raise RuntimeError("MuonEvie gate is inactive or modifies Muon matrices.")
+        c = copy.deepcopy(b)
+        oc = build_optimizer("MuonEvie", c, .001, matrix_lr=.002, knob=gamma)
+        oc.load_state_dict(copy.deepcopy(ob.state_dict()))
+        feed([b,c], [ob,oc])
+        if gap(b,c) > 1e-6 or ob.n_active_steps != oc.n_active_steps:
+            raise RuntimeError("MuonEvie checkpoint resume does not round-trip.")
+    return True
+
+
+def evie_controls_self_check():
+    """Gamma-zero, genuinely lagged gate, Kronecker-only random basis,
+    telemetry arithmetic/RNG parity, and control checkpoint round-trip."""
+    import copy
+    gen = torch.Generator().manual_seed(841)
+    def make(**kw):
+        p = nn.Parameter(torch.ones(4, 5, dtype=torch.float32))
+        return p, EvieKF([p], lr=.01, weight_decay=WEIGHT_DECAY,
+                         refresh=10, **kw)
+    def update(p, opt, grad, delta):
+        p.grad = grad.clone()
+        if hasattr(opt, "set_noise"):
+            opt.set_noise([(p, delta.clone())])
+        opt.step()
+    for flag in ["lagged", "random_basis"]:
+        p, opt = make(gamma=0., **{flag:True})
+        q = nn.Parameter(p.detach().clone())
+        ref = torch.optim.AdamW([q], lr=.01, betas=EVIEKF_BETAS,
+                               eps=EVIEKF_EPS, weight_decay=WEIGHT_DECAY)
+        for _ in range(5):
+            g = torch.randn(p.shape, generator=gen)
+            d = torch.randn(p.shape, generator=gen)
+            update(p,opt,g,d);update(q,ref,g,d)
+        if float((p-q).detach().abs().max()) > 1e-6:
+            raise RuntimeError("Evie control gamma-zero nesting failed")
+    for lagged in [True,False]:
+        p, opt = make(gamma=300., lagged=lagged)
+        for _ in range(39):
+            update(p,opt,torch.randn(p.shape,generator=gen),torch.randn(p.shape,generator=gen))
+        q, other = make(gamma=300.,lagged=lagged)
+        q.data.copy_(p.data);other.load_state_dict(copy.deepcopy(opt.state_dict()))
+        grad = torch.randn(p.shape,generator=gen)
+        d = torch.randn(p.shape,generator=gen)
+        update(p,opt,grad,d);update(q,other,grad,50*d.flip(0))
+        gap = float((p-q).detach().abs().max())
+        if (lagged and gap >= 1e-7) or (not lagged and gap <= 1e-6):
+            raise RuntimeError("Lagged gate canary failed to isolate current noise")
+    p, opt = make(gamma=30., random_basis=True)
+    q, ref = make(gamma=30.)
+    a, logged = make(gamma=30., telemetry_extra=True)
+    global_rng = torch.random.get_rng_state().clone()
+    for _ in range(30):
+        g,d = torch.randn(p.shape,generator=gen),torch.randn(p.shape,generator=gen)
+        update(p,opt,g,d);update(q,ref,g,d);update(a,logged,g,d)
+    if not torch.equal(global_rng,torch.random.get_rng_state()) or not torch.equal(q,a):
+        raise RuntimeError("Extra Evie telemetry changed arithmetic or global RNG")
+    st, sr = opt.state[p],ref.state[q]
+    RA = st["RA"]
+    if not torch.allclose(RA.T@RA,torch.eye(RA.size(0)),atol=1e-5):
+        raise RuntimeError("Random-basis control is not orthogonal")
+    # Noise whitening is gradient-only, hence shared spectra despite changed weights.
+    ga=(1+30*st["mu"][:,None]*st["lam"][None,:]/st["tr"]).rsqrt()
+    gb=(1+30*sr["mu"][:,None]*sr["lam"][None,:]/sr["tr"]).rsqrt()
+    if not torch.equal(ga,gb):
+        raise RuntimeError("Random-basis control changed the gate spectrum")
+    q, restored=make(gamma=30.,random_basis=True)
+    q.data.copy_(p);restored.load_state_dict(copy.deepcopy(opt.state_dict()))
+    g,d=torch.randn(p.shape,generator=gen),torch.randn(p.shape,generator=gen)
+    update(p,opt,g,d);update(q,restored,g,d)
+    if not torch.equal(p,q):
+        raise RuntimeError("Evie control checkpoint round-trip failed")
+    return True
+
+
 def build_optimizer(opt_name, model, lr, adamw_lr=None, knob=None,
-                    eviekf_maxf=None):
-    """Single optimizer-selection entry point (CLAUDE.md sec 1: keep this
+                    eviekf_maxf=None, matrix_lr=None, telemetry_extra=False):
+    """Single optimizer-selection entry point (benchmark protocol sec 1: keep this
     structured so a new optimizer pastes in as one extra branch). `lr` is the
     frozen, LR-searched value for `opt_name`. `adamw_lr` is only used by Muon
     (its AdamW sub-group). `knob` is the frozen value of the SECOND tuned axis
@@ -955,6 +1213,38 @@ def build_optimizer(opt_name, model, lr, adamw_lr=None, knob=None,
     arrives as an argument rather than being read from TASK here so that this
     block stays free of any dependency on the task header."""
     params = [p for p in model.parameters() if p.requires_grad]
+    if opt_name.endswith("wd") and opt_name in ("AdamWwd", "AdaBeliefwd", "SGDwd", "Lionwd", "Muonwd", "EvieKFmwd"):
+        wd = WEIGHT_DECAY if knob is None else float(knob)
+        if not math.isfinite(wd) or wd < 0:
+            raise ValueError("Weight decay must be finite and nonnegative")
+        if opt_name == "EvieKFmwd":
+            opt = build_optimizer("EvieKFm", model, lr, knob=EVIEKF_FIXED_GAMMA_M,
+                                  telemetry_extra=telemetry_extra)
+        else:
+            opt = build_optimizer(opt_name[:-2], model, lr, adamw_lr=adamw_lr,
+                                  telemetry_extra=telemetry_extra)
+        for group in opt.param_groups:
+            group["weight_decay"] = wd
+        return opt
+    if opt_name in ("MuonSub", "MuonEvie", "MuonEvieFix"):
+        if matrix_lr is None or not math.isfinite(matrix_lr) or matrix_lr <= 0:
+            raise ValueError("Muon hybrid requires a positive frozen matrix_lr")
+        muon_params, rest = split_params_for_muon(model)
+        if not muon_params or not rest:
+            raise RuntimeError("Muon hybrid needs trainable matrix and auxiliary parameters")
+        if opt_name == "MuonSub":
+            return Muon([dict(params=muon_params, lr=matrix_lr, use_muon=True),
+                         dict(params=rest, lr=lr, use_muon=False,
+                              weight_decay=WEIGHT_DECAY if knob is None else float(knob))])
+        return MuonEvie(muon_params, rest, matrix_lr, lr,
+                        gamma=30.0 if knob is None else float(knob),
+                        betas=EVIEKF_BETAS, eps=EVIEKF_EPS,
+                        weight_decay=WEIGHT_DECAY, beta_sig=EVIEKF_BETA_SIG,
+                        warmup=EVIEKF_WARMUP, refresh=EVIEKF_REFRESH,
+                        maxf=EVIEKF_MAXF, diag_only=False, centered=True,
+                        per_layer_norm=False, gain_clip=EVIEKF_GAIN_CLIP,
+                        diag_relative=True, kron_mean_norm=True, norm_preserve=True,
+                        telemetry_extra=telemetry_extra)
     if opt_name == "AdamW":
         return torch.optim.AdamW(params, lr=lr, betas=(0.9, 0.999), eps=1e-8,
                                  weight_decay=WEIGHT_DECAY)
@@ -976,7 +1266,7 @@ def build_optimizer(opt_name, model, lr, adamw_lr=None, knob=None,
                        graft_betas=SHAMPOO_GRAFT_BETAS, maxf=SHAMPOO_MAXF,
                        weight_decay=WEIGHT_DECAY)
     if opt_name in ("EvieKFn", "EvieKF", "EvieKFu", "EvieDiag",
-                    "EvieDiagAbs", "EvieKFm", "EvieKFr"):
+                    "EvieDiagAbs", "EvieKFm", "EvieKFr", "EvieKFlag", "EvieKFrb", "EvieKFmrb"):
         return EvieKF(params, lr=lr, betas=EVIEKF_BETAS, eps=EVIEKF_EPS,
                       weight_decay=WEIGHT_DECAY,
                       gamma=(float(knob) if knob is not None else 100.0),
@@ -989,8 +1279,10 @@ def build_optimizer(opt_name, model, lr, adamw_lr=None, knob=None,
                       per_layer_norm=(opt_name == "EvieKFn"),
                       gain_clip=EVIEKF_GAIN_CLIP,
                       diag_relative=(opt_name != "EvieDiagAbs"),
-                      kron_mean_norm=(opt_name == "EvieKFm"),
-                      norm_preserve=(opt_name != "EvieKFr"))
+                      kron_mean_norm=(opt_name in ("EvieKFm", "EvieKFmrb")),
+                      norm_preserve=(opt_name != "EvieKFr"),
+                      lagged=(opt_name == "EvieKFlag"), random_basis=(opt_name in ("EvieKFrb", "EvieKFmrb")),
+                      telemetry_extra=telemetry_extra)
     if opt_name == "Muon":
         muon_params, adamw_params = split_params_for_muon(model)
         a_lr = adamw_lr if adamw_lr is not None else lr

@@ -1,0 +1,61 @@
+{
+  "AdamW": {
+    "grid": {
+      "2.500000e-04|none": 134.48952356731735,
+      "5.000000e-04|none": 114.65671358896742,
+      "1.000000e-03|none": 232.1107308279319
+    },
+    "boundary_checks_lr": 0,
+    "boundary_checks_knob": 0,
+    "centre": 0.001,
+    "lr_grid": [
+      0.00025,
+      0.0005,
+      0.001
+    ],
+    "knob_grid": null,
+    "complete": true,
+    "lr": 0.0005,
+    "knob": null
+  },
+  "Muon": {
+    "grid": {
+      "5.000000e-04|none": 67.39865103092862,
+      "1.000000e-03|none": 62.25916561553744,
+      "2.000000e-03|none": 60.025266290544785
+    },
+    "boundary_checks_lr": 0,
+    "boundary_checks_knob": 0,
+    "centre": 0.02,
+    "lr_grid": [
+      0.0005,
+      0.001,
+      0.002
+    ],
+    "knob_grid": null,
+    "complete": true,
+    "lr": 0.002,
+    "knob": null
+  },
+  "EvieKF": {
+    "grid": {
+      "2.500000e-04|2.700000e+04": 121.90148685807705,
+      "5.000000e-04|2.700000e+04": 112.27122203170356,
+      "1.000000e-03|2.700000e+04": 207.30156279899177
+    },
+    "boundary_checks_lr": 0,
+    "boundary_checks_knob": 0,
+    "centre": 0.001,
+    "lr_grid": [
+      0.00025,
+      0.0005,
+      0.001
+    ],
+    "knob_grid": [
+      27000.0
+    ],
+    "complete": true,
+    "lr": 0.0005,
+    "knob": 27000.0
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "task_name": "language_openwebtext_muonhybrid",
+  "primary_metric": "test_perplexity",
+  "primary_lower_better": true,
+  "opt_set": "muonhybrid",
+  "opt_names": [
+    "MuonSub",
+    "MuonEvie"
+  ],
+  "task_number_by_optimizer": {
+    "MuonSub": 53.355040742011795,
+    "MuonEvie": 54.629316244410205
+  },
+  "task_number_unit_mean_by_optimizer": {
+    "MuonSub": 53.355040742011795,
+    "MuonEvie": 54.629316244410205
+  },
+  "per_seed_value_by_optimizer": {
+    "MuonSub": {
+      "42": 53.355040742011795,
+      "43": 53.63090319740373,
+      "44": 53.19418001945135
+    },
+    "MuonEvie": {
+      "42": 54.521399295398375,
+      "43": 54.629316244410205,
+      "44": 54.75606370605779
+    }
+  },
+  "lr_used": {
+    "MuonSub": 0.01,
+    "MuonEvie": 0.01
+  },
+  "knob_used": {
+    "MuonSub": 0.0001,
+    "MuonEvie": 30.0
+  },
+  "units": [
+    "full"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "unit_reduction": "median",
+  "units_complete_case": [
+    "full"
+  ],
+  "n_units_total": 1,
+  "n_units_complete_case": 1,
+  "units_dropped_incomplete": [],
+  "complete_case_fallback_biased": false,
+  "nonstandard_ppl_caveat": null,
+  "pinned_lr": null,
+  "fixed_knob": null,
+  "eviekf_maxf": null
+}

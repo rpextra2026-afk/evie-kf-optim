@@ -1,0 +1,78 @@
+{
+  "header": "PRIMARY METRIC ONLY; sensitivity analysis, not a new preregistration",
+  "rows": [
+    {
+      "n": 12,
+      "wins": 1,
+      "min_wilcoxon_p": 0.0341796875,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 2,
+      "min_wilcoxon_p": 0.2333984375,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 3,
+      "min_wilcoxon_p": 0.67724609375,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 4,
+      "min_wilcoxon_p": 0.85009765625,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 5,
+      "min_wilcoxon_p": 0.423828125,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 6,
+      "min_wilcoxon_p": 0.17626953125,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 7,
+      "min_wilcoxon_p": 0.06396484375,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 8,
+      "min_wilcoxon_p": 0.02099609375,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 9,
+      "min_wilcoxon_p": 0.0068359375,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 10,
+      "min_wilcoxon_p": 0.00244140625,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 11,
+      "min_wilcoxon_p": 0.0009765625,
+      "holm_threshold": 0.0071428571428571435
+    },
+    {
+      "n": 12,
+      "wins": 12,
+      "min_wilcoxon_p": 0.00048828125,
+      "holm_threshold": 0.0071428571428571435
+    }
+  ],
+  "summary": {}
+}

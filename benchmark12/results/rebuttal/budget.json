@@ -1,0 +1,966 @@
+{
+  "header": "search scores, validation metric, seed 42; shows sensitivity to tuning budget, not a test result",
+  "rows": [
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "EvieKF",
+      "n_trials": 63,
+      "n_finite": 63,
+      "k": 7,
+      "full_best": 0.0003575026514675636,
+      "expected_best_k7": 0.00036195012405317094,
+      "difference_to_AdamW_k7": -6.245985103458976e-07
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "AdamW",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.00036249291991681575,
+      "expected_best_k7": 0.00036257472256351683,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "AdaBelief",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.0003624017935848995,
+      "expected_best_k7": 0.000362654109932581,
+      "difference_to_AdamW_k7": 7.9387369064177e-08
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.0003611613806109846,
+      "expected_best_k7": 0.00036116138061098444,
+      "difference_to_AdamW_k7": -1.4133419525323926e-06
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Shampoo",
+      "n_trials": 36,
+      "n_finite": 36,
+      "k": 7,
+      "full_best": 0.0003603967672475769,
+      "expected_best_k7": 0.00036270540062861823,
+      "difference_to_AdamW_k7": 1.3067806510139559e-07
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00036288525128554285,
+      "expected_best_k7": 0.00036288525128554296,
+      "difference_to_AdamW_k7": 3.105287220261238e-07
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00036157973960476784,
+      "expected_best_k7": 0.00036157973960476784,
+      "difference_to_AdamW_k7": -9.94982958748994e-07
+    },
+    {
+      "task": "finance_consumer_industrials",
+      "arm": "SGD",
+      "n_trials": 9,
+      "n_finite": 8,
+      "k": 7,
+      "full_best": 0.0003635318806538215,
+      "expected_best_k7": 0.0003647641930284488,
+      "difference_to_AdamW_k7": 2.1894704649319746e-06
+    },
+    {
+      "task": "finance_finance",
+      "arm": "EvieKF",
+      "n_trials": 63,
+      "n_finite": 63,
+      "k": 7,
+      "full_best": 0.0003625343032477705,
+      "expected_best_k7": 0.0003635923248327854,
+      "difference_to_AdamW_k7": -1.4691713910838702e-07
+    },
+    {
+      "task": "finance_finance",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.0003637392419718937,
+      "expected_best_k7": 0.00036373924197189377,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "finance_finance",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00036226122069422066,
+      "expected_best_k7": 0.00036226122069422066,
+      "difference_to_AdamW_k7": -1.4780212776731067e-06
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Muon",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.0003627561605893648,
+      "expected_best_k7": 0.00036281655153719126,
+      "difference_to_AdamW_k7": -9.226904347025091e-07
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Shampoo",
+      "n_trials": 28,
+      "n_finite": 28,
+      "k": 7,
+      "full_best": 0.0003629440258921616,
+      "expected_best_k7": 0.00036392354344657625,
+      "difference_to_AdamW_k7": 1.8430147468248169e-07
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00036479844971107865,
+      "expected_best_k7": 0.00036479844971107865,
+      "difference_to_AdamW_k7": 1.0592077391848812e-06
+    },
+    {
+      "task": "finance_finance",
+      "arm": "Lion",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.00036396270010136166,
+      "expected_best_k7": 0.0003642212312362238,
+      "difference_to_AdamW_k7": 4.819892643300513e-07
+    },
+    {
+      "task": "finance_finance",
+      "arm": "SGD",
+      "n_trials": 9,
+      "n_finite": 8,
+      "k": 7,
+      "full_best": 0.0003652446940343639,
+      "expected_best_k7": 0.00036591063521861707,
+      "difference_to_AdamW_k7": 2.1713932467233013e-06
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "EvieKF",
+      "n_trials": 63,
+      "n_finite": 63,
+      "k": 7,
+      "full_best": 0.00023772278973531344,
+      "expected_best_k7": 0.00023860138931388247,
+      "difference_to_AdamW_k7": -1.917621105988461e-06
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00024051901041987088,
+      "expected_best_k7": 0.00024051901041987093,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00024015893196237498,
+      "expected_best_k7": 0.00024015893196237508,
+      "difference_to_AdamW_k7": -3.600784574958474e-07
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00023832523933456178,
+      "expected_best_k7": 0.00023832523933456183,
+      "difference_to_AdamW_k7": -2.1937710853090994e-06
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Shampoo",
+      "n_trials": 90,
+      "n_finite": 90,
+      "k": 7,
+      "full_best": 0.00023617027253307777,
+      "expected_best_k7": 0.00023862664909689941,
+      "difference_to_AdamW_k7": -1.8923613229715171e-06
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Sophia",
+      "n_trials": 11,
+      "n_finite": 10,
+      "k": 7,
+      "full_best": 0.0002127525937652082,
+      "expected_best_k7": 0.00022227148798637742,
+      "difference_to_AdamW_k7": -1.824752243349351e-05
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.00023980417958305116,
+      "expected_best_k7": 0.0002398041795830512,
+      "difference_to_AdamW_k7": -7.148308368197195e-07
+    },
+    {
+      "task": "finance_healthcare",
+      "arm": "SGD",
+      "n_trials": 9,
+      "n_finite": 8,
+      "k": 7,
+      "full_best": 0.00023915516879577538,
+      "expected_best_k7": 0.00024218690089789966,
+      "difference_to_AdamW_k7": 1.6678904780287264e-06
+    },
+    {
+      "task": "finance_tech",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.0005400927455735143,
+      "expected_best_k7": 0.0005400927455735143,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "finance_tech",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.0005390731820377177,
+      "expected_best_k7": 0.0005390731820377177,
+      "difference_to_AdamW_k7": -1.0195635357965844e-06
+    },
+    {
+      "task": "finance_tech",
+      "arm": "SGD",
+      "n_trials": 9,
+      "n_finite": 8,
+      "k": 7,
+      "full_best": 0.0005394835963805727,
+      "expected_best_k7": 0.000542357845444341,
+      "difference_to_AdamW_k7": 2.265099870826662e-06
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 0.0005394048020441273,
+      "expected_best_k7": 0.0005394048020441275,
+      "difference_to_AdamW_k7": -6.879435293868658e-07
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Muon",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.0005395902365208937,
+      "expected_best_k7": 0.0005396040423874512,
+      "difference_to_AdamW_k7": -4.887031860630747e-07
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Lion",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 0.0005394678849440354,
+      "expected_best_k7": 0.0005395282573246989,
+      "difference_to_AdamW_k7": -5.644882488153912e-07
+    },
+    {
+      "task": "finance_tech",
+      "arm": "Shampoo",
+      "n_trials": 44,
+      "n_finite": 44,
+      "k": 7,
+      "full_best": 0.0005366036801818828,
+      "expected_best_k7": 0.0005399438562341015,
+      "difference_to_AdamW_k7": -1.4888933941282177e-07
+    },
+    {
+      "task": "finance_tech",
+      "arm": "EvieKF",
+      "n_trials": 63,
+      "n_finite": 63,
+      "k": 7,
+      "full_best": 0.0005371494895583438,
+      "expected_best_k7": 0.0005391740159524373,
+      "difference_to_AdamW_k7": -9.187296210770232e-07
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "EvieKF",
+      "n_trials": 69,
+      "n_finite": 69,
+      "k": 7,
+      "full_best": 3.6955624504714764,
+      "expected_best_k7": 3.9647370222539884,
+      "difference_to_AdamW_k7": -0.46408548881190814
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 4.428822511065897,
+      "expected_best_k7": 4.4288225110658965,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 4.334703610177186,
+      "expected_best_k7": 4.334703610177186,
+      "difference_to_AdamW_k7": -0.09411890088871022
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 3.2885062625420884,
+      "expected_best_k7": 3.288506262542088,
+      "difference_to_AdamW_k7": -1.1403162485238085
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Shampoo",
+      "n_trials": 56,
+      "n_finite": 56,
+      "k": 7,
+      "full_best": 3.793572893407916,
+      "expected_best_k7": 4.2916973012942705,
+      "difference_to_AdamW_k7": -0.137125209771626
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 5.157792818473249,
+      "expected_best_k7": 5.157792818473249,
+      "difference_to_AdamW_k7": 0.7289703074073524
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 4.63353986081886,
+      "expected_best_k7": 4.633539860818859,
+      "difference_to_AdamW_k7": 0.20471734975296219
+    },
+    {
+      "task": "language_enwik8",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 6.135044890810107,
+      "expected_best_k7": 6.135044890810108,
+      "difference_to_AdamW_k7": 1.7062223797442115
+    },
+    {
+      "task": "language_ptb",
+      "arm": "EvieKF",
+      "n_trials": 49,
+      "n_finite": 49,
+      "k": 7,
+      "full_best": 186.2767081226332,
+      "expected_best_k7": 203.2203054965773,
+      "difference_to_AdamW_k7": 9.865608301895804
+    },
+    {
+      "task": "language_ptb",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 193.35469719468145,
+      "expected_best_k7": 193.3546971946815,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "language_ptb",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 193.87615892022941,
+      "expected_best_k7": 193.87615892022947,
+      "difference_to_AdamW_k7": 0.5214617255479652
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 197.5208775232963,
+      "expected_best_k7": 197.52087752329635,
+      "difference_to_AdamW_k7": 4.166180328614843
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Shampoo",
+      "n_trials": 28,
+      "n_finite": 28,
+      "k": 7,
+      "full_best": 184.6062206859947,
+      "expected_best_k7": 191.73828887397696,
+      "difference_to_AdamW_k7": -1.6164083207045508
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 215.19793320977678,
+      "expected_best_k7": 215.1979332097767,
+      "difference_to_AdamW_k7": 21.843236015095187
+    },
+    {
+      "task": "language_ptb",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 205.5542387536457,
+      "expected_best_k7": 205.5542387536457,
+      "difference_to_AdamW_k7": 12.1995415589642
+    },
+    {
+      "task": "language_ptb",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 210.83170592346528,
+      "expected_best_k7": 210.83170592346522,
+      "difference_to_AdamW_k7": 17.477008728783716
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "EvieKF",
+      "n_trials": 77,
+      "n_finite": 77,
+      "k": 7,
+      "full_best": 59.17680605520036,
+      "expected_best_k7": 73.20630430743837,
+      "difference_to_AdamW_k7": -6.370814046170395
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 79.5771183536088,
+      "expected_best_k7": 79.57711835360877,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 79.87042197610583,
+      "expected_best_k7": 79.8704219761058,
+      "difference_to_AdamW_k7": 0.2933036224970351
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 49.713047182104404,
+      "expected_best_k7": 49.71304718210441,
+      "difference_to_AdamW_k7": -29.864071171504357
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Shampoo",
+      "n_trials": 43,
+      "n_finite": 43,
+      "k": 7,
+      "full_best": 62.938681382458654,
+      "expected_best_k7": 68.75582054184432,
+      "difference_to_AdamW_k7": -10.821297811764452
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 79.5534759745787,
+      "expected_best_k7": 79.55347597457873,
+      "difference_to_AdamW_k7": -0.02364237903003641
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 102.78962517817295,
+      "expected_best_k7": 102.78962517817291,
+      "difference_to_AdamW_k7": 23.212506824564144
+    },
+    {
+      "task": "language_wikitext103",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 188.17301765524508,
+      "expected_best_k7": 188.17301765524508,
+      "difference_to_AdamW_k7": 108.59589930163631
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "EvieKF",
+      "n_trials": 49,
+      "n_finite": 49,
+      "k": 7,
+      "full_best": 97.60331401379148,
+      "expected_best_k7": 106.18936483499178,
+      "difference_to_AdamW_k7": 3.8457869745207347
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 102.34357786047107,
+      "expected_best_k7": 102.34357786047104,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 100.23706349337301,
+      "expected_best_k7": 100.23706349337299,
+      "difference_to_AdamW_k7": -2.1065143670980575
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 87.3388533093443,
+      "expected_best_k7": 87.33885330934433,
+      "difference_to_AdamW_k7": -15.004724551126714
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Shampoo",
+      "n_trials": 28,
+      "n_finite": 28,
+      "k": 7,
+      "full_best": 121.89866796071011,
+      "expected_best_k7": 127.39162007020659,
+      "difference_to_AdamW_k7": 25.04804220973554
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 115.56948300387744,
+      "expected_best_k7": 115.56948300387741,
+      "difference_to_AdamW_k7": 13.225905143406365
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 125.12748970532378,
+      "expected_best_k7": 125.12748970532378,
+      "difference_to_AdamW_k7": 22.78391184485274
+    },
+    {
+      "task": "language_wikitext2",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 177.56725082221763,
+      "expected_best_k7": 177.56725082221766,
+      "difference_to_AdamW_k7": 75.22367296174662
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "EvieKF",
+      "n_trials": 99,
+      "n_finite": 99,
+      "k": 7,
+      "full_best": 82.28,
+      "expected_best_k7": 80.28398000000001,
+      "difference_to_AdamW_k7": -1.2960199999999844
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 81.58,
+      "expected_best_k7": 81.58,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 80.52,
+      "expected_best_k7": 80.52,
+      "difference_to_AdamW_k7": -1.0600000000000023
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 86.06,
+      "expected_best_k7": 86.05999999999997,
+      "difference_to_AdamW_k7": 4.479999999999976
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Shampoo",
+      "n_trials": 36,
+      "n_finite": 36,
+      "k": 7,
+      "full_best": 82.42,
+      "expected_best_k7": 81.43397,
+      "difference_to_AdamW_k7": -0.1460299999999961
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 80.28,
+      "expected_best_k7": 80.27999999999999,
+      "difference_to_AdamW_k7": -1.3000000000000114
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "Lion",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 80.74,
+      "expected_best_k7": 80.55861999999999,
+      "difference_to_AdamW_k7": -1.0213800000000077
+    },
+    {
+      "task": "vision_cifar10",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 80.76,
+      "expected_best_k7": 80.76000000000002,
+      "difference_to_AdamW_k7": -0.819999999999979
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "EvieKF",
+      "n_trials": 49,
+      "n_finite": 49,
+      "k": 7,
+      "full_best": 50.76,
+      "expected_best_k7": 48.857150000000004,
+      "difference_to_AdamW_k7": 0.15714999999999435
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 48.7,
+      "expected_best_k7": 48.70000000000001,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 47.78,
+      "expected_best_k7": 47.77999999999999,
+      "difference_to_AdamW_k7": -0.920000000000023
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 56.5,
+      "expected_best_k7": 56.5,
+      "difference_to_AdamW_k7": 7.79999999999999
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Shampoo",
+      "n_trials": 42,
+      "n_finite": 42,
+      "k": 7,
+      "full_best": 50.5,
+      "expected_best_k7": 49.59046000000001,
+      "difference_to_AdamW_k7": 0.8904599999999974
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 48.46,
+      "expected_best_k7": 48.46000000000001,
+      "difference_to_AdamW_k7": -0.240000000000002
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "Lion",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 48.84,
+      "expected_best_k7": 48.84000000000002,
+      "difference_to_AdamW_k7": 0.14000000000000767
+    },
+    {
+      "task": "vision_cifar100",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 49.2,
+      "expected_best_k7": 49.20000000000001,
+      "difference_to_AdamW_k7": 0.5
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "EvieKF",
+      "n_trials": 81,
+      "n_finite": 81,
+      "k": 7,
+      "full_best": 54.2,
+      "expected_best_k7": 52.7585,
+      "difference_to_AdamW_k7": -1.041499999999985
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 53.8,
+      "expected_best_k7": 53.79999999999998,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 52.2,
+      "expected_best_k7": 52.20000000000002,
+      "difference_to_AdamW_k7": -1.599999999999966
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 52.4,
+      "expected_best_k7": 52.399999999999984,
+      "difference_to_AdamW_k7": -1.3999999999999986
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Shampoo",
+      "n_trials": 42,
+      "n_finite": 42,
+      "k": 7,
+      "full_best": 54.8,
+      "expected_best_k7": 53.470299999999995,
+      "difference_to_AdamW_k7": -0.32969999999998834
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 51.6,
+      "expected_best_k7": 51.600000000000016,
+      "difference_to_AdamW_k7": -2.1999999999999673
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "Lion",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 51.4,
+      "expected_best_k7": 51.26309999999999,
+      "difference_to_AdamW_k7": -2.5368999999999957
+    },
+    {
+      "task": "vision_stl10",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 48.0,
+      "expected_best_k7": 48.0,
+      "difference_to_AdamW_k7": -5.799999999999983
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "EvieKF",
+      "n_trials": 49,
+      "n_finite": 49,
+      "k": 7,
+      "full_best": 93.83019383019383,
+      "expected_best_k7": 93.47368277368278,
+      "difference_to_AdamW_k7": -0.3019110019109661
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "AdamW",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 93.77559377559378,
+      "expected_best_k7": 93.77559377559375,
+      "difference_to_AdamW_k7": 0.0
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "AdaBelief",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 93.83019383019383,
+      "expected_best_k7": 93.83019383019383,
+      "difference_to_AdamW_k7": 0.05460005460008688
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Muon",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 94.64919464919465,
+      "expected_best_k7": 94.64919464919465,
+      "difference_to_AdamW_k7": 0.8736008736009069
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Shampoo",
+      "n_trials": 70,
+      "n_finite": 70,
+      "k": 7,
+      "full_best": 93.87114387114387,
+      "expected_best_k7": 93.79207616707616,
+      "difference_to_AdamW_k7": 0.016482391482412595
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Sophia",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 93.65274365274365,
+      "expected_best_k7": 93.65274365274364,
+      "difference_to_AdamW_k7": -0.12285012285011021
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "Lion",
+      "n_trials": 9,
+      "n_finite": 9,
+      "k": 7,
+      "full_best": 93.91209391209391,
+      "expected_best_k7": 93.80822413322416,
+      "difference_to_AdamW_k7": 0.03263035763040989
+    },
+    {
+      "task": "vision_svhn",
+      "arm": "SGD",
+      "n_trials": 7,
+      "n_finite": 7,
+      "k": 7,
+      "full_best": 93.22959322959323,
+      "expected_best_k7": 93.22959322959325,
+      "difference_to_AdamW_k7": -0.5460005460004993
+    }
+  ],
+  "summary": {}
+}
