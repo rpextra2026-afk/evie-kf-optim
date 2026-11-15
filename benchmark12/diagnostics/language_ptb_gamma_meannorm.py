@@ -3561,6 +3561,7 @@ def run_sweep(data, lr_used, knob_used=None):
             torch.cuda.reset_peak_memory_stats()
         ckpt = os.path.join(CELL_DIR,
                             f"{_safe(opt_name)}__{_safe(unit)}__seed{seed}.pt")
+        cell_started = time.monotonic()
         try:
             r = train_run(opt_name, data, unit, lr_used[opt_name],
                           _adamw_lr(lr_used), MAX_STEPS, seed, ckpt,
@@ -3592,6 +3593,8 @@ def run_sweep(data, lr_used, knob_used=None):
                 "diverged": True, "fail_reason": f"exception: {e!r}",
                 "recorded": True,
             }
+            if TASK.get("finance_holdout"):
+                cells[ckey]["wall_s"] = time.monotonic() - cell_started
         done += 1
         _write_json(RESULTS_JSON, results)
         if TASK.get("opt_set") == "muonhybrid":
@@ -3605,7 +3608,7 @@ def run_sweep(data, lr_used, knob_used=None):
     healthy = [c["primary"] for c in cells.values()
                if not c.get("deferred") and not c.get("diverged") and _is_finite(c.get("primary"))]
     peer_median = float(np.median(healthy)) if healthy else None
-    if peer_median is not None:
+    if peer_median is not None and not TASK.get("finance_holdout"):
         for ckey, c in cells.items():
             if not c.get("deferred") and not c.get("diverged") and _absurd_primary(c.get("primary"), peer_median):
                 c["diverged"] = True

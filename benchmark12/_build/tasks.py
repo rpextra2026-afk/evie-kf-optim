@@ -774,6 +774,30 @@ REBUTTAL_TASKS.append(_diag_from("vision_cifar100","vision_cifar100_evie_m30_rb"
     title=_BASE["vision_cifar100"]["title"]+" -- R4b: random-basis control for Evie-KF gamma 30 (same eigenvalues, random eigenvectors); pinned to R3a's values"))
 for _task in MUONHYBRID_TASKS:
     _task["extra_metrics"]=True
+_holdout_manifest = _json.loads(
+    (_Path(__file__).resolve().parents[1] /
+     "finance/data/followups/finance_financials_2025/manifest.json").read_text()
+)
+REBUTTAL_TASKS.append(_diag_from(
+    "finance_finance", "finance_financials_2025", ["AdamW", "Muon", "SGD", "EvieKFm"],
+    panel="finance_financials_2025", finance_holdout=True,
+    finance_sha256=_holdout_manifest["sha256"],
+    fixed_knob={"EvieKFm": EVIEKF_FIXED_GAMMA_M}, budget_no_extend=True,
+    title="Financials next-day return forecasting, 2025 held-out window",
+))
+_original_split_manifest = _json.loads(
+    (_Path(__file__).resolve().parents[1] /
+     "finance/data/followups/finance_financials_original_split/manifest.json").read_text()
+)
+_original_split_task = dict(REBUTTAL_TASKS[-1])
+_original_split_task.update(
+    task_name="finance_financials_original_split",
+    panel="finance_financials_original_split",
+    finance_original_split=True,
+    finance_sha256=_original_split_manifest["sha256"],
+    title="Financials forecasting, original data and split under the follow-up protocol",
+)
+REBUTTAL_TASKS.append(_original_split_task)
 ALL_TASKS = TASKS+ABLATION_TASKS+SWEEP_TASKS+SCALEGEN_TASKS+DIAG_TASKS+MUONHYBRID_TASKS+REBUTTAL_TASKS
-assert len(REBUTTAL_TASKS)==37   # +R5c (124M, factor cap 3072), 2026-11-12
+assert len(REBUTTAL_TASKS)==39
 assert len({t["task_name"] for t in ALL_TASKS})==len(ALL_TASKS)

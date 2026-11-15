@@ -16,6 +16,33 @@ local filesystem paths redacted. Merge provenance uses numbered shard labels.
 | Muon hybrid | `merged/language_{wikitext2,wikitext103,enwik8,openwebtext}_muonhybrid/` |
 | 124M GPT-2-small on OpenWebText | [Original comparison](merged/language_openwebtext_124m/), [fixed γ = 30](merged/language_openwebtext_124m_evie_m30/), [fixed γ with factor cap 3072](merged/language_openwebtext_124m_evie_m30_cap3072/) |
 | Synthetic correlated-noise quadratic | [Per-seed results](noisy_quadratic.json) |
+| Financials under the matched-budget follow-up protocol | [Original snapshot and split](merged/finance_financials_original_split/REPORT.md), [2025 held-out window](merged/finance_financials_2025/REPORT.md) |
+| Controlled noise-geometry comparisons | [Initial pilot](noise_geometry_pilot/summary.csv), [fixed-deadline follow-up](noise_geometry_equal_time/REPORT.md) |
+
+### Financials and noise-geometry follow-ups
+
+The Financials reports use the same retrospective three-training-GPU-hour
+budget per optimizer. A usable run reaches test MSE at or below the
+zero-return forecast on the same ticker and dates. The 32 Muon cells flagged
+in the original benchmark all finished 10,000 steps. They were flagged
+because their test MSE exceeded 50 times the task peer median.
+
+Run either of the following from the repository root with a CUDA-enabled
+environment. Data and manifests are under `benchmark12/finance/data/followups/`.
+Each task searches on its own validation split and evaluates on its own test
+split. Set `BENCH12_CKPT_ROOT` to change where checkpoints and results are written.
+
+```sh
+python benchmark12/diagnostics/finance_financials_original_split.py
+python benchmark12/diagnostics/finance_financials_2025.py
+python benchmark12/tools/financials_holdout_report.py checkpoints/finance_financials_original_split/results.json
+python benchmark12/tools/financials_holdout_report.py checkpoints/finance_financials_2025/results.json
+```
+
+Use the [initial pilot notebook](../../../kaggle/jobs/noise_geometry_pilot/noise_geometry_pilot.ipynb)
+and [fixed-deadline notebook](../../../kaggle/jobs/noise_geometry_equal_time/noise_geometry_equal_time.ipynb)
+to reproduce the synthetic comparisons on CPU. Both embed their optimizer
+source and synthetic inputs.
 
 ## Recompute analyses
 

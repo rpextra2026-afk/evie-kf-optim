@@ -121,7 +121,7 @@ benchmark12/
 ```
 
 Every task is a single self-contained script generated from the shared
-fragments. All 84 tasks share the same optimizer and training engine.
+fragments. All 86 tasks share the same optimizer and training engine.
 Run `python benchmark12/_build/build.py --diff` to check for generated-file
 drift. `src/evie_kf/optimizer.py` is
 sliced out of `benchmark12/_build/frag_shared_optim.py` rather than retyped, so

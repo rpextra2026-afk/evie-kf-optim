@@ -1,0 +1,2 @@
+# Preserve the exact CSV bytes checked by the task manifests.
+*/*.csv -text diff

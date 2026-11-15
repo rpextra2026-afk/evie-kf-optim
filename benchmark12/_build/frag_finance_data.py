@@ -67,6 +67,9 @@ def _data_path():
     if os.environ.get("BENCH12_FINANCE_DATA"):
         return os.environ["BENCH12_FINANCE_DATA"]
     here = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else "."
+    if TASK.get("finance_holdout"):
+        panel = TASK["panel"]
+        return os.path.normpath(os.path.join(here, "..", "finance", "data", "followups", panel, f"{panel}.csv"))
     if TASK.get("rebuttal_run"):
         return os.path.normpath(os.path.join(here,"..","finance","data",f"{TASK['panel']}.csv"))
     return os.path.join(here, "data", f"{TASK['panel']}.csv")
@@ -90,7 +93,14 @@ def _build_ticker_arrays(df_t):
     n = len(X)
     if n < MIN_USABLE_ROWS:
         return None
-    n_tr, n_va = int(n * 0.8), int(n * 0.1)
+    if TASK.get("finance_holdout") and not TASK.get("finance_original_split"):
+        # A return belongs to the split of its target date, including the
+        # overnight return into the first trading session of each year.
+        dates = df_t["date"].to_numpy()[1:]
+        n_tr = int((dates < np.datetime64("2024-01-01")).sum())
+        n_va = int((dates < np.datetime64("2025-01-01")).sum()) - n_tr
+    else:
+        n_tr, n_va = int(n * 0.8), int(n * 0.1)
     if min(n_tr, n_va, n - n_tr - n_va) < 20:
         return None
     Xtr, ytr = X[:n_tr], y[:n_tr]
@@ -115,6 +125,8 @@ def _smoke_panel():
         vol = rng.uniform(1e6, 5e6, n)
         df = pd.DataFrame({"open": o, "high": h, "low": lo, "close": close,
                            "volume": vol})
+        if TASK.get("finance_holdout") and not TASK.get("finance_original_split"):
+            df["date"] = pd.bdate_range("2023-09-01", periods=n)
         arr = _build_ticker_arrays(df)
         if arr is not None:
             out[f"SMK{i}"] = arr
@@ -136,6 +148,22 @@ def prepare_data():
              f"yfinance at runtime).")
     df = pd.read_csv(path, parse_dates=["date"])
     df.columns = [c.lower() for c in df.columns]
+    manifest = _read_json(_manifest_path(), {})
+    provenance = None
+    if TASK.get("finance_holdout"):
+        from pathlib import Path
+        sha = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+        if sha != TASK["finance_sha256"] or sha != manifest.get("sha256"):
+            fail("Wrong Financials holdout snapshot. Attach the dataset named in the notebook.")
+        if df["date"].isna().any() or df.duplicated(["ticker", "date"]).any():
+            fail("Financials holdout has missing or duplicate dates.")
+        if len(manifest.get(TASK["panel"], {}).get("lr_search_tickers", [])) != N_LR_SEARCH_TICKERS:
+            fail("Financials holdout manifest must contain the eight tuning tickers.")
+        provenance = {"sha256": sha}
+        if TASK.get("finance_original_split"):
+            provenance["split"] = "80/10/10 per ticker by target date"
+        else:
+            provenance.update(validation_year=2024, test_year=2025)
     cache, dropped = {}, []
     for tk, g in df.sort_values(["ticker", "date"]).groupby("ticker"):
         if TASK.get("rebuttal_run"):
@@ -156,17 +184,19 @@ def prepare_data():
     if not main_tickers:
         fail(f"no usable tickers in {path}")
 
-    manifest = _read_json(_manifest_path(), {})
     mkey = TASK["panel"]
     lr_tickers = (manifest.get(mkey, {}) or {}).get("lr_search_tickers")
     if not lr_tickers or any(t not in cache for t in lr_tickers):
         rr = random.Random(LR_SEARCH_TICKER_SEED)
         lr_tickers = rr.sample(main_tickers,
                                min(N_LR_SEARCH_TICKERS, len(main_tickers)))
+    if TASK.get("finance_holdout") and main_tickers != sorted(manifest[mkey]["qualifying_tickers"]):
+        fail("Financials holdout ticker coverage differs from its frozen manifest.")
     log(f"[data] panel={mkey}: {len(main_tickers)} usable tickers "
         f"(dropped {len(dropped)}: {dropped}); LR-search tickers={lr_tickers}")
     return {"panel": mkey, "cache": cache, "main_tickers": main_tickers,
-            "lr_tickers": list(lr_tickers), "dropped_tickers": dropped}
+                "lr_tickers": list(lr_tickers), "dropped_tickers": dropped,
+                **({"provenance": provenance} if provenance else {})}
 
 
 def lr_search_units(data):
