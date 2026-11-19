@@ -1,0 +1,5 @@
+[2026-11-17 17:01:26] [language_wikitext2] [preflight] OK: Tesla T4  sm_75  torch=2.11.0+cu130  arch_list=['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+[2026-11-17 17:01:26] [language_wikitext2] [preflight] EvieKF self-check OK  (factored-vs-dense 1.0e-15, gamma=0 identity 1.3e-15)
+[2026-11-17 17:01:26] [language_wikitext2] [preflight] TF32=0 after self-checks; state fp32, eigh fp64
+[2026-11-17 17:01:26] [language_wikitext2] [preflight] device=Tesla T4 free=14.41 GiB total=14.56 GiB
+[2026-11-17 17:01:40] [language_wikitext2] [data] wikitext2: vocab=16000  train_tok=2051910  val_tok=213886  test_tok=241211  train_oov(<unk>)=0.065

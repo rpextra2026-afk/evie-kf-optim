@@ -1,0 +1,15 @@
+{
+  "seeds": [
+    17101
+  ],
+  "probe": {
+    "source": "language_wikitext2.py",
+    "source_sha256": "d60076ed65e6e97875ac581dbad52402f882f68935877c88ebe42691d58b8a2f",
+    "arm": "EvieKF",
+    "lr": {
+      "EvieKF": 0.001,
+      "AdamW": 0.001
+    },
+    "gamma": 300.0
+  }
+}

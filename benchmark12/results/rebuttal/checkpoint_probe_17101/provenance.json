@@ -1,0 +1,30 @@
+{
+  "training_seed": 17101,
+  "optimizer": "EvieKF",
+  "gamma": 300,
+  "learning_rate": 0.001,
+  "max_steps": 10000,
+  "device": "Tesla T4",
+  "torch": "2.11.0+cu130",
+  "tf32": false,
+  "files_sha256": {
+    "probe_17101_1999.json": "f2da7871564252504975442e7998a632603247f1fbfb997d31858e52b9a768ad",
+    "probe_17101_2000.json": "403a9e5464056614c350e9e1f59e05b801dfff9e7d1d56b3b3b50584d8d9b4f6",
+    "probe_17101_4999.json": "027b7f78520b795db002e970a79a105ad0546e244176030fbe22b8d872b7b899",
+    "probe_17101_5000.json": "e1656b138248a139735c2a04b565fa3b7bce01291d62e0c8d13b44830981a450",
+    "probe_17101_7999.json": "de6b57e475b5840901f0d57209c73a8cc12df418b2ab279e15a26f4762f98f0f",
+    "probe_17101_8000.json": "0f2f619ce6689e1a2b8a830b8125e8038362c2130d32369538bfbc9230832173",
+    "probe_training_17101.json": "ed5f69dc9d9015b17cf6b781e85a024ff459ac5de752889fbc555754ec7c26e7",
+    "run.log": "43069ad0a6796dd97039a9db28d4b30cf227779f4e7850ab714fe12d00d85ae6",
+    "summary.csv": "6c3db8230610d5f05bd7e9963e69d19b4bfb259301449f98c5621a7f1bdfacca",
+    "ydcq_checkpoint_probe_17101.zip": "75f01f1c5504b6b04674505f677d0a475c16f1616e44a9c79bfce75173b3b558"
+  },
+  "planned_saved_steps": [
+    1999,
+    2000,
+    4999,
+    5000,
+    7999,
+    8000
+  ]
+}

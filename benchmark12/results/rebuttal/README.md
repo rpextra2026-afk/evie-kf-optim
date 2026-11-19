@@ -19,6 +19,14 @@ local filesystem paths redacted. Merge provenance uses numbered shard labels.
 | Financials under the matched-budget follow-up protocol | [Original snapshot and split](merged/finance_financials_original_split/REPORT.md), [2025 held-out window](merged/finance_financials_2025/REPORT.md) |
 | Controlled noise-geometry comparisons | [Initial pilot](noise_geometry_pilot/summary.csv), [fixed-deadline follow-up](noise_geometry_equal_time/REPORT.md) |
 
+### WikiText-2 checkpoint coupling and variance diagnostic
+
+[Analysis and per-checkpoint results](checkpoint_probe_17101/ANALYSIS.md) cover one fresh training trajectory with six fixed checkpoints. Each checkpoint uses 24 paired update/donor batches and 64 independent probe batches. At equal step length in the fixed Adam-whitened geometry, the measured first-order directional variance is 35.0–63.4% lower than for the ungated comparator. All six pointwise 95% bootstrap intervals lie below a variance ratio of one.
+
+The independent gate-input control detects projected mean shifts of 0.26–0.47% of baseline step length at the three sampled eigensystem refreshes, with pointwise intervals excluding zero. At the three sampled cached steps, the corresponding intervals include zero. The report distinguishes projected mean shift from the individual-step RMS change. Clipping was inactive in the sampled batches. These results are conditional on one training trajectory and do not establish full-update independence or benchmark-wide statistical superiority.
+
+The [self-contained reproduction notebook](../../../kaggle/jobs/checkpoint_probe/checkpoint_probe_17101.ipynb) requires a Kaggle T4 with Internet enabled and no dataset attachment. The analysis links the summary command and the original compact result archive.
+
 ### Financials and noise-geometry follow-ups
 
 The Financials reports use the same retrospective three-training-GPU-hour
